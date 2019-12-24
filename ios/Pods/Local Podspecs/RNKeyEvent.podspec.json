@@ -1,0 +1,26 @@
+{
+  "name": "RNKeyEvent",
+  "version": "0.2.1",
+  "summary": "Listen to keyboard events",
+  "description": "RNKeyEvent",
+  "homepage": "https://github.com/kevinejohn/react-native-keyevent",
+  "license": "MIT",
+  "authors": {
+    "author": "author@domain.cn"
+  },
+  "platforms": {
+    "ios": "7.0",
+    "tvos": "11.0"
+  },
+  "source": {
+    "git": "https://github.com/author/RNKeyEvent.git",
+    "tag": "master"
+  },
+  "source_files": "RNKeyEvent/**/*.{h,m}",
+  "requires_arc": true,
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}
