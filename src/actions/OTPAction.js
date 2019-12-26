@@ -54,9 +54,9 @@ export const onOTPChangeText = ({prop, value}) => {
         console.log(api.oyeWalletUrl + 'verifyOTP');
         console.log('mobile', MobileNumber);
         console.log('otp', Otp);
-        //navigation.navigate('PayMerchant');
-        navigation.navigate('CardDetails');
-        {/*
+        navigation.navigate('PayMerchant');
+        //navigation.navigate('CardDetails');
+
         dispatch({type: GETOTP_SEQUENCE});
         axios
             .post(api.oyeWalletUrl + 'verifyOTP', {
@@ -94,7 +94,7 @@ export const onOTPChangeText = ({prop, value}) => {
                 alert(error.message);
             });
 
-    */}
+
     };
   };
   
