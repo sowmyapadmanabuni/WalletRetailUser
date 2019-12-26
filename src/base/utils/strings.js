@@ -16,13 +16,13 @@ const api = {
     // protocol:isSecure?"https://":"http://",
     protocol:"https://",
     oyeWalletApiPath:"/api/v1/",
-     
 };
 
 const strings = {
     appName:"OyeWallet",
+    //https://devwalletapi.azurewebsites.net/wallet/api/v1/
     oyeWalletUrl:api.protocol+api.oyeWalletDev+api.oyeWalletApiPath,
-    // oyeWalletUrl:api.protocol+api.oyeWalletDev+api.oyeWalletApiPath,
+    //oyeWalletUrl:api.protocol+api.oyeWalletDev+api.oyeWalletApiPath,
     
 };
 

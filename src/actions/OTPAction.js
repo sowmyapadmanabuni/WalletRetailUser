@@ -49,45 +49,52 @@ export const onOTPChangeText = ({prop, value}) => {
   };
   
   export const VerifyOTP = (MobileNumber, Otp, navigation) => {
+      console.log("VerifyOTP>>> MobileNumber, Otp, navigation", MobileNumber, Otp, navigation);
     return dispatch => {
-      console.log(api.oyeWalletUrl+'verifyOTP');
-      console.log('mobile', MobileNumber);
-      console.log('otp', Otp);
-  
-      dispatch({type: GETOTP_SEQUENCE});
-      axios
-          .post(api.oyeWalletUrl+'verifyOTP', {
-           //Request Body
-          mobileNumber: '+91' + MobileNumber,
-          otpNumber: Otp,
-        })
-        .then(response => {
-         console.log(response.data.data.errorMessage);
-          if(response.data.data.errorMessage ==='NEW USER') {
-             navigation.navigate('Signup');
-            
-          } else {
-            let data = response.data.data[0];
-            dispatch({
-              type: GETOTP_SEQUENCE,
-              payload: 'OTP Verified Successfully',
-            });
-               
-                 if(data.role === 'Retail User') {
-                   alert("Number Exists")
-                  navigation.navigate('PayMerchant');
-                } else{
-                  alert("Number dontknow")
+        console.log(api.oyeWalletUrl + 'verifyOTP');
+        console.log('mobile', MobileNumber);
+        console.log('otp', Otp);
+        //navigation.navigate('PayMerchant');
+        navigation.navigate('CardDetails');
+        {/*
+        dispatch({type: GETOTP_SEQUENCE});
+        axios
+            .post(api.oyeWalletUrl + 'verifyOTP', {
+                //Request Body
+                mobileNumber: '+91' + MobileNumber,
+                otpNumber: Otp,
+            })
+            .then(response => {
+                console.log("VerifyOTP>>>response ", response);
+                console.log(response.data.data.errorMessage);
+                if (response.data.data.errorMessage === 'NEW USER') {
+                    navigation.navigate('Signup');
+
+                } else {
+                    console.log("VerifyOTP>>>response ", response);
+                    let data = response.data.data[0];
+                    dispatch({
+                        type: GETOTP_SEQUENCE,
+                        payload: 'OTP Verified Successfully',
+                    });
+                    console.log("VerifyOTP>>>data ", data)
+                    if (data.role === 'Retail User') {
+                        alert("Number Exists")
+                        navigation.navigate('PayMerchant');
+                    } else {
+                        alert("Number dontknow")
+                    }
                 }
-          }
-        
-         
-        })
-        .catch(error => {
-          console.log('Error', error);
-  
-          alert(error.message);
-        });
+
+
+            })
+            .catch(error => {
+                console.log('Error', error);
+
+                alert(error.message);
+            });
+
+    */}
     };
   };
   

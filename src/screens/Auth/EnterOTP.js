@@ -3,7 +3,9 @@ import {View, Text, StyleSheet, Image} from 'react-native';
 import base from '../../base';
 import Button from '../../components/common/Button';
 import {GlobalStyle} from '../../components/common/GlobalStyle';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import OtpInputs from 'react-native-otp-inputs';
+import OTPInputView from '@twotalltotems/react-native-otp-input'
 import {onOTPChangeText, VerifyOTP} from '../../actions';
 import {connect} from 'react-redux';
 
@@ -37,15 +39,40 @@ class EnterOTP extends Component{
                 marginTop:'15%',
                 
               }}>
-              <OtpInputs 
-                inputStyles={{color: "black"}}
-                keyboardType="numeric"
-                containerStyles={{marginBottom: '20%', padding: 0}}
-                handleChange={OTP => {
-                  this.setState({otp: OTP});
-                }} 
-                numberOfInputs={6}
-              />
+
+                {/*<OtpInputs inputStyles={{color: "black",width:wp('8%'),
+                }}
+                           keyboardType="numeric"
+                           containerStyles={{marginBottom: '20%', padding: 0,width:wp('85%')}}
+                           handleChange={OTP => {
+                               console.log("OTP: ", OTP);
+                               this.setState({otp: OTP});
+                           }}
+                           numberOfInputs={6}
+                />*/}
+
+
+
+
+                <OTPInputView
+                    style={{width: '80%', height: 200}}
+                    pinCount={6}
+                    //code={this.state.otp} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
+                    onCodeChanged = {code => {
+                        this.setState({otp : this.state.otp+code})
+                    }}
+                    autoFocusOnLoad
+                    codeInputFieldStyle={styles.underlineStyleBase}
+                    codeInputHighlightStyle={styles.underlineStyleHighLighted}
+                    onCodeFilled = {(code => {
+                        console.log(`Code is ${code}, you are good to go!`);
+                        this.EnterOTP()
+                    })}
+                />
+
+
+
+
              <View style ={{marginTop:'15%',width:'60%'}}>
                   <Button style ={{width:'100%', alignItems:'center'}}
                     // style={styles.buttonposition}
@@ -62,14 +89,15 @@ class EnterOTP extends Component{
           </View>
         );
       }
+
       EnterOTP = () => {
+        console.log("EnterOTP>>>OTP ",this.state.otp);
         const {MobileNumber} = this.props;
         console.log("Value"+this.state.otp);
         if (this.state.otp === '') {
           alert('Pleae Enter OTP'+this.state.otp);
         } else {
-          alert("Hello"+otp);
-
+          alert("Hello");
           this.props.VerifyOTP(MobileNumber, this.state.otp, this.props.navigation);
         }
       };
@@ -82,6 +110,32 @@ class EnterOTP extends Component{
         alignItems: 'center',
         // color: base.theme.colors.black,
       },
+
+
+
+
+        borderStyleBase: {
+            width: 30,
+            height: 45
+        },
+
+        borderStyleHighLighted: {
+            borderColor: "#03DAC6",
+        },
+
+        underlineStyleBase: {
+            width: 30,
+            height: 45,
+            borderWidth: 0,
+            borderBottomColor: base.theme.colors.black,
+            borderBottomWidth: 1,
+        },
+
+        underlineStyleHighLighted: {
+            //borderBottomColor: "#F7B844",
+        },
+
+
     });
     
     const mapStateToProps = state => {

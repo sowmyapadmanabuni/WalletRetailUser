@@ -26,9 +26,23 @@ class GetOTP extends PureComponent {
     this.state = {
       cca2: 'IN',
       callingCode: '91',
+        phoneNumber:'',
       countryList: mappedCountries,
     };
   }
+
+    checkPhno(propStr, valueStr) {
+        //onOTPChangeText({prop: propStr, value: valueStr})
+        console.log(">>> ",propStr, valueStr);
+
+        let check = /^[0-9]*$/ ;
+        //let check = myValidation.singleNumber;
+        console.log("check-> ",check.test(valueStr[valueStr.length - 1]), valueStr.length === 0);
+        if (check.test(valueStr[valueStr.length - 1]) || valueStr.length === 0) {
+            onOTPChangeText({prop: propStr, value: valueStr})
+        }
+
+    }
 
   render(){
     const { MobileNumber, onOTPChangeText} = this.props;
@@ -91,12 +105,22 @@ class GetOTP extends PureComponent {
               borderColor: '#ddd',
               color:base.theme.colors.black,padding:5,marginLeft:'2%'
             }}
+            maxLength={10}
             placeholder="Enter Mobile Number"
             keyboardType="number-pad"
             value={MobileNumber}
-            onChangeText={MobileNumber =>
-              onOTPChangeText({prop: 'MobileNumber', value: MobileNumber})
+            onChangeText={MobileNumber =>{
+                let check = /^[0-9]*$/ ;
+                if (check.test(MobileNumber[MobileNumber.length - 1]) || MobileNumber.length === 0)
+                    onOTPChangeText({prop: 'MobileNumber', value: MobileNumber})
             }
+
+            }
+            // onChangeText={ (MobileNumber) => {
+            //     console.log("onChangeText");
+            //     this.checkPhno('MobileNumber', MobileNumber)
+            // }
+            //     }
           />
         </View>
         <View style={{justifyContent: 'center', flexDirection: 'row',marginTop:'3%'}}>
@@ -112,9 +136,9 @@ class GetOTP extends PureComponent {
       </View>
     );
   }
+
   MobileNumberCheck = country => {
     console.log(country);
-    console.log()
     const {MobileNumber} = this.props;
     if (
       Validation.Mobileregex.test(MobileNumber) === false ||
@@ -135,7 +159,7 @@ const mapStateToProps = state =>{
   return{
     MobileNumber : state.OTPReducer.MobileNumber,
   }
-}
+};
 
 export default connect(
   mapStateToProps,
