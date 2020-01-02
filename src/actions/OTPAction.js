@@ -57,43 +57,42 @@ export const onOTPChangeText = ({prop, value}) => {
         navigation.navigate('PayMerchant');
         //navigation.navigate('CardDetails');
 
-        dispatch({type: GETOTP_SEQUENCE});
-        axios
-            .post(api.oyeWalletUrl + 'verifyOTP', {
-                //Request Body
-                mobileNumber: '+91' + MobileNumber,
-                otpNumber: Otp,
-            })
-            .then(response => {
-                console.log("VerifyOTP>>>response ", response);
-                console.log(response.data.data.errorMessage);
-                if (response.data.data.errorMessage === 'NEW USER') {
-                    navigation.navigate('Signup');
-
-                } else {
+            dispatch({type: GETOTP_SEQUENCE});
+            axios
+                .post(api.oyeWalletUrl + 'verifyOTP', {
+                    //Request Body
+                    mobileNumber: '+91' + MobileNumber,
+                    otpNumber: Otp,
+                })
+                .then(response => {
                     console.log("VerifyOTP>>>response ", response);
-                    let data = response.data.data[0];
-                    dispatch({
-                        type: GETOTP_SEQUENCE,
-                        payload: 'OTP Verified Successfully',
-                    });
-                    console.log("VerifyOTP>>>data ", data)
-                    if (data.role === 'Retail User') {
-                        alert("Number Exists")
-                        navigation.navigate('PayMerchant');
+                    console.log(response.data.data.errorMessage);
+                    if (response.data.data.errorMessage === 'NEW USER') {
+                        navigation.navigate('Signup');
+
                     } else {
-                        alert("Number dontknow")
+                        console.log("VerifyOTP>>>response ", response);
+                        let data = response.data.data[0];
+                        dispatch({
+                            type: GETOTP_SEQUENCE,
+                            payload: 'OTP Verified Successfully',
+                        });
+                        console.log("VerifyOTP>>>data ", data)
+                        if (data.role === 'Retail User') {
+                            alert("Number Exists")
+                            navigation.navigate('PayMerchant');
+                        } else {
+                            alert("Number dontknow")
+                        }
                     }
-                }
 
 
-            })
-            .catch(error => {
-                console.log('Error', error);
+                })
+                .catch(error => {
+                    console.log('Error', error);
 
-                alert(error.message);
-            });
-
+                    alert(error.message);
+                });
 
     };
   };

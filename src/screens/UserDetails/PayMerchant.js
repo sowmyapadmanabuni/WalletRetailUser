@@ -43,8 +43,6 @@ render(){
                 onPress={() => {
                     this.props.navigation.navigate('QR');    
                 }}  />
-                  
-                
                 </View> */}
                 <CardView style ={{marginLeft :'20%',marginRight:'20%',height:'15%',marginTop:'50%'}}
                 cardElevation={3}

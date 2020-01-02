@@ -15,7 +15,8 @@ const colors = {
     invoiceList:'#f4f4f4',
     cardBackground:"#fafafa",
     green:"#32CD32",
-    orange:"#FFB81A"
+    orange:"#FFB81A",
+    innerGrey:'#CDCBCB',
 }
 
 export default colors;

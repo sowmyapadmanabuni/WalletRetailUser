@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import {View,Text,StyleSheet,Image,TouchableHighlight, Dimensions} from "react-native";
 import base from "../base";
-import Button from '../../src/components/common/Button';
+import Button from '../components/common/Button';
 // import Carousel from "react-native-snap-carousel";
 
 
@@ -25,7 +25,7 @@ class Start extends Component{
     render(){
         return(        
             <View style ={styles.backgroundcontainer}>  
-            <Image resizeMode={"contain"} style={{}} source={require('../icons/login_img.png')} />             
+            <Image resizeMode={"contain"} style={{}} source={require('../icons/login_img.png')} />
               <Text style={{padding:'10%',fontSize:28 }}>
                 <Text style={{color:base.theme.colors.white}}>Welcome!</Text>{'\n'}<Text>To The OyeWallet</Text>{'\n'}{'\n'}
                 <Text style={{fontSize:14,color:base.theme.colors.white}}>{this.state.bodyText}</Text>
@@ -37,6 +37,7 @@ class Start extends Component{
                 title="GET STARTED"    
                 onPress={()=>{
                    this.props.navigation.navigate("Otp");
+                    //this.props.navigation.navigate("EnterOtp");
                 }}
                 />
               </View>

@@ -15,9 +15,36 @@ class EnterOTP extends Component{
         this.state = {
           text1: '',
           otp: '',
+            timer:60,
         };
       }
-      render() {
+
+      timer(){
+          this.interval = setInterval(
+              () => {
+
+                  this.setState((prevState)=> ({ timer: prevState.timer - 1 }))
+                  console.log("timer ",this.state.timer);
+                  if (this.state.timer === 0)
+                      clearInterval(this.interval);
+              },
+              1000
+          );
+          setTimeout(() => {
+
+              //return i
+          }, 3000);
+      }
+
+    componentDidMount() {
+        this.timer()
+    }
+
+    componentWillUnmount() {
+          clearInterval(this.interval);
+      }
+
+    render() {
         // const{OTP,text1}=this.props;
         return (
           <View style={{flex: 1}}>
@@ -40,6 +67,13 @@ class EnterOTP extends Component{
                 
               }}>
 
+                <View>
+                    <Text style={{
+                        fontSize: 20,
+                        color:"#F4CC81"
+                    }}>Enter OTP received</Text>
+                </View>
+
                 {/*<OtpInputs inputStyles={{color: "black",width:wp('8%'),
                 }}
                            keyboardType="numeric"
@@ -53,22 +87,38 @@ class EnterOTP extends Component{
 
 
 
-
-                <OTPInputView
-                    style={{width: '80%', height: 200}}
-                    pinCount={6}
-                    //code={this.state.otp} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
-                    onCodeChanged = {code => {
-                        this.setState({otp : this.state.otp+code})
-                    }}
-                    autoFocusOnLoad
-                    codeInputFieldStyle={styles.underlineStyleBase}
-                    codeInputHighlightStyle={styles.underlineStyleHighLighted}
-                    onCodeFilled = {(code => {
-                        console.log(`Code is ${code}, you are good to go!`);
-                        this.EnterOTP()
-                    })}
-                />
+                <View style={{
+                    marginTop:'5%',
+                    justifyContent:'center',
+                    paddingLeft:'20%',
+                    paddingRight:'20%',
+                    height:'20%',
+                }}>
+                    <OTPInputView
+                        style={{
+                            //backgroundColor:'yellow',
+                            //width: '80%',
+                            //height: '20%'
+                        }}
+                        pinCount={6}
+                        //code={this.state.otp} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
+                        onCodeChanged = {code => {
+                            this.setState({otp : this.state.otp+code})
+                        }}
+                        autoFocusOnLoad
+                        codeInputFieldStyle={styles.underlineStyleBase}
+                        codeInputHighlightStyle={styles.underlineStyleHighLighted}
+                        onCodeFilled = {(code => {
+                            console.log(`Code is ${code}, you are good to go!`);
+                            this.EnterOTP()
+                        })}
+                    />
+                </View>
+                <View style={{flexDirection:'row', alignItems:'center', alignSelf:'flex-end', marginRight:'20%', marginTop: '2%'}}>
+                    <Text style={{fontsize:10}}>Resend in </Text>
+                    <Text style={{fontsize:10, }}>{this.state.timer}</Text>
+                    <Text style={{fontsize:10}}>sec</Text>
+                </View>
 
 
 

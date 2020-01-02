@@ -1593,9 +1593,14 @@
       <change beforePath="$PROJECT_DIR$/../node_modules/react-native-webview/android/build/kotlin/compileDebugKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/react-native-webview/android/build/kotlin/compileDebugKotlin/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../node_modules/react-native-webview/android/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/react-native-webview/android/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../node_modules/react-native-webview/android/node_modules-react-native-webview-android-react-native-webview~2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../node_modules/react-native-webview/android/node_modules-react-native-webview-android-react-native-webview~2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/actions/OTPAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/actions/OTPAction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/base/utils/strings.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/base/utils/strings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/screens/Auth/EnterOTP.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/Auth/EnterOTP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/screens/Auth/GetOTP.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/Auth/GetOTP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/screens/PaymentGateWay/CardDSytle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/PaymentGateWay/CardDSytle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/screens/PaymentGateWay/CardDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/PaymentGateWay/CardDetails.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -1606,7 +1611,6 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="58H3Y18904011063" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -1697,8 +1701,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1710,7 +1712,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1818,6 +1822,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="1" />
@@ -1939,6 +1944,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/res/resValues/debug/values/gradleResValues.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1961,9 +1969,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build/generated/res/resValues/debug/values/gradleResValues.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../node_modules/react-native-camera/android/build/generated/source/buildConfig/general/debug/org/reactnative/camera/BuildConfig.java">
