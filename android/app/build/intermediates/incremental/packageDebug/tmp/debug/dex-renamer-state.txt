@@ -1,4 +1,0 @@
-#Tue Dec 24 13:01:30 IST 2019
-base.0=/Users/synclovis/Documents/Synclovis/Project/OyeWallet/WalletRetailUser/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex

@@ -65,13 +65,13 @@ export const onOTPChangeText = ({prop, value}) => {
                     otpNumber: Otp,
                 })
                 .then(response => {
-                    console.log("VerifyOTP>>>response ", response);
+                    console.log("VerifyOTP>>>response 1", response);
                     console.log(response.data.data.errorMessage);
                     if (response.data.data.errorMessage === 'NEW USER') {
                         navigation.navigate('Signup');
 
                     } else {
-                        console.log("VerifyOTP>>>response ", response);
+                        console.log("VerifyOTP>>>response 2", response);
                         let data = response.data.data[0];
                         dispatch({
                             type: GETOTP_SEQUENCE,

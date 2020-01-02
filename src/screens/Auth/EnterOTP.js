@@ -103,13 +103,14 @@ class EnterOTP extends Component{
                         pinCount={6}
                         //code={this.state.otp} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
                         onCodeChanged = {code => {
-                            this.setState({otp : this.state.otp+code})
+                            
                         }}
                         autoFocusOnLoad
                         codeInputFieldStyle={styles.underlineStyleBase}
                         codeInputHighlightStyle={styles.underlineStyleHighLighted}
                         onCodeFilled = {(code => {
                             console.log(`Code is ${code}, you are good to go!`);
+                            this.setState({otp : code})
                             this.EnterOTP()
                         })}
                     />
