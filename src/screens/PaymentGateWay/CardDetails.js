@@ -28,6 +28,8 @@ import api from "../../base/utils/strings";
 import {GETOTP_SEQUENCE} from "../../actions/types";
 import Toast from "react-native-simple-toast";
 
+//const colors = ['#5C6BC0', '#009688', '#F44336'];
+
 class CardDetails extends Component{
 
     constructor(props){
@@ -70,6 +72,9 @@ class CardDetails extends Component{
 
             cardsPan: new Animated.ValueXY(),
 
+            cardsStackedAnim: new Animated.Value( 0 ), // add this statement
+            currentIndex: 0, // and this to track card positions
+
             upiStatus:false,
 
             bankList:[{
@@ -91,6 +96,44 @@ class CardDetails extends Component{
 
 
         };
+        this.cardsPanResponder = PanResponder.create( {
+            onStartShouldSetPanResponder: () => true,
+            onStartShouldSetPanResponderCapture: () => true,
+            onMoveShouldSetPanResponder: () => true,
+            onMoveShouldSetPanResponderCapture: () => true,
+            onPanResponderMove: ( event, gestureState ) => {
+                this.state
+                    .cardsPan
+                    .setValue(
+                        {
+                            x: gestureState.dx,
+                            y: this.state.cardsPan.y
+                        }
+                    );
+            },
+            onPanResponderTerminationRequest: () => false,
+            onPanResponderRelease: ( event, gestureState ) => {
+
+                // bring the translationX back to 0
+                Animated.timing( this.state.cardsPan, {
+                    toValue: 0,
+                    duration: 300,
+                } ).start();
+                // will be used to interpolate values in each view
+                Animated.timing( this.state.cardsStackedAnim, {
+                    toValue: 1,
+                    duration: 300,
+                } ).start( () => {
+                    // reset cardsStackedAnim's value to 0 when animation ends
+                    this.state.cardsStackedAnim.setValue( 0 );
+                    // increment card position when animation ends
+                    this.setState({
+                        currentIndex: this.state.currentIndex + 1,
+                    });
+                } );
+
+            },
+        } );
     }
 
     ComponentHideAndShow = (index,value) =>{
@@ -1270,6 +1313,7 @@ class CardDetails extends Component{
 
     }
 
+
     render(){
         console.log("PROPS ",this.props.navigation.state.params.data);
         this.year = parseInt(new Date().getFullYear().toString().substr(-2));
@@ -1280,24 +1324,7 @@ class CardDetails extends Component{
         const colors = ['#5C6BC0', '#009688', '#F44336'];
 
 
-        this.cardsPanResponder = PanResponder.create( {
-            onStartShouldSetPanResponder: () => true,
-            onStartShouldSetPanResponderCapture: () => true,
-            onMoveShouldSetPanResponder: () => true,
-            onMoveShouldSetPanResponderCapture: () => true,
-            onPanResponderMove: ( event, gestureState ) => {
-                this.state
-                    .cardsPan
-                    .setValue(
-                        {
-                            x: gestureState.dx,
-                            y: this.state.cardsPan.y
-                        }
-                    );
-            },
-            onPanResponderTerminationRequest: () => false,
-            onPanResponderRelease: ( event, gestureState ) => {},
-        } )
+
 
 
 
@@ -1333,7 +1360,7 @@ class CardDetails extends Component{
                         </View>
 
                         <Text style={CardDStyle.topSecTxtSize}>
-                             Rs
+                            Rs
                         </Text>
 
                         <Image
@@ -1484,37 +1511,79 @@ class CardDetails extends Component{
                 */}
 
                 <View style={{alignItems:'center', marginTop:'50%'}}>
-                    <View    // last card
+                    <Animated.View
                         style={{
-                            width: '80%', height: 150,
+                            width: 300, height: 150,
                             position: 'absolute',
+                            backgroundColor: colors[(this.state.currentIndex + 2) % 3],
                             zIndex: 1,
-                            bottom: 40,
-                            backgroundColor: colors[2], // Red
-                            opacity: 0.3,
-                            transform: [ { scale: 0.80 } ],
-                        }} />
-                    <View    // second card
+                            bottom: this.state.cardsStackedAnim.interpolate({
+                                inputRange: [ 0, 1 ], outputRange: [ 40, 20 ] }),
+                            transform: [{
+                                scale: this.state.cardsStackedAnim.interpolate({
+                                    inputRange: [ 0, 1 ], outputRange: [ 0.80, 0.90 ] })
+                            }],
+                            opacity: this.state.cardsStackedAnim.interpolate({
+                                inputRange: [ 0, 1 ], outputRange: [ 0.3, 0.6 ] }),
+                            alignSelf:'center'
+                        }}
+                    />
+                    <Animated.View
                         style={{
-                            width: '80%', height: 150,
+                            width: 300, height: 150,
                             position: 'absolute',
+                            backgroundColor: colors[(this.state.currentIndex + 1) % 3],
                             zIndex: 2,
-                            bottom: 20,
-                            backgroundColor: colors[1], // Green
-                            opacity: 0.6,
-                            transform: [ { scale: 0.90 } ],
-                        }} />
-                    <View    // frontmost card
+                            bottom: this.state.cardsStackedAnim.interpolate({
+                                inputRange: [ 0, 1 ], outputRange: [ 20, 0 ] }),
+                            transform: [{
+                                scale: this.state.cardsStackedAnim.interpolate({
+                                    inputRange: [ 0, 1 ], outputRange: [ 0.90, 1.0 ] })
+                            }],
+                            opacity: this.state.cardsStackedAnim.interpolate({
+                                inputRange: [ 0, 1 ], outputRange: [ 0.6, 1 ] }),
+                            alignSelf:'center'
+                        }}
+                    >
+
+                    </Animated.View>
+                    <Animated.View
+                        { ...this.cardsPanResponder.panHandlers }
                         style={{
-                            width: '80%', height: 150,
+                            width: 300, height: 150,
                             position: 'absolute',
-                            zIndex: 3,
-                            bottom: 0,
-                            backgroundColor: colors[0], // Blue
-                            opacity: 1,
-                            transform: [ { scale: 1.0 } ],
-                        }} />
+                            backgroundColor: colors[this.state.currentIndex % 3],
+                            zIndex: this.state.cardsStackedAnim.interpolate({
+                                inputRange: [ 0, 0.5, 1 ], outputRange: [ 3, 2, 0 ] }),
+                            bottom: this.state.cardsStackedAnim.interpolate({
+                                inputRange: [ 0, 1 ], outputRange: [ 0, 40 ] }),
+                            opacity: this.state.cardsStackedAnim.interpolate({
+                                inputRange: [ 0, 1 ], outputRange: [ 1, 0.3 ] }),
+                            transform: [
+                                { translateX: this.state.cardsPan.x },
+                                { scale: this.state.cardsStackedAnim.interpolate({
+                                        inputRange: [ 0, 1 ], outputRange: [ 1, 0.80 ] }) },
+                            ],
+                            alignSelf:'center'
+                        }}
+                    />
                 </View>
+
+                {/*<Animated.View    // frontmost card*/}
+                {/*    { ...this.cardsPanResponder.panHandlers }*/}
+                {/*    style={{*/}
+                {/*        width: 300, height: 150,*/}
+                {/*        position: 'absolute',*/}
+                {/*        zIndex: 3,*/}
+                {/*        bottom: 0,*/}
+                {/*        backgroundColor: colors[0], // Blue*/}
+                {/*        opacity: 1,*/}
+                {/*        transform: [*/}
+                {/*            { translateX: this.state.cardsPan.x },*/}
+                {/*            { scale: 1.0 },*/}
+                {/*        ],*/}
+                {/*    }}*/}
+                {/*/>*/}
 
                 {this.setRadio()}
 
