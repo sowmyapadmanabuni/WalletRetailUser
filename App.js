@@ -47,8 +47,7 @@ class App extends React.Component {
       <SafeAreaView style ={{flex:1}}>
        <Provider store ={store}>
        
-     <PayMerchant />
-         {/* <Navigation/> */}
+         <Navigation/>
        {/* <QRScan/> */}
        
        </Provider>
