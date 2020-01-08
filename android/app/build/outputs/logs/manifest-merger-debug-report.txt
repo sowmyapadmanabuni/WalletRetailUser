@@ -5,15 +5,17 @@ INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml:1:1-31:12
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml:1:1-31:12
 MERGED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml:1:1-31:12
+MERGED from [:react-native-gesture-handler] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-permissions] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-permissions/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-camera] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:2:1-18:12
 MERGED from [:react-native-cardview] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-cardview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-gesture-handler] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-keyevent] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-keyevent/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-webview] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-webview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-23:12
 MERGED from [com.facebook.react:react-native:0.61.4] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/c437135f92cbf8b5ed60b6df6129a5f6/jetified-react-native-0.61.4/AndroidManifest.xml:2:1-13:12
 MERGED from [org.webkit:android-jsc:r245459] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/0f25c7a25a350b1fa744335bb1b06c5e/android-jsc-r245459/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.transition:transition:1.1.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/67e5c17cb122f6b3249340703889616f/transition-1.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/2c14eda98bc264ccf67c15fd0c8b9165/appcompat-1.0.2/AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/191260325c6c1c753e86af3515e13320/fresco-2.0.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/a4699e48155104aff0b9c6045904829b/imagepipeline-okhttp3-2.0.0/AndroidManifest.xml:2:1-9:12
@@ -185,14 +187,16 @@ uses-sdk
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-gesture-handler] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-permissions] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-permissions/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-permissions] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-permissions/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-camera] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-camera] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-cardview] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-cardview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-cardview] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-cardview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-gesture-handler] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-gesture-handler] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-keyevent] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-keyevent/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-keyevent] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-keyevent/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
@@ -203,6 +207,8 @@ MERGED from [com.facebook.react:react-native:0.61.4] /Users/rashmihegde/.gradle/
 MERGED from [com.facebook.react:react-native:0.61.4] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/c437135f92cbf8b5ed60b6df6129a5f6/jetified-react-native-0.61.4/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/0f25c7a25a350b1fa744335bb1b06c5e/android-jsc-r245459/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/0f25c7a25a350b1fa744335bb1b06c5e/android-jsc-r245459/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.transition:transition:1.1.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/67e5c17cb122f6b3249340703889616f/transition-1.1.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.1.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/67e5c17cb122f6b3249340703889616f/transition-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/2c14eda98bc264ccf67c15fd0c8b9165/appcompat-1.0.2/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.0.2] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/2c14eda98bc264ccf67c15fd0c8b9165/appcompat-1.0.2/AndroidManifest.xml:20:5-44
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/191260325c6c1c753e86af3515e13320/fresco-2.0.0/AndroidManifest.xml:5:5-7:41

@@ -6,7 +6,6 @@ import PaymentGateWay from './PaymentGateWay';
 import WebViews from './WebViews';
 import Start from './Start';
 
-
 export {GetOTP};
 export {EnterOTP};
 export {SignUp};

@@ -38,6 +38,10 @@ target 'WalletRetailUser' do
 
   pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
 
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'WalletRetailUserTests' do
     inherit! :search_paths
     # Pods for testing

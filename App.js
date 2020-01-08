@@ -37,19 +37,18 @@ import CardDetails from './src/screens/PaymentGateWay/CardDetails';
 import SignUp from './src/screens/Auth/SignUp';
 import GetOTP from './src/screens/Auth/GetOTP';
 import WebViews from './src/screens/WebViews';
-
-
 class App extends React.Component {
   barcodeRecognized = ({ barcodes }) => {
     barcodes.forEach(barcode => console.warn(barcode.data))
   };
   render(){
+    console.log("app.......")
   return (
       <SafeAreaView style ={{flex:1}}>
        <Provider store ={store}>
        
-      
-         <Navigation/>
+     <PayMerchant />
+         {/* <Navigation/> */}
        {/* <QRScan/> */}
        
        </Provider>

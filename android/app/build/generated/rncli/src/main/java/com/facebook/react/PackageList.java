@@ -24,6 +24,8 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.github.kevinejohn.keyevent.KeyEventPackage;
 // react-native-permissions
 import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
+// react-native-reanimated
+import com.swmansion.reanimated.ReanimatedPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 // react-native-webview
@@ -78,6 +80,7 @@ public class PackageList {
       new RNGestureHandlerPackage(),
       new KeyEventPackage(),
       new RNPermissionsPackage(),
+      new ReanimatedPackage(),
       new VectorIconsPackage(),
       new RNCWebViewPackage()
     ));
