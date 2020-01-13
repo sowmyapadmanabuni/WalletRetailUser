@@ -34,6 +34,7 @@ class GetOTP extends PureComponent {
       callingCode: '91',
       phoneNumber: '',
       countryList: mappedCountries,
+      progress:false
     };
   }
 
@@ -55,7 +56,7 @@ class GetOTP extends PureComponent {
     console.log("getotp..........", this.state)
     return (
       <View>
-        {/* <ProgressLoader visible={this.state.visible} /> */}
+        <ProgressLoader visible={this.state.progress} />
         <Image
           style={{ width: '100%' }}
           source={require('../../icons/login_img.png')}
@@ -142,6 +143,7 @@ class GetOTP extends PureComponent {
           
           onPress={() => {
             this.MobileNumberCheck(this.state.callingCode);
+            this.setState({progress:true})
           }} >
           <Text style={{ color: base.theme.colors.orange }}>GET OTP</Text>
         </TouchableOpacity>
@@ -157,6 +159,7 @@ class GetOTP extends PureComponent {
       Validation.Mobileregex.test(MobileNumber) === false ||
       MobileNumber.length < 10
     ) {
+      this.setState({progress:false})
       alert('Enter Valid Mobile Number');
     } else {
       this.props.GenerateOTP(
@@ -164,6 +167,8 @@ class GetOTP extends PureComponent {
         MobileNumber,
         this.props.navigation,
       ).then(response=>{
+        console.log("otp response.....",response)
+        this.setState({progress:false})
       })
     }
   };

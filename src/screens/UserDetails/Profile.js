@@ -20,13 +20,12 @@ class Profile extends Component {
             visible: true
 
         }
-        console.log("constructor..............", this.state, this.props)
     }
     async updateProfile() {
         var accountData = {
             firstName: this.state.FirstName,
             lastName: this.state.LastName,
-            mobileNumber: '+919490791525',
+            mobileNumber: '+91'+this.props.OTPReducer.MobileNumber,
             email: this.state.Email,
 
         }
@@ -39,7 +38,7 @@ class Profile extends Component {
     }
     async showProfile() {
         console.log("componentDidMount.....start")
-        let resp = await this.props.ShowProfile();
+        let resp = await this.props.ShowProfile(this.props.OTPReducer.MobileNumber);
         console.log("resp////", resp, this.props.ShowProfileReducer)
         // this.setState ( {
         //     FirstName: (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0].firstName : '',
@@ -59,8 +58,6 @@ class Profile extends Component {
 
     render() {
         var ShowProfileReducer = (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0] : ''
-        console.log("this.state....................", this.state, this.props)
-
         return (
             <View>
                 
@@ -287,7 +284,8 @@ class Profile extends Component {
 const mapStateToProps = state => {
     return {
         AccountUpdateReducer: state.AccountUpdateReducer,
-        ShowProfileReducer: state.ShowProfileReducer
+        ShowProfileReducer: state.ShowProfileReducer,
+        OTPReducer:state.OTPReducer
     };
 };
 

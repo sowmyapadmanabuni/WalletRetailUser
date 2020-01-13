@@ -1,4 +1,4 @@
-import { SIGNUP_SEQUENCE, ON_FIELD_CHANGE ,ACCOUNT_UPDATE,SHOW_PROFILE } from './types';
+import { SIGNUP_SEQUENCE, ON_FIELD_CHANGE, ACCOUNT_UPDATE, SHOW_PROFILE } from './types';
 import axios from "axios";
 import Toast from 'react-native-simple-toast';
 import api from '../base/utils/strings';
@@ -59,35 +59,33 @@ export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, 
   }
 };
 
-export const Update = (data,navigation) => {
+export const Update = (data, navigation) => {
   console.log("inside update..........", data)
   return dispatch => {
     dispatch({ type: ACCOUNT_UPDATE })
     console.log("inside update..........2", data)
-var userData= {
-
-  firstName: data.firstName,
-  lastName: data.lastName,
-  mobileNumber: data.mobileNumber,
-  email: data.email,
-  countryCode: "+91",
-  // rewardsAvailable : 500,
-  registrationId: 1644,
-  role: "Retail User"
-
-}
-console.log("userData........",userData)
-   return axios.put('http://devapi.oyewallet.com/wallet/api/v1/UpdateProfile'
-      ,userData).
+    var userData = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      mobileNumber: data.mobileNumber,
+      email: data.email,
+      countryCode: "+91",
+      // rewardsAvailable : 500,
+      registrationId: 1644,
+      role: "Retail User"
+    }
+    console.log("userData........", userData)
+    return axios.put('http://devapi.oyewallet.com/wallet/api/v1/UpdateProfile'
+      , userData).
 
       then(response => {
         console.log("UPDATE response..........", response)
         let data = response.data;
         dispatch({
-          type:ACCOUNT_UPDATE,
-          payload:data
+          type: ACCOUNT_UPDATE,
+          payload: data
         })
-return data
+        return data
       })
 
       .catch(error => {
@@ -99,18 +97,24 @@ return data
 };
 
 
-export const ShowProfile = () => {
+export const ShowProfile = (number) => {
+  console.log("inside disptch........profile", number)
+
   return dispatch => {
     dispatch({ type: SHOW_PROFILE })
-    console.log("inside disptch........profile")
-    return axios.get('http://devapi.oyewallet.com/wallet/api/v1/GetProfileDetailsByMobileNumber/919490791525').
+    // var number1=''
+    console.log("inside disptch........profile", '91' + number)
+    var number1 = '91' + number
+    console.log("inside disptch........number1", number1)
+
+    return axios.get('http://devapi.oyewallet.com/wallet/api/v1/GetProfileDetailsByMobileNumber/'+number1).
 
       then(response => {
         console.log("ShopProfile response..........", response)
         var data = response.data;
         dispatch({
-          type:SHOW_PROFILE,
-          payload:data
+          type: SHOW_PROFILE,
+          payload: data
         })
         return data
       })
