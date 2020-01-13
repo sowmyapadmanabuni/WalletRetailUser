@@ -11,3 +11,6 @@ export const UPDATE_CARD_TYPE ='update_card_type';
 
 //UserReducer
 export const UPDATE_USER_INFO = 'update_user_info';
+
+export const ACCOUNT_UPDATE='account_update';
+export const SHOW_PROFILE='show_profile'

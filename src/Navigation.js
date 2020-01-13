@@ -17,9 +17,9 @@ import ScanningExample from './screens/ScanningExample';
 import Amount from './screens/UserDetails/Amount';
 import Profile from './screens/UserDetails/Profile';
 import Statement from './screens/UserDetails/Statement';
-import BankDetail from './screens/UserDetails/BankDetail';
-import ChangePassword from './screens/UserDetails/ChangePassword';
-import PaymentMethod from './screens/UserDetails/PaymentMethod';
+// import BankDetail from './screens/UserDetails/BankDetail';
+import Security from './screens/UserDetails/Security';
+// import PaymentMethod from './screens/UserDetails/PaymentMethod';
 import Credit from './screens/UserDetails/Credit.js'
 import Debit from './screens/UserDetails/Debit.js'
 import TransactionDetail from './screens/UserDetails/TransactionDetail'
@@ -47,9 +47,9 @@ const AuthStack = createStackNavigator({
     CardDetails: CardDetails,
     Profile: Profile,
     Statement:Statement,
-    BankDetail:BankDetail,
-    ChangePassword:ChangePassword,
-    PaymentMethod:PaymentMethod,
+    // BankDetail:BankDetail,
+    Security:Security,
+    // PaymentMethod:PaymentMethod,
     Credit:Credit,
     Debit:Debit,
     TransactionDetail:TransactionDetail

@@ -15,6 +15,8 @@ import {
   FilledTextField,
   OutlinedTextField,
 } from 'react-native-material-textfield';
+import ProgressLoader from '../../components/common/ProgressLoader'
+
 class GetOTP extends PureComponent {
   constructor(props) {
     super(props);
@@ -50,8 +52,10 @@ class GetOTP extends PureComponent {
 
   render() {
     const { MobileNumber, onOTPChangeText } = this.props;
+    console.log("getotp..........", this.state)
     return (
       <View>
+        {/* <ProgressLoader visible={this.state.visible} /> */}
         <Image
           style={{ width: '100%' }}
           source={require('../../icons/login_img.png')}
@@ -94,15 +98,16 @@ class GetOTP extends PureComponent {
           />
 
 
-          <TouchableOpacity style={{ width:'15%' }}
+          <TouchableOpacity style={{ flexDirection: 'row', flex: 0.2 }}
 
             onPress={() => {
 
               this.setState({ visible: true })
             }}>
-            <Text style={{marginTop:'34%',fontSize:16}}>+{this.state.callingCode}</Text>
+            <Text style={{ marginTop: '30%', fontSize: 16 }}>+{this.state.callingCode}</Text>
+            <Image source={require('../../icons/images.png')} style={{ width: 15, height: 15, transform: [{ rotate: '180deg' }], marginTop: '34%', marginLeft: '10%' }} />
           </TouchableOpacity>
-          <View style={{ width: '60%' }}>
+          <View style={{ flex: 0.7 }}>
             <TextField
               // style={{
               //   borderBottomWidth: 1,
@@ -130,16 +135,17 @@ class GetOTP extends PureComponent {
             />
           </View>
         </View>
-        <View style={{ justifyContent: 'center', flexDirection: 'row', marginTop: '3%' }}>
-          <Button
-            style={{ color: base.theme.colors.white }}
-            title="GET OTP"
-            onPress={() => {
-              this.MobileNumberCheck(this.state.callingCode);
-              //  this.props.navigation.navigate('EnterOtp');
-            }}
-          />
-        </View>
+        {/* <View style={{ justifyContent: 'center', flexDirection: 'row', marginTop: '10%' }}> */}
+        <TouchableOpacity
+          style={{ alignSelf: 'center', marginTop: '10%' }}
+          // title="GET OTP"
+          
+          onPress={() => {
+            this.MobileNumberCheck(this.state.callingCode);
+          }} >
+          <Text style={{ color: base.theme.colors.orange }}>GET OTP</Text>
+        </TouchableOpacity>
+        {/* </View> */}
       </View>
     );
   }
@@ -157,7 +163,8 @@ class GetOTP extends PureComponent {
         '+' + country,
         MobileNumber,
         this.props.navigation,
-      );
+      ).then(response=>{
+      })
     }
   };
 }

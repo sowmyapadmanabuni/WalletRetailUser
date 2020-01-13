@@ -1,20 +1,70 @@
 import React, { Component } from 'react';
-import { Text, View, Image, TouchableOpacity, TextInput,DeviceEventEmitter } from 'react-native';
-
+import { Text, View, Image, TouchableOpacity, TextInput, DeviceEventEmitter} from 'react-native';
+import { connect } from 'react-redux';
+import { Update, ShowProfile } from "../../actions";
+import ProgressLoader from '../../components/common/ProgressLoader'
 
 class Profile extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {  showProfile: true, editProfile: false }
+        this.showProfile()
+        this.state = {
+            showProfile: true,
+            editProfile: false,
+            FirstName: '',
+            LastName: '',
+            Email: '',
+            MobileNumber: '',
+            refresh: false,
+            visible: true
+
+        }
+        console.log("constructor..............", this.state, this.props)
+    }
+    async updateProfile() {
+        var accountData = {
+            firstName: this.state.FirstName,
+            lastName: this.state.LastName,
+            mobileNumber: '+919490791525',
+            email: this.state.Email,
+
+        }
+        console.log("updateProfile....................", accountData)
+
+        let resp = await this.props.Update(accountData, this.props.navigation)
+        this.setState({visible:false})
+        DeviceEventEmitter.emit('refreshUserName', { status: true })
+        this.showProfile()
+    }
+    async showProfile() {
+        console.log("componentDidMount.....start")
+        let resp = await this.props.ShowProfile();
+        console.log("resp////", resp, this.props.ShowProfileReducer)
+        // this.setState ( {
+        //     FirstName: (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0].firstName : '',
+        //     LastName: (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0].lastName : '',
+        //     Email: (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0].email : '',
+        //     MobileNumber: (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0].mobileNumber : '',
+        // })
+
+        this.setState({
+            visible: false,
+            FirstName: (resp && resp.data[0]) ? resp.data[0].firstName : '',
+            LastName: (resp && resp.data[0]) ? resp.data[0].lastName : '',
+            Email: (resp && resp.data[0]) ? resp.data[0].email : '',
+            MobileNumber: (resp && resp.data[0]) ? resp.data[0].mobileNumber : '',
+        })
     }
 
     render() {
-        
-        console.log("profile....................", this.state)
+        var ShowProfileReducer = (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0] : ''
+        console.log("this.state....................", this.state, this.props)
+
         return (
             <View>
-             
+                
+               <ProgressLoader visible={this.state.visible}/>
                 <View>
                     {
                         (this.state.showProfile) ?
@@ -26,7 +76,7 @@ class Profile extends Component {
                                         <Text style={{ fontSize: 16 }}>Name</Text>
                                     </View>
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                                        <Text style={{ fontSize: 16 }}>Abcd</Text>
+                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.firstName}</Text>
                                     </View>
                                 </View>
                                 <View
@@ -41,7 +91,7 @@ class Profile extends Component {
                                         <Text style={{ fontSize: 16 }}>Mobile No</Text>
                                     </View>
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                                        <Text style={{ fontSize: 16 }}>+91 9876543210</Text>
+                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.mobileNumber}</Text>
                                     </View>
                                 </View>
                                 <View
@@ -56,7 +106,7 @@ class Profile extends Component {
                                         <Text style={{ fontSize: 16 }}>Alternate Mobile No</Text>
                                     </View>
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                                        <Text style={{ fontSize: 16 }}>+91 9876543210</Text>
+                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.mobileNumber}</Text>
                                     </View>
                                 </View>
                                 <View
@@ -71,7 +121,7 @@ class Profile extends Component {
                                         <Text style={{ fontSize: 16 }}>Email Id</Text>
                                     </View>
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                                        <Text style={{ fontSize: 16 }}>abcd@gmail.com</Text>
+                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.email}</Text>
                                     </View>
                                 </View>
                                 <View
@@ -106,7 +156,7 @@ class Profile extends Component {
                 </View>
                 <View>
                     {
-                        (this.state.editProfile ) ?
+                        (this.state.editProfile) ?
                             <View style={{ marginTop: '10%' }}>
                                 <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Edit Profile</Text>
                                 <View style={{ flexDirection: 'row', marginTop: '10%' }}>
@@ -116,8 +166,8 @@ class Profile extends Component {
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
                                             // style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                                            // onChangeText={text => onChangeText(text)}
-                                            value='abcdefghij'
+                                            onChangeText={text => this.setState({ FirstName: text })}
+                                            value={this.state.FirstName}
                                             //   numberOfLines={2}
                                             style={{ fontSize: 16 }}
                                         // placeholder='First Name'
@@ -137,8 +187,8 @@ class Profile extends Component {
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
                                             // style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                                            // onChangeText={text => onChangeText(text)}
-                                            value='bjhgjgjg'
+                                            onChangeText={text => this.setState({ LastName: text })}
+                                            value={this.state.LastName}
                                             style={{ fontSize: 16 }}
                                         // placeholder='Last Name'
                                         />
@@ -157,8 +207,8 @@ class Profile extends Component {
                                     <View style={{ alignItems: 'flex-end', flex: 1 }}>
                                         <TextInput
                                             style={{ fontSize: 16 }}
-                                            // onChangeText={text => onChangeText(text)}
-                                            value='+919876543210'
+                                            onChangeText={text => this.setState({ MobileNumber: text })}
+                                            value={this.state.MobileNumber}
                                         // placeholder='Mobile No'
                                         />
                                     </View>
@@ -176,8 +226,8 @@ class Profile extends Component {
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
                                             style={{ fontSize: 16 }}
-                                            // onChangeText={text => onChangeText(text)}
-                                            value='+919876543210'
+                                            onChangeText={text => this.setState({ MobileNumber: text })}
+                                            value={this.state.MobileNumber}
                                         // placeholder='Alternate Mobile No'
                                         />
                                     </View>
@@ -195,8 +245,8 @@ class Profile extends Component {
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
                                             style={{ fontSize: 16 }}
-                                            // onChangeText={text => onChangeText(text)}
-                                            value='abcd@gmail.com'
+                                            onChangeText={text => this.setState({ Email: text })}
+                                            value={this.state.Email}
                                         // placeholder='Email ID'
                                         />
                                     </View>
@@ -208,10 +258,11 @@ class Profile extends Component {
                                     }}
                                 />
                                 <View style={{ alignItems: 'center', justifyContent: 'space-around', marginTop: '10%', flexDirection: 'row' }}>
-                                    <TouchableOpacity onPress={() => this.setState({ showProfile: true ,editProfile:false})} >
+                                    <TouchableOpacity onPress={() => [this.setState({ showProfile: true, editProfile: false }), this.showProfile()]
+                                    } >
                                         <Text>CANCEL</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => this.saveProfile}>
+                                    <TouchableOpacity onPress={() => [this.updateProfile(), this.setState({ showProfile: true, editProfile: false ,visible:true})]}>
                                         <Text style={{ color: 'orange' }}>SAVE</Text>
                                     </TouchableOpacity>
                                 </View>
@@ -233,5 +284,22 @@ class Profile extends Component {
 
 };
 
+const mapStateToProps = state => {
+    return {
+        AccountUpdateReducer: state.AccountUpdateReducer,
+        ShowProfileReducer: state.ShowProfileReducer
+    };
+};
 
-export default Profile;
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//     console.log("@AddService.mapDispatchToProps...state.ownProps=");
+//     const Update = require('../../actions/SignUpAction')
+
+//     return {
+//         Update: (accountData) => Update.Update(dispatch, accountData),
+//     };
+
+//   }
+export default connect(
+    mapStateToProps, { Update, ShowProfile }
+)(Profile);

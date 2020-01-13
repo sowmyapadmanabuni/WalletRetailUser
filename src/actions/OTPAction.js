@@ -19,7 +19,7 @@ export const onOTPChangeText = ({prop, value}) => {
       console.log(api.oyeWalletUrl+'generateAndSendOTP');
       console.log("countryCode:"+ CountryCode);
       console.log("MobileNumber"+ MobileNumber);
-      axios
+     return axios
         .post(
           // 'https://uatwalletapi.azurewebsites.net/wallet/api/v1/generateAndSendOTP',
           // 'http://oyewalletpro.southindia.cloudapp.azure.com/wallet/api/v1/generateAndSendOTP',

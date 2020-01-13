@@ -39,6 +39,7 @@ class SignUp extends Component {
 
     render() {
         const { FirstName, LastName, Email, MobileNumber, onSignupFieldChange, Register } = this.props;
+        
         return (
             <View style={{ flex: 1 }}>
                 <Image style={{ width: "45%", alignSelf: 'flex-end' }} source={require('../../icons/signup.png')} />

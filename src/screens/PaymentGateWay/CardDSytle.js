@@ -117,8 +117,9 @@ export const CardDStyle = StyleSheet.create({
         alignSelf:'center',
         alignItems:'center',
         justifyContent:'center',
-        position:'absolute',
-        bottom:'7%',
+        // position:'absolute',
+        // bottom:'7%',
+        marginBottom:50,
         borderRadius:50,
     },
 

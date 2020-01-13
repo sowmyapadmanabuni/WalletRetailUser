@@ -1329,7 +1329,8 @@ class CardDetails extends Component{
 
 
         return(
-            <View style={{flex:1}}>
+         <ScrollView >
+                <View style={{flex:1}}>
                 {/*<KeyboardAwareScrollView>*/}
                 <View
                     style ={[{
@@ -1608,13 +1609,13 @@ class CardDetails extends Component{
                             <TouchableOpacity
                                 onPress={()=> this.payAction()}
                                 style={[
-                                    {backgroundColor: 'orange',},
+                                    // {backgroundColor: 'orange',},
                                     CardDStyle.payButtonStyle
                                 ]}
                             >
                                 <Text style={{
                                     alignSelf:'center',
-                                    color : '#FFFFFF',
+                                    color : 'orange',
                                     fontSize:20,
                                 }}>PAY</Text>
                             </TouchableOpacity>
@@ -1623,6 +1624,7 @@ class CardDetails extends Component{
                 }
                 {/*</KeyboardAwareScrollView>*/}
             </View>
+         </ScrollView>
         )
     }
 }

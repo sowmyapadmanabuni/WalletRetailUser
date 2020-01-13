@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image,TouchableOpacity} from 'react-native';
 import base from '../../base';
 import Button from '../../components/common/Button';
 import {GlobalStyle} from '../../components/common/GlobalStyle';
@@ -124,18 +124,18 @@ class EnterOTP extends Component{
 
 
 
-             <View style ={{marginTop:'15%',width:'60%'}}>
-                  <Button style ={{width:'100%', alignItems:'center'}}
+                  <TouchableOpacity style ={{alignSelf:'center',marginTop:'15%'}}
                     // style={styles.buttonposition}
-                    textStyle ={{color:base.theme.colors.white}}
-                    title="VERIFY AND PROCEED"
+                    // textStyle ={{color:base.theme.colors.white}}
+                    // title="VERIFY AND PROCEED"
                     onPress={() => {
                       this.EnterOTP();
                   
                   //  this.props.navigation.navigate("signup");
                     }}
-                  />
-              </View>
+                  >
+                    <Text style ={{color:base.theme.colors.orange}}>VERIFY AND PROCEED</Text>
+                    </TouchableOpacity>
             </View>
           </View>
         );
