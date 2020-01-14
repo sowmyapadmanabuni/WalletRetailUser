@@ -50,7 +50,7 @@ class App extends React.Component {
        <Provider store ={store}>
        {/* <PayMerchant /> */}
          <Navigation/>
-       {/* <QRScan/> */}
+       {/* <ScanningExample/> */}
        
        </Provider>
       </SafeAreaView>
