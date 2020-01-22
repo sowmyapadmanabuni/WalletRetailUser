@@ -53,6 +53,8 @@ target 'WalletRetailUser' do
 
 #  pod 'react-native-ccavenue-encryption', :path => '../node_modules/react-native-ccavenue-encryption'
 
+  pod 'TouchID', :path => '../node_modules/react-native-touch-id'
+
   target 'WalletRetailUserTests' do
     inherit! :search_paths
     # Pods for testing
