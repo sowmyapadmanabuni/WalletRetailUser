@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
-import { View, Image, StyleSheet, Text, TouchableOpacity, TextInput, DeviceEventEmitter, FlatList, ScrollView, ImageBackground } from 'react-native';
+import {
+    View,
+    Image,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    TextInput,
+    DeviceEventEmitter,
+    FlatList,
+    ScrollView,
+    ImageBackground,
+    ToastAndroid,
+} from 'react-native';
+import { StackActions, NavigationActions } from 'react-navigation';
 import Button from '../../components/common/Button';
 import CardView from 'react-native-cardview';
 import base from '../../base';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { connect } from 'react-redux';
 import Profile from './Profile';
+import Statement from './Statement'
+//import ChangePassword from './ChangePassword';
+//import BankDetail from './BankDetail';
+//import PaymentMethod from './PaymentMethod';
+//import {GETOTP_SEQUENCE, UPDATE_lOGGEDIN, UPDATE_USER_INFO} from "../../actions/types";
+import ProgressLoader from 'rn-progress-loader';
+import { BackHandler } from 'react-native';
+import axios from "axios";
+import api from "../../base/utils/strings";
 import { ShowProfile } from "../../actions";
 
-// import Statement from './Statement'
-// import ChangePassword from './ChangePassword';
-// import BankDetail from './BankDetail';
-// import PaymentMethod from './PaymentMethod';
+import DefaultOrCustom from "../Authentication/SelectPasscode/DefaultOrCustom";
 
 export const UserProfile = (props) => {
     console.log("props.....", props)
     return (
-
         <View style={{ flexDirection: 'row', paddingTop: '5%' }}>
             <View style={{ flex: 1 }}>
                 <View style={styles.profileButtonSytle} >
@@ -35,7 +53,14 @@ export const UserProfile = (props) => {
             </TouchableOpacity>
         </View>
     );
+};
+
+
+function naviToChangePin(props){
+    console.log("naviToChangePin ", props);
+    props.navigation.navigate("DefaultOrCustom", {data:'change'})
 }
+
 const ViewData = (props) => {
     console.log("@@@props........", props)
     return (
@@ -51,8 +76,10 @@ const ViewData = (props) => {
                 <View style={{ flex: 1 }}>
 
                     <TouchableOpacity onPress={() => {
-                        props.showProfile()
-                        // this.setState({ showProfile: true ,profile:!this.state.profile}), this.props.onPress(false, 'Profile')
+                        console.log("PROPS ", props);
+                        props.showProfile();
+                        // this.setState({ showProfile: true , profile: !this.state.profile });
+                        // this.props.onPress(false, 'Profile')
                     }
                     }>
                         <View style={{ flexDirection: "row" }}>
@@ -174,7 +201,7 @@ const ViewData = (props) => {
                     />
                 </View>
                 <View style={{ flex: 1 }}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>naviToChangePin(props)}>
                         <View style={{ flexDirection: "row" }}>
                             <View >
                                 <Text style={{ fontSize: 16 }}>Security</Text>
@@ -211,28 +238,89 @@ class PayMerchant extends Component {
             firstName: '',
             mobileNumber: ''
         }
+        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
+
+
+
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+        this.getDetails()
+    }
+
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+
+    removeBackButton(){
+        const resetAction = StackActions.reset({
+            index: 0,
+            actions: [NavigationActions.navigate({ routeName: 'QR' })],
+        });
+        this.props.navigation.dispatch(resetAction);
+    }
+
+    handleBackButtonClick() {
+        //this.props.navigation.goBack(null);
+        console.log("this.props.navigation ", this.props.navigation, );
+        if (Platform.OS === 'android') {
+            ToastAndroid.show('Press again to exit app', ToastAndroid.SHORT);
+            var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+                BackHandler.exitApp()
+            });
+            setTimeout(
+                () => {
+                    doubleClick.remove()
+                },
+                1500
+            );
+        }
+        return true;
+    }
+
+    getDetails(){
+        axios
+            .get(
+                "http://devapi.oyewallet.com/wallet/api/v1/GetProfileDetailsByMobileNumber/919490791523",
+            )
+            .then(response => {
+                console.log("details>>>RES: ", response.data.data[0].rewardsAvailable);
+                this.setState({
+                    reward:response.data.data[0].rewardsAvailable
+                })
+            })
+            .catch(error => {
+                console.log("GenerateOTP>>>ERROR: ", error, error.message);
+                alert(error.message);
+            });
+    }
+
+
     async showProfile() {
         let resp = await this.props.ShowProfile(this.props.OTPReducer.MobileNumber);
         console.log("resp firstname", resp)
         if (resp && resp.data[0])
             this.setState({ firstName: resp.data[0].firstName, mobileNumber: resp.data[0].mobileNumber })
     }
+
     render() {
         const { } = this.props;
         console.log("payMerchant.......", this.props)
         DeviceEventEmitter.addListener('refreshUserName', event => {
             console.log("refreshUserName....")
-            this.showProfile()
-        })
+            this.showProfile();
+        });
+
         return (
             <ScrollView>
                 <View style={{ marginTop: '-4%', marginBottom: '2%' }}>
                     <CardView style={{ flex: 1 }}
+
                         cardElevation={5}
                         cardMaxElevation={5}
                         cornerRadius={25}
                         padding={10}
+
                     >
                         {/* <View style={{ margin: '5%', padding: '5%', borderColor: base.theme.colors.grey, borderWidth: 1, borderRadius: 5 ,borderBottomLeftRadius:20,borderBottomRightRadius:20}}> */}
                         {/* <TouchableOpacity onPress={() => {
@@ -244,6 +332,7 @@ class PayMerchant extends Component {
                             {
                                 ((!this.state.isProfileShown && !this.state.statementShow) && this.state.showData) ?
                                     <ViewData navigation={this.props.navigation}
+
                                         showProfile={() => { this.setState({ isProfileShown: true, }) }}
                                         showStatement={() => { this.setState({ statementShow: true, }) }} /> :
                                     null
@@ -255,6 +344,7 @@ class PayMerchant extends Component {
                                     <Profile /> :
                                     (this.state.statementShow && this.state.showData) ? this.props.navigation.navigate('TransactionDetail') :
                                         null
+
                             }
                         </View>
                         <View>
@@ -292,7 +382,9 @@ class PayMerchant extends Component {
                                 cornerRadius={10}>
                                 <ImageBackground source={require('../../icons/card.png')} style={{ width: null, flex: 1 }}>
                                     <Text style={{ color: 'white', margin: '5%' }}>Reward Cash Back</Text>
-                                    <Text style={{ color: 'white', margin: '5%', fontSize: 24 }}>₹ 20,000</Text>
+
+                                    <Text style={{ color: 'white', margin: '5%', fontSize: 24 }}>₹ {this.state.reward}</Text>
+
                                 </ImageBackground>
                             </CardView>
                             <CardView style={{ marginLeft: '20%', marginRight: '20%', height: '15%', marginTop: '5%', flex: 1 }}
@@ -320,15 +412,18 @@ class PayMerchant extends Component {
                         <Text style={{ color: 'orange', fontSize: 16 }}>Recent transaction</Text>
                     </View>
                     <TouchableOpacity style={{ alignItems: 'flex-end', flex: 1, height: 20 }}
+
                         onPress={() => {
                             console.log("onpress................")
                             this.props.navigation.navigate('TransactionDetail')
                         }}>
+
                         <Text style={{ color: 'orange', fontSize: 16 }}>More</Text>
                     </TouchableOpacity>
                 </View>
                 <FlatList
                     showsHorizontalScrollIndicator={false}
+
                     data={[
                         { transaction: 'Money Recieved', amount: '₹200', From: 'abcd', date: '01/01/2019' },
                         { transaction: 'Money Recieved', amount: '₹200', From: 'abcd', date: '02/01/2019' },
@@ -356,7 +451,6 @@ class PayMerchant extends Component {
     };
 }
 
-
 export const styles = StyleSheet.create({
     buttonStyle: {
         position: 'absolute',
@@ -378,16 +472,19 @@ export const styles = StyleSheet.create({
     }, profileButtonSytle: {
         width: 50, height: 50, backgroundColor: base.theme.colors.grey, borderRadius: 25, alignItems: 'center', justifyContent: 'center'
     }
+});
 
-})
 const mapStateToProps = state => {
     return {
+            registrationId: state.UserReducer.registrationId,
+            loggedIn: state.UserReducer.loggedIn,
         SignUpReducer: state.SignUpReducer,
+
         ShowProfileReducer: state.ShowProfileReducer,
         OTPReducer: state.OTPReducer
     };
 };
+
 export default connect(
     mapStateToProps, { ShowProfile }
 )(PayMerchant);
-// export default PayMerchant;

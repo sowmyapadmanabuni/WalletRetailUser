@@ -27,8 +27,7 @@ class Profile extends Component {
             lastName: this.state.LastName,
             mobileNumber: '+91'+this.props.OTPReducer.MobileNumber,
             email: this.state.Email,
-
-        }
+        };
         console.log("updateProfile....................", accountData)
 
         let resp = await this.props.Update(accountData, this.props.navigation)
@@ -60,8 +59,8 @@ class Profile extends Component {
         var ShowProfileReducer = (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0] : ''
         return (
             <View>
-                
-               <ProgressLoader visible={this.state.visible}/>
+
+                <ProgressLoader visible={this.state.visible}/>
                 <View>
                     {
                         (this.state.showProfile) ?
@@ -130,7 +129,7 @@ class Profile extends Component {
                                 />
                                 <View style={{ flexDirection: 'row', marginTop: '10%' }}>
                                     <View>
-                                        <Text style={{ fontWeight: 'bold', fontWeight: 'bold', fontSize: 18 }}>Edit Profile</Text>
+                                        <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Edit Profile</Text>
                                     </View>
                                     <TouchableOpacity onPress={() => this.setState({ editProfile: true, showProfile: false })}>
                                         <Image
@@ -167,7 +166,7 @@ class Profile extends Component {
                                             value={this.state.FirstName}
                                             //   numberOfLines={2}
                                             style={{ fontSize: 16 }}
-                                        // placeholder='First Name'
+                                            // placeholder='First Name'
                                         />
                                     </View>
                                 </View>
@@ -187,7 +186,7 @@ class Profile extends Component {
                                             onChangeText={text => this.setState({ LastName: text })}
                                             value={this.state.LastName}
                                             style={{ fontSize: 16 }}
-                                        // placeholder='Last Name'
+                                            // placeholder='Last Name'
                                         />
                                     </View>
                                 </View>
@@ -206,7 +205,7 @@ class Profile extends Component {
                                             style={{ fontSize: 16 }}
                                             onChangeText={text => this.setState({ MobileNumber: text })}
                                             value={this.state.MobileNumber}
-                                        // placeholder='Mobile No'
+                                            // placeholder='Mobile No'
                                         />
                                     </View>
                                 </View>
@@ -225,7 +224,7 @@ class Profile extends Component {
                                             style={{ fontSize: 16 }}
                                             onChangeText={text => this.setState({ MobileNumber: text })}
                                             value={this.state.MobileNumber}
-                                        // placeholder='Alternate Mobile No'
+                                            // placeholder='Alternate Mobile No'
                                         />
                                     </View>
                                 </View>
@@ -244,7 +243,7 @@ class Profile extends Component {
                                             style={{ fontSize: 16 }}
                                             onChangeText={text => this.setState({ Email: text })}
                                             value={this.state.Email}
-                                        // placeholder='Email ID'
+                                            // placeholder='Email ID'
                                         />
                                     </View>
                                 </View>

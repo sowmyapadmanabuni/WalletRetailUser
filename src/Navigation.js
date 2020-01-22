@@ -17,46 +17,71 @@ import ScanningExample from './screens/ScanningExample';
 import Amount from './screens/UserDetails/Amount';
 import Profile from './screens/UserDetails/Profile';
 import Statement from './screens/UserDetails/Statement';
-// import BankDetail from './screens/UserDetails/BankDetail';
+//import BankDetail from './screens/UserDetails/BankDetail';
+import DefaultOrCustom from "./screens/Authentication/SelectPasscode/DefaultOrCustom";
 import Security from './screens/UserDetails/Security';
 // import PaymentMethod from './screens/UserDetails/PaymentMethod';
+import PassCodeOrPin from "./screens/Authentication/SelectPasscode/PasscodeOrPin";
 import Credit from './screens/UserDetails/Credit.js'
 import Debit from './screens/UserDetails/Debit.js'
 import TransactionDetail from './screens/UserDetails/TransactionDetail'
+import CreatePin from "./screens/Authentication/CreatePin/CreatePin";
+import CreatePassWord from "./screens/Authentication/CreatePasscode/CreatePassword";
+import ConfirmPassWord from "./screens/Authentication/CreatePasscode/ConfirmPassword";
+import ConfirmPin from "./screens/Authentication/CreatePin/ConfirmPin";
+import EnterPassCode from "./screens/Authentication/CreatePasscode/EnterPasscode";
+import EnterPin from "./screens/Authentication/CreatePin/EnterPin";
+
 const DashStack = createStackNavigator({
     CardDetails: { screen: CardDetails }
 }, {
     headerMode: "none"
-})
+});
 
-const AuthStack = createStackNavigator({
-    Launch: {
-        screen: Start,
-        navigationOptions: ({ }) => ({
-            title: "Start"
+
+
+    const AuthStack = createStackNavigator({
+
+            Launch: {
+                screen: Start,
+                navigationOptions: ({}) => ({
+                    title: "Start"
+                })
+            },
+            Start:Start,
+            Signup: {screen: SignUp},
+            PaymentWeb: {screen: WebViews},
+            Otp: {screen: GetOTP},
+            EnterOtp: {screen: EnterOTP},
+            PayMerchant: PayMerchant,
+            WebView: WebViews,
+            QR: QRScan,
+            Scanned: ScanningExample,
+            Amount: Amount,
+            CardDetails: CardDetails,
+            Profile: Profile,
+            Statement: Statement,
+            //BankDetail: BankDetail,
+            //ChangePassword: ChangePassword,
+            //PaymentMethod: PaymentMethod,
+            DefaultOrCustom : DefaultOrCustom,
+            Security:Security,
+            PassCodeOrPin:PassCodeOrPin,
+            CreatePassword:CreatePassWord,
+            ConfirmPassWord:ConfirmPassWord,
+            CreatePin:CreatePin,
+            Credit: Credit,
+            ConfirmPin:ConfirmPin,
+            EnterPassCode:EnterPassCode,
+            EnterPin:EnterPin,
+            Debit: Debit,
+            TransactionDetail: TransactionDetail
+
+        },
+        {
+            headerMode: 'none'
         })
-    },
-    PaymentWeb: { screen: WebViews },
-    Otp: { screen: GetOTP },
-    EnterOtp: { screen: EnterOTP },
-    PayMerchant: PayMerchant,
-    WebView: WebViews,
-    QR: QRScan,
-    Scanned: ScanningExample,
-    Amount: Amount,
-    CardDetails: CardDetails,
-    Profile: Profile,
-    Statement:Statement,
-    // BankDetail:BankDetail,
-    Security:Security,
-    // PaymentMethod:PaymentMethod,
-    Credit:Credit,
-    Debit:Debit,
-    TransactionDetail:TransactionDetail
-},
-    {
-        headerMode: 'none'
-    })
+
 
 const SignupStack = createStackNavigator({
     signup: { screen: SignUp },
@@ -94,7 +119,6 @@ const AppNavigator = createAppContainer(
             App: DashStack,
             Auth: AuthStack,
             Signup: SignupStack,
-
         },
         {
             initialRouteName: 'AuthLoading'

@@ -8,7 +8,6 @@ export const CardDStyle = StyleSheet.create({
     },
     textInputStyle:
         {
-
             width: '20%',marginLeft:'2.5%',marginTop:'6%',borderRadius:7,height:'20%',padding:2,textAlign:'center',
             fontSize:20,
         },
@@ -49,13 +48,14 @@ export const CardDStyle = StyleSheet.create({
         borderBottomColor:'#EFEFEF',
         borderBottomWidth:2,
         //borderWidth:1,
-        overflow: 'hidden',
+      //  overflow: 'hidden',
         shadowColor: '#EFEFEF',
         shadowRadius: 10,
         shadowOpacity: 1,
     },
     topSec:{
-        alignItems:'baseline',
+        //alignItems:'baseline',
+        alignItems:'center',
         //justifyContent:'center',
         //backgroundColor:'yellow',
         flexDirection:'row',
@@ -96,9 +96,10 @@ export const CardDStyle = StyleSheet.create({
         // marginTop:'-10%',
     },
     savedCardView2:{
-        backgroundColor:colors.blue,
-        height:'80%',
-        width:'80%',
+        //backgroundColor:colors.blue,
+        height:'100%',
+        width:'100%',
+        //flex:1,
         borderRadius:7,
         padding:'2%',
         paddingLeft:'4%',
@@ -110,17 +111,20 @@ export const CardDStyle = StyleSheet.create({
         alignItems:'center',
         flexDirection:'row',
         marginTop:'2%',
+        //backgroundColor: 'yellow'
     },
     payButtonStyle:{
-        width:'80%',
-        height:'7%',
+        width:'65%',
+        height:'50%',
         alignSelf:'center',
         alignItems:'center',
         justifyContent:'center',
+
         // position:'absolute',
         // bottom:'7%',
         marginBottom:50,
         borderRadius:50,
+        borderWidth: 0
     },
 
 });
