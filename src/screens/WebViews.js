@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {WebView} from 'react-native-webview';
-import RNRsaEncryption from '@akeo/react-native-rsa-encryption';
+//import RNRsaEncryption from '@akeo/react-native-rsa-encryption';
 import { View,Text,Dimensions,Platform } from 'react-native';
 import qs from 'querystring'
 import axios from 'axios'

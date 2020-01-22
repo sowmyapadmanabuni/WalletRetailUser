@@ -1,6 +1,6 @@
 import React from 'react'
 //import { RSA } from 'react-native-rsa-native';
-import RNRsaEncryption from '@akeo/react-native-rsa-encryption';
+//import RNRsaEncryption from '@akeo/react-native-rsa-encryption';
 
 export default class payment{
 
