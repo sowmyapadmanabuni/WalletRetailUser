@@ -9,6 +9,7 @@ import OTPInputView from '@twotalltotems/react-native-otp-input'
 import {onOTPChangeText, VerifyOTP} from '../../actions';
 import {connect} from 'react-redux';
 
+
 class EnterOTP extends Component{
     constructor(props) {
         super(props);

@@ -14,10 +14,14 @@ import java.util.ArrayList;
 import com.walletretailuser.BuildConfig;
 import com.walletretailuser.R;
 
+// lottie-react-native
+import com.airbnb.android.react.lottie.LottiePackage;
 // react-native-camera
 import org.reactnative.camera.RNCameraPackage;
 // react-native-cardview
 import com.kishanjvaghela.cardview.RNCardViewPackage;
+// react-native-ccavenue-encryption
+import com.encryptccavenue.CcavenueEncryptionPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-keyevent
@@ -75,8 +79,10 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
+      new LottiePackage(),
       new RNCameraPackage(),
       new RNCardViewPackage(),
+      new CcavenueEncryptionPackage(),
       new RNGestureHandlerPackage(),
       new KeyEventPackage(),
       new RNPermissionsPackage(),

@@ -9,6 +9,7 @@ import colors from "../../base/theme/colors";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
+
 class Amount extends Component {
     constructor(props) {
         super(props);
@@ -19,6 +20,9 @@ class Amount extends Component {
         }
     }
 
+    componentDidMount(){
+        
+    }
 
     // updateInput(evt){
 
@@ -169,8 +173,12 @@ class Amount extends Component {
                                 // if (this.state.amount === "0.00" || this.state.amount === "0.00")
                                 if (parseInt(this.state.amount) < 1)
                                     Alert.alert("", "Enter some amount !!!");
-                                else
+                                else{
+                                    //PaymentWeb
+                                    //CardDetails
+                                    //this.props.navigation.navigate("PaymentWeb", { data: this.state.amount })
                                     this.props.navigation.navigate("CardDetails", { data: this.state.amount })
+                                }
 
                             }}
                             title={

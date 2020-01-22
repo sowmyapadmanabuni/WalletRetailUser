@@ -342,14 +342,15 @@ class CardDetails extends Component{
         )
     };
 
-    debitCreditPay(cardNumber,month,year){
+    debitCreditPay(cardNumber,month,year,cvv){
 
         console.log("data-@@@@ ",  typeof (cardNumber) , typeof (month) , typeof (year));
         console.log("data-#### ", cardNumber,month,year);
+        let self = this;
         //console.log("data-", "5256118950213876","09","2019");
         axios
             .post(
-                'http://devapi.oyewallet.com/wallet/api/v1/CardValidation ',
+                'http://devapi.oyewallet.com/wallet/api/v1/CardValidation',
                 {
                     "ccCardNumber" : cardNumber.toString(),
                     "expiryMonth"  : month.toString(),
@@ -358,12 +359,21 @@ class CardDetails extends Component{
             )
             .then(response => {
                 console.log("data- ",response);
-                Alert.alert("success Feature comming soon...")
+              //  Alert.alert("success Feature comming soon...")
+                
+                let cardDetails={
+                    "card_number" : cardNumber.toString(),
+                    "expiry_month"  : month.toString(),
+                    "expiry_year"   : year.toString(),
+                    "cvv_number"    : ""+cvv
+                }
+                console.log("CARD_>",cardDetails)
+                self.props.navigation.navigate("PaymentWeb", { amount: self.props.navigation.state.params.data, card:cardDetails})
             })
             .catch(error => {
-                console.log("data-!!!!! ",error);
+                console.log("data-!!!!! ",error.response);
                 console.log("data-!!!!! ",error.message);
-                Alert.alert("failure Feature comming soon...")
+                Alert.alert("Failed to validate card")
             });
 
     }
@@ -411,15 +421,16 @@ class CardDetails extends Component{
                 this.debitCreditPay(
                     this.state.block1+this.state.block2+this.state.block3+this.state.block4,
                     this.state.month,
-                    monthPrefix + monthSufix,
+                    monthPrefix + monthSufix,this.state.cvv
                 )
 
                 //let cardNumber = this.state.block1+this.state.block2+this.state.block3+this.state.block4
 
             }
 
-            else
-                Alert.alert("","Feature comming soon...")
+            else{
+                Alert.alert("","Feature coming soon...")
+            }
 
         }
 

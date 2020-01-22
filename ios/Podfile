@@ -42,6 +42,17 @@ target 'WalletRetailUser' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+
+#  pod 'RNRsaEncryption', :path => '../node_modules/@akeo/react-native-rsa-encryption'
+
+  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
+
+  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
+
+
+
+#  pod 'react-native-ccavenue-encryption', :path => '../node_modules/react-native-ccavenue-encryption'
+
   target 'WalletRetailUserTests' do
     inherit! :search_paths
     # Pods for testing

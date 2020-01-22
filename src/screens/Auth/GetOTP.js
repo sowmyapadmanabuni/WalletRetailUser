@@ -16,6 +16,7 @@ import {
   OutlinedTextField,
 } from 'react-native-material-textfield';
 import ProgressLoader from '../../components/common/ProgressLoader'
+//import {payment} from '../../base/utils/payment'
 
 class GetOTP extends PureComponent {
   constructor(props) {
@@ -49,6 +50,10 @@ class GetOTP extends PureComponent {
       onOTPChangeText({ prop: propStr, value: valueStr })
     }
 
+  }
+
+  async componentDidMount(){
+    console.log("PAYMENET",base.utils.payment.decrypt())
   }
 
   render() {
