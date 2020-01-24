@@ -2,7 +2,7 @@ const colors = {
     primary:"#ff8c00",
     white:"#ffffff",
     black:"#000000",
-    lavender:"#E6E6FA",
+    lavender: "#967bb6", //"#FDFBFF", //"#E6E6FA",
     blue:"#38bcdb",
     grey:"#bfbfbf",
     shadedWhite:"#F5F5F5",

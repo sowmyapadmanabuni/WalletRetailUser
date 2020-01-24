@@ -1,16 +1,23 @@
-import React, { Component } from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import React,{Component} from 'react';
+import {Text, View, Image, TouchableOpacity, Alert, PermissionsAndroid, BackHandler, ToastAndroid,Dimensions} from 'react-native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 // import Icon from 'react-native-vector-icons/FontAwesome';
+
 import Icon from 'react-native-vector-icons/Ionicons';
 import Button from '../../components/common/Button';
 import base from '../../base';
+import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-native-responsive-screen";
 import { TextInput, ScrollView, } from 'react-native-gesture-handler';
 import CardView from 'react-native-cardview';
 import { Style } from './Style';
+import { RNCamera } from 'react-native-camera';
+import Validation from "../../components/common/Validation";
+
 import CountryPicker,
 {
-  getAllCountries,
+    getAllCountries,
 } from 'react-native-country-picker-modal';
+
 import {
   TextField,
   FilledTextField,
@@ -26,35 +33,108 @@ class QRScan extends Component {
       });
     });
     this.state = {
-      text1: 'not able to scan? ',
+      text1: 'Not able to scan? ',
       text2: 'Tap to enter mobile number',
 
-      content: false, // to show the mobilenumber cardview 
-
+      content: false, // to show the mobilenumber cardview
       cca2: 'IN',
       callingCode: '91',
       countryList: mappedCountries,
+        enableOR:false,
 
     };
+      this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
 
   }
+
+
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+
+    handleBackButtonClick() {
+        if (Platform.OS === 'android') {
+            this.props.navigation.navigate('PayMerchant')
+        }
+        return true;
+    }
+
   onSuccess = (e) => {
     Linking
       .openURL(e.data)
       .catch(err => console.error('An error occured', err));
   }
-
+s
   ComponentHideAndShow = () => {
     this.setState(previousState => ({ content: !previousState.content }))
   }
 
+    checkNumber(){
+        if ( !Validation.Mobileregex.test(this.state.number) || this.state.number.length !== 10 ){
+            Alert.alert("Alert", "Enter Valid Mobile Number");
+            return false
+        }
+        else{
+            return true
+        }
+    }
+
+
+
   imageTouched = () => {
-
     console.log("Pressed")
-
   }
 
+  scanning(){
+      this.setState({enableOR:true})
+  }
+
+    onPress = () => {
+        var that = this;
+        //Checking for the permission just after component loaded
+        async function requestCameraPermission() {
+            //Calling the permission function
+            const granted = await PermissionsAndroid.request(
+                PermissionsAndroid.PERMISSIONS.CAMERA
+            );
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                //that.scanning()
+                that.props.navigation.navigate("Scanned");
+            }
+        }
+        if (Platform.OS === 'android') {
+            requestCameraPermission();
+        } else {
+            //this.scanning()
+            that.props.navigation.navigate("Scanned");
+        }
+    };
+
   render() {
+      const { width } = Dimensions.get('screen');
+      const leftTop = {
+          borderLeftWidth: 3,
+          borderTopWidth: 3,
+          borderColor: 'white'
+      };
+      const leftBottom = {
+          borderLeftWidth: 3,
+          borderBottomWidth: 3,
+          borderColor: 'white'
+      };
+      const rightTop = {
+          borderRightWidth: 3,
+          borderTopWidth: 3,
+          borderColor: 'white'
+      };
+      const rightBottom = {
+          borderRightWidth: 3,
+          borderBottomWidth: 3,
+          borderColor: 'white'
+      };
     return (
 
       <ScrollView style={{flex:1}}>
@@ -62,33 +142,54 @@ class QRScan extends Component {
 
           <Text>Pay</Text>
         </View>
-        <View>
-          <Image
-            style={{ marginTop: '10%', marginLeft: '18%' }}
-            source={require('../../icons/qr.png')}
-          />
-          <Button style={Style.buttonOverLay}
-            title='TAP TO SCAN QR'
-            onPress={() => {
-              // alert("Camera interface");
-              this.props.navigation.navigate("Scanned");
+
+          {
+              (this.state.enableOR) ?
+                  <View style={{ flex: 1 }}>
+
+                  </View>
+                  :
+                  <View>
+                      <Image
+                          style={{ marginTop: '10%', marginLeft: '18%' }}
+                          source={require('../../icons/qr.png')}
+                      />
+                      <Button style={Style.buttonOverLay}
+                              title='TAP TO SCAN QR'
+                              onPress={() => {
+                                  // alert("Camera interface");
+                                  this.onPress()
+                                  //this.props.navigation.navigate("Scanned");
 
 
-            }}
-          />
-        </View>
+                              }}
+                      />
+                  </View>
+          }
+
         <View style={Style.textStyle}>
 
-          <Text> {this.state.text1}
-          </Text>
-          <Button style={Style.textButtonPosition}
-            title={this.state.text2}
+          {/*<Text> {this.state.text1}*/}
+          {/*</Text>*/}
+          {/*<Button style={Style.textButtonPosition}*/}
+          {/*  title={this.state.text2}*/}
 
-            textStyle={{ color: base.theme.colors.primary }}
-            onPress={() => {
-              { this.ComponentHideAndShow() }
-            }}
-          />
+          {/*  textStyle={{ color: base.theme.colors.primary }}*/}
+          {/*  onPress={() => {*/}
+          {/*    { this.ComponentHideAndShow() }*/}
+          {/*  }}*/}
+          {/*/>*/}
+
+            <View style ={Style.mobNumOpt}>
+                <Text> {this.state.text1}</Text>
+                <TouchableOpacity
+                    style={{}}
+                    onPress={()=> this.ComponentHideAndShow()}
+                >
+                    <Text style={{color:base.theme.colors.primary, marginLeft:wp(1.5)}}>{this.state.text2}</Text>
+                </TouchableOpacity>
+            </View>
+
         </View>
         {
           this.state.content ?
@@ -126,11 +227,27 @@ class QRScan extends Component {
                 </TouchableOpacity>
                 <View style={{ flex: 0.7 }}>
                   <TextField
+                      value={this.state.number}
                     label='Enter Mobile Number'
+                    maxLength={10}
+                    keyboardType={"number-pad"}
+                    onChangeText={(val) => {
+                        let check = base.regex.num;
+                        if (check.test(val)) {
+                            this.setState({
+                                number: val
+                            })
+                        }
+                    }
+                    }
                   />
                 </View>
                 <Button style={{ width: 45, height: 45,margin:10}}
-                  onPress={() => { this.props.navigation.navigate("Amount") }}
+                  onPress={() => {
+                      if (this.checkNumber())
+                          this.props.navigation.navigate("Amount")
+                  }
+                  }
                   title={
                     <Icon
                       name="ios-checkmark"

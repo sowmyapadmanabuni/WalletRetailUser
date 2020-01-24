@@ -138,15 +138,20 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:nativeimagetranscoder:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-okhttp3:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.webkit:android-jsc:r245459@aar" level="project" />
+    <orderEntry type="module" module-name="react-native-local-auth" />
     <orderEntry type="module" module-name="react-native-webview" />
+    <orderEntry type="module" module-name="android-react-native-open-security-settings" />
     <orderEntry type="module" module-name="node_modules-react-native-ccavenue-encryption-android-react-native-ccavenue-encryption~1" />
     <orderEntry type="module" module-name="lottie-react-native" />
     <orderEntry type="module" module-name="react-native-gesture-handler" />
     <orderEntry type="module" module-name="react-native-reanimated" />
     <orderEntry type="module" module-name="node_modules-react-native-permissions-android-react-native-permissions~1" />
     <orderEntry type="module" module-name="node_modules-react-native-camera-android-react-native-camera~2" />
+    <orderEntry type="module" module-name="@react-native-community_async-storage" />
+    <orderEntry type="module" module-name="react-native-android-open-settings" />
     <orderEntry type="module" module-name="react-native-cardview" />
     <orderEntry type="module" module-name="react-native-keyevent" />
+    <orderEntry type="module" module-name="react-native-touch-id" />
     <orderEntry type="module" module-name="react-native-vector-icons" />
   </component>
 </module>

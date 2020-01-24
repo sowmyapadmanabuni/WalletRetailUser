@@ -1,5 +1,15 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextInput, Keyboard, TouchableWithoutFeedback, Image, Alert } from 'react-native';
+import React,{Component} from 'react';
+import {
+    Text,
+    View,
+    StyleSheet,
+    TextInput,
+    Keyboard,
+    TouchableWithoutFeedback,
+    Image,
+    Alert,
+    BackHandler
+} from 'react-native';
 import base from '../../base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Button from '../../components/common/Button';
@@ -18,10 +28,22 @@ class Amount extends Component {
             amount: '0.00',
             payee: ''
         }
+        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
 
-    componentDidMount(){
-        
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+
+    handleBackButtonClick() {
+        if (Platform.OS === 'android') {
+            this.props.navigation.navigate('QR')
+        }
+        return true;
+
     }
 
     // updateInput(evt){
@@ -40,7 +62,6 @@ class Amount extends Component {
             console.log("+++++");
             this.setState({ amount: this.state.amount + amt })
         }
-
     };
 
     render() {
@@ -59,7 +80,6 @@ class Amount extends Component {
                             onPress={() => { this.props.navigation.navigate('QR') }}
 
                         />
-
 
                     </View>
 

@@ -34,12 +34,17 @@ class SignUp extends Component {
             cca2: 'IN',
             callingCode: '91',
             countryList: mappedCountries,
+
+            fName:'',
+            lName:'',
+            mobile:'',
+            email:'',
         };
     }
 
     render() {
-        const { FirstName, LastName, Email, MobileNumber, onSignupFieldChange, Register } = this.props;
-        
+        const { FirstName, LastName, Email, MobileNumber, onSignupFieldChange, Register, SignUpReducer } = this.props;
+        console.log("SignUpReducer: ", FirstName);
         return (
             <View style={{ flex: 1 }}>
                 <Image style={{ width: "45%", alignSelf: 'flex-end' }} source={require('../../icons/signup.png')} />
@@ -54,12 +59,22 @@ class SignUp extends Component {
                         <TextField
                             label='First Name'
                             value={FirstName}
-                            onChangeText={FirstName => onSignupFieldChange({ prop: "FirstName", value: FirstName })}
+                            onChangeText={FirstName =>
+                                this.setState({
+                                    fName:FirstName
+                                })
+                                //onSignupFieldChange({ prop: "FirstName", value: FirstName })
+                            }
                         />
                         <TextField
                             label="Last Name"
                             value={LastName}
-                            onChangeText={LastName => onSignupFieldChange({ prop: "LastName", value: LastName })}
+                            onChangeText={LastName =>
+                                this.setState({
+                                    lName:LastName
+                                })
+                                //onSignupFieldChange({ prop: "LastName", value: LastName })
+                            }
                         />
                         <View>
                             <CountryPicker
@@ -84,7 +99,7 @@ class SignUp extends Component {
                             <View style={{ flexDirection: 'row' }}>
 
                                     <View style={{  borderBottomWidth: 0.5, borderBottomColor: '#B5B5B5',width:'20%' ,justifyContent:'center',marginBottom:'2.3%'}}>
-                                    <TouchableOpacity 
+                                    <TouchableOpacity
                                         onPress={() => {
                                             this.setState({ visible: true })
                                         }}>
@@ -96,7 +111,12 @@ class SignUp extends Component {
 
                                         label="Mobile Number"
                                         value={MobileNumber}
-                                        onChangeText={MobileNumber => onSignupFieldChange({ prop: "MobileNumber", value: MobileNumber })}
+                                        onChangeText={MobileNumber =>
+                                            this.setState({
+                                                mobile:MobileNumber
+                                            })
+                                            //onSignupFieldChange({ prop: "MobileNumber", value: MobileNumber })
+                                        }
                                     />
                                     </View>
                             </View>
@@ -104,16 +124,18 @@ class SignUp extends Component {
                         <TextField
                             label="Email ID"
                             value={Email}
-                            onChangeText={Email => onSignupFieldChange({ prop: "Email", value: Email })}
-
+                            onChangeText={Email =>
+                                this.setState({
+                                    email:Email
+                                })
+                                //onSignupFieldChange({ prop: "Email", value: Email })
+                            }
                         />
 
 
                         <Button style={{ marginTop: 30, width: "80%", color: base.theme.colors.white,alignSelf:'center'}}
                             title="SIGN UP"
                             onPress={() => {
-
-
                                 this.RegisterMobileNumberCheck();
                                 // this.props.navigation.navigate("PayMerchant");
                             }}
@@ -125,6 +147,8 @@ class SignUp extends Component {
 
         )
     };
+
+    /* Original
     signUpValidations = () => {
         const { FirstName, LastName, Email, MobileNumber } = this.props;
         if (Validation.Alphabets.test(FirstName) === false) {
@@ -143,16 +167,38 @@ class SignUp extends Component {
             this.props.Register(FirstName, LastName, MobileNumber, Email, "+91", this.props.navigation);
         }
     }
+    */
+
+    // modified
+    signUpValidations = () => {
+        //const { FirstName, LastName, Email, MobileNumber } = this.props;
+        if (Validation.Alphabets.test(this.state.fName) === false) {
+            alert("Enter Valid FirstName");
+        }
+        else if (Validation.Alphabets.test(this.state.lName) === false) {
+            alert("Enter Valid LastName");
+        }
+        else if (Validation.emailRegex.test(this.state.email) === false) {
+            alert("Enter Valid Email");
+        }
+        else if (Validation.Mobileregex.test(this.state.mobile) === false) {
+            alert("Enter Valid MobileNumber");
+        } else {
+            //this.props.navigation.navigate("viewas");
+            this.props.Register(this.state.fName, this.state.lName, this.state.mobile, this.state.email, "+91", this.props.navigation);
+        }
+    };
 
     RegisterMobileNumberCheck = () => {
-
+        console.log("this.state.mobile ", this.state);
         const { MobileNumber } = this.props;
         axios.post(api.oyeWalletUrl + "RegisteredMobileNumberCheck", {
             //  axios.post("https://uatwalletapi.azurewebsites.net/wallet/api/v1/RegisteredMobileNumberCheck",{
-            mobileNumber: "+91" + this.props.MobileNumber
+            //mobileNumber: "+91" + this.props.MobileNumber
+            mobileNumber: "+91" + this.state.mobile
 
         }).then(res => {
-            console.log("Registernumber", res.data.success);
+            console.log("Registernumber", res);
             let registernumber = res.data.success;
             if (registernumber === true) {
                 alert("Number is already registered.");
@@ -181,6 +227,8 @@ const mapStateToProps = state => {
         LastName: state.SignUpReducer.LastName,
         MobileNumber: state.SignUpReducer.MobileNumber,
         Email: state.SignUpReducer.Email,
+        SignUpReducer: state.SignUpReducer,
     }
 }
+
 export default connect(mapStateToProps, { onSignupFieldChange, Register })(SignUp);
