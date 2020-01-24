@@ -33,25 +33,9 @@ target 'WalletRetailUser' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+   pod 'TouchID', :path => '../node_modules/react-native-touch-id'
 
-  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
-
-  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
-
-  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
-
-  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
-
-
-#  pod 'RNRsaEncryption', :path => '../node_modules/@akeo/react-native-rsa-encryption'
-
-  pod 'lottie-react-native', :path => '../node_modules/lottie-react-native'
-
-  pod 'lottie-ios', :path => '../node_modules/lottie-ios'
-
-
-
-#  pod 'react-native-ccavenue-encryption', :path => '../node_modules/react-native-ccavenue-encryption'
+  pod 'react-native-ccavenue-encryption', :path => '../node_modules/react-native-ccavenue-encryption'
 
   target 'WalletRetailUserTests' do
     inherit! :search_paths

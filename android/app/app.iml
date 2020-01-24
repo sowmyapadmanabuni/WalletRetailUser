@@ -139,7 +139,7 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-okhttp3:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.webkit:android-jsc:r245459@aar" level="project" />
     <orderEntry type="module" module-name="react-native-webview" />
-    <orderEntry type="module" module-name="node_modules-react-native-ccavenue-encryption-android-react-native-ccavenue-encryption" />
+    <orderEntry type="module" module-name="node_modules-react-native-ccavenue-encryption-android-react-native-ccavenue-encryption~1" />
     <orderEntry type="module" module-name="lottie-react-native" />
     <orderEntry type="module" module-name="react-native-gesture-handler" />
     <orderEntry type="module" module-name="react-native-reanimated" />

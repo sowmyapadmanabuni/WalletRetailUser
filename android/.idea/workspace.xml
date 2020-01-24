@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71a1d10b-8e3e-4de3-ad37-8b5e44fc76af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../src/base/utils/payment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../src/base/utils/widgets.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../src/icons/processing.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -18,132 +15,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_exifinterface_exifinterface_1_0_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_v4_1_0_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_media_media_1_0_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_adobe_xmp_xmpcore_5_1_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_drewnoakes_metadata_extractor_2_11_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_fresco_fbcore_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_fresco_fbcore_2_0_0_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_react_react_native_0_61_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_react_react_native_0_61_4_aar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_base_16_0_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_basement_16_1_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_clearcut_16_0_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_flags_16_0_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_phenotype_16_0_0_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_tasks_16_0_1_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_vision_17_0_2_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_vision_common_17_0_2_aar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_zxing_core_3_3_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_11_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_11_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_webkit_android_jsc_r245459_aar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/appcompat/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/appcompat/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/asynclayoutinflater/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/asynclayoutinflater/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/coordinatorlayout/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/coordinatorlayout/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/core/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/core/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/customview/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/customview/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/drawerlayout/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/drawerlayout/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/fragment/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/fragment/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/coreui/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/coreui/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/coreutils/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/coreutils/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/v4/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/v4/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/loader/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/loader/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/media/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/media/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/slidingpanelayout/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/slidingpanelayout/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/swiperefreshlayout/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/swiperefreshlayout/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/vectordrawable/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/vectordrawable/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/viewpager/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/viewpager/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/facebook/drawee/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/facebook/drawee/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/facebook/drawee/backends/pipeline/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/facebook/drawee/backends/pipeline/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/facebook/react/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/facebook/react/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/github/kevinejohn/keyevent/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/github/kevinejohn/keyevent/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/google/android/gms/base/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/google/android/gms/base/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/kishanjvaghela/cardview/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/kishanjvaghela/cardview/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/oblador/vectoricons/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/oblador/vectoricons/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/reactnativecommunity/rnpermissions/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/reactnativecommunity/rnpermissions/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/reactnativecommunity/webview/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/reactnativecommunity/webview/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/swmansion/gesturehandler/react/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/swmansion/gesturehandler/react/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/walletretailuser/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/walletretailuser/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/org/reactnative/camera/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/org/reactnative/camera/R.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/rncli/src/main/java/com/facebook/react/PackageList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/rncli/src/main/java/com/facebook/react/PackageList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Podfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Local Podspecs/RNGestureHandler.podspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Local Podspecs/RNGestureHandler.podspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Manifest.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/DoubleConversion.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/FBLazyVector.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/FBReactNativeSpec.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/Folly.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/Pods-WalletRetailUser-tvOS.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/Pods-WalletRetailUser-tvOSTests.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/Pods-WalletRetailUser.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/Pods-WalletRetailUserTests.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/RCTRequired.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/RCTTypeSafety.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/RNGestureHandler.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/RNKeyEvent.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/RNPermissions.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/RNVectorIcons.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-Core.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-CoreModules.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-RCTActionSheet.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-RCTAnimation.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-RCTBlob.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-RCTImage.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-RCTLinking.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-RCTNetwork.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-RCTSettings.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-RCTText.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-RCTVibration.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-cxxreact.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-jsi.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-jsiexecutor.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React-jsinspector.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/React.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/ReactCommon.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/Toast.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/Yoga.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/boost-for-react-native.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/glog.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/react-native-camera.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/react-native-simple-toast.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/react-native-webview.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/xcuserdata/sowmyapadmanabhuni.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOS/Pods-WalletRetailUser-tvOS.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOS/Pods-WalletRetailUser-tvOS.debug.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOS/Pods-WalletRetailUser-tvOS.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOS/Pods-WalletRetailUser-tvOS.release.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOSTests/Pods-WalletRetailUser-tvOSTests.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOSTests/Pods-WalletRetailUser-tvOSTests.debug.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOSTests/Pods-WalletRetailUser-tvOSTests.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOSTests/Pods-WalletRetailUser-tvOSTests.release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser-acknowledgements.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser-acknowledgements.markdown" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser-acknowledgements.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser-acknowledgements.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser.debug.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser.release.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUserTests/Pods-WalletRetailUserTests.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUserTests/Pods-WalletRetailUserTests.debug.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUserTests/Pods-WalletRetailUserTests.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUserTests/Pods-WalletRetailUserTests.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/WalletRetailUser.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/WalletRetailUser.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/base/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/base/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/base/utils/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/screens/Auth/EnterOTP.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/Auth/EnterOTP.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/screens/Auth/GetOTP.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/Auth/GetOTP.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/screens/PaymentGateWay/CardDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/PaymentGateWay/CardDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/screens/UserDetails/Amount.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/UserDetails/Amount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/screens/WebViews.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/WebViews.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -154,7 +44,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="E2MID19043004049" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_22_5.1" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -226,30 +116,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="165">
+              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-ccavenue-encryption/android/build.gradle">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="195">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-ccavenue-encryption/android/src/main/java/com/encryptccavenue/CcavenueEncryptionModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-305" />
           </provider>
         </entry>
       </file>
@@ -314,18 +192,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="WalletRetailUser" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -337,7 +204,18 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="WalletRetailUser" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -502,16 +380,16 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/debug/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png">
       <provider selected="true" editor-type-id="images" />
@@ -590,6 +468,25 @@
     <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-ccavenue-encryption/android/src/main/java/com/encryptccavenue/CcavenueEncryptionModule.java" />
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-ccavenue-encryption/android/build.gradle" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -610,35 +507,10 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-ccavenue-encryption/android/src/main/java/com/encryptccavenue/CcavenueEncryptionModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-305" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-ccavenue-encryption/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="165">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
         </state>
       </provider>
     </entry>

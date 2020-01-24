@@ -236,6 +236,8 @@ PODS:
     - React-cxxreact (= 0.61.4)
     - React-jsi (= 0.61.4)
     - ReactCommon/jscallinvoker (= 0.61.4)
+  - RNCAsyncStorage (1.7.1):
+    - React
   - RNGestureHandler (1.5.3):
     - React
   - RNKeyEvent (0.2.1):
@@ -247,6 +249,8 @@ PODS:
   - RNVectorIcons (6.6.0):
     - React
   - Toast (4.0.0)
+  - TouchID (4.4.1):
+    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -283,11 +287,13 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNKeyEvent (from `../node_modules/react-native-keyevent/ios`)
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+  - TouchID (from `../node_modules/react-native-touch-id`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -356,6 +362,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNKeyEvent:
@@ -366,6 +374,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
+  TouchID:
+    :path: "../node_modules/react-native-touch-id"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -401,14 +411,16 @@ SPEC CHECKSUMS:
   React-RCTText: 21934e0a51d522abcd0a275407e80af45d6fd9ec
   React-RCTVibration: 0f76400ee3cec6edb9c125da49fed279340d145a
   ReactCommon: a6a294e7028ed67b926d29551aa9394fd989c24c
+  RNCAsyncStorage: 8539fc80a0075fcc9c8e2dff84cd22dc5bf1dacf
   RNGestureHandler: 02905abe54e1f6e59c081a10b4bd689721e17aa6
   RNKeyEvent: 3cf540edbfe0a22293bd3f131b995a007f5a725f
   RNPermissions: 0558997f20848147d9b909eb7978a93fc2f4ae30
   RNReanimated: b2ab0b693dddd2339bd2f300e770f6302d2e960c
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   Yoga: ba3d99dbee6c15ea6bbe3783d1f0cb1ffb79af0f
 
-PODFILE CHECKSUM: 700430aba4d3ef8d09aa75cc82351e1618e02b9b
+PODFILE CHECKSUM: 649310ca0f72ddaf4a3e81d325ee998becfa1bf9
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.8.3
