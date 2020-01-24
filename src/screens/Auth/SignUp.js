@@ -18,6 +18,12 @@ import {
     OutlinedTextField,
 } from 'react-native-material-textfield';
 import { ScrollView } from "react-native-gesture-handler";
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import DatePicker from "react-native-datepicker";
+import moment from "moment";
+import Dropdown from "react-native-material-dropdown/src/components/dropdown";
+
+
 
 class SignUp extends Component {
     constructor(props) {
@@ -39,12 +45,23 @@ class SignUp extends Component {
             lName:'',
             mobile:'',
             email:'',
+            genderProps: [{label: 'Male', value: 0},
+            {label: 'Female', value: 1}],
+            isGenderSelected:0,
+            marriedProps: [{label: 'Yes', value: 0},
+                {label: 'No', value: 1}],
+            isMarriedSelected:0,
+            anniversaryDate:moment().format('DD-MM-YYYY'),
+            todayDate:moment().format('DD-MM-YYYY'),
+            childList:[{value:0,details:"KID0"},{value:1,details:"KID1"},{value:2,details:"KID2"},{value:3,details:"KID3"},{value:4,details:"KID4"},{value:5,details:"KID5"}],
+            dateOfBirth:moment().format('DD-MM-YYYY'),
+            selectedChild:0
         };
     }
 
     render() {
         const { FirstName, LastName, Email, MobileNumber, onSignupFieldChange, Register, SignUpReducer } = this.props;
-        console.log("SignUpReducer: ", FirstName);
+        console.log("#####SignUpReducer#######: ", this.props);
         return (
             <View style={{ flex: 1 }}>
                 <Image style={{ width: "45%", alignSelf: 'flex-end' }} source={require('../../icons/signup.png')} />
@@ -75,6 +92,80 @@ class SignUp extends Component {
                                 })
                                 //onSignupFieldChange({ prop: "LastName", value: LastName })
                             }
+                        />
+                        <View style={{
+                            flexDirection: 'row',
+                            height: '6%',
+                            width: '90%',
+                            justifyContent: 'flex-start',
+                            marginTop: 25,
+                        }}>
+                            <Text style={{fontSize: 16, color: base.theme.colors.black}}>Gender</Text>
+                            <RadioForm formHorizontal={true} animation={true}>
+                                {this.state.genderProps.map((obj, i) => {
+                                    let onPress = (value, index) => {
+                                        this.setState({
+                                            isGenderSelected : value,
+                                        })
+                                    };
+                                    return (
+                                        <RadioButton labelHorizontal={true} key={i.toString()}>
+                                            <RadioButtonInput
+                                                obj={obj}
+                                                index={i.toString()}
+                                                isSelected={this.state.isGenderSelected === i}
+                                                onPress={onPress}
+                                                buttonInnerColor={base.theme.colors.primary}
+                                                buttonOuterColor={base.theme.colors.primary}
+                                                buttonSize={10}
+                                                buttonStyle={{borderWidth: 0.7}}
+                                                buttonWrapStyle={{marginLeft: 40}}
+                                            />
+                                            <RadioButtonLabel
+                                                obj={obj}
+                                                index={i.toString()}
+                                                onPress={onPress}
+                                                labelStyle={{color: base.theme.colors.grey}}
+                                                labelWrapStyle={{marginLeft: 10}}
+                                            />
+                                        </RadioButton>
+                                    )
+                                })}
+                            </RadioForm>
+                        </View>
+                        <DatePicker
+                            style={{width: '100%',borderBottomWidth :1,borderBottomColor: base.theme.colors.grey}}
+                            date={this.state.dateOfBirth}
+                            mode="date"
+                            placeholder="select date"
+                            format="DD-MM-YYYY"
+                            //minDate={this.state.todayDate}
+                            maxDate={this.state.todayDate}
+                            iconSource={require('../../icons/cal.png')}
+                            confirmBtnText="Confirm"
+                            cancelBtnText="Cancel"
+                            showIcon={true}
+                            customStyles={{
+                                dateIcon: {
+                                    left: 2,
+                                    alignSelf: 'flex-end',
+                                    marginLeft: 0,
+                                    marginBottom:2
+
+
+                                },
+                                dateInput: {
+                                    borderWidth: 0,
+                                    color: base.theme.colors.black,
+                                    height: 30,
+                                    width: 30,
+                                    alignItems:'flex-start',
+
+                                }
+                            }}
+                            onDateChange={(date) => {
+                                this.setState({dateOfBirth:date})
+                            }}
                         />
                         <View>
                             <CountryPicker
@@ -117,6 +208,11 @@ class SignUp extends Component {
                                             })
                                             //onSignupFieldChange({ prop: "MobileNumber", value: MobileNumber })
                                         }
+                                       // disabled={true}
+                                       // textColor={base.theme.colors.black}
+                                       // disabledLineType={"solid"}
+                                        //disabledLineWidth={0.5}
+                                        editable={false}
                                     />
                                     </View>
                             </View>
@@ -132,8 +228,132 @@ class SignUp extends Component {
                             }
                         />
 
+                        <View style={{marginTop:60, marginLeft:1 }}>
+                            <Text style={{color:base.theme.colors.black,fontSize:18}}>(Optional)</Text>
+                            <Text style={{fontSize:16,color:base.theme.colors.grey,marginTop:3}}>To get notification for tailored offers please update the following - </Text>
 
-                        <Button style={{ marginTop: 30, width: "80%", color: base.theme.colors.white,alignSelf:'center'}}
+                        </View>
+                        <View style={{width:'100%',borderWidth:1,
+                            borderColor:base.theme.colors.black,marginTop:20,borderRadius:5,alignItems:'center',justifyContent:'center',paddingBottom:20}}>
+                            <View style={{
+                                flexDirection: 'row',
+                                //height: '6%',
+                                //width: '90%',
+                                justifyContent: 'flex-start',
+                                marginTop: 25,
+                            }}>
+                                <Text style={{fontSize: 16, color: base.theme.colors.black, }}>Married</Text>
+                                <RadioForm formHorizontal={true} animation={true}>
+                                    {this.state.marriedProps.map((obj, i) => {
+                                        let onPress = (value, index) => {
+                                            this.setState({
+                                                isMarriedSelected : value,
+                                            })
+                                        };
+                                        return (
+                                            <RadioButton labelHorizontal={true} key={i.toString()}>
+                                                <RadioButtonInput
+                                                    obj={obj}
+                                                    index={i.toString()}
+                                                    isSelected={this.state.isMarriedSelected === i}
+                                                    onPress={onPress}
+                                                    buttonInnerColor={base.theme.colors.primary}
+                                                    buttonOuterColor={base.theme.colors.primary}
+                                                    buttonSize={10}
+                                                    buttonStyle={{borderWidth: 0.7}}
+                                                    buttonWrapStyle={{marginLeft: 40}}
+                                                />
+                                                <RadioButtonLabel
+                                                    obj={obj}
+                                                    index={i.toString()}
+                                                    onPress={onPress}
+                                                    labelStyle={{color: base.theme.colors.grey}}
+                                                    labelWrapStyle={{marginLeft:5}}
+                                                />
+                                            </RadioButton>
+                                        )
+                                    })}
+                                </RadioForm>
+                            </View>
+                            {this.state.isMarriedSelected==0 ?
+                            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                                <Text style={{marginRight:20}}>No of Kids</Text>
+                                <Dropdown
+                                    value={this.state.selectedChild}
+                                    labelFontSize={18}
+                                    labelPadding={-5}
+                                    placeHolder={'Select Bank'}
+                                    baseColor="rgba(0, 0, 0, 1)"
+                                    data={this.state.childList}
+                                    containerStyle={{
+                                        width: '20%',
+                                    }}
+                                    textColor={base.theme.colors.black}
+                                    inputContainerStyle={{
+                                        borderColor:base.theme.colors.lightgrey,
+                                    }}
+                                    dropdownOffset={{ top: 10, left: 0 }}
+                                    dropdownPosition={-5}
+                                    rippleOpacity={0}
+                                    onChangeText={(value, index) => {
+                                        this.setState({
+                                            selectedChild:value
+                                        })
+                                    }}
+                                />
+
+                            </View>
+                                :
+                            <View/>}
+                            {this.state.isMarriedSelected==0 ?
+                                <View style={{flexDirection:'row',width:'100%',alignItems: 'center',justifyContent:'center'}}>
+                                <Text style={{fontSize:14,marginRight:10}}>Anniversary Date</Text>
+                            <View style={{flexDirection:'row',width:'50%'}}>
+                            <DatePicker
+                                style={{width: '80%',borderBottomWidth :1,borderBottomColor: base.theme.colors.grey}}
+                                date={this.state.anniversaryDate}
+                                mode="date"
+                                placeholder="select date"
+                                format="DD-MM-YYYY"
+                              //minDate={this.state.todayDate}
+                                 maxDate={this.state.todayDate}
+                                iconSource={require('../../icons/cal.png')}
+                                confirmBtnText="Confirm"
+                                cancelBtnText="Cancel"
+                                showIcon={true}
+                                customStyles={{
+                                    dateIcon: {
+                                        left: 2,
+                                        alignSelf: 'flex-end',
+                                        marginLeft: 0,
+                                        marginBottom:2
+
+
+                                    },
+                                    dateInput: {
+                                        borderWidth: 0,
+                                        color: base.theme.colors.black,
+                                        height: 30,
+                                        width: 30,
+                                        alignItems:'flex-start',
+
+                                    }
+                                }}
+                                onDateChange={(date) => {
+                                    this.setState({anniversaryDate:date})
+                                }}
+                            />
+                            </View>
+
+                            </View>
+                                :
+                                <View/>}
+
+
+                        </View>
+
+
+                        <Button style={{ marginTop: 30,marginBottom:100, width: "80%", color: base.theme.colors.white,alignSelf:'center'}}
                             title="SIGN UP"
                             onPress={() => {
                                 this.RegisterMobileNumberCheck();
@@ -142,6 +362,8 @@ class SignUp extends Component {
 
                         />
                     </View>
+
+
                 </ScrollView>
             </View>
 
@@ -172,7 +394,7 @@ class SignUp extends Component {
     // modified
     signUpValidations = () => {
         //const { FirstName, LastName, Email, MobileNumber } = this.props;
-        if (Validation.Alphabets.test(this.state.fName) === false) {
+       /* if (Validation.Alphabets.test(this.state.fName) === false) {
             alert("Enter Valid FirstName");
         }
         else if (Validation.Alphabets.test(this.state.lName) === false) {
@@ -186,30 +408,40 @@ class SignUp extends Component {
         } else {
             //this.props.navigation.navigate("viewas");
             this.props.Register(this.state.fName, this.state.lName, this.state.mobile, this.state.email, "+91", this.props.navigation);
-        }
+        }*/
+        const { MobileNumber } = this.props;
+
+        this.props.Register(this.state.fName, this.state.lName,  "+91" + this.props.MobileNumber, this.state.email,
+            "+91", this.props.navigation, this.state.isGenderSelected,moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD'),this.state.isMarriedSelected,
+            this.state.selectedChild,moment(this.state.anniversaryDate,'DD-MM-YYYY').format('YYYY-MM-DD'));
+
     };
 
     RegisterMobileNumberCheck = () => {
-        console.log("this.state.mobile ", this.state);
+       /* console.log("this.state.mobile ", this.state);
         const { MobileNumber } = this.props;
         axios.post(api.oyeWalletUrl + "RegisteredMobileNumberCheck", {
             //  axios.post("https://uatwalletapi.azurewebsites.net/wallet/api/v1/RegisteredMobileNumberCheck",{
             //mobileNumber: "+91" + this.props.MobileNumber
-            mobileNumber: "+91" + this.state.mobile
+            mobileNumber: "+91" + this.props.MobileNumber,
+            role:"Retail User"
 
         }).then(res => {
             console.log("Registernumber", res);
             let registernumber = res.data.success;
-            if (registernumber === true) {
+            /!*if (registernumber === true) {
                 alert("Number is already registered.");
             }
-            else {
-                this.signUpValidations();
-            }
+            else {*!/
+           // }
+            this.signUpValidations();
+
         })
             .catch(error => {
                 console.log("error", error);
-            });
+            });*/
+        this.signUpValidations();
+
     };
 };
 
@@ -225,7 +457,8 @@ const mapStateToProps = state => {
     return {
         FirstName: state.SignUpReducer.FirstName,
         LastName: state.SignUpReducer.LastName,
-        MobileNumber: state.SignUpReducer.MobileNumber,
+        //MobileNumber: state.SignUpReducer.MobileNumber,
+        MobileNumber: state.OTPReducer.MobileNumber,
         Email: state.SignUpReducer.Email,
         SignUpReducer: state.SignUpReducer,
     }

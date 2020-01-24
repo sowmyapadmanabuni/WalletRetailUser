@@ -193,7 +193,7 @@ const ViewData = (props) => {
                     </TouchableOpacity>
                 </View>
             </View> */}
-            <View style={{ flexDirection: 'row', marginTop: '5%' }}>
+         {/*   <View style={{ flexDirection: 'row', marginTop: '5%' }}>
                 <View style={{ flex: 0.2 }}>
                     <Image
                         style={{ marginLeft: '10%' }}
@@ -221,7 +221,7 @@ const ViewData = (props) => {
                         />
                     </TouchableOpacity>
                 </View>
-            </View>
+            </View>*/}
         </View>
     )
 
@@ -236,7 +236,8 @@ class PayMerchant extends Component {
             statementShow: false,
             flag: false,
             firstName: '',
-            mobileNumber: ''
+            mobileNumber: '',
+            reward:0
         }
         this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
@@ -245,7 +246,7 @@ class PayMerchant extends Component {
 
     componentDidMount() {
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
-        this.getDetails()
+       // this.getDetails()
     }
 
     componentWillUnmount() {
@@ -278,7 +279,7 @@ class PayMerchant extends Component {
         return true;
     }
 
-    getDetails(){
+    /*getDetails(){
         axios
             .get(
                 "http://devapi.oyewallet.com/wallet/api/v1/GetProfileDetailsByMobileNumber/919490791523",
@@ -293,7 +294,7 @@ class PayMerchant extends Component {
                 console.log("GenerateOTP>>>ERROR: ", error, error.message);
                 alert(error.message);
             });
-    }
+    }*/
 
 
     async showProfile() {
@@ -305,7 +306,7 @@ class PayMerchant extends Component {
 
     render() {
         const { } = this.props;
-        console.log("payMerchant.......", this.props)
+        console.log("payMerchant.......", this.props,this.props.ShowProfileReducer.list)
         DeviceEventEmitter.addListener('refreshUserName', event => {
             console.log("refreshUserName....")
             this.showProfile();

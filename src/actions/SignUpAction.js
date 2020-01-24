@@ -13,8 +13,9 @@ export const onSignupFieldChange = ({ prop, value }) => {
   };
 };
 
-export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, navigation) => {
-  console.log("Register ", FirstName, LastName, MobileNumber, Email, CountryCode)
+export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, navigation,gender,dob,marStatus,numChild,anniDate) => {
+  console.log("response>>>SIGNUP@@@@@@", FirstName, LastName, MobileNumber, Email, CountryCode,gender,dob,marStatus,numChild,anniDate)
+   //gender,dob,marStatus,numChild,anniDate
   return dispatch => {
     dispatch({ type: SIGNUP_SEQUENCE })
     console.log("FirstName", FirstName);
@@ -26,16 +27,21 @@ export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, 
       //Request Body
       firstName: FirstName,
       lastName: LastName,
-      mobileNumber: CountryCode + MobileNumber,
+      mobileNumber:MobileNumber,
       email: Email,
       countryCode: CountryCode,
-      rewardsAvailable: 500,
-      role: "Retail User"
+     // rewardsAvailable: 500,
+      role: "Retail User",
+        gender:gender===0?"Male":"Female",
+        DOB:dob,
+      isMarried:marStatus===0?"Yes":"No",
+      noOfKids:numChild,
+      anniversaryDate:anniDate
 
     }).
 
       then(response => {
-      console.log("response>>>SIGNUP ", response)
+      console.log("response>>>SIGNUP######", response)
         let data = response.data;
 
 
@@ -73,8 +79,13 @@ export const Update = (data, navigation) => {
       email: data.email,
       countryCode: "+91",
       // rewardsAvailable : 500,
-      registrationId: 1644,
-      role: "Retail User"
+      registrationId:data.registrationId,
+      role: "Retail User",
+      gender:"",
+      DOB:null,
+      isMarried:null,
+      noOfKids:0,
+      anniversaryDate:null
     }
 
     console.log("userData........", userData);

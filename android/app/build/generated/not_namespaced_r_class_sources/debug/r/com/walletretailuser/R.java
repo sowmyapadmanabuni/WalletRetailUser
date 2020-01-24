@@ -3487,27 +3487,27 @@ public final class R {
     public static final int src_icons_card=0x7f060082;
     public static final int src_icons_card1=0x7f060083;
     public static final int src_icons_cardic=0x7f060084;
-    public static final int src_icons_change_passcode=0x7f060085;
-    public static final int src_icons_checkbox=0x7f060086;
-    public static final int src_icons_creditcard=0x7f060087;
-    public static final int src_icons_dinersclub=0x7f060088;
-    public static final int src_icons_discover=0x7f060089;
-    public static final int src_icons_edit=0x7f06008a;
-    public static final int src_icons_filter=0x7f06008b;
-    public static final int src_icons_hide=0x7f06008c;
-    public static final int src_icons_icici=0x7f06008d;
-    public static final int src_icons_images=0x7f06008e;
-    public static final int src_icons_jcb=0x7f06008f;
-    public static final int src_icons_line=0x7f060090;
-    public static final int src_icons_lock=0x7f060091;
-    public static final int src_icons_login_img=0x7f060092;
-    public static final int src_icons_mastercard=0x7f060093;
-    public static final int src_icons_my_profile=0x7f060094;
-    public static final int src_icons_pay=0x7f060095;
-    public static final int src_icons_qr=0x7f060096;
-    public static final int src_icons_rupee_black=0x7f060097;
-    public static final int src_icons_sbi=0x7f060098;
-    public static final int src_icons_scan=0x7f060099;
+    public static final int src_icons_checkbox=0x7f060085;
+    public static final int src_icons_creditcard=0x7f060086;
+    public static final int src_icons_dinersclub=0x7f060087;
+    public static final int src_icons_discover=0x7f060088;
+    public static final int src_icons_edit=0x7f060089;
+    public static final int src_icons_filter=0x7f06008a;
+    public static final int src_icons_hide=0x7f06008b;
+    public static final int src_icons_icici=0x7f06008c;
+    public static final int src_icons_images=0x7f06008d;
+    public static final int src_icons_jcb=0x7f06008e;
+    public static final int src_icons_line=0x7f06008f;
+    public static final int src_icons_lock=0x7f060090;
+    public static final int src_icons_login_img=0x7f060091;
+    public static final int src_icons_mastercard=0x7f060092;
+    public static final int src_icons_my_profile=0x7f060093;
+    public static final int src_icons_pay=0x7f060094;
+    public static final int src_icons_qr=0x7f060095;
+    public static final int src_icons_rupee_black=0x7f060096;
+    public static final int src_icons_sbi=0x7f060097;
+    public static final int src_icons_scan=0x7f060098;
+    public static final int src_icons_security=0x7f060099;
     public static final int src_icons_semicircle=0x7f06009a;
     public static final int src_icons_signup=0x7f06009b;
     public static final int src_icons_statements=0x7f06009c;
@@ -3791,7 +3791,6 @@ public final class R {
   }
   public static final class mipmap {
     public static final int ic_launcher=0x7f0a0000;
-    public static final int ic_launcher_round=0x7f0a0001;
   }
   public static final class raw {
     public static final int app=0x7f0b0000;
