@@ -338,7 +338,7 @@ const styles = StyleSheet.create(
             },
         ButtonContainer:
             {
-                width:'30%',
+                width:Platform.OS==='ios'?'40%':'30%',
                 backgroundColor:'#FFD16B',
                 marginLeft:'30%'
             }

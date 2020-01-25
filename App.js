@@ -38,6 +38,7 @@ import SignUp from './src/screens/Auth/SignUp';
 import GetOTP from './src/screens/Auth/GetOTP';
 import WebViews from './src/screens/WebViews';
 import TransactionDetail from './src/screens/UserDetails/TransactionDetail'
+import { StatusBarPlaceHolder } from './StatusBarPlaceHolder';
 
 class App extends React.Component {
   barcodeRecognized = ({ barcodes }) => {
@@ -46,14 +47,15 @@ class App extends React.Component {
   render(){
     console.log("app.......")
   return (
-      <SafeAreaView style ={{flex:1}}>
+      // <SafeAreaView style ={{flex:1}}>
        <Provider store ={store}>
        {/* <PayMerchant /> */}
+      <StatusBarPlaceHolder />
          <Navigation/>
        {/* <ScanningExample/> */}
        
        </Provider>
-      </SafeAreaView>
+      // </SafeAreaView>
   
   );
   }

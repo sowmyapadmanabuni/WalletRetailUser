@@ -39,6 +39,8 @@ target 'WalletRetailUser' do
 
 
 
+pod 'react-native-branch', :path => '../node_modules/react-native-branch'
+
 #  target 'WalletRetailUserTests' do
 #    inherit! :search_paths
 #    # Pods for testing

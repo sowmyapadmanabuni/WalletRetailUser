@@ -185,6 +185,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-branch')
     implementation project(':react-native-open-security-settings')
     implementation project(':react-native-ccavenue-encryption')
     implementation project(':lottie-react-native')
