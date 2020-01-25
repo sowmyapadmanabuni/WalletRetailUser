@@ -6,8 +6,8 @@ import {connect} from "react-redux";
 import TouchID from "react-native-touch-id";
 // import Carousel from "react-native-snap-carousel";
 import LocalAuth from 'react-native-local-auth';
-import AndroidOpenSettings from "react-native-android-open-settings";
-
+//import AndroidOpenSettings from "react-native-android-open-settings";
+import OpenSecuritySettings from 'react-native-open-security-settings';
 // const height=Dimensions.get('window').height;
 // const width = Dimensions.get('window').width;
 
@@ -290,8 +290,8 @@ class Start extends Component{
         );
     }
 
-    showAndroidAlert(){
-        AndroidOpenSettings.generalSettings()
+    showAndroidAlert(){        
+        OpenSecuritySettings.openSecuritySettings()
     }
 
     onShowUnderlay() {
@@ -320,7 +320,7 @@ class Start extends Component{
                 <Button  style ={styles.ButtonContainer}
                          title="GET STARTED"
                          onPress={()=>{
-                             this.onShowUnderlay();
+                             this.onShowUnderlay();                            
                              //this.props.navigation.navigate("Otp");
                              //this.props.navigation.navigate("Signup");
                          }}

@@ -8,6 +8,7 @@ import base from '../base'
 import LottieView from 'lottie-react-native';
 import CcavenueEncryption from 'react-native-ccavenue-encryption';
 
+
 const {width, height} = Dimensions.get('window');
 
 class WebViews extends Component{
@@ -20,6 +21,14 @@ class WebViews extends Component{
             pay_url:'https://secure.ccavenue.com/transaction/initTrans',
             paybody:'',
             access_code:'',
+            merchantID:'',
+            currency:'INR',
+            redirectUrl:'',
+            cancelUrl:'',
+            oid:'',
+            customerID:9539,
+            amount:this.props.navigation.state.params.amount,
+            language:"EN"
         }
     }
     
@@ -47,10 +56,10 @@ class WebViews extends Component{
          let self = this;
         axios
             .post(
-                `http://apidev.oyespace.com/oyeliving/api/v1/PaymentHDFCCreate`,
+                `http://devapi.oyewallet.com/wallet/api/v1/PaymentHDFCCreate`,
                 {
-                  "chargetotal":self.props.navigation.state.params.amount,
-                  "customerID": 9539
+                  "chargetotal":self.state.amount,
+                  "customerID": self.state.customerID
                 },
                 {
                   headers: {
@@ -60,27 +69,39 @@ class WebViews extends Component{
                   }
                 }
             )
-            .then(response => {console.log('RESPONSE >>>>>',response);
-            self.setState({
-                access_code:"4YRUXLSRO20O8NIH"//response.data.data.accessCode
-            },()=>{
-                self.getRSA()
-                
-            })
+            .then(response => {console.log('RESPONSE >>>>>',response.data.data);
+            if(response.data != undefined && response.data.data != undefined && response.data.data.merchantID != undefined){
+                let paymentData = response.data.data;
+                self.setState({
+                    access_code:paymentData.access_code,
+                    merchantID:paymentData.merchantID,
+                    currency:paymentData.currency,
+                    redirectUrl:paymentData.redirectUrl,
+                    cancelUrl:paymentData.cancelUrl,
+                    oid:paymentData.oid,
+                    language:paymentData.language
+                },()=>{
+                    self.getRSA()
+                    
+                })
+            }else{
+                alert("No Payment Information from server")
+            }
+            
               
             }).catch(error => console.log("ERROR",error))
     }
 
     async getRSA(params, card){
-
+        let self = this;
         let rsaResponse = await axios({
             method: 'post',
-            url: 'https://secure.ccavenue.com/transaction/jsp/GetRSA.jsp',
-            data: qs.stringify({'access_code':'4YRUXLSRO20O8NIH','order_id':'1960623'}),
+            url: 'http://devapi.oyewallet.com/GetRSAValue',//'https://secure.ccavenue.com/transaction/jsp/GetRSA.jsp',
+            data: qs.stringify({'access_code':self.state.access_code,'order_id':self.state.oid}),
             headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'},
         });
         if(rsaResponse != null && rsaResponse != undefined && rsaResponse.data != undefined){
-            console.log(rsaResponse.data)
+            console.log("Encrypt_key",rsaResponse.data)
             this.buildparams(rsaResponse.data)
         }else{
             alert("Payment cannot be completed")
@@ -89,7 +110,7 @@ class WebViews extends Component{
 
     async buildparams(encKey){
         let self = this;
-        let param_qp = "access_code="+this.state.access_code+"&merchant_id=2&order_id=1960623&redirect_url=http://122.182.6.216/merchant/ccavResponseHandler.jsp&cancel_url=http://122.182.6.216/merchant/ccavResponseHandler.jsp&language=EN&billing_name=Charli&billing_address=Room no 1101 near Railway station Ambad&billing_city=Indore&billing_state=MH vi&billing_zip=425001&billing_country=India&billing_tel=9595226054&billing_email=pratik.pai@avenues.info&delivery_name=Chaplin&delivery_address=room no.701 near bus stand&delivery_city=Hyderabad&delivery_state=Andhra&delivery_zip=425001&delivery_country=India&delivery_tel=9595226054&merchant_param1=additional Info.&merchant_param2=additional Info.&merchant_param3=additional Info.&merchant_param4=additional Info.&payment_option=OPTDBCRD&card_type=DBCRD&card_name=Andhra Bank&issuing_bank=State Bank of India&"
+        let param_qp = "access_code="+this.state.access_code+"&merchant_id="+this.state.merchantID+"&order_id="+this.state.oid+"&redirect_url="+this.state.redirectUrl+"&cancel_url="+this.state.cancelUrl+"&language="+this.state.language+"&billing_name=Charli&billing_address=Room no 1101 near Railway station Ambad&billing_city=Indore&billing_state=MH vi&billing_zip=425001&billing_country=India&billing_tel=9595226054&billing_email=pratik.pai@avenues.info&delivery_name=Chaplin&delivery_address=room no.701 near bus stand&delivery_city=Hyderabad&delivery_state=Andhra&delivery_zip=425001&delivery_country=India&delivery_tel=9595226054&merchant_param1=additional Info.&merchant_param2=additional Info.&merchant_param3=additional Info.&merchant_param4=additional Info.&"//payment_option=OPTDBCRD&card_type=DBCRD&card_name=Andhra Bank&issuing_bank=State Bank of India&
         let card_info = this.props.navigation.state.params.card;
         let amount = this.props.navigation.state.params.amount;
         console.log("param_qp",param_qp)
@@ -103,7 +124,7 @@ class WebViews extends Component{
             let key_val = card_param+"="+card_info[card_param]+"&"
             card_string_builder+=key_val
         }
-        card_string_builder+="amount="+amount+"&currency=INR"
+        card_string_builder+="amount="+amount+"&currency=INR&customer_identifier="+this.state.customerID+"&merchant_id="+this.state.merchantID
 
         console.log("card_string_builder",card_string_builder)
         this.encrypt(card_string_builder,encKey,async function(enc){
