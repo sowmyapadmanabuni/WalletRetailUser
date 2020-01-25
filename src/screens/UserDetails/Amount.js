@@ -1,5 +1,15 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextInput, Keyboard, TouchableWithoutFeedback, Image, Alert } from 'react-native';
+import React,{Component} from 'react';
+import {
+    Text,
+    View,
+    StyleSheet,
+    TextInput,
+    Keyboard,
+    TouchableWithoutFeedback,
+    Image,
+    Alert,
+    BackHandler
+} from 'react-native';
 import base from '../../base';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Button from '../../components/common/Button';
@@ -7,6 +17,7 @@ import { CardDStyle } from '../PaymentGateWay/CardDSytle';
 import { Style } from './Style';
 import colors from "../../base/theme/colors";
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 
 class Amount extends Component {
@@ -17,8 +28,23 @@ class Amount extends Component {
             amount: '0.00',
             payee: ''
         }
+        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
 
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+
+    handleBackButtonClick() {
+        if (Platform.OS === 'android') {
+            this.props.navigation.navigate('QR')
+        }
+        return true;
+
+    }
 
     // updateInput(evt){
 
@@ -36,7 +62,6 @@ class Amount extends Component {
             console.log("+++++");
             this.setState({ amount: this.state.amount + amt })
         }
-
     };
 
     render() {
@@ -55,7 +80,6 @@ class Amount extends Component {
                             onPress={() => { this.props.navigation.navigate('QR') }}
 
                         />
-
 
                     </View>
 
@@ -169,8 +193,12 @@ class Amount extends Component {
                                 // if (this.state.amount === "0.00" || this.state.amount === "0.00")
                                 if (parseInt(this.state.amount) < 1)
                                     Alert.alert("", "Enter some amount !!!");
-                                else
+                                else{
+                                    //PaymentWeb
+                                    //CardDetails
+                                    //this.props.navigation.navigate("PaymentWeb", { data: this.state.amount })
                                     this.props.navigation.navigate("CardDetails", { data: this.state.amount })
+                                }
 
                             }}
                             title={

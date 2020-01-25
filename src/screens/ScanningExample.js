@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Linking, Image} from 'react-native';
+import { View, Text, TouchableOpacity, Linking, Image, PermissionsAndroid, BackHandler, Alert} from 'react-native';
 import { RNCamera } from 'react-native-camera';
 import QRCodeScanner from 'react-native-qrcode-scanner';
+import QRScan from "./UserDetails/QRScan";
 
 export default class DefaultScreen extends Component {
     constructor(props) {
@@ -19,17 +20,15 @@ export default class DefaultScreen extends Component {
         return (
             <View style={{ flex: 1 }}>
 
+                {/*
 
-                {/* 
           <RNCamera
-          
            ref ={ref => {
                this.camera = ref;
            }}
            style ={{flex :1,width:'100%'}}
          /> */}
                 {/* <Text>Hello</Text> */}
-
                 {/* <View> */}
                 <QRCodeScanner
                 showMarker
@@ -52,7 +51,7 @@ export default class DefaultScreen extends Component {
                                 justifyContent: "center",
                                 alignItems: "center"
                             }}>
-                                
+
                             </View> */}
                         </View>
 

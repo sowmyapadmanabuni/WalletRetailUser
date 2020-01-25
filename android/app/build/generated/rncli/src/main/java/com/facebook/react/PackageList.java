@@ -14,18 +14,32 @@ import java.util.ArrayList;
 import com.walletretailuser.BuildConfig;
 import com.walletretailuser.R;
 
+// @react-native-community/async-storage
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+// lottie-react-native
+import com.airbnb.android.react.lottie.LottiePackage;
+// react-native-android-open-settings
+import com.levelasquez.androidopensettings.AndroidOpenSettingsPackage;
 // react-native-camera
 import org.reactnative.camera.RNCameraPackage;
 // react-native-cardview
 import com.kishanjvaghela.cardview.RNCardViewPackage;
+// react-native-ccavenue-encryption
+import com.encryptccavenue.CcavenueEncryptionPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-keyevent
 import com.github.kevinejohn.keyevent.KeyEventPackage;
+// react-native-local-auth
+import io.tradle.reactlocalauth.LocalAuthPackage;
+// react-native-open-security-settings
+import com.securitysettings.OpenSecuritySettingsPackage;
 // react-native-permissions
 import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
+// react-native-touch-id
+import com.rnfingerprint.FingerprintAuthPackage;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 // react-native-webview
@@ -75,12 +89,19 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
+      new AsyncStoragePackage(),
+      new LottiePackage(),
+      new AndroidOpenSettingsPackage(),
       new RNCameraPackage(),
       new RNCardViewPackage(),
+      new CcavenueEncryptionPackage(),
       new RNGestureHandlerPackage(),
       new KeyEventPackage(),
+      new LocalAuthPackage(),
+      new OpenSecuritySettingsPackage(),
       new RNPermissionsPackage(),
       new ReanimatedPackage(),
+      new FingerprintAuthPackage(),
       new VectorIconsPackage(),
       new RNCWebViewPackage()
     ));

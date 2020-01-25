@@ -33,29 +33,26 @@ target 'WalletRetailUser' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+   pod 'TouchID', :path => '../node_modules/react-native-touch-id'
 
-  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+  pod 'react-native-ccavenue-encryption', :path => '../node_modules/react-native-ccavenue-encryption'
 
-  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
 
-  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 
-  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
-
-  target 'WalletRetailUserTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+#  target 'WalletRetailUserTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
 
   use_native_modules!
 end
 
-target 'WalletRetailUser-tvOS' do
-  # Pods for WalletRetailUser-tvOS
-
-  target 'WalletRetailUser-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end
+#target 'WalletRetailUser-tvOS' do
+#  # Pods for WalletRetailUser-tvOS
+#
+#  target 'WalletRetailUser-tvOSTests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
+#
+#end

@@ -1,9 +1,10 @@
-import { SIGNUP_SEQUENCE, ON_FIELD_CHANGE, ACCOUNT_UPDATE, SHOW_PROFILE } from './types';
+import {SIGNUP_SEQUENCE, ON_FIELD_CHANGE, ACCOUNT_UPDATE, SHOW_PROFILE, ON_OTP_FIELD_CHANGE} from './types';
 import axios from "axios";
 import Toast from 'react-native-simple-toast';
 import api from '../base/utils/strings';
 
 export const onSignupFieldChange = ({ prop, value }) => {
+  console.log("prop, value", prop, value);
   return (dispatch) => {
     dispatch({
       type: ON_FIELD_CHANGE,
@@ -12,8 +13,8 @@ export const onSignupFieldChange = ({ prop, value }) => {
   };
 };
 
-
 export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, navigation) => {
+  console.log("Register ", FirstName, LastName, MobileNumber, Email, CountryCode)
   return dispatch => {
     dispatch({ type: SIGNUP_SEQUENCE })
     console.log("FirstName", FirstName);
@@ -22,7 +23,7 @@ export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, 
 
     axios.post(api.oyeWalletUrl + "CreateRegistration", {
 
-      //Request Body 
+      //Request Body
       firstName: FirstName,
       lastName: LastName,
       mobileNumber: CountryCode + MobileNumber,
@@ -34,8 +35,9 @@ export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, 
     }).
 
       then(response => {
-
+      console.log("response>>>SIGNUP ", response)
         let data = response.data;
+
 
         dispatch({
           type: SIGNUP_SEQUENCE,
@@ -45,9 +47,9 @@ export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, 
         Toast.show('Registered Successfully', Toast.SHORT);
         setTimeout(function () {
           // navigation.navigate("viewas")
-          navigation.navigate("PayMerchant");
+          //navigation.navigate("PayMerchant");
+          navigation.navigate("DefaultOrCustom");
         }, 500)
-
         //  }
       })
 
@@ -74,31 +76,55 @@ export const Update = (data, navigation) => {
       registrationId: 1644,
       role: "Retail User"
     }
-    console.log("userData........", userData)
-    return axios.put('http://devapi.oyewallet.com/wallet/api/v1/UpdateProfile'
-      , userData).
 
-      then(response => {
-        console.log("UPDATE response..........", response)
-        let data = response.data;
-        dispatch({
-          type: ACCOUNT_UPDATE,
-          payload: data
-        })
-        return data
-      })
+    console.log("userData........", userData);
 
-      .catch(error => {
-        alert(error.message);
-        console.log(error);
+    let options = {
+      method:'put',
+      url:"http://devapi.oyewallet.com/wallet/api/v1/UpdateProfile",
+      data:userData
+    };
+
+    return axios(options).then((response)=>{
+      console.log("New PUT METHOD:",response)
+      let data = response.data;
+      dispatch({
+        type: ACCOUNT_UPDATE,
+        payload: data
 
       });
+      return data
+    }).catch(error=>{
+      alert(error.message);
+      console.log("New PUT METHOD Error:",error)
+    })
+
+
+    // return axios.put('http://devapi.oyewallet.com/wallet/api/v1/UpdateProfile'
+    //   , userData).
+    //
+    //   then(response => {
+    //     console.log("UPDATE response..........", response)
+    //     let data = response.data;
+    //     dispatch({
+    //       type: ACCOUNT_UPDATE,
+    //       payload: data
+    //     });
+    //     return data
+    //   })
+    //
+    //   .catch(error => {
+    //     alert(error.message);
+    //     console.log(error);
+    //
+    //   });
   }
 };
 
-
 export const ShowProfile = (number) => {
   console.log("inside disptch........profile", number)
+
+
 
   return dispatch => {
     dispatch({ type: SHOW_PROFILE })
@@ -115,7 +141,8 @@ export const ShowProfile = (number) => {
         dispatch({
           type: SHOW_PROFILE,
           payload: data
-        })
+        });
+
         return data
       })
 
