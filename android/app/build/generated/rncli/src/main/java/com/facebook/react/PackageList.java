@@ -32,6 +32,8 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.github.kevinejohn.keyevent.KeyEventPackage;
 // react-native-local-auth
 import io.tradle.reactlocalauth.LocalAuthPackage;
+// react-native-open-security-settings
+import com.securitysettings.OpenSecuritySettingsPackage;
 // react-native-permissions
 import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
 // react-native-reanimated
@@ -96,6 +98,7 @@ public class PackageList {
       new RNGestureHandlerPackage(),
       new KeyEventPackage(),
       new LocalAuthPackage(),
+      new OpenSecuritySettingsPackage(),
       new RNPermissionsPackage(),
       new ReanimatedPackage(),
       new FingerprintAuthPackage(),

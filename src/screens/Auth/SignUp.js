@@ -23,6 +23,8 @@ import DatePicker from "react-native-datepicker";
 import moment from "moment";
 import Dropdown from "react-native-material-dropdown/src/components/dropdown";
 
+let dateOfBirthD;
+
 
 
 class SignUp extends Component {
@@ -65,14 +67,13 @@ class SignUp extends Component {
         return (
             <View style={{ flex: 1 }}>
                 <Image style={{ width: "45%", alignSelf: 'flex-end' }} source={require('../../icons/signup.png')} />
-
                 <View style={GlobalStyle.overLayText}>
                     <Text style={{ marginTop: 5, fontSize: 18 }}>
                         <Text>  </Text>Complete Sign Up</Text>
                 </View>
 
                 <ScrollView>
-                    <View style={{ marginTop: 70, marginLeft: 20, marginRight: 20, flex: 1 }}>
+                    <View style={{ marginTop: 70, marginLeft: 20, marginRight: 20, flex: 1, }}>
                         <TextField
                             label='First Name'
                             value={FirstName}
@@ -133,14 +134,16 @@ class SignUp extends Component {
                                 })}
                             </RadioForm>
                         </View>
+                        <View>
+                            <Text style={{color:base.theme.colors.grey}}>DOB</Text>
                         <DatePicker
                             style={{width: '100%',borderBottomWidth :1,borderBottomColor: base.theme.colors.grey}}
                             date={this.state.dateOfBirth}
                             mode="date"
                             placeholder="select date"
                             format="DD-MM-YYYY"
-                            //minDate={this.state.todayDate}
-                            maxDate={this.state.todayDate}
+                            //minDate={new Date(moment().subtract(18, 'years').calendar())}
+                            maxDate={new Date(moment().subtract(18, 'years').calendar())}
                             iconSource={require('../../icons/cal.png')}
                             confirmBtnText="Confirm"
                             cancelBtnText="Cancel"
@@ -167,6 +170,7 @@ class SignUp extends Component {
                                 this.setState({dateOfBirth:date})
                             }}
                         />
+                        </View>
                         <View>
                             <CountryPicker
 
@@ -234,7 +238,7 @@ class SignUp extends Component {
 
                         </View>
                         <View style={{width:'100%',borderWidth:1,
-                            borderColor:base.theme.colors.black,marginTop:20,borderRadius:5,alignItems:'center',justifyContent:'center',paddingBottom:20}}>
+                            borderColor:base.theme.colors.black,marginTop:20,borderRadius:5,alignItems:'flex-start',justifyContent:'center',paddingBottom:20}}>
                             <View style={{
                                 flexDirection: 'row',
                                 //height: '6%',
