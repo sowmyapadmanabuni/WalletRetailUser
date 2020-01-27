@@ -31,6 +31,7 @@ import api from "../../base/utils/strings";
 import { ShowProfile } from "../../actions";
 
 import DefaultOrCustom from "../Authentication/SelectPasscode/DefaultOrCustom";
+import Support from "./Support";
 
 export const UserProfile = (props) => {
     console.log("props.....", props)
@@ -117,6 +118,37 @@ const ViewData = (props) => {
                         <View style={{ flexDirection: "row" }}>
                             <View >
                                 <Text style={{ fontSize: 16 }}>Statements</Text>
+                            </View>
+                            <View style={{ alignItems: 'flex-end', flex: 1 }}>
+                                <Image
+                                    style={{ transform: [{ rotate: '90deg' }], width: 15, height: 15 }}
+                                    source={require('../../icons/images.png')} />
+                            </View>
+                        </View>
+                        <View
+                            style={{
+                                borderBottomColor: 'grey',
+                                borderBottomWidth: 0.5,
+                                flex: 0.5
+                            }}
+                        />
+                    </TouchableOpacity>
+                </View>
+            </View>
+            <View style={{ flexDirection: 'row', marginTop: '5%' }}>
+                <View style={{ flex: 0.2 }}>
+                    <Image
+                        style={{ marginLeft: '10%' }}
+                        source={require('../../icons/group_2352.png')}
+                    />
+                </View>
+                <View style={{ flex: 1 }}>
+                    <TouchableOpacity onPress={() => {
+                        props.contact()
+                    }}>
+                        <View style={{ flexDirection: "row" }}>
+                            <View >
+                                <Text style={{ fontSize: 16 }}>Contact Support</Text>
                             </View>
                             <View style={{ alignItems: 'flex-end', flex: 1 }}>
                                 <Image
@@ -237,7 +269,8 @@ class PayMerchant extends Component {
             flag: false,
             firstName: '',
             mobileNumber: '',
-            reward:0
+            reward:0,
+            showContact:false
         }
         this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
@@ -331,11 +364,12 @@ class PayMerchant extends Component {
                         {/* </TouchableOpacity> */}
                         <View>
                             {
-                                ((!this.state.isProfileShown && !this.state.statementShow) && this.state.showData) ?
+                                ((!this.state.isProfileShown && !this.state.statementShow && !this.state.showContact) && this.state.showData) ?
                                     <ViewData navigation={this.props.navigation}
 
                                         showProfile={() => { this.setState({ isProfileShown: true, }) }}
-                                        showStatement={() => { this.setState({ statementShow: true, }) }} /> :
+                                        showStatement={() => { this.setState({ statementShow: true, }) }}
+                                              contact={() => { this.setState({ showContact: true, }) }}/> :
                                     null
                             }
                         </View>
@@ -343,9 +377,16 @@ class PayMerchant extends Component {
                             {
                                 (this.state.isProfileShown && this.state.showData) ?
                                     <Profile /> :
-                                    (this.state.statementShow && this.state.showData) ? this.props.navigation.navigate('TransactionDetail') :
+                                    (this.state.statementShow) ? this.props.navigation.navigate('TransactionDetail') :
                                         null
 
+                            }
+                        </View>
+                        <View>
+                            {
+                                (this.state.showData && this.state.showContact) ?
+                                    <Support /> :
+                                    null
                             }
                         </View>
                         <View>
@@ -353,15 +394,20 @@ class PayMerchant extends Component {
                             {
                                 (this.state.showData) ?
                                     <TouchableOpacity onPress={() => {
-                                        this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false, })
+                                        this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false,showContact:false })
                                     }}>
                                         <View style={{ alignItems: 'center', }}>
-
-                                            <Image
-                                                style={{ width: 25, height: 25, position: 'absolute', bottom: -13 }}
-                                                source={require('../../icons/images.png')}
-                                            />
-
+                                            {
+                                                (this.state.showData) ?
+                                                    <Image
+                                                        style={{ width: 25, height: 25, position: 'absolute', bottom: -13 }}
+                                                        source={require('../../icons/images.png')}
+                                                    /> :
+                                                    <Image
+                                                        style={{ width: 25, height: 25, position: 'absolute', bottom: -13, transform: [{ rotate: '180deg' }] }}
+                                                        source={require('../../icons/images.png')}
+                                                    />
+                                            }
                                             <Image
                                                 style={{ width: 80, height: 80, marginBottom: '-11%' }}
                                                 source={require('../../icons/semicircle.png')}

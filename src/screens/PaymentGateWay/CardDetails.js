@@ -74,7 +74,7 @@ class CardDetails extends Component{
             cardType2 : '',
             cardImage : require('../../icons/credit-card.png'),
             CardType:[
-                {label:'Credit Card',value:0, isActive:true},
+                {label:'Credit Card',value:0, isActive:false},
                 {label:'Debit Card',value:1, isActive:false},
                 {label:'Netbanking',value:2, isActive:false},
                 {label:'UPIs',value:3, isActive:false},
