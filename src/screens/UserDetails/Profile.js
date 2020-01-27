@@ -27,9 +27,10 @@ class Profile extends Component {
             lastName: this.state.LastName,
             mobileNumber: '+91'+this.props.OTPReducer.MobileNumber,
             email: this.state.Email,
-        };
-        console.log("updateProfile....................", accountData)
+            registrationId:this.props.ShowProfileReducer.list.data[0].registrationId
 
+        };
+        console.log("updateProfile@@registrationID", accountData,this.props.ShowProfileReducer.list.data[0].registrationId)
         let resp = await this.props.Update(accountData, this.props.navigation)
         this.setState({visible:false})
         DeviceEventEmitter.emit('refreshUserName', { status: true })
@@ -56,6 +57,7 @@ class Profile extends Component {
     }
 
     render() {
+        console.log("PROFILE DATA IN PROFILE#####",this.props)
         var ShowProfileReducer = (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0] : ''
         return (
             <View>
@@ -284,7 +286,8 @@ const mapStateToProps = state => {
     return {
         AccountUpdateReducer: state.AccountUpdateReducer,
         ShowProfileReducer: state.ShowProfileReducer,
-        OTPReducer:state.OTPReducer
+        OTPReducer:state.OTPReducer,
+        SignUpReducer: state.SignUpReducer,
     };
 };
 

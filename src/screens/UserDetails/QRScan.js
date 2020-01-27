@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Text, View, Image, TouchableOpacity, Alert, PermissionsAndroid, BackHandler, ToastAndroid,Dimensions} from 'react-native';
+import {Text, View, Image, TouchableOpacity, Alert, PermissionsAndroid, BackHandler, ToastAndroid,Dimensions, Platform} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -10,8 +10,9 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-nativ
 import { TextInput, ScrollView, } from 'react-native-gesture-handler';
 import CardView from 'react-native-cardview';
 import { Style } from './Style';
-import { RNCamera } from 'react-native-camera';
+//import { RNCamera } from 'react-native-camera';
 import Validation from "../../components/common/Validation";
+import {check, PERMISSIONS,request,RESULTS} from 'react-native-permissions';
 
 import CountryPicker,
 {
@@ -62,6 +63,38 @@ class QRScan extends Component {
         return true;
     }
 
+    checkPermissions(){
+      let self = this;
+      console.log("checkPermissions")
+      Promise.all([
+        check( Platform.OS==='ios'? PERMISSIONS.IOS.CAMERA:PERMISSIONS.ANDROID.CAMERA)
+      ]).then(([result]) => {
+        console.log("RESULT",result)
+        switch (result) {
+          case RESULTS.UNAVAILABLE:
+            alert("No Camera Permission available")
+            break;
+          case RESULTS.DENIED:            
+            self.requestPermissions()
+            break;
+          case RESULTS.GRANTED:
+            self.openQRScreen()
+            break;
+          case RESULTS.BLOCKED:
+            alert("Please enable camera permission from settings")
+            break;
+        }
+      });
+    }
+
+    async requestPermissions() {
+      
+      const cameraStatus = await request(Platform.OS==='ios'? PERMISSIONS.IOS.CAMERA:PERMISSIONS.ANDROID.CAMERA);      
+      if(cameraStatus == RESULTS.GRANTED){
+        this.openQRScreen()
+      }
+    }
+
   onSuccess = (e) => {
     Linking
       .openURL(e.data)
@@ -92,25 +125,16 @@ s
       this.setState({enableOR:true})
   }
 
+
+
+  openQRScreen(){
+    that.props.navigation.navigate("Scanned");
+  }
+
     onPress = () => {
         var that = this;
-        //Checking for the permission just after component loaded
-        async function requestCameraPermission() {
-            //Calling the permission function
-            const granted = await PermissionsAndroid.request(
-                PermissionsAndroid.PERMISSIONS.CAMERA
-            );
-            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-                //that.scanning()
-                that.props.navigation.navigate("Scanned");
-            }
-        }
-        if (Platform.OS === 'android') {
-            requestCameraPermission();
-        } else {
-            //this.scanning()
-            that.props.navigation.navigate("Scanned");
-        }
+       console.log("ONPRESS")
+        this.checkPermissions()
     };
 
   render() {

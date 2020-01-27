@@ -62,7 +62,7 @@ class Start extends Component{
             passcodeFallback: true,
         };
         if((authenticationType === 'Default') && defaultAuthenticationType === null && customAuthenticationType === null) {
-            console.log('Start>>>componentDidMount>>>IF');
+            console.log(':::Start>>>componentDidMount>>>Custom11111');
             TouchID.isSupported(optionalConfigObject).then(biometryType => {
                 console.log("111111",biometryType);
                 // Success code
@@ -77,7 +77,8 @@ class Start extends Component{
                 } else if (biometryType === true) {
                     console.log('vvvvvv.');
                     //this.showAlert();
-                    this.androidPassCode();
+                    //this.androidPassCode();
+                    this.passCodeField();
                 }
             })
                 .catch(error => {
@@ -94,7 +95,7 @@ class Start extends Component{
                 });
         }
         else{
-            console.log("Start>>>componentDidMount>>>ELSE ");
+            console.log(":::Start>>>componentDidMount>>>Custom22222");
             if(authenticationType === 'Default') {
                 console.log("Start>>>componentDidMount>>>ELSE>>>IF ");
                 if (defaultAuthenticationType === 'TouchId') {
@@ -104,10 +105,10 @@ class Start extends Component{
                 }
             }
                 else if(authenticationType === 'Custom'){
-                    console.log(":::Start>>>componentDidMount>>>Custom",customAuthenticationType);
+                    console.log(":::Start>>>componentDidMount>>>Custom33333",customAuthenticationType);
                     if(customAuthenticationType === 'Passcode'){
                         let customPasscode =  await base.utils.storage.retrieveData('customPasscode');
-                        console.log(":::Start>>>componentDidMount>>>Custom>>>customPasscode", customPasscode)
+                        console.log(":::Start>>>componentDidMount>>>Custom444444", customPasscode)
                         if(customPasscode === null){
                             this.props.navigation.navigate('CreatePassword')
                         }
@@ -118,7 +119,7 @@ class Start extends Component{
                     else if(customAuthenticationType === 'PIN'){
                         // let customPIN =  await base.utils.storage.retrieveData('customPIN');
                         let customPIN =  await base.utils.storage.retrieveData('customPin');
-                        console.log(":::Start>>>componentDidMount>>>Custom>>>customPIN", customPIN)
+                        console.log(":::Start>>>componentDidMount>>>Custom55555", customPIN)
                         if(customPIN === null){
                             this.props.navigation.navigate('CreatePin')
                         }
@@ -129,7 +130,7 @@ class Start extends Component{
 
 
             }else if(this.state.propsParam === 'authenticated'){
-                console.log("Start>>>componentDidMount>>>ELSE>>>ELSE ")
+                console.log(":::Start>>>componentDidMount>>>Custom6666")
                 this.setState({isButton:false});
             }
         }
@@ -146,7 +147,7 @@ class Start extends Component{
     async componentDidMount(){
         //this.props.navigation.navigate('EnterOTP');
         let auth = await base.utils.storage.retrieveData('authenticationType')
-        console.log("Start>>>componentDidMount>>>registrationId ",this.props.registrationId);
+        console.log(":::Start>>>componentDidMount>>>Custom7777",this.props.registrationId);
         if (this.props.registrationId !== null){
             this.caller()
         }
@@ -240,22 +241,25 @@ class Start extends Component{
         console.log("rrrrrrrrr");
         let self = this;
         base.utils.storage.storeData('defaultAuthenticationType','Password');
-        LocalAuth.authenticate({
-            reason: 'this is a secure area, please authenticate yourself',
-            fallbackToPasscode: true,    // fallback to passcode on cancel
-            suppressEnterPassword: true // disallow Enter Password fallback
-        })
-            .then(success => {
-                self.setState({isButton:false});
-                //self.props.navigation.navigate('Launch');
-                self.props.navigation.navigate('PayMerchant');
-                //alert('Authenticated Successfully')
+        if(Platform.OS === "android"){
+            LocalAuth.authenticate({
+                reason: 'this is a secure area, please authenticate yourself',
+                fallbackToPasscode: true,    // fallback to passcode on cancel
+                suppressEnterPassword: true // disallow Enter Password fallback
             })
-            .catch(error => {
-                this.passCodeFail();
-                console.log("error",error);
-                // alert('Authentication Failed', error.message)
-            })
+                .then(success => {
+                    self.setState({isButton:false});
+                    //self.props.navigation.navigate('Launch');
+                    self.props.navigation.navigate('PayMerchant');
+                    //alert('Authenticated Successfully')
+                })
+                .catch(error => {
+                    this.passCodeFail();
+                    console.log("error",error);
+                    // alert('Authentication Failed', error.message)
+                })
+        }
+
     }
 
     passCodeFail(){

@@ -12,10 +12,11 @@ export default (state = INITIAL_STATE, action) => {
         case UPDATE_USER_INFO:
             console.log(">>>>>>>>>>>>> UPDATE_USER_INFO");
             return {...state, 'registrationId': action.payload.registrationId};
-            //return {...state, 'loggedIn': action.payload.loggedIn};
+           // return {...state, 'loggedIn': action.payload.loggedIn};
         case UPDATE_lOGGEDIN:
-            console.log(">>>>>>>>>>>>> UPDATE_lOGGEDIN");
-            return {...state, 'loggedIn': action.payload.loggedIn};
+            console.log(">>>>>>>>>>>>> UPDATE_lOGGEDIN",action);
+            // return {...state, 'loggedIn': action.payload.loggedIn};
+            return {...state, 'loggedIn': action};
         default:
             return state;
     }

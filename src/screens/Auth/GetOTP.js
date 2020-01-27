@@ -51,7 +51,7 @@ class GetOTP extends PureComponent {
                 scrollEnabled={true} bounces={false} showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false} contentContainerStyle={[{flex:1}]}
             >
-                <ProgressLoader visible={this.state.progress} />
+                
                 <Image
                     style={{ width: '100%' }}
                     source={require('../../icons/login_img.png')}
@@ -96,7 +96,8 @@ class GetOTP extends PureComponent {
 
                     <TouchableOpacity style={{ flexDirection: 'row', flex: 0.2 }}
 
-                                      onPress={() => {                                            
+                                      onPress={() => {
+                                            
                                           this.setState({ visible: true })
                                       }}>
                         <Text style={{ marginTop: '30%', fontSize: 16 }}>+{this.state.callingCode}</Text>
@@ -144,6 +145,8 @@ class GetOTP extends PureComponent {
                     <Text style={{ color: base.theme.colors.orange }}>GET OTP</Text>
                 </TouchableOpacity>
                 {/* </View> ***/}
+                <ProgressLoader isModal={true} isHUD={true}
+                        hudColor={'#FFF'} color={'orange'} visible={this.state.progress} />
             </KeyboardAwareScrollView>
         );
 

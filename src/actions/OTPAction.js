@@ -62,15 +62,15 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
 
         dispatch({type: GETOTP_SEQUENCE});
         //navigation.navigate('Signup');
+
         axios
             .post(
                 //api.oyeWalletUrl + 'verifyOTP',
-                "https://devapi.oyewallet.com/wallet/api/v1/verifyOTP/'Retail User'",
+                "http://devapi.oyewallet.com/wallet/api/v1/verifyOTP/Retail User",
                 {
-                //Request Body
-                mobileNumber: '+91' + MobileNumber,
-                otpNumber: Otp,
-            })
+                    "mobileNumber" : '+91'+MobileNumber,
+                    "otpNumber"    :Otp
+                })
             .then(response => {
                 console.log("VerifyOTP>>>response 1", response);
 
@@ -103,12 +103,12 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
                     console.log("data.registrationId ", data);
                     let payloadArr = [
                     ]
-                    dispatch({
+                   /* dispatch({
                         type:UPDATE_lOGGEDIN,
                         payload:true
-                    });
+                    });*/
 
-                    dispatch({
+                   dispatch({
                         type:UPDATE_USER_INFO,
                         payload:data
                     });
@@ -117,11 +117,18 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
                         type: GETOTP_SEQUENCE,
                         payload: 'OTP Verified Successfully',
                     });
+                   dispatch({
+                        type:UPDATE_lOGGEDIN,
+                        payload:true,
+                       // payload:({prop:"loggedIn",value:true})
+                    })
                     console.log("VerifyOTP>>>data ", data);
                     if (data.role === 'Retail User') {
                         //alert("Number Exists");
-                        //navigation.navigate('PayMerchant');
-                        navigation.navigate('DefaultOrCustom');
+                       // navigation.navigate('Profile');
+                       navigation.navigate('DefaultOrCustom');
+                       // navigation.navigate('PayMerchant');
+
                     } else {
                         alert("Number dont know")
                     }

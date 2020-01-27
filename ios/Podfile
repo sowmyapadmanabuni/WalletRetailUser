@@ -2,6 +2,9 @@ platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 target 'WalletRetailUser' do
+  
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  
   # Pods for WalletRetailUser
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
@@ -37,7 +40,7 @@ target 'WalletRetailUser' do
 
   pod 'react-native-ccavenue-encryption', :path => '../node_modules/react-native-ccavenue-encryption'
 
-
+pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
 
 pod 'react-native-branch', :path => '../node_modules/react-native-branch'
 
