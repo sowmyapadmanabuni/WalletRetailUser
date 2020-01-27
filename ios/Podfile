@@ -37,22 +37,20 @@ target 'WalletRetailUser' do
 
   pod 'react-native-ccavenue-encryption', :path => '../node_modules/react-native-ccavenue-encryption'
 
-
-
-#  target 'WalletRetailUserTests' do
-#    inherit! :search_paths
-#    # Pods for testing
-#  end
+  target 'WalletRetailUserTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
   use_native_modules!
 end
 
-#target 'WalletRetailUser-tvOS' do
-#  # Pods for WalletRetailUser-tvOS
-#
-#  target 'WalletRetailUser-tvOSTests' do
-#    inherit! :search_paths
-#    # Pods for testing
-#  end
-#
-#end
+target 'WalletRetailUser-tvOS' do
+  # Pods for WalletRetailUser-tvOS
+
+  target 'WalletRetailUser-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

@@ -1,7 +1,7 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { connect } from 'react-redux';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator,AsyncStorage } from 'react-native';
 import { persistStore } from 'redux-persist';
 import store from './store';
 import CardDetails from './screens/PaymentGateWay/CardDetails';
@@ -91,7 +91,11 @@ class InitScreen extends React.PureComponent {
     componentDidMount() {
         persistStore(store, null, () => {
             const { loggedIn } = this.props;
-            this.props.navigation.navigate('Auth');
+            console.log("AUTHINNAVIGATION",loggedIn,this.props)
+            if(!loggedIn){
+                AsyncStorage.clear();
+            }
+            this.props.navigation.navigate(loggedIn ? 'Security':'Auth');
         })
     }
 
@@ -107,6 +111,7 @@ class InitScreen extends React.PureComponent {
 const mapStateToProps = state => {
     return {
         loggedIn: state.UserReducer.loggedIn,
+        userReducer:state.UserReducer
     };
 };
 

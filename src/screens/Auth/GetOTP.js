@@ -65,7 +65,7 @@ class GetOTP extends PureComponent {
                         flexDirection: 'row',
                         justifyContent: 'center',
                     }}>
-                    <CountryPicker
+                    {/*<CountryPicker
                         // countryList={this.state.countryList}
                         // onClose={() => {}}
                         onSelect={value => {
@@ -87,7 +87,7 @@ class GetOTP extends PureComponent {
                         visible={this.state.visible}
                         onClose={() => this.setState({ visible: false })}
 
-                    />
+                    />*/}
 
 
                     <TouchableOpacity style={{ flexDirection: 'row', flex: 0.2 }}
@@ -97,7 +97,9 @@ class GetOTP extends PureComponent {
                                           this.setState({ visible: true })
                                       }}>
                         <Text style={{ marginTop: '30%', fontSize: 16 }}>+{this.state.callingCode}</Text>
+{/*
                         <Image source={require('../../icons/images.png')} style={{ width: 15, height: 15, transform: [{ rotate: '180deg' }], marginTop: '34%', marginLeft: '10%' }} />
+*/}
                     </TouchableOpacity>
                     <View style={{ flex: 0.7 }}>
                         <TextField
