@@ -33,7 +33,7 @@ export default class DefaultScreen extends Component {
                 <QRCodeScanner
                 showMarker
                     onRead={this.onSuccess}
-                    flashMode={RNCamera.Constants.FlashMode.torch}
+                    flashMode={RNCamera.Constants.FlashMode.off}
                     cameraStyle={{ height: '100%' }}
                     customMarker={
                         <View style={{
