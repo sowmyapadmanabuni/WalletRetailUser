@@ -11,6 +11,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <react-native-branch/RNBranch/RNBranch.h>
+#import <React/RCTLinkingManager.h>
 
 @implementation AppDelegate
 
@@ -42,14 +43,20 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    if (![RNBranch.branch application:app openURL:url options:options]) {
-        // do other deep link routing for the Facebook SDK, Pinterest SDK, etc
-    }
-    return YES;
+    return [RCTLinkingManager application:app openURL:url options:options];
 }
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler {
     return [RNBranch continueUserActivity:userActivity];
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+  return [RCTLinkingManager application:application openURL:url
+                      sourceApplication:sourceApplication annotation:annotation];
+}
+
+
 
 @end

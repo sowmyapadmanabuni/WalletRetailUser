@@ -1,7 +1,7 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { connect } from 'react-redux';
-import { View, ActivityIndicator,AsyncStorage } from 'react-native';
+import { View, ActivityIndicator,AsyncStorage,Linking } from 'react-native';
 import { persistStore } from 'redux-persist';
 import store from './store';
 import CardDetails from './screens/PaymentGateWay/CardDetails';
@@ -98,6 +98,17 @@ const SignupStack = createStackNavigator({
 
 class InitScreen extends React.PureComponent {
     componentDidMount() {
+        Linking.getInitialURL()
+        .then((url) => {
+          if (url) { 
+              console.log("EXTERNAL_URL",url)
+            this.handleExternalLink(url)
+          }
+        })
+        .catch((e) => {})
+
+   Linking.addEventListener('url', this.appWokeUp);
+
         persistStore(store, null, () => {
             const { loggedIn } = this.props;
             console.log("AUTHINNAVIGATION",loggedIn,this.props)
@@ -107,6 +118,25 @@ class InitScreen extends React.PureComponent {
             this.props.navigation.navigate(loggedIn ? 'Security':'Auth');
         })
     }
+    appWokeUp = (event) => {        
+        //alert('Linking Listener'+'url  ' + event.url)  
+        console.log("EXTERNAL_URL_APPWOKE",event)
+        this.handleExternalLink(event.url)  
+     }
+
+   handleExternalLink(url){
+        console.log("EXTERNAL_URL_HANDLE",url)
+       if(url.indexOf("qrcode") != -1){
+           console.log(url)
+           //let token =  (/\d{1,6}$/).exec(url);            
+           //Actions.Password({token:token})
+       }
+   }
+   componentWillUnmount(){
+    // Remove the listener
+    //Linking.removeEventListener('url', this.appWokeUp);
+  }
+
 
     render() {
         return (

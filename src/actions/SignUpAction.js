@@ -20,9 +20,8 @@ export const onSignupFieldChange = ({ prop, value }) => {
   };
 };
 
-export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, navigation,gender,dob,marStatus,numChild,anniDate) => {
-  console.log("response>>>SIGNUP@@@@@@", FirstName, LastName, MobileNumber, Email, CountryCode,gender,dob,marStatus,numChild,anniDate)
-   //gender,dob,marStatus,numChild,anniDate
+export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, navigation,gender,dob) => {
+  console.log("response>>>SIGNUP@@@@@@", FirstName, LastName, MobileNumber, Email, CountryCode,gender,dob)
   return dispatch => {
     dispatch({ type: SIGNUP_SEQUENCE })
     console.log("FirstName", FirstName);
@@ -41,9 +40,9 @@ export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, 
       role: "Retail User",
         gender:gender===0?"Male":"Female",
         DOB:dob,
-      isMarried:marStatus===0?"Yes":"No",
-      noOfKids:numChild,
-      anniversaryDate:anniDate
+      //isMarried:marStatus===0?"Yes":"No",
+     // noOfKids:numChild,
+     // anniversaryDate:anniDate
 
     }).
 
@@ -93,11 +92,11 @@ export const Update = (data, navigation) => {
       // rewardsAvailable : 500,
       registrationId:data.registrationId,
       role: "Retail User",
-      gender:"",
-      DOB:null,
-      isMarried:null,
-      noOfKids:0,
-      anniversaryDate:null
+      gender:data.gender,
+      DOB:data.DOB,
+     // isMarried:data.isMarried,
+     // noOfKids:data.noOfKids,
+      //anniversaryDate:data.anniversaryDate
     }
 
     console.log("userData........", userData);
@@ -157,13 +156,12 @@ export const ShowProfile = (number) => {
     console.log("inside disptch........number1", number1)
 
     return axios.get('http://devapi.oyewallet.com/wallet/api/v1/GetProfileDetailsByMobileNumber/'+number1).
-
-      then(response => {
+    then(response => {
         console.log("ShopProfile response..........", response)
-        var data = response.data;
+      var data = response.data;
         dispatch({
           type: SHOW_PROFILE,
-          payload: data
+          payload:data
         });
 
         return data

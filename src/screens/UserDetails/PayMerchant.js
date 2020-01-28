@@ -46,7 +46,7 @@ export const UserProfile = (props) => {
                 <Text style={{ fontWeight: 'bold' }}>{props.firstName}</Text>
                 <Text>+91 {props.mobileNumber}</Text>
             </View>
-            <TouchableOpacity onPress={props.filter}>
+            <TouchableOpacity onPress={props.filter} >
                 <Image
                     style={{ width: 25, height: 25, marginRight: '5%' }}
                     source={require('../../icons/filter.png')}
@@ -360,7 +360,8 @@ class PayMerchant extends Component {
                         {/* <TouchableOpacity onPress={() => {
                             this.setState({ showData: true, flag: true })
                         }}> */}
-                        <UserProfile filter={() => { this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false }) }} firstName={this.state.firstName} mobileNumber={this.props.OTPReducer.MobileNumber} />
+                        <UserProfile filter={() => { this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false }) }}
+                                     firstName={this.state.firstName} mobileNumber={this.props.OTPReducer.MobileNumber} showData={this.state.showData} />
                         {/* </TouchableOpacity> */}
                         <View>
                             {
