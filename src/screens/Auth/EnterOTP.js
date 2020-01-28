@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableOpacity,Clipboard} from 'react-native';
 import base from "../../base";
 import Button from '../../components/common/Button';
 import {GlobalStyle} from '../../components/common/GlobalStyle';
@@ -47,6 +47,7 @@ class EnterOTP extends Component{
 
     componentDidMount() {
         //this.timer()
+        Clipboard.setString('');
         this.time = setInterval(() => {
             this.setState({
                 timer: this.state.timer - 1
@@ -165,12 +166,12 @@ class EnterOTP extends Component{
                             autoFocusOnLoad
                             codeInputFieldStyle={styles.underlineStyleBase}
                             codeInputHighlightStyle={styles.underlineStyleHighLighted}
-                            // onCodeFilled = {(code => {
-                            //     console.log("CODE: ", code);
+                          onCodeFilled = {(code => {
+                               console.log("CODE: ", code);
                             //     console.log(`Code is ${code}, you are good to go!`);
                             //     this.setState({otp : code});
                             //     this.EnterOTP()
-                            // })}
+                             })}
                         />
                     </View>
                     {

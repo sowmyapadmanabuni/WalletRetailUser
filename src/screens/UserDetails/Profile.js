@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, TouchableOpacity, TextInput, DeviceEventEmitter} from 'react-native';
+import {Text, View, Image, TouchableOpacity, TextInput, DeviceEventEmitter, Alert} from 'react-native';
 import { connect } from 'react-redux';
 import { Update, ShowProfile } from "../../actions";
 import ProgressLoader from '../../components/common/ProgressLoader'
@@ -31,6 +31,41 @@ class Profile extends Component {
             todayDate:moment().format('DD-MM-YYYY'),
         }
     }
+
+    profileValidations = (title, message) => {
+
+        if (base.utils.validate.isBlank(this.state.FirstName)) {
+            Alert.alert("Please Enter First name", message)
+        } else if (!base.utils.validate.alphabetValidation(this.state.FirstName)) {
+            Alert.alert("First name should not contain special characters",message)
+        } else if (this.state.FirstName.length < 1) {
+            Alert.alert("First name should be minimum 1 character",message)
+        } else if (base.utils.validate.isBlank(this.state.LastName)) {
+            Alert.alert("Please Enter Last name", message)
+        } else if (!base.utils.validate.alphabetValidation(this.state.LastName)) {
+            Alert.alert("Last name should not contain special characters",message)
+        } else if (this.state.LastName.length < 1) {
+            Alert.alert("Last name should be minimum 1 character",message)
+        } /*else if (base.utils.validate.isBlank(this.state.mobile)) {
+            Alert.alert("Please Enter Primary mobile number",message)
+        } else if (this.state.mobile.length < 10) {
+            Alert.alert("Please enter a valid (10 digit) Mobile no",message)
+        }*/
+        else if (this.state.isGenderSelected==2) {
+            Alert.alert("Gender is Mandatory",message)
+        } else if (base.utils.validate.isBlank(this.state.Email)) {
+            Alert.alert("Email cannot be empty",message)
+        } else if (!base.utils.validate.validateEmailId(this.state.Email)) {
+            Alert.alert("Please Enter a Valid Email Id",message)
+        }
+        else {
+            this.setState({ showProfile: true, editProfile: false ,visible:true})
+           this.updateProfile()
+        }
+
+
+
+    };
     async updateProfile() {
 
         var accountData = {
@@ -243,7 +278,14 @@ class Profile extends Component {
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
                                             // style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                                            onChangeText={text => this.setState({ FirstName: text })}
+                                          //  onChangeText={text => this.setState({ FirstName: text })}
+                                            onChangeText={(value) =>{
+                                                let num = value.replace(/^[a-zA-Z ]+$/g,  '');
+                                                if (isNaN(num)) {
+                                                    // Its not a number
+                                                } else {
+                                                    this.setState({FirstName:value})
+                                                }}}
                                             value={this.state.FirstName}
                                             //   numberOfLines={2}
                                             style={{ fontSize: 16 }}
@@ -264,7 +306,14 @@ class Profile extends Component {
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
                                             // style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                                            onChangeText={text => this.setState({ LastName: text })}
+                                            //onChangeText={text => this.setState({ LastName: text })}
+                                            onChangeText={(value) =>{
+                                                let num = value.replace(/^[a-zA-Z ]+$/g,  '');
+                                                if (isNaN(num)) {
+                                                    // Its not a number
+                                                } else {
+                                                    this.setState({LastName:value})
+                                                }}}
                                             value={this.state.LastName}
                                             style={{ fontSize: 16 }}
                                             // placeholder='Last Name'
@@ -410,7 +459,7 @@ class Profile extends Component {
                                     } >
                                         <Text>CANCEL</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => [this.updateProfile(), this.setState({ showProfile: true, editProfile: false ,visible:true})]}>
+                                    <TouchableOpacity onPress={() => [this.profileValidations()]}>
                                         <Text style={{ color: 'orange' }}>SAVE</Text>
                                     </TouchableOpacity>
                                 </View>

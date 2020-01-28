@@ -26,9 +26,11 @@ class Amount extends Component {
         super(props);
         this.state = {
             value: 0,
-            amount: '0.00',
+            amount: '',
+            amount2:'',
             payee: '',
-            purposeOfPay:""
+            purposeOfPay:"",
+            maxLen:''
         }
         this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
@@ -67,6 +69,7 @@ class Amount extends Component {
     };
 
     render() {
+        console.log('GET THE DATA',this.props)
         return (
             <View style={{height:'100%',width:'100%',backgroundColor:'orange'}}>
 
@@ -96,18 +99,40 @@ class Amount extends Component {
                         {/*<TextInput style={{...CardDStyle.borderContainer,...Style.inputContainer}}*/}
                         <TextInput
                             value={this.state.amount}
-                            style={styles.amountStyle}
+                            style={{fontSize: 30,
+                                textAlign: 'center',width:'50%',opacity:0}}
+                            placeholder="0"
                             onChangeText={(value) =>{
                                 let num = value.replace(/[^0-9].[^0-9]{2}/g,  '');
                                 if (isNaN(num)) {
                                     // Its not a number
                                 } else {
-                                    this.setState({amount:num})
+                                    let amountLength = num.length;
+                                    console.log("Current: ",num)
+                                    console.log(amountLength)
+                                    if(num.indexOf(".") != -1){
+                                        console.log("Found at ",num.indexOf("."))
+                                        let decimalPosition = num.indexOf(".");
+                                        console.log("Number of decimals = ",(amountLength-decimalPosition)-1)
+                                        let decimalsCount = (amountLength-decimalPosition)-1;
+                                        console.log('Number Length::',num)
+                                        if(decimalsCount <=2){
+                                            this.setState({amount: num,})
+                                        }
+
+                                    }else {
+                                        this.setState({amount: num})
+                                    }
                                 }}}
                             keyboardType={'numeric'}
                             autoFocus={true}
-
+                            maxLength={6}
                         />
+                        <TouchableOpacity>
+                        <Text style={{fontSize: 30,
+                            textAlign: 'center',width:'50%',position: 'absolute',}} numberOfLines={1}>{this.state.amount}</Text>
+                        </TouchableOpacity>
+
                     </View>
                     <View style={{ width: '60%', alignSelf: 'center',height:'80%' }}>
                         <Text style={{ textAlign: 'center', color: base.theme.colors.black, fontSize:18 }}>Purpose of payment</Text>
@@ -135,7 +160,7 @@ class Amount extends Component {
                         />
                         <TouchableOpacity style={{alignSelf:'center', height:40,backgroundColor:'white',width:'40%',
                             borderRadius: 20,alignItems: 'center',justifyContent:'center'}} onPress={() =>
-                        {if (parseInt(this.state.amount) < 1)
+                        {if( (parseInt(this.state.amount) < 1) || this.state.amount=='')
                             Alert.alert("", "Enter some amount !!!")
                         else if(this.state.purposeOfPay==""){
                             Alert.alert('', 'Enter the Purpose of Payment')
@@ -191,7 +216,7 @@ const styles = StyleSheet.create({
     },
     SectionStyle: {
         flexDirection: 'row',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
         borderWidth: .5,

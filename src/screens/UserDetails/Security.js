@@ -120,13 +120,14 @@ class Security extends Component {
             });
 
 
-        if (Platform.OS === 'android') {
-            BackHandler.addEventListener('hardwareBackPress', () => {
-                BackHandler.exitApp();
-                return true;
-            });
-        }
     }
+    componentWillMount() {
+        console.log('SECURITY BACK BUTTON PRESSED')
+
+
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+
 
     showAndroidAlert() {
         BackHandler.addEventListener('hardwareBackPress', () => {
@@ -135,16 +136,30 @@ class Security extends Component {
         });
       //  AndroidOpenSettings.generalSettings()
     }
-
-    componentWillUnmount() {
-        let self = this;
+    handleBackButtonClick() {
         if (Platform.OS === 'android') {
-            BackHandler.removeEventListener('hardwareBackPress', () => {
-                BackHandler.exitApp();
-                return true;
+            var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+                BackHandler.exitApp()
             });
+            setTimeout(
+                () => {
+                    doubleClick.remove()
+                },
+                1500
+            );
+            //console.log("TIME: ",new Date().getTime())
+            //this.showExitAlert();
         }
     }
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+
+        if (Platform.OS === 'android')
+        {
+            BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+        }
+    }
+
     passCodeFail() {
         if (Platform.OS === 'ios') {
             //Linking.canOpenURL('app-settings:')
