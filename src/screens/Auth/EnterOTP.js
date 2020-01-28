@@ -175,7 +175,7 @@ class EnterOTP extends Component{
                     </View>
                     {
                         this.state.timer !== 0 ?
-                        <View style={{flexDirection:'row', alignItems:'center', alignSelf:'flex-end', marginRight:'20%', marginTop: '2%', }}>
+                        <View style={{flexDirection:'row', alignItems:'center', alignSelf:'flex-end', marginRight:'20%', marginTop: '5%', }}>
                             <Text style={EnterOTPStyle.resendOTPTxtStyle}>Resend in </Text>
                             <Text style={[EnterOTPStyle.resendOTPTxtStyle, {fontWeight:'bold',}]}>{this.state.timer}</Text>
                             <Text style={EnterOTPStyle.resendOTPTxtStyle}> sec</Text>
@@ -183,7 +183,7 @@ class EnterOTP extends Component{
                         :
                             <TouchableOpacity
                             onPress={()=> this.getOTP()}
-                                style={{flexDirection:'row', alignItems:'center', alignSelf:'flex-end', marginRight:'20%', marginTop: '2%',}}>
+                                style={{flexDirection:'row', alignItems:'center', alignSelf:'flex-end', marginRight:'20%', marginTop: '5%',}}>
                                 <Text style={EnterOTPStyle.resendOTPTxtStyle}>Resend OTP </Text>
                             </TouchableOpacity>
                     }
@@ -195,7 +195,7 @@ class EnterOTP extends Component{
                     // title="VERIFY AND PROCEED"
                     onPress={() => {
                       this.EnterOTP();
-                  
+
                   //  this.props.navigation.navigate("signup");
                     }}
                   >
@@ -276,4 +276,4 @@ export default connect(
     mapStateToProps,
     {onOTPChangeText, VerifyOTP, GenerateOTP},
 )(EnterOTP);
-    
+

@@ -3,6 +3,12 @@ import { Text, View, Image, TouchableOpacity, TextInput, DeviceEventEmitter} fro
 import { connect } from 'react-redux';
 import { Update, ShowProfile } from "../../actions";
 import ProgressLoader from '../../components/common/ProgressLoader'
+import base from "../../base";
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from "react-native-simple-radio-button";
+import DatePicker from "react-native-datepicker";
+import moment from "moment";
+import Dropdown from "react-native-material-dropdown/src/components/dropdown";
+
 
 class Profile extends Component {
 
@@ -17,18 +23,27 @@ class Profile extends Component {
             Email: '',
             MobileNumber: '',
             refresh: false,
-            visible: true
-
+            visible: true,
+            genderProps: [{label: 'Male', value: 0},
+                {label: 'Female', value: 1}],
+            isGenderSelected:0,
+            dateOfBirth:new Date(moment().subtract(18, 'years').calendar()),
+            todayDate:moment().format('DD-MM-YYYY'),
         }
     }
     async updateProfile() {
+
         var accountData = {
             firstName: this.state.FirstName,
             lastName: this.state.LastName,
             mobileNumber: '+91'+this.props.OTPReducer.MobileNumber,
             email: this.state.Email,
-            registrationId:this.props.ShowProfileReducer.list.data[0].registrationId
-
+            registrationId:this.props.ShowProfileReducer.list.data[0].registrationId,
+            gender:this.state.isGenderSelected===0?"Male":"Female",
+            DOB:moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD'),
+           // isMarried:this.state.isMarriedSelected===0?"Yes":"No",
+           // noOfKids:this.state.selectedChild,
+           // anniversaryDate:moment(this.state.anniversaryDate,'DD-MM-YYYY').format('YYYY-MM-DD')
         };
         console.log("updateProfile@@registrationID", accountData,this.props.ShowProfileReducer.list.data[0].registrationId)
         let resp = await this.props.Update(accountData, this.props.navigation)
@@ -48,11 +63,15 @@ class Profile extends Component {
         // })
 
         this.setState({
+            //             dateOfBirth:new Date(moment().subtract(18, 'years').calendar()),
             visible: false,
             FirstName: (resp && resp.data[0]) ? resp.data[0].firstName : '',
             LastName: (resp && resp.data[0]) ? resp.data[0].lastName : '',
             Email: (resp && resp.data[0]) ? resp.data[0].email : '',
             MobileNumber: (resp && resp.data[0]) ? resp.data[0].mobileNumber : '',
+            isGenderSelected: (resp && resp.data[0]) ? resp.data[0].gender=='Female' ?1:0 : 2 ,//
+            dateOfBirth:  (resp && resp.data[0]) ? moment(resp.data[0].DOB,'YYYY-MM-DD').format('DD-MM-YYYY') :'', //"2002-01-16"
+
         })
     }
 
@@ -92,7 +111,7 @@ class Profile extends Component {
                                         <Text style={{ fontSize: 16 }}>{ShowProfileReducer.mobileNumber}</Text>
                                     </View>
                                 </View>
-                                {/*<View
+                                <View
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
@@ -101,12 +120,27 @@ class Profile extends Component {
                                 />
                                 <View style={{ flexDirection: 'row', marginTop: '10%' }}>
                                     <View style={{ flex: 1 }}>
-                                        <Text style={{ fontSize: 16 }}>Alternate Mobile No</Text>
+                                        <Text style={{ fontSize: 16 }}>Gender</Text>
                                     </View>
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.mobileNumber}</Text>
+                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.gender}</Text>
                                     </View>
-                                </View>*/}
+                                </View>
+                                <View
+                                    style={{
+                                        borderBottomColor: 'grey',
+                                        borderBottomWidth: 0.5,
+                                        marginTop: 5
+                                    }}
+                                />
+                                <View style={{ flexDirection: 'row', marginTop: '10%' }}>
+                                    <View style={{ flex: 1 }}>
+                                        <Text style={{ fontSize: 16 }}>DOB</Text>
+                                    </View>
+                                    <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.DOB}</Text>
+                                    </View>
+                                </View>
                                 <View
                                     style={{
                                         borderBottomColor: 'grey',
@@ -129,6 +163,51 @@ class Profile extends Component {
                                         marginTop: 5
                                     }}
                                 />
+                                {/*<View style={{ flexDirection: 'row', marginTop: '10%' }}>
+                                    <View style={{ flex: 1 }}>
+                                        <Text style={{ fontSize: 16 }}>Married</Text>
+                                    </View>
+                                    <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.isMarried}</Text>
+                                    </View>
+                                </View>
+                                <View
+                                    style={{
+                                        borderBottomColor: 'grey',
+                                        borderBottomWidth: 0.5,
+                                        marginTop: 5
+                                    }}
+                                />
+                                <View style={{ flexDirection: 'row', marginTop: '10%' }}>
+                                    <View style={{ flex: 1 }}>
+                                        <Text style={{ fontSize: 16 }}>Anniversary Date</Text>
+                                    </View>
+                                    <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.isMarried}</Text>
+                                    </View>
+                                </View>
+                                <View
+                                    style={{
+                                        borderBottomColor: 'grey',
+                                        borderBottomWidth: 0.5,
+                                        marginTop: 5
+                                    }}
+                                />
+                                <View style={{ flexDirection: 'row', marginTop: '10%' }}>
+                                    <View style={{ flex: 1 }}>
+                                        <Text style={{ fontSize: 16 }}>Married</Text>
+                                    </View>
+                                    <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                                        <Text style={{ fontSize: 16 }}>{ShowProfileReducer.isMarried}</Text>
+                                    </View>
+                                </View>
+                                <View
+                                    style={{
+                                        borderBottomColor: 'grey',
+                                        borderBottomWidth: 0.5,
+                                        marginTop: 5
+                                    }}
+                                />*/}
                                 <View style={{ flexDirection: 'row', marginTop: '10%' }}>
                                     <View>
                                         <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Edit Profile</Text>
@@ -157,7 +236,7 @@ class Profile extends Component {
                         (this.state.editProfile) ?
                             <View style={{ marginTop: '10%' }}>
                                 <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Edit Profile</Text>
-                                <View style={{ flexDirection: 'row', marginTop: '10%' }}>
+                                <View style={{ flexDirection: 'row', }}>
                                     <View style={{ flex: 1, justifyContent: 'center' }}>
                                         <Text style={{ fontSize: 16 }}>First Name</Text>
                                     </View>
@@ -212,25 +291,94 @@ class Profile extends Component {
                                         />
                                     </View>
                                 </View>
-                                {/*<View
+                                <View
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
                                     }}
                                 />
-                                <View style={{ flexDirection: 'row' }}>
-                                    <View style={{ flex: 1, justifyContent: 'center' }}>
-                                        <Text style={{ fontSize: 16 }}>Alternate Mobile No</Text>
-                                    </View>
-                                    <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                                        <TextInput
-                                            style={{ fontSize: 16 }}
-                                            onChangeText={text => this.setState({ MobileNumber: text })}
-                                            value={this.state.MobileNumber}
-                                            // placeholder='Alternate Mobile No'
-                                        />
-                                    </View>
-                                </View>*/}
+                                <View style={{
+                                    flexDirection: 'row',
+                                    height: '7%',
+                                    width: '90%',
+                                    justifyContent: 'flex-start',
+                                    marginTop:15,
+                                    marginBottom:10
+                                }}>
+                                    <Text style={{fontSize: 16, color: base.theme.colors.black,width:'50%'}}>Gender</Text>
+                                    <RadioForm formHorizontal={true} animation={true}>
+                                        {this.state.genderProps.map((obj, i) => {
+                                            let onPress = (value, index) => {
+                                                this.setState({
+                                                    isGenderSelected : value,
+                                                })
+                                            };
+                                            return (
+                                                <RadioButton labelHorizontal={true} key={i.toString()}>
+                                                    <RadioButtonInput
+                                                        obj={obj}
+                                                        index={i.toString()}
+                                                        isSelected={this.state.isGenderSelected === i}
+                                                        onPress={onPress}
+                                                        buttonInnerColor={base.theme.colors.primary}
+                                                        buttonOuterColor={base.theme.colors.primary}
+                                                        buttonSize={10}
+                                                        buttonStyle={{borderWidth: 0.7}}
+                                                        buttonWrapStyle={{marginLeft:20}}
+                                                    />
+                                                    <RadioButtonLabel
+                                                        obj={obj}
+                                                        index={i.toString()}
+                                                        onPress={onPress}
+                                                        labelStyle={{color: base.theme.colors.grey}}
+                                                        labelWrapStyle={{marginLeft: 10}}
+                                                    />
+                                                </RadioButton>
+                                            )
+                                        })}
+                                    </RadioForm>
+                                </View>
+                                <View
+                                    style={{
+                                        borderBottomColor: 'grey',
+                                        borderBottomWidth: 0.5,
+                                    }}
+                                />
+                                <View style={{width:'100%',flexDirection:'row',alignItems: 'center'}}>
+                                    <Text style={{color:base.theme.colors.black,width:'60%',}}>DOB</Text>
+                                    <DatePicker
+                                        style={{width: '40%',}}
+                                        date={this.state.dateOfBirth}
+                                        mode="date"
+                                        placeholder="select date"
+                                        format="DD-MM-YYYY"
+                                        //minDate={new Date(moment().subtract(18, 'years').calendar())}
+                                        maxDate={new Date(moment().subtract(18, 'years').calendar())}
+                                        iconSource={require('../../icons/cal.png')}
+                                        confirmBtnText="Confirm"
+                                        cancelBtnText="Cancel"
+                                        showIcon={true}
+                                        customStyles={{
+                                            dateIcon: {
+                                                left: 2,
+                                                alignSelf: 'flex-end',
+                                                marginLeft: 0,
+                                                marginBottom:2
+                                            },
+                                            dateInput: {
+                                                borderWidth: 0,
+                                                color: base.theme.colors.black,
+                                                height: 30,
+                                                width: 30,
+                                                alignItems:'flex-start',
+
+                                            }
+                                        }}
+                                        onDateChange={(date) => {
+                                            this.setState({dateOfBirth:date})
+                                        }}
+                                    />
+                                </View>
                                 <View
                                     style={{
                                         borderBottomColor: 'grey',
@@ -256,6 +404,7 @@ class Profile extends Component {
                                         borderBottomWidth: 0.5,
                                     }}
                                 />
+
                                 <View style={{ alignItems: 'center', justifyContent: 'space-around', marginTop: '10%', flexDirection: 'row' }}>
                                     <TouchableOpacity onPress={() => [this.setState({ showProfile: true, editProfile: false }), this.showProfile()]
                                     } >

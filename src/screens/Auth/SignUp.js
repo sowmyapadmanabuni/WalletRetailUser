@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {View, Text, TextInput, Image, StyleSheet, TouchableOpacity, Alert} from "react-native";
+import {View, Text, TextInput, Image, StyleSheet, TouchableOpacity, Alert,Platform,BackHandler} from "react-native";
 import Button from '../../components/common/Button';
 import { GlobalStyle } from '../../components/common/GlobalStyle';
 import Validation from "../../components/common/Validation";
@@ -23,7 +23,6 @@ import DatePicker from "react-native-datepicker";
 import moment from "moment";
 import Dropdown from "react-native-material-dropdown/src/components/dropdown";
 
-let dateOfBirthD;
 
 
 
@@ -49,7 +48,7 @@ class SignUp extends Component {
             email:'',
             genderProps: [{label: 'Male', value: 0},
             {label: 'Female', value: 1}],
-            isGenderSelected:0,
+            isGenderSelected:2,
             marriedProps: [{label: 'Yes', value: 0},
                 {label: 'No', value: 1}],
             isMarriedSelected:0,
@@ -59,6 +58,28 @@ class SignUp extends Component {
             dateOfBirth:new Date(moment().subtract(18, 'years').calendar()),
             selectedChild:0,
         };
+    }
+    componentWillMount() {
+
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+    handleBackButtonClick() {
+        if (Platform.OS === 'android') {
+            var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+                    BackHandler.exitApp()
+                });
+                setTimeout(
+                    () => {
+                        doubleClick.remove()
+                    },
+                    1500
+                );
+                //console.log("TIME: ",new Date().getTime())
+                //this.showExitAlert();
+            }
+        }
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
 
     render() {
@@ -84,12 +105,13 @@ class SignUp extends Component {
                                 //onSignupFieldChange({ prop: "FirstName", value: FirstName })
                             }*/
                             onChangeText={(value) =>{
-                                let num = value.replace(/^[a-zA-Z ]+$/g,  '');
+                               /* let num = value.replace(/^[a-zA-Z ]+$/g,  '');
                                 if (isNaN(num)) {
                                     // Its not a number
                                 } else {
                                     this.setState({fName:value})
-                                }}}
+                                }}*/
+                                this.setState({fName:value})}}
                             // onChangeText={(text) => this.setState({payeeName: text})}
                             keyboardType={Platform.OS === 'ios'? 'ascii-capable':'visible-password'}
                             fontSize={13}
@@ -97,12 +119,21 @@ class SignUp extends Component {
                         <TextField
                             label="Last Name"
                             value={LastName}
-                            onChangeText={LastName =>
+                            onChangeText={(value) =>{
+                                let num = value.replace(/^[a-zA-Z ]+$/g,  '');
+                                if (isNaN(num)) {
+                                    // Its not a number
+                                } else {
+                                    this.setState({lName:value})
+                                }}}
+                            // onChangeText={(text) => this.setState({payeeName: text})}
+                            keyboardType={Platform.OS === 'ios'? 'ascii-capable':'visible-password'}
+                           /* onChangeText={LastName =>
                                 this.setState({
                                     lName:LastName
                                 })
                                 //onSignupFieldChange({ prop: "LastName", value: LastName })
-                            }
+                            }*/
                             fontSize={13}
 
                         />
@@ -248,7 +279,7 @@ class SignUp extends Component {
                         />
 
                     </View>
-                    <View style={{marginTop:20,width:'90%',alignSelf:'center' }}>
+     {/*               <View style={{marginTop:20,width:'90%',alignSelf:'center' }}>
                         <Text style={{color:base.theme.colors.black,fontSize:16}}>(Optional)</Text>
                         <Text style={{fontSize:14,color:base.theme.colors.grey,marginTop:3}}>To get notification for tailored offers please update the following - </Text>
 
@@ -369,7 +400,7 @@ class SignUp extends Component {
                             :
                             <View/>}
 
-                    </View>
+                    </View>*/}
 
                    {/* <Button style={{ marginTop: 30,marginBottom:100, width: "80%", color: base.theme.colors.white,alignSelf:'center'}}
                             title="SIGN UP"
@@ -429,7 +460,11 @@ class SignUp extends Component {
             Alert.alert("Please Enter Primary mobile number",message)
         } else if (this.state.mobile.length < 10) {
             Alert.alert("Please enter a valid (10 digit) Mobile no",message)
-        }*/else if (base.utils.validate.isBlank(this.state.email)) {
+        }*/
+        else if (this.state.isGenderSelected==2) {
+            Alert.alert("Gender is Mandatory",message)
+        }
+        else if (base.utils.validate.isBlank(this.state.email)) {
             Alert.alert("Email cannot be empty",message)
         } else if (!base.utils.validate.validateEmailId(this.state.email)) {
             Alert.alert("Please Enter a Valid Email Id",message)
@@ -438,9 +473,8 @@ class SignUp extends Component {
 
             const { MobileNumber } = this.props;
 
-            this.props.Register(this.state.fName, this.state.lName,  "+91" + this.props.MobileNumber, this.state.email,
-                "+91", this.props.navigation, this.state.isGenderSelected,moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD'),this.state.isMarriedSelected,
-                this.state.selectedChild,moment(this.state.anniversaryDate,'DD-MM-YYYY').format('YYYY-MM-DD'));
+            this.props.Register(this.state.fName, this.state.lName,"+91" + this.props.MobileNumber, this.state.email,
+                "+91", this.props.navigation, this.state.isGenderSelected,moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD'));
         }
 
 

@@ -224,15 +224,16 @@ s
                   visible={this.state.visible}
                   onClose={() => this.setState({ visible: false })}
                 />
-
-                <TouchableOpacity
+                {/*<TouchableOpacity
                 style={{flex:0.3,flexDirection:'row',marginLeft:'5%',marginTop:'10%'}}
                   onPress={() => {
                     this.setState({ visible: true })
-                  }}>
+                  }}>*/}
+                  <View style={{flex:0.3,flexDirection:'row',marginLeft:'5%',marginTop:'10%'}}>
                   <Text style={{fontSize:16}}>+{this.state.callingCode}</Text>
-                  <Image source={require('../../icons/images.png')} style={{width:15,height:15, transform: [{ rotate: '180deg' }],marginLeft:'10%',marginTop:'5%'}}/>
-                </TouchableOpacity>
+                 {/* <Image source={require('../../icons/images.png')} style={{width:15,height:15, transform: [{ rotate: '180deg' }],marginLeft:'10%',marginTop:'5%'}}/>
+                </TouchableOpacity>*/}
+                  </View>
                 <View style={{ flex: 0.7 }}>
                   <TextField
                       value={this.state.number}
