@@ -31,6 +31,7 @@ import ConfirmPassWord from "./screens/Authentication/CreatePasscode/ConfirmPass
 import ConfirmPin from "./screens/Authentication/CreatePin/ConfirmPin";
 import EnterPassCode from "./screens/Authentication/CreatePasscode/EnterPasscode";
 import EnterPin from "./screens/Authentication/CreatePin/EnterPin";
+import base from './base'
 
 const DashStack = createStackNavigator({
     CardDetails: { screen: CardDetails }
@@ -128,14 +129,53 @@ class InitScreen extends React.PureComponent {
         console.log("EXTERNAL_URL_HANDLE",url)
        if(url.indexOf("qrcode") != -1){
            console.log(url)
-           //let token =  (/\d{1,6}$/).exec(url);            
-           //Actions.Password({token:token})
+           this.handleQRCode(url)
        }
    }
-   componentWillUnmount(){
-    // Remove the listener
-    //Linking.removeEventListener('url', this.appWokeUp);
+   componentWillUnmount(){    
+    Linking.removeEventListener('url', this.appWokeUp);    
   }
+
+  handleQRCode(qrData){
+    const { loggedIn } = this.props;
+    if(loggedIn){
+
+        var idString = qrData.match(/(id=)\w+/g);
+        if(idString.length > 0){
+            idString = idString[0]
+            console.log(idString)
+            if(idString.indexOf("id=") != -1){
+                idString = idString.replace("id=","");
+                this.processMerchant(idString)
+            }
+        }   
+    }
+  }
+
+  async processMerchant(merchantId){
+    this.setState({isLoading:true})
+    let merchResp = await base.service.api.getMerchant(merchantId);
+    this.setState({isLoading:false})
+    console.log(merchResp)
+    if(merchResp.data != undefined && merchResp.data.errorMessage == undefined){
+        
+        let merchant = merchResp.data;
+        let mobMerchant = merchant.mobileNumber;
+        let storeName = merchant.brandName;
+        if(mobMerchant != undefined){
+            //console.log(merchant.mobileNumber)
+            this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobMerchant})
+        }else{                
+            //this.showQRError('Merchant Not Found')
+            //this.reactivateScanner();
+        }
+    }else{
+        //this.showQRError('Merchant Not Found')
+        
+    }
+}
+
+  
 
 
     render() {
