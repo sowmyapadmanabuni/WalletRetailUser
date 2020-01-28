@@ -2,17 +2,17 @@ import logger from './logger';
 import strings from './strings';
 import storage from './storage';
 import payment from './payment'
-//import storage from './storage';
+import widgets from './widgets';
 
-// import {validate} from './validate'
+import validate from './validate'
 
 const utils = {
     logger,
     strings,
    storage,
-    payment
-   // storage
-    // validate,
+    payment,
+    widgets,
+     validate,
 };
 
 

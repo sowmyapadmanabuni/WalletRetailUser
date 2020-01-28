@@ -39,6 +39,7 @@ import GetOTP from './src/screens/Auth/GetOTP';
 import WebViews from './src/screens/WebViews';
 import TransactionDetail from './src/screens/UserDetails/TransactionDetail'
 import { StatusBarPlaceHolder } from './StatusBarPlaceHolder';
+import FlashMessage from "react-native-flash-message";
 
 class App extends React.Component {
   barcodeRecognized = ({ barcodes }) => {
@@ -51,6 +52,7 @@ class App extends React.Component {
        <Provider store ={store}>
        {/* <PayMerchant /> */}
       <StatusBarPlaceHolder />
+      <FlashMessage position="top" />
          <Navigation/>
        {/* <ScanningExample/> */}
        

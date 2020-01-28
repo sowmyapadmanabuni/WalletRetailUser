@@ -1,4 +1,11 @@
-import {SIGNUP_SEQUENCE, ON_FIELD_CHANGE, ACCOUNT_UPDATE, SHOW_PROFILE, ON_OTP_FIELD_CHANGE} from './types';
+import {
+  SIGNUP_SEQUENCE,
+  ON_FIELD_CHANGE,
+  ACCOUNT_UPDATE,
+  SHOW_PROFILE,
+  ON_OTP_FIELD_CHANGE,
+  UPDATE_lOGGEDIN
+} from './types';
 import axios from "axios";
 import Toast from 'react-native-simple-toast';
 import api from '../base/utils/strings';
@@ -49,6 +56,11 @@ export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, 
           type: SIGNUP_SEQUENCE,
           payload: "Signed Up Successfully"
         });
+       dispatch({
+        type:UPDATE_lOGGEDIN,
+        payload:true,
+        // payload:({prop:"loggedIn",value:true})
+      })
 
         Toast.show('Registered Successfully', Toast.SHORT);
         setTimeout(function () {

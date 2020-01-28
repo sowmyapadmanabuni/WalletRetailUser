@@ -6,6 +6,9 @@
 	<array>
 		<string>applinks:qk2vx.test-app.link</string>
 		<string>applinks:test-app.link</string>
+		<string>applinks:dev.oyewallet.com</string>
+		<string>applinks:oyewallet.com</string>
+		<string>applinks:devapi.oyewallet.com</string>
 	</array>
 </dict>
 </plist>

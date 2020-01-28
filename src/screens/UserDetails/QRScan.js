@@ -24,6 +24,8 @@ import {
   FilledTextField,
   OutlinedTextField,
 } from 'react-native-material-textfield';
+import {connect} from "react-redux";
+import {GenerateOTP, onOTPChangeText, VerifyOTP} from "../../actions";
 class QRScan extends Component {
   constructor(props) {
     super(props);
@@ -106,9 +108,14 @@ s
   }
 
     checkNumber(){
+      console.log('GET MOB @@@@@',this.props)
         if ( !Validation.Mobileregex.test(this.state.number) || this.state.number.length !== 10 ){
             Alert.alert("Alert", "Enter Valid Mobile Number");
             return false
+        }
+        else if(this.props.MobileNumber==this.state.number){
+            Alert.alert("Alert", "You can't pay for your number");
+
         }
         else{
             return true
@@ -128,7 +135,7 @@ s
 
 
   openQRScreen(){
-    that.props.navigation.navigate("Scanned");
+    this.props.navigation.navigate("Scanned");
   }
 
     onPress = () => {
@@ -138,6 +145,7 @@ s
     };
 
   render() {
+      console.log("PROPRRRRR@@@@@@",this.props)
       const { width } = Dimensions.get('screen');
       const leftTop = {
           borderLeftWidth: 3,
@@ -349,5 +357,14 @@ s
 
 };
 
+const mapStateToProps = state => {
+    return {
+        MobileNumber: state.OTPReducer.MobileNumber,
+        // otp          : state.OTPReducer.otp,
+    };
+};
+export default connect(
+    mapStateToProps)(QRScan);
 
-export default QRScan;
+
+//export default QRScan;

@@ -92,7 +92,7 @@ class Profile extends Component {
                                         <Text style={{ fontSize: 16 }}>{ShowProfileReducer.mobileNumber}</Text>
                                     </View>
                                 </View>
-                                <View
+                                {/*<View
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
@@ -106,7 +106,7 @@ class Profile extends Component {
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <Text style={{ fontSize: 16 }}>{ShowProfileReducer.mobileNumber}</Text>
                                     </View>
-                                </View>
+                                </View>*/}
                                 <View
                                     style={{
                                         borderBottomColor: 'grey',
@@ -208,10 +208,11 @@ class Profile extends Component {
                                             onChangeText={text => this.setState({ MobileNumber: text })}
                                             value={this.state.MobileNumber}
                                             // placeholder='Mobile No'
+                                            editable={false}
                                         />
                                     </View>
                                 </View>
-                                <View
+                                {/*<View
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
@@ -229,7 +230,7 @@ class Profile extends Component {
                                             // placeholder='Alternate Mobile No'
                                         />
                                     </View>
-                                </View>
+                                </View>*/}
                                 <View
                                     style={{
                                         borderBottomColor: 'grey',

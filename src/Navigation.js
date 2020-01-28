@@ -64,7 +64,9 @@ const DashStack = createStackNavigator({
             WebView: WebViews,
             QR: QRScan,
             Scanned: ScanningExample,
-            Amount: Amount,
+            Amount: {screen:Amount,navigationOptions: {
+                gesturesEnabled: false,
+            }},
             CardDetails: CardDetails,
             Profile: Profile,
             Statement: Statement,

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, TextInput, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {View, Text, TextInput, Image, StyleSheet, TouchableOpacity, Alert} from "react-native";
 import Button from '../../components/common/Button';
 import { GlobalStyle } from '../../components/common/GlobalStyle';
 import Validation from "../../components/common/Validation";
@@ -56,8 +56,8 @@ class SignUp extends Component {
             anniversaryDate:moment().format('DD-MM-YYYY'),
             todayDate:moment().format('DD-MM-YYYY'),
             childList:[{value:0,details:"KID0"},{value:1,details:"KID1"},{value:2,details:"KID2"},{value:3,details:"KID3"},{value:4,details:"KID4"},{value:5,details:"KID5"}],
-            dateOfBirth:moment().format('DD-MM-YYYY'),
-            selectedChild:0
+            dateOfBirth:new Date(moment().subtract(18, 'years').calendar()),
+            selectedChild:0,
         };
     }
 
@@ -73,16 +73,26 @@ class SignUp extends Component {
                 </View>
 
                 <ScrollView>
-                    <View style={{ marginTop: 70, marginLeft: 20, marginRight: 20, flex: 1, }}>
+                    <View style={{ width:'70%',alignSelf:'center'}}>
                         <TextField
                             label='First Name'
                             value={FirstName}
-                            onChangeText={FirstName =>
+                           /* onChangeText={FirstName =>
                                 this.setState({
                                     fName:FirstName
                                 })
                                 //onSignupFieldChange({ prop: "FirstName", value: FirstName })
-                            }
+                            }*/
+                            onChangeText={(value) =>{
+                                let num = value.replace(/^[a-zA-Z ]+$/g,  '');
+                                if (isNaN(num)) {
+                                    // Its not a number
+                                } else {
+                                    this.setState({fName:value})
+                                }}}
+                            // onChangeText={(text) => this.setState({payeeName: text})}
+                            keyboardType={Platform.OS === 'ios'? 'ascii-capable':'visible-password'}
+                            fontSize={13}
                         />
                         <TextField
                             label="Last Name"
@@ -93,13 +103,69 @@ class SignUp extends Component {
                                 })
                                 //onSignupFieldChange({ prop: "LastName", value: LastName })
                             }
+                            fontSize={13}
+
                         />
+                        <View style={{borderBottomWidth: 0.5, borderBottomColor: base.theme.colors.grey,width:'100%' , height:40,justifyContent:'flex-end', }}>
+                            {/* <TouchableOpacity
+                                        onPress={() => {
+                                            this.setState({ visible: true })
+                                        }}>
+                                        <Text style={{marginTop:'30%',fontSize:14}}>+{this.state.callingCode}</Text>
+                                    </TouchableOpacity>*/}
+                            <Text style={{fontSize:14,marginBottom:5}}>+{this.state.callingCode}-{' '}{MobileNumber}</Text>
+                        </View>
+                       {/* <View>
+                            <CountryPicker
+
+                                onSelect={value => {
+
+                                    this.setState({
+                                        cca2: value.cca2,
+                                        callingCode: value.callingCode,
+                                    });
+                                }}
+
+                                countryCode={this.state.cca2}
+                                withCallingCode
+                                translation="eng"
+                                withFlagButton={false}
+                                visible={this.state.visible}
+                                onClose={() => this.setState({ visible: false })}
+
+                            />
+                             <Text style={{ marginTop: 15 }}>Mobile Number</Text>
+
+                            <View style={{ flexDirection: 'row',backgroundColor:'red',height:60}}>
+
+
+                                <View style={{width:'80%',justifyContent:'flex-start'}}>
+                                    <TextField
+
+                                        label="Mobile Number"
+                                        value={MobileNumber}
+                                        onChangeText={MobileNumber =>
+                                            this.setState({
+                                                mobile:MobileNumber
+                                            })
+                                            //onSignupFieldChange({ prop: "MobileNumber", value: MobileNumber })
+                                        }
+                                        // disabled={true}
+                                        // textColor={base.theme.colors.black}
+                                        // disabledLineType={"solid"}
+                                        //disabledLineWidth={0.5}
+                                        editable={false}
+                                    />
+                                </View>
+                            </View>
+                        </View>*/}
                         <View style={{
                             flexDirection: 'row',
-                            height: '6%',
+                            height: '7%',
                             width: '90%',
                             justifyContent: 'flex-start',
-                            marginTop: 25,
+                            marginTop:15,
+                            marginBottom:10
                         }}>
                             <Text style={{fontSize: 16, color: base.theme.colors.black}}>Gender</Text>
                             <RadioForm formHorizontal={true} animation={true}>
@@ -154,8 +220,6 @@ class SignUp extends Component {
                                     alignSelf: 'flex-end',
                                     marginLeft: 0,
                                     marginBottom:2
-
-
                                 },
                                 dateInput: {
                                     borderWidth: 0,
@@ -171,56 +235,6 @@ class SignUp extends Component {
                             }}
                         />
                         </View>
-                        <View>
-                            <CountryPicker
-
-                                onSelect={value => {
-
-                                    this.setState({
-                                        cca2: value.cca2,
-                                        callingCode: value.callingCode,
-                                    });
-                                }}
-
-                                countryCode={this.state.cca2}
-                                withCallingCode
-                                translation="eng"
-                                withFlagButton={false}
-                                visible={this.state.visible}
-                                onClose={() => this.setState({ visible: false })}
-
-                            />
-                            {/* <Text style={{ marginTop: 15 }}>Mobile Number</Text> */}
-                            <View style={{ flexDirection: 'row' }}>
-
-                                    <View style={{  borderBottomWidth: 0.5, borderBottomColor: '#B5B5B5',width:'20%' ,justifyContent:'center',marginBottom:'2.3%'}}>
-                                    <TouchableOpacity
-                                        onPress={() => {
-                                            this.setState({ visible: true })
-                                        }}>
-                                        <Text style={{marginTop:'30%',fontSize:16}}>+{this.state.callingCode}</Text>
-                                    </TouchableOpacity>
-                                    </View>
-                                    <View style={{width:'80%',justifyContent:'flex-start'}}>
-                                    <TextField
-
-                                        label="Mobile Number"
-                                        value={MobileNumber}
-                                        onChangeText={MobileNumber =>
-                                            this.setState({
-                                                mobile:MobileNumber
-                                            })
-                                            //onSignupFieldChange({ prop: "MobileNumber", value: MobileNumber })
-                                        }
-                                       // disabled={true}
-                                       // textColor={base.theme.colors.black}
-                                       // disabledLineType={"solid"}
-                                        //disabledLineWidth={0.5}
-                                        editable={false}
-                                    />
-                                    </View>
-                            </View>
-                        </View>
                         <TextField
                             label="Email ID"
                             value={Email}
@@ -230,56 +244,58 @@ class SignUp extends Component {
                                 })
                                 //onSignupFieldChange({ prop: "Email", value: Email })
                             }
+                            fontSize={13}
                         />
 
-                        <View style={{marginTop:60, marginLeft:1 }}>
-                            <Text style={{color:base.theme.colors.black,fontSize:18}}>(Optional)</Text>
-                            <Text style={{fontSize:16,color:base.theme.colors.grey,marginTop:3}}>To get notification for tailored offers please update the following - </Text>
+                    </View>
+                    <View style={{marginTop:20,width:'90%',alignSelf:'center' }}>
+                        <Text style={{color:base.theme.colors.black,fontSize:16}}>(Optional)</Text>
+                        <Text style={{fontSize:14,color:base.theme.colors.grey,marginTop:3}}>To get notification for tailored offers please update the following - </Text>
 
+                    </View>
+                    <View style={{width:'90%',borderWidth:1,alignSelf:'center',
+                        borderColor:base.theme.colors.black,marginTop:20,borderRadius:5,alignItems:'flex-start',justifyContent:'center',paddingBottom:20,paddingLeft:5}}>
+                        <View style={{
+                            flexDirection: 'row',
+                            //height: '6%',
+                            //width: '90%',
+                            justifyContent: 'flex-start',
+                            marginTop: 20,
+                        }}>
+                            <Text style={{fontSize: 16, color: base.theme.colors.black, }}>Married</Text>
+                            <RadioForm formHorizontal={true} animation={true}>
+                                {this.state.marriedProps.map((obj, i) => {
+                                    let onPress = (value, index) => {
+                                        this.setState({
+                                            isMarriedSelected : value,
+                                        })
+                                    };
+                                    return (
+                                        <RadioButton labelHorizontal={true} key={i.toString()}>
+                                            <RadioButtonInput
+                                                obj={obj}
+                                                index={i.toString()}
+                                                isSelected={this.state.isMarriedSelected === i}
+                                                onPress={onPress}
+                                                buttonInnerColor={base.theme.colors.primary}
+                                                buttonOuterColor={base.theme.colors.primary}
+                                                buttonSize={10}
+                                                buttonStyle={{borderWidth: 0.7}}
+                                                buttonWrapStyle={{marginLeft: 40}}
+                                            />
+                                            <RadioButtonLabel
+                                                obj={obj}
+                                                index={i.toString()}
+                                                onPress={onPress}
+                                                labelStyle={{color: base.theme.colors.grey}}
+                                                labelWrapStyle={{marginLeft:5}}
+                                            />
+                                        </RadioButton>
+                                    )
+                                })}
+                            </RadioForm>
                         </View>
-                        <View style={{width:'100%',borderWidth:1,
-                            borderColor:base.theme.colors.black,marginTop:20,borderRadius:5,alignItems:'flex-start',justifyContent:'center',paddingBottom:20}}>
-                            <View style={{
-                                flexDirection: 'row',
-                                //height: '6%',
-                                //width: '90%',
-                                justifyContent: 'flex-start',
-                                marginTop: 25,
-                            }}>
-                                <Text style={{fontSize: 16, color: base.theme.colors.black, }}>Married</Text>
-                                <RadioForm formHorizontal={true} animation={true}>
-                                    {this.state.marriedProps.map((obj, i) => {
-                                        let onPress = (value, index) => {
-                                            this.setState({
-                                                isMarriedSelected : value,
-                                            })
-                                        };
-                                        return (
-                                            <RadioButton labelHorizontal={true} key={i.toString()}>
-                                                <RadioButtonInput
-                                                    obj={obj}
-                                                    index={i.toString()}
-                                                    isSelected={this.state.isMarriedSelected === i}
-                                                    onPress={onPress}
-                                                    buttonInnerColor={base.theme.colors.primary}
-                                                    buttonOuterColor={base.theme.colors.primary}
-                                                    buttonSize={10}
-                                                    buttonStyle={{borderWidth: 0.7}}
-                                                    buttonWrapStyle={{marginLeft: 40}}
-                                                />
-                                                <RadioButtonLabel
-                                                    obj={obj}
-                                                    index={i.toString()}
-                                                    onPress={onPress}
-                                                    labelStyle={{color: base.theme.colors.grey}}
-                                                    labelWrapStyle={{marginLeft:5}}
-                                                />
-                                            </RadioButton>
-                                        )
-                                    })}
-                                </RadioForm>
-                            </View>
-                            {this.state.isMarriedSelected==0 ?
+                        {this.state.isMarriedSelected==0 ?
                             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
                                 <Text style={{marginRight:20}}>No of Kids</Text>
                                 <Dropdown
@@ -307,66 +323,70 @@ class SignUp extends Component {
                                 />
 
                             </View>
-                                :
+                            :
                             <View/>}
-                            {this.state.isMarriedSelected==0 ?
-                                <View style={{flexDirection:'row',width:'100%',alignItems: 'center',justifyContent:'center'}}>
-                                <Text style={{fontSize:14,marginRight:10}}>Anniversary Date</Text>
-                            <View style={{flexDirection:'row',width:'50%'}}>
-                            <DatePicker
-                                style={{width: '80%',borderBottomWidth :1,borderBottomColor: base.theme.colors.grey}}
-                                date={this.state.anniversaryDate}
-                                mode="date"
-                                placeholder="select date"
-                                format="DD-MM-YYYY"
-                              //minDate={this.state.todayDate}
-                                 maxDate={this.state.todayDate}
-                                iconSource={require('../../icons/cal.png')}
-                                confirmBtnText="Confirm"
-                                cancelBtnText="Cancel"
-                                showIcon={true}
-                                customStyles={{
-                                    dateIcon: {
-                                        left: 2,
-                                        alignSelf: 'flex-end',
-                                        marginLeft: 0,
-                                        marginBottom:2
+                        {this.state.isMarriedSelected==0 ?
+                            <View style={{flexDirection:'row',width:'100%',alignItems: 'center',justifyContent:'flex-start'}}>
+                                <Text style={{fontSize:16,marginRight:10}}>Anniversary Date</Text>
+                                <View style={{flexDirection:'row',width:'50%'}}>
+                                    <DatePicker
+                                        style={{width: '80%',borderBottomWidth :1,borderBottomColor: base.theme.colors.grey}}
+                                        date={this.state.anniversaryDate}
+                                        mode="date"
+                                        placeholder="select date"
+                                        format="DD-MM-YYYY"
+                                        //minDate={this.state.todayDate}
+                                        maxDate={this.state.todayDate}
+                                        iconSource={require('../../icons/cal.png')}
+                                        confirmBtnText="Confirm"
+                                        cancelBtnText="Cancel"
+                                        showIcon={true}
+                                        customStyles={{
+                                            dateIcon: {
+                                                left: 2,
+                                                alignSelf: 'flex-end',
+                                                marginLeft: 0,
+                                                marginBottom:2
 
 
-                                    },
-                                    dateInput: {
-                                        borderWidth: 0,
-                                        color: base.theme.colors.black,
-                                        height: 30,
-                                        width: 30,
-                                        alignItems:'flex-start',
+                                            },
+                                            dateInput: {
+                                                borderWidth: 0,
+                                                color: base.theme.colors.black,
+                                                height: 30,
+                                                width: 30,
+                                                alignItems:'flex-start',
 
-                                    }
-                                }}
-                                onDateChange={(date) => {
-                                    this.setState({anniversaryDate:date})
-                                }}
-                            />
+                                            }
+                                        }}
+                                        onDateChange={(date) => {
+                                            this.setState({anniversaryDate:date})
+                                        }}
+                                    />
+                                </View>
+
                             </View>
+                            :
+                            <View/>}
 
-                            </View>
-                                :
-                                <View/>}
+                    </View>
 
-
-                        </View>
-
-
-                        <Button style={{ marginTop: 30,marginBottom:100, width: "80%", color: base.theme.colors.white,alignSelf:'center'}}
+                   {/* <Button style={{ marginTop: 30,marginBottom:100, width: "80%", color: base.theme.colors.white,alignSelf:'center'}}
                             title="SIGN UP"
                             onPress={() => {
                                 this.RegisterMobileNumberCheck();
                                 // this.props.navigation.navigate("PayMerchant");
                             }}
 
-                        />
+                    />*/}
+                    <View style={{alignItems:'center'}}>
+                    <TouchableOpacity onPress={() => {
+                        this.RegisterMobileNumberCheck();
+                        // this.props.navigation.navigate("PayMerchant");
+                    }} style={{marginTop: 30,marginBottom:100, }}>
+                        <Text style={{fontSize:16,color:base.theme.colors.primary,fontWeight:'bold'}}>SIGN UP</Text>
+                    </TouchableOpacity>
                     </View>
-
 
                 </ScrollView>
             </View>
@@ -374,50 +394,56 @@ class SignUp extends Component {
         )
     };
 
-    /* Original
-    signUpValidations = () => {
-        const { FirstName, LastName, Email, MobileNumber } = this.props;
-        if (Validation.Alphabets.test(FirstName) === false) {
-            alert("Enter Valid FirstName");
-        }
-        else if (Validation.Alphabets.test(LastName) === false) {
-            alert("Enter Valid LastName");
-        }
-        else if (Validation.emailRegex.test(Email) === false) {
-            alert("Enter Valid Email");
-        }
-        else if (Validation.Mobileregex.test(MobileNumber) === false) {
-            alert("Enter Valid MobileNumber");
-        } else {
-            //this.props.navigation.navigate("viewas");
-            this.props.Register(FirstName, LastName, MobileNumber, Email, "+91", this.props.navigation);
-        }
-    }
-    */
+   /*
+
+            mobile:'',
+            email:'',
+            genderProps: [{label: 'Male', value: 0},
+            {label: 'Female', value: 1}],
+            isGenderSelected:0,
+            marriedProps: [{label: 'Yes', value: 0},
+                {label: 'No', value: 1}],
+            isMarriedSelected:0,
+            anniversaryDate:moment().format('DD-MM-YYYY'),
+            todayDate:moment().format('DD-MM-YYYY'),
+            childList:[{value:0,details:"KID0"},{value:1,details:"KID1"},{value:2,details:"KID2"},{value:3,details:"KID3"},{value:4,details:"KID4"},{value:5,details:"KID5"}],
+            dateOfBirth:moment().format('DD-MM-YYYY'),
+            selectedChild:0*/
 
     // modified
-    signUpValidations = () => {
-        //const { FirstName, LastName, Email, MobileNumber } = this.props;
-       /* if (Validation.Alphabets.test(this.state.fName) === false) {
-            alert("Enter Valid FirstName");
-        }
-        else if (Validation.Alphabets.test(this.state.lName) === false) {
-            alert("Enter Valid LastName");
-        }
-        else if (Validation.emailRegex.test(this.state.email) === false) {
-            alert("Enter Valid Email");
-        }
-        else if (Validation.Mobileregex.test(this.state.mobile) === false) {
-            alert("Enter Valid MobileNumber");
-        } else {
-            //this.props.navigation.navigate("viewas");
-            this.props.Register(this.state.fName, this.state.lName, this.state.mobile, this.state.email, "+91", this.props.navigation);
-        }*/
-        const { MobileNumber } = this.props;
+    signUpValidations = (title, message) => {
 
-        this.props.Register(this.state.fName, this.state.lName,  "+91" + this.props.MobileNumber, this.state.email,
-            "+91", this.props.navigation, this.state.isGenderSelected,moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD'),this.state.isMarriedSelected,
-            this.state.selectedChild,moment(this.state.anniversaryDate,'DD-MM-YYYY').format('YYYY-MM-DD'));
+        if (base.utils.validate.isBlank(this.state.fName)) {
+            Alert.alert("Please Enter First name", message)
+        } else if (!base.utils.validate.alphabetValidation(this.state.fName)) {
+            Alert.alert("First name should not contain special characters",message)
+        } else if (this.state.fName.length < 1) {
+            Alert.alert("First name should be minimum 1 character",message)
+        } else if (base.utils.validate.isBlank(this.state.lName)) {
+            Alert.alert("Please Enter Last name", message)
+        } else if (!base.utils.validate.alphabetValidation(this.state.lName)) {
+            Alert.alert("Last name should not contain special characters",message)
+        } else if (this.state.lName.length < 1) {
+            Alert.alert("Last name should be minimum 1 character",message)
+        } /*else if (base.utils.validate.isBlank(this.state.mobile)) {
+            Alert.alert("Please Enter Primary mobile number",message)
+        } else if (this.state.mobile.length < 10) {
+            Alert.alert("Please enter a valid (10 digit) Mobile no",message)
+        }*/else if (base.utils.validate.isBlank(this.state.email)) {
+            Alert.alert("Email cannot be empty",message)
+        } else if (!base.utils.validate.validateEmailId(this.state.email)) {
+            Alert.alert("Please Enter a Valid Email Id",message)
+        }
+        else{
+
+            const { MobileNumber } = this.props;
+
+            this.props.Register(this.state.fName, this.state.lName,  "+91" + this.props.MobileNumber, this.state.email,
+                "+91", this.props.navigation, this.state.isGenderSelected,moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD'),this.state.isMarriedSelected,
+                this.state.selectedChild,moment(this.state.anniversaryDate,'DD-MM-YYYY').format('YYYY-MM-DD'));
+        }
+
+
 
     };
 

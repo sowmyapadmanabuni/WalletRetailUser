@@ -33,4 +33,80 @@ export default class storage {
             // Error retrieving data
         }
     };
+
+
+    static async getasyncstorage(key){
+        try {
+            var value = await AsyncStorage.getItem(key);            
+            return value;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    static async saveasyncstorage(key, value, cb){
+        try {
+            AsyncStorage.setItem(key,JSON.stringify(value),()=>{
+                if(cb != undefined){
+                    cb()
+                }
+            });                        
+        } catch (e) {
+            
+        }
+    }
+
+    static async removeasyncstorage(key){
+        try {
+            AsyncStorage.removeItem(key);                        
+        } catch (e) {
+            
+        }
+    }
+
+    static getTimeDifference(){
+        
+    }
+
+    static isvalidemail(val){
+        let regex = /[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}/igm;
+        if(val != undefined && val != null && val != "" && regex.test(val)){            
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    static isvalidmobile(val){
+        let regex = /^\d{10}$/;
+        if(val != undefined && val != null && val != "" && regex.test(val)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    static isvalid(val,min){
+        if(val != undefined && val != null && val != ""){
+            if(min != undefined){                
+                if(val.length >= min){
+                    return true
+                }else{
+                    return false;
+                }
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    static clearcache(){
+        try {
+            AsyncStorage.removeItem('profile');   
+            AsyncStorage.removeItem('auth');
+            AsyncStorage.clear();               
+        } catch (e) {            
+        }
+    }
 }
