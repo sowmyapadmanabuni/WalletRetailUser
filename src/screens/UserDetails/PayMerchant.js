@@ -46,20 +46,20 @@ export const UserProfile = (props) => {
                 <Text style={{ fontWeight: 'bold' }}>{props.firstName}</Text>
                 <Text>+91 {props.mobileNumber}</Text>
             </View>
-            <TouchableOpacity onPress={props.filter}>
+            {/* <TouchableOpacity onPress={props.filter} >
                 <Image
                     style={{ width: 25, height: 25, marginRight: '5%' }}
                     source={require('../../icons/filter.png')}
                 />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
     );
 };
 
 
-function naviToChangePin(props){
+function naviToChangePin(props) {
     console.log("naviToChangePin ", props);
-    props.navigation.navigate("DefaultOrCustom", {data:'change'})
+    props.navigation.navigate("DefaultOrCustom", { data: 'change' })
 }
 
 const ViewData = (props) => {
@@ -225,7 +225,7 @@ const ViewData = (props) => {
                     </TouchableOpacity>
                 </View>
             </View> */}
-         {/*   <View style={{ flexDirection: 'row', marginTop: '5%' }}>
+            {/*   <View style={{ flexDirection: 'row', marginTop: '5%' }}>
                 <View style={{ flex: 0.2 }}>
                     <Image
                         style={{ marginLeft: '10%' }}
@@ -269,8 +269,8 @@ class PayMerchant extends Component {
             flag: false,
             firstName: '',
             mobileNumber: '',
-            reward:0,
-            showContact:false
+            reward: 0,
+            showContact: false
         }
         this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
@@ -279,14 +279,14 @@ class PayMerchant extends Component {
 
     componentDidMount() {
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
-       // this.getDetails()
+        // this.getDetails()
     }
 
     componentWillUnmount() {
         BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
 
-    removeBackButton(){
+    removeBackButton() {
         const resetAction = StackActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({ routeName: 'QR' })],
@@ -296,7 +296,7 @@ class PayMerchant extends Component {
 
     handleBackButtonClick() {
         //this.props.navigation.goBack(null);
-        console.log("this.props.navigation ", this.props.navigation, );
+        console.log("this.props.navigation ", this.props.navigation);
         if (Platform.OS === 'android') {
             ToastAndroid.show('Press again to exit app', ToastAndroid.SHORT);
             var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
@@ -339,7 +339,7 @@ class PayMerchant extends Component {
 
     render() {
         const { } = this.props;
-        console.log("payMerchant.......", this.props,this.props.ShowProfileReducer.list)
+        console.log("payMerchant.......", this.props, this.props.ShowProfileReducer.list)
         DeviceEventEmitter.addListener('refreshUserName', event => {
             console.log("refreshUserName....")
             this.showProfile();
@@ -360,7 +360,8 @@ class PayMerchant extends Component {
                         {/* <TouchableOpacity onPress={() => {
                             this.setState({ showData: true, flag: true })
                         }}> */}
-                        <UserProfile filter={() => { this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false }) }} firstName={this.state.firstName} mobileNumber={this.props.OTPReducer.MobileNumber} />
+                        <UserProfile filter={() => { this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false }) }}
+                            firstName={this.state.firstName} mobileNumber={this.props.OTPReducer.MobileNumber} showData={this.state.showData} />
                         {/* </TouchableOpacity> */}
                         <View>
                             {
@@ -369,7 +370,7 @@ class PayMerchant extends Component {
 
                                         showProfile={() => { this.setState({ isProfileShown: true, }) }}
                                         showStatement={() => { this.setState({ statementShow: true, }) }}
-                                              contact={() => { this.setState({ showContact: true, }) }}/> :
+                                        contact={() => { this.setState({ showContact: true, }) }} /> :
                                     null
                             }
                         </View>
@@ -390,32 +391,27 @@ class PayMerchant extends Component {
                             }
                         </View>
                         <View>
-
-                            {
-                                (this.state.showData) ?
-                                    <TouchableOpacity onPress={() => {
-                                        this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false,showContact:false })
-                                    }}>
-                                        <View style={{ alignItems: 'center', }}>
-                                            {
-                                                (this.state.showData) ?
-                                                    <Image
-                                                        style={{ width: 25, height: 25, position: 'absolute', bottom: -13 }}
-                                                        source={require('../../icons/images.png')}
-                                                    /> :
-                                                    <Image
-                                                        style={{ width: 25, height: 25, position: 'absolute', bottom: -13, transform: [{ rotate: '180deg' }] }}
-                                                        source={require('../../icons/images.png')}
-                                                    />
-                                            }
+                            <TouchableOpacity onPress={() => {
+                                this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false, showContact: false })
+                            }}>
+                                <View style={{ alignItems: 'center', }}>
+                                    {
+                                        (this.state.showData) ?
                                             <Image
-                                                style={{ width: 80, height: 80, marginBottom: '-11%' }}
-                                                source={require('../../icons/semicircle.png')}
+                                                style={{ width: 25, height: 25, position: 'absolute', bottom: -13 }}
+                                                source={require('../../icons/images.png')}
+                                            /> :
+                                            <Image
+                                                style={{ width: 25, height: 25, position: 'absolute', bottom: -13, transform: [{ rotate: '180deg' }] }}
+                                                source={require('../../icons/images.png')}
                                             />
-                                        </View>
-                                    </TouchableOpacity> :
-                                    null
-                            }
+                                    }
+                                    <Image
+                                        style={{ width: 80, height: 80, marginBottom: '-11%' }}
+                                        source={require('../../icons/semicircle.png')}
+                                    />
+                                </View>
+                            </TouchableOpacity>
                         </View>
                     </CardView>
                 </View>
@@ -523,8 +519,8 @@ export const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
-            registrationId: state.UserReducer.registrationId,
-            loggedIn: state.UserReducer.loggedIn,
+        registrationId: state.UserReducer.registrationId,
+        loggedIn: state.UserReducer.loggedIn,
         SignUpReducer: state.SignUpReducer,
 
         ShowProfileReducer: state.ShowProfileReducer,

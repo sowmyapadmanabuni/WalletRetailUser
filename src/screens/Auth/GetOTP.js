@@ -136,7 +136,6 @@ class GetOTP extends PureComponent {
 
                     onPress={() => {
                         this.MobileNumberCheck(this.state.callingCode);
-                        this.setState({progress:true})
                     }} >
                     <Text style={{ color: base.theme.colors.orange }}>GET OTP</Text>
                 </TouchableOpacity>
@@ -156,6 +155,8 @@ class GetOTP extends PureComponent {
             this.setState({progress: false})
             alert('Enter Valid Mobile Number');
         } else {
+            this.setState({progress:true})
+
             this.props.GenerateOTP(
                 '+' + country,
                 MobileNumber,

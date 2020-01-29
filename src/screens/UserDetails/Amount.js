@@ -8,7 +8,7 @@ import {
     TouchableWithoutFeedback,
     Image,
     Alert,
-    BackHandler,TouchableOpacity
+    BackHandler,TouchableOpacity,ScrollView
 } from 'react-native';
 import base from '../../base';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -73,7 +73,7 @@ class Amount extends Component {
             <KeyboardAwareScrollView>
                 <View style={{height:'100%'}}>
 
-                 <TouchableOpacity style={{ marginLeft: '3%', marginTop: '5%',width:'8%',}} onPress={()=> {this.props.navigation.navigate('QR')}}>
+                 <TouchableOpacity style={{ marginLeft: '3%', marginTop: '2%',width:'8%',}} onPress={()=> {this.props.navigation.navigate('QR')}}>
                         <Icon
                             name="ios-arrow-back"
                             type="font-awesome"
@@ -85,7 +85,7 @@ class Amount extends Component {
                     </TouchableOpacity>
 
                 <Text style={{color: base.theme.colors.white,
-                        marginTop :'5%',
+                        marginTop :'3%',
                         textAlign: 'center',
                         fontSize: 18,}}>You are paying to ''</Text>
                     <Text style={styles.textInput1}>Enter Amount</Text>
@@ -109,7 +109,7 @@ class Amount extends Component {
 
                         />
                     </View>
-                    <View style={{ width: '60%', alignSelf: 'center', }}>
+                    <View style={{ width: '60%', alignSelf: 'center',height:'80%' }}>
                         <Text style={{ textAlign: 'center', color: base.theme.colors.black, fontSize:18 }}>Purpose of payment</Text>
 
 {/*
@@ -133,22 +133,30 @@ class Amount extends Component {
                             maxLength={50}
                             style={{fontSize:14,borderBottomWidth:1,borderColor: base.theme.colors.white}}
                         />
+                        <TouchableOpacity style={{alignSelf:'center', height:40,backgroundColor:'white',width:'40%',
+                            borderRadius: 20,alignItems: 'center',justifyContent:'center'}} onPress={() =>
+                        {if (parseInt(this.state.amount) < 1)
+                            Alert.alert("", "Enter some amount !!!")
+                        else if(this.state.purposeOfPay==""){
+                            Alert.alert('', 'Enter the Purpose of Payment')
+                        }
+                        else{
+                            //PaymentWeb
+                            //CardDetails
+                            //this.props.navigation.navigate("PaymentWeb", { data: this.state.amount })
+                            this.props.navigation.navigate("CardDetails", { data: this.state.amount })
+                        }}}>
+                            <Text style={{color:base.theme.colors.orange,fontSize:16}}>PAY</Text>
+                        </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={{alignSelf:'center',marginTop:20, height:40,backgroundColor:'white',width:'40%',
-                        borderRadius: 20,alignItems: 'center',justifyContent:'center'}} onPress={() =>
-                    {if (parseInt(this.state.amount) < 1)
-                        Alert.alert("", "Enter some amount !!!");
-                    else{
-                        //PaymentWeb
-                        //CardDetails
-                        //this.props.navigation.navigate("PaymentWeb", { data: this.state.amount })
-                        this.props.navigation.navigate("CardDetails", { data: this.state.amount })
-                    }}}>
-                        <Text style={{color:base.theme.colors.orange,fontSize:16}}>PAY</Text>
-                    </TouchableOpacity>
+
                 </View>
 
+
+
+
             </KeyboardAwareScrollView>
+
 
             </View>
 
