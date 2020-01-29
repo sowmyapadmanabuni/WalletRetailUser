@@ -51,7 +51,7 @@ class GetOTP extends PureComponent {
                 scrollEnabled={true} bounces={false} showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false} contentContainerStyle={[{flex:1}]}
             >
-                
+
                 <Image
                     style={{ width: '100%' }}
                     source={require('../../icons/login_img.png')}
@@ -94,23 +94,24 @@ class GetOTP extends PureComponent {
                     />
 
 
-                    <TouchableOpacity style={{ flexDirection: 'row', flex: 0.2 }}
+                    {/*<TouchableOpacity style={{ flexDirection: 'row', flex: 0.2 }}
 
                                       onPress={() => {
-                                            
+
                                           this.setState({ visible: true })
                                       }}>
                         <Text style={{ marginTop: '30%', fontSize: 16 }}>+{this.state.callingCode}</Text>
                         <Image source={require('../../icons/images.png')} style={{ width: 15, height: 15, transform: [{ rotate: '180deg' }], marginTop: '34%', marginLeft: '10%' }} />
-                    </TouchableOpacity>
-                    <View style={{ flex: 0.7 }}>
+                    </TouchableOpacity>*/}
+                    <View style={{width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                        <Text style={{ marginTop: '6%', fontSize: 16,marginRight:10 }}>+{this.state.callingCode}</Text>
+                    <View style={{ width:'50%', }}>
                         <TextField
                             // style={{
                             //   borderBottomWidth: 1,
                             //   marginBottom: 10,
                             //   borderColor: '#ddd',
                             //   color:base.theme.colors.black,padding:5,marginLeft:'2%'
-                            // }}                            
                             maxLength={10}
                             label="Enter Mobile Number"
                             keyboardType="phone-pad"
@@ -131,6 +132,7 @@ class GetOTP extends PureComponent {
                             // }
                             //     }
                         />
+                    </View>
                     </View>
                 </View>
                 {/* <View style={{ justifyContent: 'center', flexDirection: 'row', marginTop: '10%' }}> */}

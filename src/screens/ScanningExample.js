@@ -19,10 +19,12 @@ import {
     FilledTextField,
     OutlinedTextField,
   } from 'react-native-material-textfield';
+import Validation from "../components/common/Validation";
+import {connect} from "react-redux";
 
 
 const {width,height} = Dimensions.get('window')
-export default class DefaultScreen extends Component {
+class DefaultScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,7 +40,7 @@ export default class DefaultScreen extends Component {
     onSuccess = (e) => {
         let self = this
         console.log(e.data)
-        
+
         if(e.data != "" && e.data != undefined && e.data!="" && e.data.indexOf("oyewallet.com/qrcode/id") != -1){
             let qrData = e.data;
             var idString = qrData.match(/(id=)\w+/g);
@@ -47,7 +49,7 @@ export default class DefaultScreen extends Component {
                 console.log(idString)
                 if(idString.indexOf("id=") != -1){
                     idString = idString.replace("id=","");
-                    
+
                     this.processMerchant(idString)
                 }else{
                     alert("No Merchant Found")
@@ -63,8 +65,8 @@ export default class DefaultScreen extends Component {
             this.showQRError('Invalid QR Code')
             //this.reactivateScanner()
         }
-        
-        
+
+
     }
 
     async processMerchant(merchantId){
@@ -73,26 +75,26 @@ export default class DefaultScreen extends Component {
         this.setState({isLoading:false})
         console.log(merchResp)
         if(merchResp.data != undefined && merchResp.data.errorMessage == undefined){
-            
+
             let merchant = merchResp.data;
             let mobMerchant = merchant.mobileNumber;
             let storeName = merchant.brandName;
             if(mobMerchant != undefined){
                 //console.log(merchant.mobileNumber)
                 this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobMerchant})
-            }else{                
+            }else{
                 this.showQRError('Merchant Not Found')
                 //this.reactivateScanner();
             }
         }else{
             this.showQRError('Merchant Not Found')
-            
+
         }
     }
 
     showQRError(msg){
         let self = this;
-        this.setState({showCamera:false,message:msg},()=>{                                
+        this.setState({showCamera:false,message:msg},()=>{
             self.reactivateScanner();
         })
     }
@@ -108,7 +110,7 @@ export default class DefaultScreen extends Component {
                 self.setState({showCamera:true},()=>{
                     self.scanner.reactivate()
                 })
-                
+
             }catch(e){
                 console.log(e)
             }
@@ -129,14 +131,14 @@ export default class DefaultScreen extends Component {
 
                 {
                     this.state.showCamera?
-                <QRCodeScanner 
+                <QRCodeScanner
                     ref={(scanner)=>this.scanner = scanner}
-                    style={{position:'absolute'}}           
+                    //style={{position:'absolute'}}
                     showMarker
                     onRead={this.onSuccess}
                     //flashMode={RNCamera.Constants.FlashMode.torch}
-                    
-                    cameraStyle={{ height: '60%',width:'60%',alignSelf:'center'}}
+                    //cameraProps={{ratio: "1:1"}}
+                    cameraStyle={{ height: '60%',width:'60%',alignSelf:'center',overflow:'hidden'}}
                     customMarker={
                         <View style={{
                             flex: 1,width:'100%',height:'100%',
@@ -144,7 +146,7 @@ export default class DefaultScreen extends Component {
                             justifyContent: "center",
                             backgroundColor: "transparent"
                         }}>
-                            <Image resizeMode={'stretch'} style={{ height: '102%',width:'102%'}} source={require('../icons/scan.png')}/>                            
+                            <Image resizeMode={'stretch'} style={{ height: '100%',width:'100%',marginLeft:0.5}} source={require('../icons/scan.png')}/>
                         </View>
 
                     }
@@ -153,19 +155,19 @@ export default class DefaultScreen extends Component {
                 </View>
                 }
                 <View style={{position:'absolute',flex:1,top:'70%', alignSelf:'center',justifyContent:'center',alignItems:'center'}}>
-                    
+
                     <Text style={{alignSelf:'center',justifyContent:'center',color:'white',marginBottom:20}}>not able to scan? <Text style={{color:'orange'}} onPress={()=>this.setState({showMob:!this.state.showMob})}> Tap to enter mobile number</Text></Text>
                     {
                         this.state.showMob?
                     <CardView
                         style={{width:width-32,backgroundColor:'#fff',height:64,justifyContent:'center'}}
-                        
+
                         cardElevation={3}
                         cardMaxElevation={3}
                         cornerRadius={7}
                     >
                         <View style={{ flexDirection: 'row',justifyContent:'center',alignItems:'center' }}>
-                               
+
                             <View
                                 style={{flex:0.2,flexDirection:'row',marginLeft:'5%',}}
                                 >
@@ -209,13 +211,37 @@ export default class DefaultScreen extends Component {
                         </View>
                 </CardView>:<View/>
             }
-                </View>                
+                </View>
                 <ProgressLoader
-                    visible={this.state.isLoading}                    
+                    visible={this.state.isLoading}
                     isModal={true} isHUD={true}
                     hudColor={'white'}
                     color={'orange'} />
             </KeyboardAwareScrollView>
         )
     }
+
+    checkNumber(){
+        console.log('GET MOB @@@@@',this.props)
+        if ( !Validation.Mobileregex.test(this.state.number) || this.state.number.length !== 10 ){
+            Alert.alert("Alert", "Enter Valid Mobile Number");
+            return false
+        }
+        else if(this.props.MobileNumber==this.state.number){
+            Alert.alert("Alert", "You can't pay for your number");
+
+        }
+        else{
+            return true
+        }
+    }
+
 }
+const mapStateToProps = state => {
+    return {
+        MobileNumber: state.OTPReducer.MobileNumber,
+        // otp          : state.OTPReducer.otp,
+    };
+};
+export default connect(
+    mapStateToProps)(DefaultScreen);

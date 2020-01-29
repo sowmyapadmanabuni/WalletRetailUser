@@ -55,7 +55,7 @@ class SignUp extends Component {
             anniversaryDate:moment().format('DD-MM-YYYY'),
             todayDate:moment().format('DD-MM-YYYY'),
             childList:[{value:0,details:"KID0"},{value:1,details:"KID1"},{value:2,details:"KID2"},{value:3,details:"KID3"},{value:4,details:"KID4"},{value:5,details:"KID5"}],
-            dateOfBirth:new Date(moment().subtract(18, 'years').calendar()),
+            dateOfBirth:'',
             selectedChild:0,
         };
     }
@@ -82,6 +82,10 @@ class SignUp extends Component {
         BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
 
+    formatText = (text) => {
+        return text.replace(/^[a-zA-Z ]+$/g,  '');
+    };
+
     render() {
         const { FirstName, LastName, Email, MobileNumber, onSignupFieldChange, Register, SignUpReducer } = this.props;
         console.log("#####SignUpReducer#######: ", this.props);
@@ -97,28 +101,24 @@ class SignUp extends Component {
                     <View style={{ width:'70%',alignSelf:'center'}}>
                         <TextField
                             label='First Name'
-                            value={FirstName}
-                           /* onChangeText={FirstName =>
-                                this.setState({
-                                    fName:FirstName
-                                })
-                                //onSignupFieldChange({ prop: "FirstName", value: FirstName })
-                            }*/
+                           // value={this.state.fName}
+                           //formatText={this.formatText}
                             onChangeText={(value) =>{
-                               /* let num = value.replace(/^[a-zA-Z ]+$/g,  '');
+                               let num = value.replace(/^[a-zA-Z ]+$/g,  '');
                                 if (isNaN(num)) {
-                                    // Its not a number
+                                    console.log('IT IS NOT VALID !!!!!',value,num)
                                 } else {
+                                    console.log('IT IS NOT VALID 22222',value,num) }
                                     this.setState({fName:value})
-                                }}*/
-                                this.setState({fName:value})}}
-                            // onChangeText={(text) => this.setState({payeeName: text})}
+                                }}
+                               // this.setState({fName:value})}}
+                            // onChangeText={(text) => this.setState({fName: text})}
                             keyboardType={Platform.OS === 'ios'? 'ascii-capable':'visible-password'}
                             fontSize={13}
                         />
                         <TextField
                             label="Last Name"
-                            value={LastName}
+                            value={this.state.lName}
                             onChangeText={(value) =>{
                                 let num = value.replace(/^[a-zA-Z ]+$/g,  '');
                                 if (isNaN(num)) {
@@ -425,23 +425,6 @@ class SignUp extends Component {
         )
     };
 
-   /*
-
-            mobile:'',
-            email:'',
-            genderProps: [{label: 'Male', value: 0},
-            {label: 'Female', value: 1}],
-            isGenderSelected:0,
-            marriedProps: [{label: 'Yes', value: 0},
-                {label: 'No', value: 1}],
-            isMarriedSelected:0,
-            anniversaryDate:moment().format('DD-MM-YYYY'),
-            todayDate:moment().format('DD-MM-YYYY'),
-            childList:[{value:0,details:"KID0"},{value:1,details:"KID1"},{value:2,details:"KID2"},{value:3,details:"KID3"},{value:4,details:"KID4"},{value:5,details:"KID5"}],
-            dateOfBirth:moment().format('DD-MM-YYYY'),
-            selectedChild:0*/
-
-    // modified
     signUpValidations = (title, message) => {
 
         if (base.utils.validate.isBlank(this.state.fName)) {
@@ -464,6 +447,9 @@ class SignUp extends Component {
         else if (this.state.isGenderSelected==2) {
             Alert.alert("Gender is Mandatory",message)
         }
+        else if (this.state.dateOfBirth=='') {
+            Alert.alert("Date of birth is  Mandatory",message)
+        }
         else if (base.utils.validate.isBlank(this.state.email)) {
             Alert.alert("Email cannot be empty",message)
         } else if (!base.utils.validate.validateEmailId(this.state.email)) {
@@ -482,28 +468,6 @@ class SignUp extends Component {
     };
 
     RegisterMobileNumberCheck = () => {
-       /* console.log("this.state.mobile ", this.state);
-        const { MobileNumber } = this.props;
-        axios.post(api.oyeWalletUrl + "RegisteredMobileNumberCheck", {
-            //  axios.post("https://uatwalletapi.azurewebsites.net/wallet/api/v1/RegisteredMobileNumberCheck",{
-            //mobileNumber: "+91" + this.props.MobileNumber
-            mobileNumber: "+91" + this.props.MobileNumber,
-            role:"Retail User"
-
-        }).then(res => {
-            console.log("Registernumber", res);
-            let registernumber = res.data.success;
-            /!*if (registernumber === true) {
-                alert("Number is already registered.");
-            }
-            else {*!/
-           // }
-            this.signUpValidations();
-
-        })
-            .catch(error => {
-                console.log("error", error);
-            });*/
         this.signUpValidations();
 
     };
