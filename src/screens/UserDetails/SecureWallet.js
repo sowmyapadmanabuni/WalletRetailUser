@@ -12,22 +12,22 @@ import {
     TouchableOpacity,
     AsyncStorage, Linking,
 } from 'react-native';
-import base from "../../../base";
+import base from "../../base";
 //import storage from "../../../utils/storage";
-import Button from '../../../components/common/Button';
+import Button from '../../components/common/Button';
 import { RadioGroup, RadioButton } from 'react-native-flexi-radio-button';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import CardView from "react-native-cardview";
-import { updateUserInfo,updateLoggedIn } from "../../../actions";
+import AndroidOpenSettings from 'react-native-android-open-settings';
+import OpenSecuritySettings from 'react-native-open-security-settings';
+
 import { connect } from "react-redux";
 import TouchID from "react-native-touch-id";
-import OpenSecuritySettings from 'react-native-open-security-settings';
 import LocalAuth from 'react-native-local-auth';
-//import PasscodeAuth from 'react-native-passcode-auth';
-//import PasscodeAuth from 'react-native-passcode-auth';
+import {updateLoggedIn,updateUserInfo} from "../../actions";
 
-class DefaultOrCustom extends Component {
+class SecureWallet extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -46,31 +46,59 @@ class DefaultOrCustom extends Component {
          }
          return true;
      }*/
+    /* selectSecurity(){
+         if(Platform.OS == 'android'){
+             console.log("vvvvvvvvvvv");
+             OpenSecuritySettings.openSecuritySettings()
+         }else{
+             Linking.openURL('app-settings')
+         }
+     }*/
 
-    _defaultSecurity(){
-        base.storage.storeData('secureStatus','default')
-        this.props.navigation.navigate("Security")
+    async passCodeField() {
+        console.log("passCodeFieldpassCodeFieldpassCodeFieldpassCodeField");
+        let self = this;
+        //     base.storage.storeData('defaultAuthenticationType', 'Password');
+
+        //const { userDetails } = this.props;
+
+        //let data = userDetails;
+
+        try {
+            LocalAuth.authenticate({
+
+                reason: 'this is a secure area, please authenticate yourself',
+                fallbackToPasscode: true,    // fallback to passcode on cancel
+                suppressEnterPassword: true // disallow Enter Password fallback
+            })
+                .then(async success => {
+                    self.setState({ isButton: false });
+                    updateLoggedIn({ prop: 'loggedIn', value: true })
+
+                    self.props.navigation.navigate('PayMerchant');
+
+
+                })
+                .catch(error => {
+
+                    //this.passCodeFail();
+                    console.log("error", error);
+                    // alert('Authentication Failed', error.message)
+                })
+        }
+        catch (e) {
+            console.log((e))
+        }
+
     }
 
-    async onSuccessAuth(){
-        let self= this;
-       // const { userDetails } = this.props;
-       // let data = userDetails;
-        updateLoggedIn({ prop: 'loggedIn', value: true })
-
-        self.props.navigation.navigate('PayMerchant');
-
-
-    }
-
-
-    async defaultSecurity() {
+    async selectSecurity() {
         let self = this;
         const optionalConfigObject = {
             unifiedErrors: false,
             passcodeFallback: true,
         };
-        //const { userDetails } = this.props;
+       // const { userDetails } = this.props;
         //let data = userDetails;
 
         if(Platform.OS==='android'){
@@ -87,17 +115,16 @@ class DefaultOrCustom extends Component {
             TouchID.isSupported(optionalConfigObject).then(biometryType => {
                 console.log("111111", biometryType);
                 //self.props.navigation.navigate("Security")
-                if (Platform.OS === 'ios') {
-                    TouchID.authenticate('OyeWallet', optionalConfigObject)
-                        .then(async success => {
-                            self.onSuccessAuth();
-                        })
-                        .catch((e) => {
+                TouchID.authenticate('OyeWallet', optionalConfigObject)
+                    .then(async success => {
+                        updateLoggedIn({ prop: 'loggedIn', value: true })
 
-                        })
-                } else {
-                    self.passCodeField()
-                }
+                        self.props.navigation.navigate('PayMerchant');
+
+                    })
+                    .catch((e) => {
+
+                    })
 
             })
                 .catch(error => {
@@ -105,57 +132,17 @@ class DefaultOrCustom extends Component {
                         console.log("vvvvvvvvvvv");
                         OpenSecuritySettings.openSecuritySettings()
                     } else {
-                        console.log("iosssssss",error.name);
-                        //if(error.name != 'LAErrorUserCancel') {
+                        console.log("iosssssss",);
                         Linking.openURL('app-settings:')
-                        //}
-
                     }
 
                 });
         }
-
     }
 
-    async passCodeField() {
-        console.log("passCodeFieldpassCodeFieldpassCodeFieldpassCodeField");
-        let self = this;
-        //     base.storage.storeData('defaultAuthenticationType', 'Password');
 
-       // const { userDetails } = this.props;
 
-       // let data = userDetails;
 
-        try {
-            LocalAuth.authenticate({
-
-                reason: 'this is a secure area, please authenticate yourself',
-                fallbackToPasscode: true,    // fallback to passcode on cancel
-                suppressEnterPassword: true // disallow Enter Password fallback
-            })
-                .then(async success => {
-                    self.setState({ isButton: false });
-                   // updateUserInfo({ prop: 'loggedIn', value: true })
-                    let self= this;
-                    // const { userDetails } = this.props;
-                    // let data = userDetails;
-                    updateLoggedIn({ prop: 'loggedIn', value: true })
-
-                    self.props.navigation.navigate('PayMerchant');
-
-                })
-                .catch(error => {
-
-                    //this.passCodeFail();
-                    console.log("error", error);
-                    // alert('Authentication Failed', error.message)
-                })
-        }
-        catch (e) {
-            console.log((e))
-        }
-
-    }
 
     render() {
 
@@ -178,24 +165,23 @@ class DefaultOrCustom extends Component {
                     <Text style={styles.customValidation}>Secure Your Wallet</Text>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 0, bottom: hp('-1') }}>
-                    <Image resizeMode={"cover"} style={{ width: wp('90'), height: hp('0.1'), tintColor: '#333333', top: hp('1'), right: hp('3') }} source={require('../../../icons/line.png')} />
-                    <Image resizeMode={"center"} style={styles.lockLogo} source={require('../../../icons/lock.png')} />
+                    <Image resizeMode={"cover"} style={{ width: wp('90'), height: hp('0.1'), tintColor: '#333333', top: hp('1'), right: hp('3') }} source={require('../../icons/line.png')} />
+                    <Image resizeMode={"center"} style={styles.lockLogo} source={require('../../icons/lock.png')} />
                 </View>
                 <View>
                     <View style={{justifyContent:'center'}}>
-                        <Text style={{marginLeft:wp('7%'),fontSize:16,fontWeight:'bold'}}>Enter your mobile phone's Screen lock</Text>
+                        <Text style={{marginLeft:wp('7%'),fontSize:16,fontWeight:'bold'}}>Setup your mobile phone's Screen lock</Text>
                         <Text style={{marginLeft:wp('7%'),marginRight:wp('7%'),marginTop:hp('1%')}}>To secure your data, you will be asked to unlock OyeWallet using your phone lock </Text>
                     </View>
                     <View style={{alignSelf:'center',marginTop:hp('5%')}}>
-                        <Image resizeMode={"contain"}  source={require('../../../icons/security.png')} />
+                        <Image resizeMode={"contain"}  source={require('../../icons/security.png')} />
                     </View>
                 </View>
                 <View style={{alignSelf:'center',marginTop:hp('7%')}}>
-                    <TouchableOpacity onPress={() => this.defaultSecurity()}>
-                        <Text style={{color:base.theme.colors.primart1}}>NEXT</Text>
+                    <TouchableOpacity onPress={() => this.selectSecurity()}>
+                        <Text style={{color:base.theme.colors.orange}}>NEXT</Text>
                     </TouchableOpacity>
                 </View>
-
             </View>
 
         )
@@ -243,4 +229,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, { updateUserInfo , updateLoggedIn})(DefaultOrCustom);
+export default connect(mapStateToProps, { updateUserInfo ,updateLoggedIn})(SecureWallet);

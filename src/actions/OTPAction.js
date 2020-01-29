@@ -100,7 +100,14 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
                     console.log(">>>UserReducer----------> ");
                     console.log("VerifyOTP>>>response 2", response);
                     let data = response.data.data[0];
-                    console.log("data.registrationId ", data);
+                    let retData;
+                    for(let i=0;i<response.data.data.length;i++){
+                        console.log('GET THE DATA IN DETAIL',response.data.data.length)
+                        if(response.data.data[i].role=="Retail User"){
+                            retData=response.data.data[i]
+                        }
+                    }
+                    console.log("data.registrationId ", data,retData);
                     let payloadArr = [
                     ]
                    /* dispatch({
@@ -110,7 +117,7 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
 
                    dispatch({
                         type:UPDATE_USER_INFO,
-                        payload:data
+                        payload:retData
                     });
 
                     dispatch({
@@ -126,8 +133,9 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
                     if (data.role === 'Retail User') {
                         //alert("Number Exists");
                        // navigation.navigate('Profile');
-                       navigation.navigate('DefaultOrCustom');
+                       //navigation.navigate('DefaultOrCustom');
                        // navigation.navigate('PayMerchant');
+                        navigation.navigate('Security');
 
                     } else {
                         alert("Number dont know")

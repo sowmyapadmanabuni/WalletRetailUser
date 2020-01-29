@@ -21,8 +21,8 @@ export const onSignupFieldChange = ({ prop, value }) => {
   };
 };
 
-export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, navigation,gender,dob) => {
-  console.log("response>>>SIGNUP@@@@@@", FirstName, LastName, MobileNumber, Email, CountryCode,gender,dob)
+export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, navigation,gender,dob,isSupported) => {
+  console.log("response>>>SIGNUP@@@@@@", FirstName, LastName, MobileNumber, Email, CountryCode,gender,dob,isSupported)
   return async dispatch => {
     dispatch({type: SIGNUP_SEQUENCE})
     console.log("FirstName", FirstName);
@@ -63,11 +63,20 @@ export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, 
       })
 
       Toast.show('Registered Successfully', Toast.SHORT);
-      setTimeout(function () {
+     /* setTimeout(function () {
         // navigation.navigate("viewas")
         //navigation.navigate("PayMerchant");
-        navigation.navigate("DefaultOrCustom");
-      }, 500)
+
+
+
+        //navigation.navigate("DefaultOrCustom");
+      }, 500)*/
+      if(isSupported === true){
+        navigation.navigate("DefaultOrCustom")
+      }
+      else{
+        navigation.navigate("SecureWallet")
+      }
       //  }
     })
 
@@ -148,8 +157,6 @@ export const Update = (data, navigation) => {
 
 export const ShowProfile = (number) => {
   console.log("inside disptch........profile", number)
-
-
 
   return dispatch => {
     dispatch({ type: SHOW_PROFILE })

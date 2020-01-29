@@ -19,6 +19,7 @@ import Profile from './screens/UserDetails/Profile';
 import Statement from './screens/UserDetails/Statement';
 //import BankDetail from './screens/UserDetails/BankDetail';
 import DefaultOrCustom from "./screens/Authentication/SelectPasscode/DefaultOrCustom";
+import SecureWallet from "./screens/UserDetails/SecureWallet";
 import Security from './screens/UserDetails/Security';
 // import PaymentMethod from './screens/UserDetails/PaymentMethod';
 import PassCodeOrPin from "./screens/Authentication/SelectPasscode/PasscodeOrPin";
@@ -31,7 +32,14 @@ import ConfirmPassWord from "./screens/Authentication/CreatePasscode/ConfirmPass
 import ConfirmPin from "./screens/Authentication/CreatePin/ConfirmPin";
 import EnterPassCode from "./screens/Authentication/CreatePasscode/EnterPasscode";
 import EnterPin from "./screens/Authentication/CreatePin/EnterPin";
-import base from './base'
+import base from './base';
+
+import TouchID from 'react-native-touch-id';
+import AndroidOpenSettings from 'react-native-android-open-settings';
+import OpenSecuritySettings from 'react-native-open-security-settings';
+
+
+import LocalAuth from 'react-native-local-auth';
 
 const DashStack = createStackNavigator({
     CardDetails: { screen: CardDetails }
@@ -75,6 +83,7 @@ const DashStack = createStackNavigator({
             //ChangePassword: ChangePassword,
             //PaymentMethod: PaymentMethod,
             DefaultOrCustom : DefaultOrCustom,
+            SecureWallet:SecureWallet,
             Security:Security,
             PassCodeOrPin:PassCodeOrPin,
             CreatePassword:CreatePassWord,
@@ -85,7 +94,7 @@ const DashStack = createStackNavigator({
             EnterPassCode:EnterPassCode,
             EnterPin:EnterPin,
             Debit: Debit,
-            TransactionDetail: TransactionDetail
+            TransactionDetail: TransactionDetail,
 
         },
         {
@@ -101,7 +110,7 @@ class InitScreen extends React.PureComponent {
     componentDidMount() {
         Linking.getInitialURL()
         .then((url) => {
-          if (url) { 
+          if (url) {
               console.log("EXTERNAL_URL",url)
             this.handleExternalLink(url)
           }
@@ -116,13 +125,60 @@ class InitScreen extends React.PureComponent {
             if(!loggedIn){
                 AsyncStorage.clear();
             }
-            this.props.navigation.navigate(loggedIn ? 'Security':'Auth');
+            if(loggedIn){
+                this.selectSecurity()
+            }
+            else{
+                this.props.navigation.navigate('Auth')
+            }
+            //this.props.navigation.navigate(loggedIn ? 'Security':'Auth');
         })
     }
-    appWokeUp = (event) => {        
-        //alert('Linking Listener'+'url  ' + event.url)  
+
+    selectSecurity() {
+        let self = this;
+        const optionalConfigObject = {
+            unifiedErrors: false,
+            passcodeFallback: true,
+        };
+        //const { userDetails } = this.props;
+        //let data = userDetails;
+        console.log("selectSecurity")
+        TouchID.isSupported(optionalConfigObject).then(biometryType => {
+            console.log("selectSecurity", biometryType);
+            this.props.navigation.navigate('Security')
+        })
+            .catch(async error => {
+                console.log("errorSecurityJSNAVIG", error.code);
+                if(Platform.OS==='android'){
+                    console.log("Checking defaultSecurity")
+                    let isSecure = await OpenSecuritySettings.isDeviceSecure()
+                    console.log("OpenSecuritySettings.isDeviceSecure",isSecure)
+                    if(!isSecure){
+                        this.props.navigation.navigate('Security')
+
+                       // this.props.navigation.navigate('SecureWallet')
+                    }else{
+                        if(error.code == 'NOT_ENROLLED'){
+                            this.props.navigation.navigate('Security')
+                        }else {
+                            this.props.navigation.navigate('DefaultOrCustom')
+                        }
+                    }
+                }else{
+                    //if(error.name == 'LAErrorPasscodeNotSet'){
+                    this.props.navigation.navigate('SecureWallet')
+                    // }else{
+                    //     this.props.navigation.navigate('SecureWallet')
+                    // }
+                }
+
+            });
+    }
+    appWokeUp = (event) => {
+        //alert('Linking Listener'+'url  ' + event.url)
         console.log("EXTERNAL_URL_APPWOKE",event)
-        this.handleExternalLink(event.url)  
+        this.handleExternalLink(event.url)
      }
 
    handleExternalLink(url){
@@ -132,8 +188,8 @@ class InitScreen extends React.PureComponent {
            this.handleQRCode(url)
        }
    }
-   componentWillUnmount(){    
-    Linking.removeEventListener('url', this.appWokeUp);    
+   componentWillUnmount(){
+    Linking.removeEventListener('url', this.appWokeUp);
   }
 
   handleQRCode(qrData){
@@ -148,7 +204,7 @@ class InitScreen extends React.PureComponent {
                 idString = idString.replace("id=","");
                 this.processMerchant(idString)
             }
-        }   
+        }
     }
   }
 
@@ -158,27 +214,24 @@ class InitScreen extends React.PureComponent {
     this.setState({isLoading:false})
     console.log(merchResp)
     if(merchResp.data != undefined && merchResp.data.errorMessage == undefined){
-        
+
         let merchant = merchResp.data;
         let mobMerchant = merchant.mobileNumber;
         let storeName = merchant.brandName;
         if(mobMerchant != undefined){
             //console.log(merchant.mobileNumber)
             this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobMerchant})
-        }else{                
+        }else{
             //this.showQRError('Merchant Not Found')
             //this.reactivateScanner();
         }
     }else{
         //this.showQRError('Merchant Not Found')
-        
+
     }
 }
 
-  
-
-
-    render() {
+render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <ActivityIndicator size="large" />

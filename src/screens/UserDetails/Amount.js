@@ -186,10 +186,6 @@ class Amount extends Component {
                     </View>
 
                 </View>
-
-
-
-
             </KeyboardAwareScrollView>
 
 
