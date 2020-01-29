@@ -133,12 +133,12 @@ class DefaultScreen extends Component {
                     this.state.showCamera?
                 <QRCodeScanner
                     ref={(scanner)=>this.scanner = scanner}
-                    style={{position:'absolute'}}
+                    //style={{position:'absolute'}}
                     showMarker
                     onRead={this.onSuccess}
                     //flashMode={RNCamera.Constants.FlashMode.torch}
-
-                    cameraStyle={{ height: '60%',width:'60%',alignSelf:'center'}}
+                    //cameraProps={{ratio: "1:1"}}
+                    cameraStyle={{ height: '60%',width:'60%',alignSelf:'center',overflow:'hidden'}}
                     customMarker={
                         <View style={{
                             flex: 1,width:'100%',height:'100%',
@@ -146,7 +146,7 @@ class DefaultScreen extends Component {
                             justifyContent: "center",
                             backgroundColor: "transparent"
                         }}>
-                            <Image resizeMode={'stretch'} style={{ height: '102%',width:'102%'}} source={require('../icons/scan.png')}/>
+                            <Image resizeMode={'stretch'} style={{ height: '100%',width:'100%',marginLeft:0.5}} source={require('../icons/scan.png')}/>
                         </View>
 
                     }

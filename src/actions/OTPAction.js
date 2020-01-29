@@ -94,6 +94,11 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
                     //     type: GETOTP_SEQUENCE,
                     //     payload: 'OTP Verified Successfully',
                     // });
+                    dispatch({
+                        type:UPDATE_lOGGEDIN,
+                        payload:true,
+                        // payload:({prop:"loggedIn",value:true})
+                    })
                     navigation.navigate('Signup');
                 }
                 else {

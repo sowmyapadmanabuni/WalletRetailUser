@@ -108,6 +108,7 @@ const SignupStack = createStackNavigator({
 
 class InitScreen extends React.PureComponent {
     componentDidMount() {
+        console.log("INIT_SCREEN")
         Linking.getInitialURL()
         .then((url) => {
           if (url) {
@@ -115,7 +116,7 @@ class InitScreen extends React.PureComponent {
             this.handleExternalLink(url)
           }
         })
-        .catch((e) => {})
+        .catch((e) => {console.log("URL_ERROR",e)})
 
    Linking.addEventListener('url', this.appWokeUp);
 
@@ -188,8 +189,9 @@ class InitScreen extends React.PureComponent {
            this.handleQRCode(url)
        }
    }
+
    componentWillUnmount(){
-    Linking.removeEventListener('url', this.appWokeUp);
+    //Linking.removeEventListener('url', this.appWokeUp);
   }
 
   handleQRCode(qrData){

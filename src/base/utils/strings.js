@@ -21,10 +21,11 @@ const api = {
 const strings = {
     appName:"OyeWallet",
     //oyeWalletUrl: 'https://devwalletapi.azurewebsites.net/wallet/api/v1/' ,
-    oyeWalletUrl:'https://uatapi.oyewallet.com/wallet/api/v1/',
-    oyeWalletDevUrl:'https://devapi.oyewallet.com/wallet/api/v1/',
-    oyeWalletUatUrl:'https://uatapi.oyewallet.com/wallet/api/v1/',
-    oyeWalletProdUrl:'https://devapi.oyewallet.com/wallet/api/v1/',
+    //oyeWalletUrl:'https://uatapi.oyewallet.com/wallet/api/v1/',
+    oyeWalletUrl:'https://devapi.oyewallet.com/wallet/api/v1/',
+    //oyeWalletDevUrl:'https://devapi.oyewallet.com/wallet/api/v1/',
+    //oyeWalletUatUrl:'https://uatapi.oyewallet.com/wallet/api/v1/',
+    //oyeWalletProdUrl:'https://devapi.oyewallet.com/wallet/api/v1/',
     // oyeWalletUrl:api.protocol+api.oyeWalletDev+api.oyeWalletApiPath,
     //oyeWalletUrl:api.protocol+api.oyeWalletDev+api.oyeWalletApiPath,
 

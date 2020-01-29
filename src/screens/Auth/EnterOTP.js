@@ -90,7 +90,7 @@ class EnterOTP extends Component{
     otp(country, mob){
         axios
             .post(
-                "http://apidev.oyespace.com/oyeliving/api/v1/account/resendotp" ,
+                base.utils.strings.oyeWalletUrl+"account/resendotp" ,
                 {
                     //Request Body
                     CountryCode : country,
