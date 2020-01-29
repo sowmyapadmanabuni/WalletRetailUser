@@ -107,8 +107,10 @@ const SignupStack = createStackNavigator({
 }, { headerMode: 'none' })
 
 class InitScreen extends React.PureComponent {
-    componentDidMount() {
+    async componentDidMount() {
         console.log("INIT_SCREEN")
+        let upi = await base.utils.upi.getDBSUPIConfiguration(1,base.utils.strings.sandboxReceiverUPI);
+        console.log("UPI_CONFIG: ",upi)
         Linking.getInitialURL()
             .then((url) => {
                 if (url) {
@@ -185,29 +187,38 @@ class InitScreen extends React.PureComponent {
     handleExternalLink(url){
         console.log("EXTERNAL_URL_HANDLE",url)
         if(url.indexOf("qrcode") != -1){
-            console.log(url)
-            this.handleQRCode(url)
-        }
-    }
+           console.log(url)
+           this.handleQRCode(url)
+       }
+   }
+   componentWillUnmount(){
+    //Linking.removeEventListener('url', this.appWokeUp);
+  }
 
-    componentWillUnmount(){
-        //Linking.removeEventListener('url', this.appWokeUp);
-    }
+  async handleQRCode(qrData) {
+      //const { loggedIn } = this.props;
+      var loggedIn = await base.utils.storage.retrieveData("IS_LOGGED_IN")
+      if (loggedIn == 'true') {
+          loggedIn = true;
+      } else {
+          loggedIn = false;
+      }
+      if (loggedIn) {
 
-    handleQRCode(qrData){
-        const { loggedIn } = this.props;
-        if(loggedIn){
+          var idString = qrData.match(/(id=)\w+/g);
+          if (idString.length > 0) {
+              idString = idString[0]
+              console.log(idString)
+              if (idString.indexOf("id=") != -1) {
+                  idString = idString.replace("id=", "");
+                  this.processMerchant(idString)
+              }
+          }
+      } else {
+          console.log("LINKING_FAILED_", this.props)
+          console.log("LINKING_FAILED_", loggedIn)
+      }
 
-            var idString = qrData.match(/(id=)\w+/g);
-            if(idString.length > 0){
-                idString = idString[0]
-                console.log(idString)
-                if(idString.indexOf("id=") != -1){
-                    idString = idString.replace("id=","");
-                    this.processMerchant(idString)
-                }
-            }
-        }
     }
 
     async processMerchant(merchantId){
