@@ -104,11 +104,11 @@ class SignUp extends Component {
                            // value={this.state.fName}
                            //formatText={this.formatText}
                             onChangeText={(value) =>{
-                              /* let num = value.replace(/^[a-zA-Z ]+$/g,  '');
+                               let num = value.replace(/^[a-zA-Z ]+$/g,  '');
                                 if (isNaN(num)) {
                                     console.log('IT IS NOT VALID !!!!!',value,num)
                                 } else {
-                                    console.log('IT IS NOT VALID 22222',value,num) }*/
+                                    console.log('IT IS NOT VALID 22222',value,num) }
                                     this.setState({fName:value})
                                 }}
                                // this.setState({fName:value})}}
@@ -425,23 +425,6 @@ class SignUp extends Component {
         )
     };
 
-   /*
-
-            mobile:'',
-            email:'',
-            genderProps: [{label: 'Male', value: 0},
-            {label: 'Female', value: 1}],
-            isGenderSelected:0,
-            marriedProps: [{label: 'Yes', value: 0},
-                {label: 'No', value: 1}],
-            isMarriedSelected:0,
-            anniversaryDate:moment().format('DD-MM-YYYY'),
-            todayDate:moment().format('DD-MM-YYYY'),
-            childList:[{value:0,details:"KID0"},{value:1,details:"KID1"},{value:2,details:"KID2"},{value:3,details:"KID3"},{value:4,details:"KID4"},{value:5,details:"KID5"}],
-            dateOfBirth:moment().format('DD-MM-YYYY'),
-            selectedChild:0*/
-
-    // modified
     signUpValidations = (title, message) => {
 
         if (base.utils.validate.isBlank(this.state.fName)) {
@@ -485,28 +468,6 @@ class SignUp extends Component {
     };
 
     RegisterMobileNumberCheck = () => {
-       /* console.log("this.state.mobile ", this.state);
-        const { MobileNumber } = this.props;
-        axios.post(api.oyeWalletUrl + "RegisteredMobileNumberCheck", {
-            //  axios.post("https://uatwalletapi.azurewebsites.net/wallet/api/v1/RegisteredMobileNumberCheck",{
-            //mobileNumber: "+91" + this.props.MobileNumber
-            mobileNumber: "+91" + this.props.MobileNumber,
-            role:"Retail User"
-
-        }).then(res => {
-            console.log("Registernumber", res);
-            let registernumber = res.data.success;
-            /!*if (registernumber === true) {
-                alert("Number is already registered.");
-            }
-            else {*!/
-           // }
-            this.signUpValidations();
-
-        })
-            .catch(error => {
-                console.log("error", error);
-            });*/
         this.signUpValidations();
 
     };

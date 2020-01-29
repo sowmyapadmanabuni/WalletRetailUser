@@ -65,8 +65,8 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
 
         axios
             .post(
-                //api.oyeWalletUrl + 'verifyOTP',
-                "http://devapi.oyewallet.com/wallet/api/v1/verifyOTP/Retail User",
+                api.oyeWalletUrl + 'verifyOTP/Retail User',
+                //"http://devapi.oyewallet.com/wallet/api/v1/verifyOTP/Retail User",
                 {
                     "mobileNumber" : '+91'+MobileNumber,
                     "otpNumber"    :Otp

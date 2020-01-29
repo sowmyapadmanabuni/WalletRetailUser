@@ -14,6 +14,7 @@ import api from "../../base/utils/strings";
 import {GETOTP_SEQUENCE} from "../../actions/types";
 import Toast from 'react-native-simple-toast';
 import axios from 'axios';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 
 
 class EnterOTP extends Component{
@@ -123,7 +124,10 @@ class EnterOTP extends Component{
         console.log("this.props.navigation ",this.props.navigation.state.params.data);
         // const{OTP,text1}=this.props;
         return (
-            <View style={{flex: 1}}>
+            <KeyboardAwareScrollView
+                scrollEnabled={true} bounces={false} showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false} contentContainerStyle={[{flex:1}]}
+            >
                 <Image
                     style={{width: '100%'}}
                     source={require('../../icons/login_img.png')}
@@ -209,7 +213,7 @@ class EnterOTP extends Component{
                     hudColor={"transparent"}
                     color={base.theme.colors.orange} />
             </View>
-            </View>
+            </KeyboardAwareScrollView>
         );
     }
 

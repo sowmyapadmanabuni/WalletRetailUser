@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, Platform } from 'react-native';
 import base from '../../base';
 import Button from '../../components/common/Button';
 
@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import {onOTPChangeText,GenerateOTP} from '../../actions';
 import ProgressLoader from 'rn-progress-loader';
 import {GlobalStyle} from '../../components/common/GlobalStyle';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 
 import CountryPicker,
 {
@@ -46,8 +47,11 @@ class GetOTP extends PureComponent {
         const { MobileNumber, onOTPChangeText } = this.props;
         console.log("getotp..........", this.state);
         return (
-            <View>
-                <ProgressLoader visible={this.state.progress} />
+            <KeyboardAwareScrollView
+                scrollEnabled={true} bounces={false} showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false} contentContainerStyle={[{flex:1}]}
+            >
+
                 <Image
                     style={{ width: '100%' }}
                     source={require('../../icons/login_img.png')}
@@ -65,7 +69,7 @@ class GetOTP extends PureComponent {
                         flexDirection: 'row',
                         justifyContent: 'center',
                     }}>
-                    {/*<CountryPicker
+                    <CountryPicker
                         // countryList={this.state.countryList}
                         // onClose={() => {}}
                         onSelect={value => {
@@ -87,20 +91,18 @@ class GetOTP extends PureComponent {
                         visible={this.state.visible}
                         onClose={() => this.setState({ visible: false })}
 
-                    />*/}
+                    />
 
 
-                    <TouchableOpacity style={{ flexDirection: 'row', flex: 0.2 }}
+                    {/*<TouchableOpacity style={{ flexDirection: 'row', flex: 0.2 }}
 
                                       onPress={() => {
 
                                           this.setState({ visible: true })
                                       }}>
                         <Text style={{ marginTop: '30%', fontSize: 16 }}>+{this.state.callingCode}</Text>
-{/*
                         <Image source={require('../../icons/images.png')} style={{ width: 15, height: 15, transform: [{ rotate: '180deg' }], marginTop: '34%', marginLeft: '10%' }} />
-*/}
-                    </TouchableOpacity>
+                    </TouchableOpacity>*/}
                     <View style={{width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
                         <Text style={{ marginTop: '6%', fontSize: 16,marginRight:10 }}>+{this.state.callingCode}</Text>
                     <View style={{ width:'50%', }}>
@@ -110,11 +112,12 @@ class GetOTP extends PureComponent {
                             //   marginBottom: 10,
                             //   borderColor: '#ddd',
                             //   color:base.theme.colors.black,padding:5,marginLeft:'2%'
-                            // }}
-                            lineWidth={0.8}
                             maxLength={10}
                             label="Enter Mobile Number"
-                            keyboardType="number-pad"
+                            keyboardType="phone-pad"
+                            returnKeyType={'done'}
+                            lineType={'solid'}
+                            lineWidth={Platform.OS==='ios'?0.5:0.8}
                             value={MobileNumber}
                             onChangeText={MobileNumber => {
                                 let check = /^[0-9]*$/;
@@ -134,7 +137,7 @@ class GetOTP extends PureComponent {
                 </View>
                 {/* <View style={{ justifyContent: 'center', flexDirection: 'row', marginTop: '10%' }}> */}
                 <TouchableOpacity
-                    style={{ alignSelf: 'center', marginTop: '10%' }}
+                    style={{ alignSelf: 'center', }}
                     // title="GET OTP"
 
                     onPress={() => {
@@ -142,8 +145,10 @@ class GetOTP extends PureComponent {
                     }} >
                     <Text style={{ color: base.theme.colors.orange }}>GET OTP</Text>
                 </TouchableOpacity>
-                {/* </View> */}
-            </View>
+                {/* </View> ***/}
+                <ProgressLoader isModal={true} isHUD={true}
+                        hudColor={'#FFF'} color={'orange'} visible={this.state.progress} />
+            </KeyboardAwareScrollView>
         );
 
     }
