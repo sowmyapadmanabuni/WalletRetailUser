@@ -94,6 +94,7 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
                     //     type: GETOTP_SEQUENCE,
                     //     payload: 'OTP Verified Successfully',
                     // });
+                    
                     navigation.navigate('Signup');
                 }
                 else {

@@ -98,8 +98,10 @@ const SignupStack = createStackNavigator({
 }, { headerMode: 'none' })
 
 class InitScreen extends React.PureComponent {
-    componentDidMount() {
+    async componentDidMount() {
         console.log("INIT_SCREEN")
+        let upi = await base.utils.upi.getDBSUPIConfiguration(1,base.utils.strings.sandboxReceiverUPI);
+        console.log("UPI_CONFIG: ",upi)
         Linking.getInitialURL()
         .then((url) => {
           if (url) { 
@@ -137,8 +139,14 @@ class InitScreen extends React.PureComponent {
     //Linking.removeEventListener('url', this.appWokeUp);    
   }
 
-  handleQRCode(qrData){
-    const { loggedIn } = this.props;
+  async handleQRCode(qrData){
+    //const { loggedIn } = this.props;
+    var loggedIn = await base.utils.storage.retrieveData("IS_LOGGED_IN")
+    if(loggedIn == 'true'){
+        loggedIn = true;
+    }else{
+        loggedIn = false;
+    }
     if(loggedIn){
 
         var idString = qrData.match(/(id=)\w+/g);
@@ -150,6 +158,9 @@ class InitScreen extends React.PureComponent {
                 this.processMerchant(idString)
             }
         }   
+    }else{
+        console.log("LINKING_FAILED_",this.props)
+        console.log("LINKING_FAILED_",loggedIn)
     }
   }
 

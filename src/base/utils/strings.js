@@ -34,6 +34,9 @@ const strings = {
     resendOTPTxt1: "Resend in ",
     resendOTPTxt2: " sec",
 
+    sandboxReceiverUPI:"xyz1234@dbs",
+    sandboxSenderUPI:"OYESPACE@dbs",
+
 };
 
 export default strings;
