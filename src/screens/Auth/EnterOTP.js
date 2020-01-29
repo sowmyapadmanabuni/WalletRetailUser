@@ -1,5 +1,14 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableOpacity,Clipboard} from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    TouchableWithoutFeedback,
+    TouchableOpacity,
+    Clipboard,
+    Platform
+} from 'react-native';
 import base from "../../base";
 import Button from '../../components/common/Button';
 import {GlobalStyle} from '../../components/common/GlobalStyle';
@@ -15,6 +24,8 @@ import {GETOTP_SEQUENCE} from "../../actions/types";
 import Toast from 'react-native-simple-toast';
 import axios from 'axios';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
+import OpenSecuritySettings from "react-native-open-security-settings";
+import TouchID from "react-native-touch-id";
 
 
 class EnterOTP extends Component{
@@ -90,7 +101,7 @@ class EnterOTP extends Component{
     otp(country, mob){
         axios
             .post(
-                base.utils.strings.oyeWalletUrl+"account/resendotp" ,
+                "http://apidev.oyespace.com/oyeliving/api/v1/account/resendotp" ,
                 {
                     //Request Body
                     CountryCode : country,
@@ -121,7 +132,7 @@ class EnterOTP extends Component{
     render() {
         let check = base.regex.num;
         const {MobileNumber} = this.props;
-        console.log("this.props.navigation ",this.props.navigation.state.params.data);
+        console.log("this.props.navigation ",this.props.navigation.state.params.data,this.props.loggedIn);
         // const{OTP,text1}=this.props;
         return (
             <KeyboardAwareScrollView
@@ -230,10 +241,51 @@ class EnterOTP extends Component{
         else {
             this.setState({visible:true})
             //alert("Hello");
-            this.props.VerifyOTP(MobileNumber, this.state.otp, this.props.navigation);
+            let otp=this.state.otp;
+            let loggedIn=this.props.loggedIn;
+            let self=this;
+            this.launchSecurity(function (isSupported) {
+                self.props.VerifyOTP(MobileNumber, otp, self.props.navigation,loggedIn,isSupported);
+            })
             this.setState({visible:false})
         }
     };
+
+    async launchSecurity(cb) {
+        console.log("HITTING Here")
+
+        let self = this;
+        const optionalConfigObject = {
+            unifiedErrors: false,
+            passcodeFallback: true,
+        };
+        if(Platform.OS==='android'){
+            console.log("Checking defaultSecurity")
+            let isSecure = await OpenSecuritySettings.isDeviceSecure()
+            console.log("OpenSecuritySettings.isDeviceSecure",isSecure)
+            if(isSecure){
+                cb(true)
+            }else{
+                cb(false)
+            }
+        }else {
+            TouchID.isSupported(optionalConfigObject).then(biometryType => {
+                console.log("Signupaction", biometryType);
+                // Success code
+                //true
+                cb(true)
+            })
+                .catch(error => {
+                    cb(false)
+                    /* if (Platform.OS === 'android'){
+                       cb(true)
+                     }
+                   else{
+                       cb(false)
+                     }*/
+                });
+        }
+    }
 }
 
 export const styles = StyleSheet.create({
@@ -275,6 +327,8 @@ const mapStateToProps = state => {
     return {
         MobileNumber: state.OTPReducer.MobileNumber,
         // otp          : state.OTPReducer.otp,
+        loggedIn: state.UserReducer.loggedIn,
+
     };
 };
 export default connect(

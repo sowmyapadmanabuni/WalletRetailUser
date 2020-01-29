@@ -136,7 +136,7 @@ class Amount extends Component {
                                 }}}
                             keyboardType={'numeric'}
                             autoFocus={true}
-                            maxLength={6}
+                            maxLength={9}
                         />
                        {/* <TouchableOpacity>
                         <Text style={{fontSize: 30,
@@ -187,8 +187,6 @@ class Amount extends Component {
 
                 </View>
             </KeyboardAwareScrollView>
-
-
             </View>
 
 

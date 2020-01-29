@@ -166,7 +166,7 @@ export const ShowProfile = (number) => {
     console.log("inside disptch........number1", number1)
     //'http://devapi.oyewallet.com/wallet/api/v1/GetProfileDetailsByMobileNumber/'+number1
 
-    return axios.get(api.oyeWalletUrl+'GetProfileDetailsByMobileNumber/'+number1).
+    return axios.get(api.oyeWalletUrl+'GetProfileDetailsByMobileNumber/'+number+'/Retail User').
     then(response => {
         console.log("ShopProfile response..........", response)
       var data = response.data;

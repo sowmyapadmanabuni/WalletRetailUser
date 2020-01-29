@@ -49,57 +49,57 @@ const DashStack = createStackNavigator({
 
 
 
-    const AuthStack = createStackNavigator({
+const AuthStack = createStackNavigator({
 
-            Launch: {
-                screen: Start,
-                navigationOptions: ({}) => ({
-                    title: "Start",
-                    gesturesEnabled:false
-                })
-            },
-            Start:Start,
-            Signup: {screen: SignUp,navigationOptions: {
+        Launch: {
+            screen: Start,
+            navigationOptions: ({}) => ({
+                title: "Start",
+                gesturesEnabled:false
+            })
+        },
+        Start:Start,
+        Signup: {screen: SignUp,navigationOptions: {
                 gesturesEnabled: false,
             },},
-            PaymentWeb: {screen: WebViews},
-            Otp: {screen: GetOTP,navigationOptions: {
+        PaymentWeb: {screen: WebViews},
+        Otp: {screen: GetOTP,navigationOptions: {
                 gesturesEnabled: false,
             },},
-            EnterOtp: {screen: EnterOTP,navigationOptions: {
+        EnterOtp: {screen: EnterOTP,navigationOptions: {
                 gesturesEnabled: false,
             },},
-            PayMerchant: PayMerchant,
-            WebView: WebViews,
-            QR: QRScan,
-            Scanned: ScanningExample,
-            Amount: {screen:Amount,navigationOptions: {
+        PayMerchant: PayMerchant,
+        WebView: WebViews,
+        QR: QRScan,
+        Scanned: ScanningExample,
+        Amount: {screen:Amount,navigationOptions: {
                 gesturesEnabled: false,
             }},
-            CardDetails: CardDetails,
-            Profile: Profile,
-            Statement: Statement,
-            //BankDetail: BankDetail,
-            //ChangePassword: ChangePassword,
-            //PaymentMethod: PaymentMethod,
-            DefaultOrCustom : DefaultOrCustom,
-            SecureWallet:SecureWallet,
-            Security:Security,
-            PassCodeOrPin:PassCodeOrPin,
-            CreatePassword:CreatePassWord,
-            ConfirmPassWord:ConfirmPassWord,
-            CreatePin:CreatePin,
-            Credit: Credit,
-            ConfirmPin:ConfirmPin,
-            EnterPassCode:EnterPassCode,
-            EnterPin:EnterPin,
-            Debit: Debit,
-            TransactionDetail: TransactionDetail,
+        CardDetails: CardDetails,
+        Profile: Profile,
+        Statement: Statement,
+        //BankDetail: BankDetail,
+        //ChangePassword: ChangePassword,
+        //PaymentMethod: PaymentMethod,
+        DefaultOrCustom : DefaultOrCustom,
+        SecureWallet:SecureWallet,
+        Security:Security,
+        PassCodeOrPin:PassCodeOrPin,
+        CreatePassword:CreatePassWord,
+        ConfirmPassWord:ConfirmPassWord,
+        CreatePin:CreatePin,
+        Credit: Credit,
+        ConfirmPin:ConfirmPin,
+        EnterPassCode:EnterPassCode,
+        EnterPin:EnterPin,
+        Debit: Debit,
+        TransactionDetail: TransactionDetail,
 
-        },
-        {
-            headerMode: 'none'
-        })
+    },
+    {
+        headerMode: 'none'
+    })
 
 
 const SignupStack = createStackNavigator({
@@ -110,15 +110,15 @@ class InitScreen extends React.PureComponent {
     componentDidMount() {
         console.log("INIT_SCREEN")
         Linking.getInitialURL()
-        .then((url) => {
-          if (url) {
-              console.log("EXTERNAL_URL",url)
-            this.handleExternalLink(url)
-          }
-        })
-        .catch((e) => {console.log("URL_ERROR",e)})
+            .then((url) => {
+                if (url) {
+                    console.log("EXTERNAL_URL",url)
+                    this.handleExternalLink(url)
+                }
+            })
+            .catch((e) => {console.log("URL_ERROR",e)})
 
-   Linking.addEventListener('url', this.appWokeUp);
+        Linking.addEventListener('url', this.appWokeUp);
 
         persistStore(store, null, () => {
             const { loggedIn } = this.props;
@@ -158,7 +158,7 @@ class InitScreen extends React.PureComponent {
                     if(!isSecure){
                         this.props.navigation.navigate('Security')
 
-                       // this.props.navigation.navigate('SecureWallet')
+                        // this.props.navigation.navigate('SecureWallet')
                     }else{
                         if(error.code == 'NOT_ENROLLED'){
                             this.props.navigation.navigate('Security')
@@ -180,60 +180,60 @@ class InitScreen extends React.PureComponent {
         //alert('Linking Listener'+'url  ' + event.url)
         console.log("EXTERNAL_URL_APPWOKE",event)
         this.handleExternalLink(event.url)
-     }
+    }
 
-   handleExternalLink(url){
+    handleExternalLink(url){
         console.log("EXTERNAL_URL_HANDLE",url)
-       if(url.indexOf("qrcode") != -1){
-           console.log(url)
-           this.handleQRCode(url)
-       }
-   }
+        if(url.indexOf("qrcode") != -1){
+            console.log(url)
+            this.handleQRCode(url)
+        }
+    }
 
-   componentWillUnmount(){
-    //Linking.removeEventListener('url', this.appWokeUp);
-  }
+    componentWillUnmount(){
+        //Linking.removeEventListener('url', this.appWokeUp);
+    }
 
-  handleQRCode(qrData){
-    const { loggedIn } = this.props;
-    if(loggedIn){
+    handleQRCode(qrData){
+        const { loggedIn } = this.props;
+        if(loggedIn){
 
-        var idString = qrData.match(/(id=)\w+/g);
-        if(idString.length > 0){
-            idString = idString[0]
-            console.log(idString)
-            if(idString.indexOf("id=") != -1){
-                idString = idString.replace("id=","");
-                this.processMerchant(idString)
+            var idString = qrData.match(/(id=)\w+/g);
+            if(idString.length > 0){
+                idString = idString[0]
+                console.log(idString)
+                if(idString.indexOf("id=") != -1){
+                    idString = idString.replace("id=","");
+                    this.processMerchant(idString)
+                }
             }
         }
     }
-  }
 
-  async processMerchant(merchantId){
-    this.setState({isLoading:true})
-    let merchResp = await base.service.api.getMerchant(merchantId);
-    this.setState({isLoading:false})
-    console.log(merchResp)
-    if(merchResp.data != undefined && merchResp.data.errorMessage == undefined){
+    async processMerchant(merchantId){
+        this.setState({isLoading:true})
+        let merchResp = await base.service.api.getMerchant(merchantId);
+        this.setState({isLoading:false})
+        console.log(merchResp)
+        if(merchResp.data != undefined && merchResp.data.errorMessage == undefined){
 
-        let merchant = merchResp.data;
-        let mobMerchant = merchant.mobileNumber;
-        let storeName = merchant.brandName;
-        if(mobMerchant != undefined){
-            //console.log(merchant.mobileNumber)
-            this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobMerchant})
+            let merchant = merchResp.data;
+            let mobMerchant = merchant.mobileNumber;
+            let storeName = merchant.brandName;
+            if(mobMerchant != undefined){
+                //console.log(merchant.mobileNumber)
+                this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobMerchant})
+            }else{
+                //this.showQRError('Merchant Not Found')
+                //this.reactivateScanner();
+            }
         }else{
             //this.showQRError('Merchant Not Found')
-            //this.reactivateScanner();
+
         }
-    }else{
-        //this.showQRError('Merchant Not Found')
-
     }
-}
 
-render() {
+    render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <ActivityIndicator size="large" />

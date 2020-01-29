@@ -24,6 +24,7 @@ import { connect } from "react-redux";
 import TouchID from "react-native-touch-id";
 import OpenSecuritySettings from 'react-native-open-security-settings';
 import LocalAuth from 'react-native-local-auth';
+import {UPDATE_lOGGEDIN} from "../../../actions/types";
 //import PasscodeAuth from 'react-native-passcode-auth';
 //import PasscodeAuth from 'react-native-passcode-auth';
 
@@ -134,11 +135,12 @@ class DefaultOrCustom extends Component {
                 suppressEnterPassword: true // disallow Enter Password fallback
             })
                 .then(async success => {
+                    let self= this;
                     self.setState({ isButton: false });
                    // updateUserInfo({ prop: 'loggedIn', value: true })
-                    let self= this;
                     // const { userDetails } = this.props;
                     // let data = userDetails;
+
                     updateLoggedIn({ prop: 'loggedIn', value: true })
 
                     self.props.navigation.navigate('PayMerchant');
