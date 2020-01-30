@@ -5,6 +5,8 @@ import { View, ActivityIndicator,AsyncStorage,Linking } from 'react-native';
 import { persistStore } from 'redux-persist';
 import store from './store';
 import CardDetails from './screens/PaymentGateWay/CardDetails';
+import UPITimer from './screens/PaymentGateWay/UPITimer';
+import TransactionResult from './screens/PaymentGateWay/TransactionResult';
 import EnterOTP from './screens/Auth/EnterOTP';
 import GetOTP from './screens/Auth/GetOTP';
 import SignUp from './screens/Auth/SignUp';
@@ -77,6 +79,12 @@ const AuthStack = createStackNavigator({
                 gesturesEnabled: false,
             }},
         CardDetails: CardDetails,
+        UPITimer:{screen:UPITimer,navigationOptions: {
+            gesturesEnabled: false,
+        },},
+        TransactionResult:{screen:TransactionResult,navigationOptions: {
+            gesturesEnabled: false,
+        },},
         Profile: Profile,
         Statement: Statement,
         //BankDetail: BankDetail,
@@ -98,7 +106,11 @@ const AuthStack = createStackNavigator({
 
     },
     {
-        headerMode: 'none'
+        headerMode: 'none',
+        defaultNavigationOptions:{
+            gesturesEnabled:false,
+            swipeEnabled:false
+        }
     })
 
 
