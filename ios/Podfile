@@ -2,9 +2,6 @@ platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 target 'WalletRetailUser' do
-  
-  permissions_path = '../node_modules/react-native-permissions/ios'
-  
   # Pods for WalletRetailUser
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
@@ -36,27 +33,24 @@ target 'WalletRetailUser' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+   pod 'TouchID', :path => '../node_modules/react-native-touch-id'
 
   pod 'react-native-ccavenue-encryption', :path => '../node_modules/react-native-ccavenue-encryption'
 
-pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
-
-pod 'react-native-branch', :path => '../node_modules/react-native-branch'
-
-#  target 'WalletRetailUserTests' do
-#    inherit! :search_paths
-#    # Pods for testing
-#  end
+  target 'WalletRetailUserTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
 
   use_native_modules!
 end
 
-#target 'WalletRetailUser-tvOS' do
-#  # Pods for WalletRetailUser-tvOS
-#
-#  target 'WalletRetailUser-tvOSTests' do
-#    inherit! :search_paths
-#    # Pods for testing
-#  end
-#
-#end
+target 'WalletRetailUser-tvOS' do
+  # Pods for WalletRetailUser-tvOS
+
+  target 'WalletRetailUser-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

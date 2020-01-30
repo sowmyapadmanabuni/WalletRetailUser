@@ -198,9 +198,10 @@ class Security extends Component {
         }
     }
     passCodeFail() {
+        BackHandler.exitApp();
         // this._pressHandler()
         //this.props.navigation.navigate("SecureWallet")
-        this.props.navigation.navigate("DefaultOrCustom")
+       // this.props.navigation.navigate("DefaultOrCustom")
     }
 
     /* showAlert() {

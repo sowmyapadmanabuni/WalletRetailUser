@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import org.reactnative.camera.RNCameraPackage;
 import com.securitysettings.OpenSecuritySettingsPackage;
 import com.encryptccavenue.CcavenueEncryptionPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
@@ -14,8 +15,6 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.reactnativecommunity.rnpermissions.BuildConfig;
-
-import org.reactnative.camera.RNCameraPackage;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;

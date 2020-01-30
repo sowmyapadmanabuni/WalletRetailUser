@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text,Dimensions, TouchableOpacity,TextInput, Linking, Image, PermissionsAndroid, BackHandler, Alert} from 'react-native';
-//import { RNCamera } from 'react-native-camera';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 import CardView from 'react-native-cardview';

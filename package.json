@@ -23,7 +23,7 @@
     "react-native": "0.61.4",
     "react-native-android-open-settings": "^1.3.0",
     "react-native-branch": "^4.2.1",
-    "react-native-camera": "^3.11.1",
+    "react-native-camera": "^3.16.0",
     "react-native-cardview": "^2.0.5",
     "react-native-ccavenue-encryption": "git+https://github.com/anooj1483/react-native-ccavenue-encryption.git",
     "react-native-circle-timer": "^1.0.1",
