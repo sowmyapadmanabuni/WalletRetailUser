@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E999B5423DB05E6009F5E56 /* openssl_ios in Resources */ = {isa = PBXBuildFile; fileRef = 0E999B5323DB05E5009F5E56 /* openssl_ios */; };
 		0E999B5723DB0677009F5E56 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5623DB0677009F5E56 /* libcrypto.a */; };
 		0E999B5923DB067A009F5E56 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5823DB067A009F5E56 /* libssl.a */; };
 		0E999B5B23DB068C009F5E56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5A23DB068C009F5E56 /* Foundation.framework */; };
@@ -41,6 +40,7 @@
 		00E356F21AD99517003FC87E /* WalletRetailUserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletRetailUserTests.m; sourceTree = "<group>"; };
 		05C6E3319D424215AEE2387B /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		0685E1FA524E46B2ACDC10D0 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		0E00FE3B23E05CC7002BB131 /* OyeWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = OyeWallet.entitlements; path = WalletRetailUser/OyeWallet.entitlements; sourceTree = "<group>"; };
 		0E381AD123DC0DD9007353E7 /* OyeWalletDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = OyeWalletDebug.entitlements; path = WalletRetailUser/OyeWalletDebug.entitlements; sourceTree = "<group>"; };
 		0E999B5323DB05E5009F5E56 /* openssl_ios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = openssl_ios; sourceTree = "<group>"; };
 		0E999B5623DB0677009F5E56 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = openssl_ios/lib/libcrypto.a; sourceTree = "<group>"; };
@@ -120,6 +120,7 @@
 		13B07FAE1A68108700A75B9A /* WalletRetailUser */ = {
 			isa = PBXGroup;
 			children = (
+				0E00FE3B23E05CC7002BB131 /* OyeWallet.entitlements */,
 				0E381AD123DC0DD9007353E7 /* OyeWalletDebug.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -299,7 +300,6 @@
 				3C134B8083E54F579191EA2C /* EvilIcons.ttf in Resources */,
 				AE305D6B2A354622B8C80BCD /* Feather.ttf in Resources */,
 				9884C6ECC24846A596B2CE66 /* FontAwesome.ttf in Resources */,
-				0E999B5423DB05E6009F5E56 /* openssl_ios in Resources */,
 				213799C21112456FB7BBF3C1 /* FontAwesome5_Brands.ttf in Resources */,
 				26C65742139D43E7B61ED307 /* FontAwesome5_Regular.ttf in Resources */,
 				F5328A38D40F4F5EADBAD088 /* FontAwesome5_Solid.ttf in Resources */,
@@ -457,7 +457,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = WalletRetailUser/OyeWalletDebug.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = K5NJYU4T6K;
 				ENABLE_BITCODE = NO;
@@ -496,9 +496,11 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WalletRetailUser/OyeWallet.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = K5NJYU4T6K;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,7 +521,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.oyewallet.consumer;
 				PRODUCT_NAME = OyeWallet;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = ANOOJ_CONSUMER_RELEASE;
 				SWIFT_OBJC_BRIDGING_HEADER = "WalletRetailUser-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;

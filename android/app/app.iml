@@ -144,8 +144,8 @@
     <orderEntry type="library" name="Gradle: com.crashlytics.sdk.android:answers-shim:0.0.6@aar" level="project" />
     <orderEntry type="module" module-name="react-native-webview" />
     <orderEntry type="module" module-name="react-native-branch" />
+    <orderEntry type="module" module-name="react-native-open-security-settings-android-react-native-open-security-settings" />
     <orderEntry type="module" module-name="android-react-native-android-open-settings" />
-    <orderEntry type="module" module-name="android-react-native-touch-id" />
     <orderEntry type="module" module-name="react-native-ccavenue-encryption" />
     <orderEntry type="module" module-name="lottie-react-native-src-android-lottie-react-native" />
     <orderEntry type="module" module-name="react-native-gesture-handler" />
@@ -156,7 +156,7 @@
     <orderEntry type="module" module-name="react-native-cardview" />
     <orderEntry type="module" module-name="react-native-keyevent" />
     <orderEntry type="module" module-name="react-native-local-auth-android-react-native-local-auth" />
-    <orderEntry type="module" module-name="react-native-open-security-settings" />
+    <orderEntry type="module" module-name="react-native-touch-id-android-react-native-touch-id" />
     <orderEntry type="module" module-name="react-native-vector-icons" />
   </component>
 </module>

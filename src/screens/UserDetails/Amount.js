@@ -70,7 +70,7 @@ class Amount extends Component {
     };
 
     render() {
-        // console.log('GET THE DATA',this.props.navigation.state.params.storeName,this.props.navigation.state.params.mobileNumber)
+     //   console.log('GET THE DATA',this.props.navigation.state.params.storeName,this.props.navigation.state.params.mobileNumber)
         return (
             <View style={{height:'100%',width:'100%',backgroundColor:'orange'}}>
 
@@ -87,22 +87,22 @@ class Amount extends Component {
                         />
 
                     </TouchableOpacity>
+                    {this.props.navigation.state.params !==undefined?
+                        <Text style={{color: base.theme.colors.white,
+                            marginTop :'3%',
+                            textAlign: 'center',
+                            fontSize: 18,}}>You are paying to '{this.props.navigation.state.params.storeName}'
+                        </Text>:
+                        <View/>}
 
-                <Text style={{color: base.theme.colors.white,
-                        marginTop :'3%',
-                        textAlign: 'center',
-                fontSize: 18,}}>
-                    {/* You are paying to '{this.props.navigation.state.params.storeName}' */}
-                </Text>
+                    {this.props.navigation.state.params !==undefined?
                     <Text style={{ color: base.theme.colors.white,
                         fontSize: 18,
-                        textAlign: 'center',}}>
-                            {/* {this.props.navigation.state.params.mobileNumber} */}
-                            </Text>
+                        textAlign: 'center',}}>{this.props.navigation.state.params.mobileNumber}</Text>
+                        :
+                        <View/>}
 
-
-
-                    <Text style={styles.textInput1}>Enter Amount</Text>
+                        <Text style={styles.textInput1}>Enter Amount</Text>
                     <View
                        // pointerEvents="none"
                         style={styles.SectionStyle}>
@@ -139,7 +139,7 @@ class Amount extends Component {
                                 }}}
                             keyboardType={'numeric'}
                             autoFocus={true}
-                            maxLength={6}
+                            maxLength={9}
                         />
                        {/* <TouchableOpacity>
                         <Text style={{fontSize: 30,
@@ -148,10 +148,10 @@ class Amount extends Component {
 
                     </View>
                     <View style={{alignSelf: 'center'}}>
-                        {/* <Text style={{ textAlign: 'center', color: base.theme.colors.black, fontSize:18 }}>Purpose of payment</Text> */}
+                     <Text style={{ textAlign: 'center', color: base.theme.colors.black, fontSize:18 }}>Purpose of payment</Text>
 
-{/*
-                        <View style={{ color: base.theme.colors.black, borderWidth: 0.5, marginTop: '3%' }}></View>
+                        {/*
+ <View style={{ color: base.theme.colors.black, borderWidth: 0.5, marginTop: '3%' }}></View>
 
 */}
                         <TextInput
@@ -161,7 +161,7 @@ class Amount extends Component {
                             placeholder="Purpose of Payment"
                             placeholderTextColor={base.theme.colors.white}
                             onChangeText={(value) =>{
-                                let num = value.replace(/^[a-zA-Z0-9 ]+$/g,  '');
+                                let num = value.replace(/^[a-zA-Z0-9 ]+$/g, '');
                                 if (isNaN(num)) {
                                     // Its not a number
                                 } else {
@@ -188,14 +188,9 @@ class Amount extends Component {
                         </TouchableOpacity>
                     </View>
 
+
                 </View>
-
-
-
-
             </KeyboardAwareScrollView>
-
-
             </View>
 
 

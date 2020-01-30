@@ -277,7 +277,8 @@ class PayMerchant extends Component {
 
 
 
-    componentDidMount() {
+    async componentDidMount() {
+        await base.utils.storage.storeData("IS_LOGGED_IN","true")
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
         // this.getDetails()
     }

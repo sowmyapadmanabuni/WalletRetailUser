@@ -6,8 +6,6 @@ import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.securitysettings.OpenSecuritySettingsPackage;
-import com.levelasquez.androidopensettings.AndroidOpenSettingsPackage;
-import com.rnfingerprint.FingerprintAuthPackage;
 import com.encryptccavenue.CcavenueEncryptionPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
