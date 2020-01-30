@@ -2218,6 +2218,7 @@
 		0E0DDBB514DB4360573EFBEB3CEE8E6C /* InspectorInterfaces.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = InspectorInterfaces.cpp; sourceTree = "<group>"; };
 		0EB320739C29CB5B8327EFCCACEEABE4 /* RCTConvertHelpers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTConvertHelpers.h; sourceTree = "<group>"; };
 		0EB959FB9D73528D0267F8C41A3F1B0B /* SingleValueProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SingleValueProvider.swift; sourceTree = "<group>"; };
+		0ED3BA5523E3036F006851CA /* openssl_ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = openssl_ios; path = ../../../../../../../openssl_ios; sourceTree = "<group>"; };
 		0EF8817C349228B5E5CD8D3479E73C1B /* RCTActivityIndicatorViewManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTActivityIndicatorViewManager.m; sourceTree = "<group>"; };
 		0F8D5091C801A6ECB9A173DA0E385A29 /* liblottie-react-native.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liblottie-react-native.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FAB04FB11932D9B2383E925F0CD78A6 /* RNFlingHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RNFlingHandler.m; sourceTree = "<group>"; };
@@ -2298,7 +2299,6 @@
 		1E7C28BAC3E1DAFC6FDD709903EEF072 /* RNCWKProcessPoolManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNCWKProcessPoolManager.m; path = ios/RNCWKProcessPoolManager.m; sourceTree = "<group>"; };
 		1E9F07190105A8C4D354079E32EEE8A0 /* RCTShadowView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTShadowView.h; sourceTree = "<group>"; };
 		1EA2C737A5B60F6D243EA8C58A8592B7 /* RCTInspectorDevServerHelper.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTInspectorDevServerHelper.mm; sourceTree = "<group>"; };
-		1EC4CB6A23E2F64A00CC312D /* openssl_ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = openssl_ios; path = ../../../../../openssl_ios; sourceTree = "<group>"; };
 		1EDBDF2F0532C2F4E2ADF2C11785DF65 /* REAEventNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = REAEventNode.m; sourceTree = "<group>"; };
 		1F8C5FFE513877FB56014319D09D093B /* react-native-branch.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "react-native-branch.xcconfig"; sourceTree = "<group>"; };
 		1FBD356264E9A441B0A63342BFCFD6B0 /* libPods-WalletRetailUser-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WalletRetailUser-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6433,7 +6433,7 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
-				1EC4CB6A23E2F64A00CC312D /* openssl_ios */,
+				0ED3BA5523E3036F006851CA /* openssl_ios */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				5F5F07722E7BD45E2AA27EAC319E1334 /* Development Pods */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
@@ -8832,6 +8832,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 17E7723218626A15BCAFC0F1F8760250 /* Products */;
@@ -10622,7 +10623,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/react-native-ccavenue-encryption/react-native-ccavenue-encryption-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LIBRARY_SEARCH_PATHS = /Users/synclovissystems/openssl_ios/lib;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -10634,7 +10635,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = /Users/synclovissystems/openssl_ios/include;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -11840,8 +11841,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LIBRARY_SEARCH_PATHS = /Users/synclovissystems/openssl_ios/lib;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -11849,7 +11851,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-				USER_HEADER_SEARCH_PATHS = /Users/synclovissystems/openssl_ios/include;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 			};
 			name = Release;
 		};
@@ -11904,8 +11906,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LIBRARY_SEARCH_PATHS = /Users/synclovissystems/openssl_ios/lib;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -11915,7 +11918,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-				USER_HEADER_SEARCH_PATHS = /Users/synclovissystems/openssl_ios/include;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 			};
 			name = Debug;
 		};
@@ -12237,7 +12240,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/react-native-ccavenue-encryption/react-native-ccavenue-encryption-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LIBRARY_SEARCH_PATHS = /Users/synclovissystems/openssl_ios/lib;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -12249,7 +12252,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = /Users/synclovissystems/openssl_ios/include;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 			};
 			name = Debug;
 		};
