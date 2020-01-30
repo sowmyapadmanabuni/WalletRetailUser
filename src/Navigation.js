@@ -218,9 +218,10 @@ class InitScreen extends React.PureComponent {
       if (loggedIn) {
 
           var idString = qrData.match(/(id=)\w+/g);
+          console.log("IDSTRING@@@@@",idString)
+
           if (idString.length > 0) {
               idString = idString[0]
-              console.log(idString)
               if (idString.indexOf("id=") != -1) {
                   idString = idString.replace("id=", "");
                   this.processMerchant(idString)
