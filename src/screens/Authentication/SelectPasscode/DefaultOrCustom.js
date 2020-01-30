@@ -147,6 +147,7 @@ class DefaultOrCustom extends Component {
 
                 })
                 .catch(error => {
+                    BackHandler.exitApp()
 
                     //this.passCodeFail();
                     console.log("error", error);

@@ -32,6 +32,8 @@ import LocalAuth from 'react-native-local-auth';
 class SignUp extends Component {
     constructor(props) {
         super(props);
+        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+
 
         let mappedCountries = [];
         getAllCountries().then(data => {
@@ -62,27 +64,30 @@ class SignUp extends Component {
             selectedChild:0,
         };
     }
-    componentWillMount() {
+    componentDidMount() {
 
-        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+       this.BackHandler =  BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
     handleBackButtonClick() {
-        if (Platform.OS === 'android') {
-            var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
-                    BackHandler.exitApp()
-                });
-                setTimeout(
-                    () => {
-                        doubleClick.remove()
-                    },
-                    1500
-                );
-                //console.log("TIME: ",new Date().getTime())
-                //this.showExitAlert();
-            }
-        }
+       // BackHandler.exitApp()
+
+         if (Platform.OS === 'android') {
+             var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+                     BackHandler.exitApp()
+                 });
+                 setTimeout(
+                     () => {
+                         doubleClick.remove()
+                     },
+                     1500
+                 );
+
+             }
+        return true ;
+
+    }
     componentWillUnmount() {
-        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+        BackHandler.remove();
     }
 
     formatText = (text) => {

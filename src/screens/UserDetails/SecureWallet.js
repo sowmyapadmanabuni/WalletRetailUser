@@ -30,12 +30,36 @@ import {updateLoggedIn,updateUserInfo} from "../../actions";
 class SecureWallet extends Component {
     constructor(props) {
         super(props);
+        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+
         this.state = {
             pressStatus: false,
             isButton: true,
             pp: ''
 
         }
+    }
+    componentDidMount() {
+        console.log('GET THE DATA SECURE WALLET')
+
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+    handleBackButtonClick() {
+        if (Platform.OS === 'android') {
+            var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+                BackHandler.exitApp()
+            });
+            setTimeout(
+                () => {
+                    doubleClick.remove()
+                },
+                1500
+            );
+
+        }
+    }
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
 
     /* handleBackPress = () => {
@@ -80,7 +104,7 @@ class SecureWallet extends Component {
 
                 })
                 .catch(error => {
-
+                    BackHandler.exitApp()
                     //this.passCodeFail();
                     console.log("error", error);
                     // alert('Authentication Failed', error.message)

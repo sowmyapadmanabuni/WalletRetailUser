@@ -10,7 +10,6 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-nativ
 import { TextInput, ScrollView, } from 'react-native-gesture-handler';
 import CardView from 'react-native-cardview';
 import { Style } from './Style';
-//import { RNCamera } from 'react-native-camera';
 import Validation from "../../components/common/Validation";
 import {check, PERMISSIONS,request,RESULTS} from 'react-native-permissions';
 
@@ -76,7 +75,7 @@ class QRScan extends Component {
           case RESULTS.UNAVAILABLE:
             alert("No Camera Permission available")
             break;
-          case RESULTS.DENIED:            
+          case RESULTS.DENIED:
             self.requestPermissions()
             break;
           case RESULTS.GRANTED:
@@ -90,8 +89,8 @@ class QRScan extends Component {
     }
 
     async requestPermissions() {
-      
-      const cameraStatus = await request(Platform.OS==='ios'? PERMISSIONS.IOS.CAMERA:PERMISSIONS.ANDROID.CAMERA);      
+
+      const cameraStatus = await request(Platform.OS==='ios'? PERMISSIONS.IOS.CAMERA:PERMISSIONS.ANDROID.CAMERA);
       if(cameraStatus == RESULTS.GRANTED){
         this.openQRScreen()
       }

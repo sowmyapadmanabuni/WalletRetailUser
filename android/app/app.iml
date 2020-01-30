@@ -144,6 +144,7 @@
     <orderEntry type="library" name="Gradle: com.crashlytics.sdk.android:answers-shim:0.0.6@aar" level="project" />
     <orderEntry type="module" module-name="react-native-webview" />
     <orderEntry type="module" module-name="react-native-branch" />
+    <orderEntry type="module" module-name="react-native-camera" />
     <orderEntry type="module" module-name="react-native-open-security-settings-android-react-native-open-security-settings" />
     <orderEntry type="module" module-name="android-react-native-android-open-settings" />
     <orderEntry type="module" module-name="react-native-ccavenue-encryption" />
@@ -152,7 +153,6 @@
     <orderEntry type="module" module-name="react-native-reanimated-android-react-native-reanimated" />
     <orderEntry type="module" module-name="react-native-permissions" />
     <orderEntry type="module" module-name="android-@react-native-community_async-storage" />
-    <orderEntry type="module" module-name="react-native-camera" />
     <orderEntry type="module" module-name="react-native-cardview" />
     <orderEntry type="module" module-name="react-native-keyevent" />
     <orderEntry type="module" module-name="react-native-local-auth-android-react-native-local-auth" />
