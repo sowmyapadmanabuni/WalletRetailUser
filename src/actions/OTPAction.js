@@ -52,8 +52,8 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
     };
   };
 
-  export const VerifyOTP = (MobileNumber, Otp, navigation) => {
-      console.log("VerifyOTP>>> MobileNumber, Otp, navigation", MobileNumber, Otp, navigation);
+  export const VerifyOTP = (MobileNumber, Otp, navigation,loggedIn,isSupported) => {
+      console.log("VerifyOTP>>> MobileNumber, Otp, navigation", MobileNumber, Otp, navigation,loggedIn,isSupported);
 
     return dispatch => {
         console.log(api.oyeWalletUrl + 'verifyOTP');
@@ -101,7 +101,14 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
                     console.log(">>>UserReducer----------> ");
                     console.log("VerifyOTP>>>response 2", response);
                     let data = response.data.data[0];
-                    console.log("data.registrationId ", data);
+                    let retData;
+                    for(let i=0;i<response.data.data.length;i++){
+                        console.log('GET THE DATA IN DETAIL',response.data.data.length)
+                        if(response.data.data[i].role=="Retail User"){
+                            retData=response.data.data[i]
+                        }
+                    }
+                    console.log("data.registrationId ", data,retData);
                     let payloadArr = [
                     ]
                    /* dispatch({
@@ -111,7 +118,7 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
 
                    dispatch({
                         type:UPDATE_USER_INFO,
-                        payload:data
+                        payload:retData
                     });
 
                     dispatch({
@@ -124,11 +131,25 @@ export const GenerateOTP = (CountryCode, MobileNumber, navigation) => {
                        // payload:({prop:"loggedIn",value:true})
                     })
                     console.log("VerifyOTP>>>data ", data);
-                    if (data.role === 'Retail User') {
+                    if (data.role === 'Retail User' && loggedIn==false ) {
+                        if(isSupported){
+                            navigation.navigate('DefaultOrCustom');
+
+                        }
+                        else{
+                            navigation.navigate('SecureWallet');
+                        }
                         //alert("Number Exists");
                        // navigation.navigate('Profile');
-                       navigation.navigate('DefaultOrCustom');
                        // navigation.navigate('PayMerchant');
+                        //navigation.navigate('Security');
+
+                    } else if (data.role === 'Retail User' && loggedIn==true) {
+                        //alert("Number Exists");
+                        // navigation.navigate('Profile');
+                        //navigation.navigate('DefaultOrCustom');
+                        // navigation.navigate('PayMerchant');
+                        navigation.navigate('Security');
 
                     } else {
                         alert("Number dont know")

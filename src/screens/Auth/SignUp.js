@@ -22,6 +22,9 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 import DatePicker from "react-native-datepicker";
 import moment from "moment";
 import Dropdown from "react-native-material-dropdown/src/components/dropdown";
+import TouchID from "react-native-touch-id";
+import OpenSecuritySettings from 'react-native-open-security-settings';
+import LocalAuth from 'react-native-local-auth';
 
 
 
@@ -458,14 +461,63 @@ class SignUp extends Component {
         else{
 
             const { MobileNumber } = this.props;
+            let fName=this.state.fName;
+            let lName=this.state.lName;
+            let mobNum="+91" + this.props.MobileNumber;
+            let email=this.state.email;
+            let isGenderSelected=this.state.isGenderSelected
+            let dob=moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD')
+            let self=this;
+            this.launchSecurity(function (isSupported) {
+                console.log('Going inside this',isSupported)
+                self.props.Register(fName,lName,mobNum, email,
+                    "+91", self.props.navigation, isGenderSelected,dob,
+                    isSupported)
+            })
 
-            this.props.Register(this.state.fName, this.state.lName,"+91" + this.props.MobileNumber, this.state.email,
-                "+91", this.props.navigation, this.state.isGenderSelected,moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD'));
+
+
         }
 
 
 
     };
+
+    async launchSecurity(cb) {
+        console.log("HITTING Here")
+
+        let self = this;
+        const optionalConfigObject = {
+            unifiedErrors: false,
+            passcodeFallback: true,
+        };
+        if(Platform.OS==='android'){
+            console.log("Checking defaultSecurity")
+            let isSecure = await OpenSecuritySettings.isDeviceSecure()
+            console.log("OpenSecuritySettings.isDeviceSecure",isSecure)
+            if(isSecure){
+                cb(true)
+            }else{
+                cb(false)
+            }
+        }else {
+            TouchID.isSupported(optionalConfigObject).then(biometryType => {
+                console.log("Signupaction", biometryType);
+                // Success code
+                //true
+                cb(true)
+            })
+                .catch(error => {
+                    cb(false)
+                    /* if (Platform.OS === 'android'){
+                       cb(true)
+                     }
+                   else{
+                       cb(false)
+                     }*/
+                });
+        }
+    }
 
     RegisterMobileNumberCheck = () => {
         this.signUpValidations();

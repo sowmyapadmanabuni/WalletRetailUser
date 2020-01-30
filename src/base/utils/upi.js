@@ -19,23 +19,23 @@ export default class upi{
         let config = {
             header:{
                 
-                apiKey:'d0cc814c-c6c5-4f6a-b1d9-8e866c3a75cf',
+                apiKey:'',//d0cc814c-c6c5-4f6a-b1d9-8e866c3a75cf
 
-                msgId:'20120129000001',//must be unique, Proposed format: <YYYYMMDD><sequence number>
-                orgId:'INJAON01',
+                msgId:'',//20120129000001 must be unique, Proposed format: <YYYYMMDD><sequence number>
+                orgId:'',//INJAON01
                 timeStamp:initiatingTime,//Generated from app
             },
             
             txnInfo:{
             
-                customerReference:"12345",//Transaction Remarks to be sent to beneficiary or payer to inform the reference number or purpose of payment or collection
-                customerTxnId:"31345",//End to end ID that will be checked for duplicates
-                refId:"12345678",//DBS recommends to populate the same value as in the field 6 for customerReference
+                customerReference:"",//Transaction Remarks to be sent to beneficiary or payer to inform the reference number or purpose of payment or collection
+                customerTxnId:"",//End to end ID that will be checked for duplicates
+                refId:"",//DBS recommends to populate the same value as in the field 6 for customerReference
                 txnType:"PUPI",//Generated from app
                 txnDate:initiatedDate,
                 txnAmount:txnAmount,
                 senderParty:{
-                    name:"JABM PVT LTD", 
+                    name:"", 
                     bankCtryCode : "IN",
                     vpa : strings.sandboxSenderUPI,//"OYESPACE@dbs",
                     expiry : expiringTime
@@ -67,7 +67,7 @@ export default class upi{
         let upiConfig = dbsConfig;
         upiConfig.header.timeStamp = initiatingTime
         upiConfig.txnInfo.senderParty.expiry = expiringTime
-           
+
     }
 
 }

@@ -386,10 +386,16 @@ class CardDetails extends Component{
 
     payUPI(){
         if(this.state.isUPIVerified){
-            this.props.navigation.navigate('UPITimer',{upiResponse:''})
+            this.initiateDBS();
         }else{
             alert("Please verify UPI ID")
         }
+    }
+
+    async initiateDBS(){
+        let config = await base.utils.upi.getDBSUPIConfiguration(this.props.navigation.state.params.data,this.state.upiText,0)
+        console.log("initiateDBS",config)
+        this.props.navigation.navigate('UPITimer',{upiResponse:''})
     }
 
     payAction(type){
