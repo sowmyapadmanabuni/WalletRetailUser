@@ -394,8 +394,11 @@ class CardDetails extends Component{
 
     async initiateDBS(){
         let config = await base.utils.upi.getDBSUPIConfiguration(this.props.navigation.state.params.data,this.state.upiText,0)
+        
         console.log("initiateDBS",config)
-        this.props.navigation.navigate('UPITimer',{upiResponse:''})
+        let initiatedResp = await base.utils.upi.initiateDBSUPI(config);
+        console.log("initiateDBS_RESP",initiatedResp)
+        //this.props.navigation.navigate('UPITimer',{upiResponse:''})
     }
 
     payAction(type){
