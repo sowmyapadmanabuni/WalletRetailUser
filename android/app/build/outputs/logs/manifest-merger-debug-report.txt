@@ -5,6 +5,7 @@ INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml:1:1-33:12
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml:1:1-33:12
 MERGED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml:1:1-33:12
+MERGED from [androidx.multidex:multidex:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/0d7a8d7fb4d46c101ae6f7295473a884/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [:react-native-android-open-settings] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-android-open-settings/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-touch-id] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-touch-id/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-13:12
 MERGED from [:react-native-ccavenue-encryption] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-ccavenue-encryption/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -14,6 +15,7 @@ MERGED from [:react-native-reanimated] /Users/rashmihegde/Documents/WalletRetail
 MERGED from [:react-native-permissions] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-permissions/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:@react-native-community_async-storage] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-camera] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:2:1-18:12
+MERGED from [:react-native-branch] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-branch/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-cardview] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-cardview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-keyevent] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-keyevent/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-local-auth] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-local-auth/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
@@ -35,6 +37,7 @@ MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/rashmihegde/.g
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/9215310862905207993ebaadc1444d4b/soloader-0.6.0/AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.gms:play-services-vision:17.0.2] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/95084106699b8edd8ee714220583556e/play-services-vision-17.0.2/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/a56d9f2690d8da3d69ec2a4825a398e5/exifinterface-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [io.branch.sdk.android:library:4.1.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/d79791afc7ea074710408e1ce38559d2/jetified-library-4.1.0/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/f79ba233392edf48ea05d39f45330eea/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/d41b1b3aa33f2ebc649c7ba2ca6710ec/jetified-play-services-vision-common-17.0.2/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/31d92fc84ab0132e47d7c372e7a1bc40/jetified-play-services-clearcut-16.0.0/AndroidManifest.xml:17:1-24:12
@@ -71,6 +74,7 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/rashmihegde/.gr
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/467261a2f9345b8245b421ae2d0759ef/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/e2399404496ab31493b5df2cd629875f/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/207dc4776d65aba21a903337f235e976/jetified-fbcore-2.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.crashlytics.sdk.android:answers-shim:0.0.6] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/bcb75972fe1671a3eeea8b453c404f8f/answers-shim-0.0.6/AndroidManifest.xml:2:1-13:12
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/debug/AndroidManifest.xml:2:1-8:12
@@ -155,6 +159,8 @@ MERGED from [androidx.core:core:1.0.1] /Users/rashmihegde/.gradle/caches/transfo
 MERGED from [androidx.core:core:1.0.1] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/185f5b9efd7c173d0ffd24d204b22e91/core-1.0.1/AndroidManifest.xml:22:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/fdf3d4a91c9f4c67248e94fbe4e9460d/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/fdf3d4a91c9f4c67248e94fbe4e9460d/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.crashlytics.sdk.android:answers-shim:0.0.6] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/bcb75972fe1671a3eeea8b453c404f8f/answers-shim-0.0.6/AndroidManifest.xml:11:5-20
+MERGED from [com.crashlytics.sdk.android:answers-shim:0.0.6] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/bcb75972fe1671a3eeea8b453c404f8f/answers-shim-0.0.6/AndroidManifest.xml:11:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.0.1] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/185f5b9efd7c173d0ffd24d204b22e91/core-1.0.1/AndroidManifest.xml:22:18-86
 	android:label
@@ -209,6 +215,8 @@ uses-sdk
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/main/AndroidManifest.xml
+MERGED from [androidx.multidex:multidex:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/0d7a8d7fb4d46c101ae6f7295473a884/multidex-2.0.0/AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/0d7a8d7fb4d46c101ae6f7295473a884/multidex-2.0.0/AndroidManifest.xml:20:5-43
 MERGED from [:react-native-android-open-settings] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-android-open-settings/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-android-open-settings] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-android-open-settings/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-touch-id] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-touch-id/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
@@ -227,6 +235,8 @@ MERGED from [:@react-native-community_async-storage] /Users/rashmihegde/Document
 MERGED from [:@react-native-community_async-storage] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-camera] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-camera] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-camera/android/build/intermediates/library_manifest/generalDebug/AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-branch] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-branch/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-branch] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-branch/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-cardview] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-cardview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-cardview] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-cardview/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-keyevent] /Users/rashmihegde/Documents/WalletRetailUser/node_modules/react-native-keyevent/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
@@ -269,6 +279,8 @@ MERGED from [com.google.android.gms:play-services-vision:17.0.2] /Users/rashmihe
 MERGED from [com.google.android.gms:play-services-vision:17.0.2] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/95084106699b8edd8ee714220583556e/play-services-vision-17.0.2/AndroidManifest.xml:5:5-44
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/a56d9f2690d8da3d69ec2a4825a398e5/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.exifinterface:exifinterface:1.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/a56d9f2690d8da3d69ec2a4825a398e5/exifinterface-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [io.branch.sdk.android:library:4.1.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/d79791afc7ea074710408e1ce38559d2/jetified-library-4.1.0/AndroidManifest.xml:7:5-9:41
+MERGED from [io.branch.sdk.android:library:4.1.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/d79791afc7ea074710408e1ce38559d2/jetified-library-4.1.0/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/f79ba233392edf48ea05d39f45330eea/cardview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/f79ba233392edf48ea05d39f45330eea/cardview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/d41b1b3aa33f2ebc649c7ba2ca6710ec/jetified-play-services-vision-common-17.0.2/AndroidManifest.xml:5:5-44
@@ -341,6 +353,8 @@ MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/rashmihegde/.gradle/c
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/e2399404496ab31493b5df2cd629875f/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/207dc4776d65aba21a903337f235e976/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/207dc4776d65aba21a903337f235e976/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.crashlytics.sdk.android:answers-shim:0.0.6] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/bcb75972fe1671a3eeea8b453c404f8f/answers-shim-0.0.6/AndroidManifest.xml:7:5-9:41
+MERGED from [com.crashlytics.sdk.android:answers-shim:0.0.6] /Users/rashmihegde/.gradle/caches/transforms-2/files-2.1/bcb75972fe1671a3eeea8b453c404f8f/answers-shim-0.0.6/AndroidManifest.xml:7:5-9:41
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/debug/AndroidManifest.xml
 INJECTED from /Users/rashmihegde/Documents/WalletRetailUser/android/app/src/debug/AndroidManifest.xml
 	android:targetSdkVersion

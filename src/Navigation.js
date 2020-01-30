@@ -1,7 +1,7 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { connect } from 'react-redux';
-import { View, ActivityIndicator,AsyncStorage } from 'react-native';
+import { View, ActivityIndicator,AsyncStorage,Linking } from 'react-native';
 import { persistStore } from 'redux-persist';
 import store from './store';
 import CardDetails from './screens/PaymentGateWay/CardDetails';
@@ -31,6 +31,7 @@ import ConfirmPassWord from "./screens/Authentication/CreatePasscode/ConfirmPass
 import ConfirmPin from "./screens/Authentication/CreatePin/ConfirmPin";
 import EnterPassCode from "./screens/Authentication/CreatePasscode/EnterPasscode";
 import EnterPin from "./screens/Authentication/CreatePin/EnterPin";
+import base from './base'
 
 const DashStack = createStackNavigator({
     CardDetails: { screen: CardDetails }
@@ -45,19 +46,28 @@ const DashStack = createStackNavigator({
             Launch: {
                 screen: Start,
                 navigationOptions: ({}) => ({
-                    title: "Start"
+                    title: "Start",
+                    gesturesEnabled:false
                 })
             },
             Start:Start,
-            Signup: {screen: SignUp},
+            Signup: {screen: SignUp,navigationOptions: {
+                gesturesEnabled: false,
+            },},
             PaymentWeb: {screen: WebViews},
-            Otp: {screen: GetOTP},
-            EnterOtp: {screen: EnterOTP},
+            Otp: {screen: GetOTP,navigationOptions: {
+                gesturesEnabled: false,
+            },},
+            EnterOtp: {screen: EnterOTP,navigationOptions: {
+                gesturesEnabled: false,
+            },},
             PayMerchant: PayMerchant,
             WebView: WebViews,
             QR: QRScan,
             Scanned: ScanningExample,
-            Amount: Amount,
+            Amount: {screen:Amount,navigationOptions: {
+                gesturesEnabled: false,
+            }},
             CardDetails: CardDetails,
             Profile: Profile,
             Statement: Statement,
@@ -89,6 +99,17 @@ const SignupStack = createStackNavigator({
 
 class InitScreen extends React.PureComponent {
     componentDidMount() {
+        Linking.getInitialURL()
+        .then((url) => {
+          if (url) { 
+              console.log("EXTERNAL_URL",url)
+            this.handleExternalLink(url)
+          }
+        })
+        .catch((e) => {})
+
+   Linking.addEventListener('url', this.appWokeUp);
+
         persistStore(store, null, () => {
             const { loggedIn } = this.props;
             console.log("AUTHINNAVIGATION",loggedIn,this.props)
@@ -98,6 +119,64 @@ class InitScreen extends React.PureComponent {
             this.props.navigation.navigate(loggedIn ? 'Security':'Auth');
         })
     }
+    appWokeUp = (event) => {        
+        //alert('Linking Listener'+'url  ' + event.url)  
+        console.log("EXTERNAL_URL_APPWOKE",event)
+        this.handleExternalLink(event.url)  
+     }
+
+   handleExternalLink(url){
+        console.log("EXTERNAL_URL_HANDLE",url)
+       if(url.indexOf("qrcode") != -1){
+           console.log(url)
+           this.handleQRCode(url)
+       }
+   }
+   componentWillUnmount(){    
+    Linking.removeEventListener('url', this.appWokeUp);    
+  }
+
+  handleQRCode(qrData){
+    const { loggedIn } = this.props;
+    if(loggedIn){
+
+        var idString = qrData.match(/(id=)\w+/g);
+        if(idString.length > 0){
+            idString = idString[0]
+            console.log(idString)
+            if(idString.indexOf("id=") != -1){
+                idString = idString.replace("id=","");
+                this.processMerchant(idString)
+            }
+        }   
+    }
+  }
+
+  async processMerchant(merchantId){
+    this.setState({isLoading:true})
+    let merchResp = await base.service.api.getMerchant(merchantId);
+    this.setState({isLoading:false})
+    console.log(merchResp)
+    if(merchResp.data != undefined && merchResp.data.errorMessage == undefined){
+        
+        let merchant = merchResp.data;
+        let mobMerchant = merchant.mobileNumber;
+        let storeName = merchant.brandName;
+        if(mobMerchant != undefined){
+            //console.log(merchant.mobileNumber)
+            this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobMerchant})
+        }else{                
+            //this.showQRError('Merchant Not Found')
+            //this.reactivateScanner();
+        }
+    }else{
+        //this.showQRError('Merchant Not Found')
+        
+    }
+}
+
+  
+
 
     render() {
         return (

@@ -134,7 +134,7 @@ android {
         missingDimensionStrategy 'react-native-camera', 'general'
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
     }
     splits {
         abi {
@@ -185,6 +185,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-open-security-settings')
     implementation project(':react-native-android-open-settings')
     implementation project(':react-native-touch-id')
     implementation project(':react-native-ccavenue-encryption')

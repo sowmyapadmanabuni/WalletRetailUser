@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableOpacity,Clipboard} from 'react-native';
 import base from "../../base";
 import Button from '../../components/common/Button';
 import {GlobalStyle} from '../../components/common/GlobalStyle';
@@ -14,6 +14,7 @@ import api from "../../base/utils/strings";
 import {GETOTP_SEQUENCE} from "../../actions/types";
 import Toast from 'react-native-simple-toast';
 import axios from 'axios';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 
 
 class EnterOTP extends Component{
@@ -47,6 +48,7 @@ class EnterOTP extends Component{
 
     componentDidMount() {
         //this.timer()
+        Clipboard.setString('');
         this.time = setInterval(() => {
             this.setState({
                 timer: this.state.timer - 1
@@ -122,7 +124,10 @@ class EnterOTP extends Component{
         console.log("this.props.navigation ",this.props.navigation.state.params.data);
         // const{OTP,text1}=this.props;
         return (
-            <View style={{flex: 1}}>
+            <KeyboardAwareScrollView
+                scrollEnabled={true} bounces={false} showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false} contentContainerStyle={[{flex:1}]}
+            >
                 <Image
                     style={{width: '100%'}}
                     source={require('../../icons/login_img.png')}
@@ -165,12 +170,12 @@ class EnterOTP extends Component{
                             autoFocusOnLoad
                             codeInputFieldStyle={styles.underlineStyleBase}
                             codeInputHighlightStyle={styles.underlineStyleHighLighted}
-                            // onCodeFilled = {(code => {
-                            //     console.log("CODE: ", code);
+                          onCodeFilled = {(code => {
+                               console.log("CODE: ", code);
                             //     console.log(`Code is ${code}, you are good to go!`);
                             //     this.setState({otp : code});
                             //     this.EnterOTP()
-                            // })}
+                             })}
                         />
                     </View>
                     {
@@ -208,7 +213,7 @@ class EnterOTP extends Component{
                     hudColor={"transparent"}
                     color={base.theme.colors.orange} />
             </View>
-            </View>
+            </KeyboardAwareScrollView>
         );
     }
 

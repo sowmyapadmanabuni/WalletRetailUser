@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import Toast from 'react-native-simple-toast';
 import api from '../base/utils/strings';
+import base from "../base";
 
 export const onSignupFieldChange = ({ prop, value }) => {
   console.log("prop, value", prop, value);
@@ -22,59 +23,59 @@ export const onSignupFieldChange = ({ prop, value }) => {
 
 export const Register = (FirstName, LastName, MobileNumber, Email, CountryCode, navigation,gender,dob) => {
   console.log("response>>>SIGNUP@@@@@@", FirstName, LastName, MobileNumber, Email, CountryCode,gender,dob)
-  return dispatch => {
-    dispatch({ type: SIGNUP_SEQUENCE })
+  return async dispatch => {
+    dispatch({type: SIGNUP_SEQUENCE})
     console.log("FirstName", FirstName);
     console.log("LastName", LastName);
     console.log("MobileNumber", CountryCode + MobileNumber);
+  //  let response = await base.service.api.registration(data);
+
 
     axios.post(api.oyeWalletUrl + "CreateRegistration", {
 
       //Request Body
       firstName: FirstName,
       lastName: LastName,
-      mobileNumber:MobileNumber,
+      mobileNumber: MobileNumber,
       email: Email,
       countryCode: CountryCode,
-     // rewardsAvailable: 500,
+      // rewardsAvailable: 500,
       role: "Retail User",
-        gender:gender===0?"Male":"Female",
-        DOB:dob,
+      gender: gender === 0 ? "Male" : "Female",
+      DOB: dob,
       //isMarried:marStatus===0?"Yes":"No",
-     // noOfKids:numChild,
-     // anniversaryDate:anniDate
+      // noOfKids:numChild,
+      // anniversaryDate:anniDate
 
-    }).
-
-      then(response => {
+    }).then(response => {
       console.log("response>>>SIGNUP######", response)
-        let data = response.data;
+      let data = response.data;
 
 
-        dispatch({
-          type: SIGNUP_SEQUENCE,
-          payload: "Signed Up Successfully"
-        });
-       dispatch({
-        type:UPDATE_lOGGEDIN,
-        payload:true,
+      dispatch({
+        type: SIGNUP_SEQUENCE,
+        payload: "Signed Up Successfully"
+      });
+      dispatch({
+        type: UPDATE_lOGGEDIN,
+        payload: true,
         // payload:({prop:"loggedIn",value:true})
       })
 
-        Toast.show('Registered Successfully', Toast.SHORT);
-        setTimeout(function () {
-          // navigation.navigate("viewas")
-          //navigation.navigate("PayMerchant");
-          navigation.navigate("DefaultOrCustom");
-        }, 500)
-        //  }
-      })
+      Toast.show('Registered Successfully', Toast.SHORT);
+      setTimeout(function () {
+        // navigation.navigate("viewas")
+        //navigation.navigate("PayMerchant");
+        navigation.navigate("DefaultOrCustom");
+      }, 500)
+      //  }
+    })
 
-      .catch(error => {
-        alert(error.message);
-        console.log(error);
+        .catch(error => {
+          alert(error.message);
+          console.log(error);
 
-      });
+        });
   }
 };
 
@@ -103,7 +104,9 @@ export const Update = (data, navigation) => {
 
     let options = {
       method:'put',
-      url:"http://devapi.oyewallet.com/wallet/api/v1/UpdateProfile",
+      url:api.oyeWalletUrl +'UpdateProfile',
+
+     // url:"http://devapi.oyewallet.com/wallet/api/v1/UpdateProfile",
       data:userData
     };
 
@@ -154,8 +157,9 @@ export const ShowProfile = (number) => {
     console.log("inside disptch........profile", '91' + number)
     var number1 = '91' + number
     console.log("inside disptch........number1", number1)
+    //'http://devapi.oyewallet.com/wallet/api/v1/GetProfileDetailsByMobileNumber/'+number1
 
-    return axios.get('http://devapi.oyewallet.com/wallet/api/v1/GetProfileDetailsByMobileNumber/'+number1).
+    return axios.get(api.oyeWalletUrl+'GetProfileDetailsByMobileNumber/'+number1).
     then(response => {
         console.log("ShopProfile response..........", response)
       var data = response.data;

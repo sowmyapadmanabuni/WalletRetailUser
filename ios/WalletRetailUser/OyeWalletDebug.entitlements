@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:qk2vx.test-app.link</string>
+		<string>applinks:test-app.link</string>
+		<string>applinks:dev.oyewallet.com</string>
+		<string>applinks:oyewallet.com</string>
+		<string>applinks:devapi.oyewallet.com</string>
+	</array>
+</dict>
+</plist>

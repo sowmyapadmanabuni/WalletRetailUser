@@ -39,14 +39,14 @@ export const UserProfile = (props) => {
         <View style={{ flexDirection: 'row', paddingTop: '5%' }}>
             <View style={{ flex: 1 }}>
                 <View style={styles.profileButtonSytle} >
-                    <Text style={{ fontWeight: 'bold' }}>A</Text>
+                    <Text style={{ fontWeight: 'bold' }}>{props.firstName[0]}</Text>
                 </View>
             </View>
             <View style={{ flex: 4 }}>
                 <Text style={{ fontWeight: 'bold' }}>{props.firstName}</Text>
                 <Text>+91 {props.mobileNumber}</Text>
             </View>
-            {/* <TouchableOpacity onPress={props.filter} >
+           {/* <TouchableOpacity onPress={props.filter} >
                 <Image
                     style={{ width: 25, height: 25, marginRight: '5%' }}
                     source={require('../../icons/filter.png')}
@@ -390,8 +390,9 @@ class PayMerchant extends Component {
                                     null
                             }
                         </View>
-                        <View>
-                            <TouchableOpacity onPress={() => {
+                        {/* <View> */}
+                            <TouchableOpacity style={{height:40}} onPress={() => {
+                                console.log("slow.............")
                                 this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false, showContact: false })
                             }}>
                                 <View style={{ alignItems: 'center', }}>
@@ -412,7 +413,7 @@ class PayMerchant extends Component {
                                     />
                                 </View>
                             </TouchableOpacity>
-                        </View>
+                        {/* </View> */}
                     </CardView>
                 </View>
                 {/* </View> */}

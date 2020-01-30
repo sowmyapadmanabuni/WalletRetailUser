@@ -2,7 +2,7 @@ import logger from './logger';
 import strings from './strings';
 import storage from './storage';
 import payment from './payment'
-//import storage from './storage';
+import widgets from './widgets';
 
 import validate from './validate'
 
@@ -11,7 +11,7 @@ const utils = {
     strings,
    storage,
     payment,
-   // storage
+    widgets,
      validate,
 };
 

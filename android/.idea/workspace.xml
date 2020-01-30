@@ -5,19 +5,163 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71a1d10b-8e3e-4de3-ad37-8b5e44fc76af" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../StatusBarPlaceHolder.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/ItunesArtwork@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/logo.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/logo.imageset/consumer_luancher1_white_bg-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/logo.imageset/consumer_luancher1_white_bg-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/logo.imageset/consumer_luancher1_white_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/OyeWalletDebug.entitlements" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/VERSION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/aes.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/asn1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/asn1_mac.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/asn1t.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/bio.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/blowfish.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/bn.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/buffer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/camellia.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/cast.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/cmac.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/cms.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/comp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/conf.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/conf_api.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/crypto.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/des.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/des_old.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/dh.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/dsa.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/dso.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/dtls1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/e_os2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ebcdic.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ec.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ecdh.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ecdsa.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/engine.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/err.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/evp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/hmac.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/idea.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/krb5_asn.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/kssl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/lhash.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/md4.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/md5.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/mdc2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/modes.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/obj_mac.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/objects.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ocsp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/opensslconf.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/opensslv.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ossl_typ.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/pem.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/pem2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/pkcs12.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/pkcs7.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/pqueue.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/rand.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/rc2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/rc4.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ripemd.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/rsa.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/rsa.h.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/safestack.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/seed.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/sha.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/srp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/srtp.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ssl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ssl2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ssl23.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ssl3.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/stack.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/symhacks.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/tls1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ts.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/txt_db.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ui.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/ui_compat.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/whrlpool.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/x509.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/x509_vfy.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/include/openssl/x509v3.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/lib/libcrypto.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ios/openssl_ios/lib/libssl.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/base/service/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/base/service/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/icons/ico_back.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_fresco_fbcore_2_0_0_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_fresco_fbcore_2_0_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_react_react_native_0_61_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_facebook_react_react_native_0_61_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_inject_javax_inject_1_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/appcompat/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/appcompat/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/asynclayoutinflater/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/asynclayoutinflater/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/cardview/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/cardview/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/coordinatorlayout/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/coordinatorlayout/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/core/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/core/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/customview/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/customview/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/drawerlayout/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/drawerlayout/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/fragment/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/fragment/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/coreui/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/coreui/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/coreutils/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/coreutils/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/v4/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/legacy/v4/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/loader/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/loader/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/media/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/media/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/slidingpanelayout/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/slidingpanelayout/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/swiperefreshlayout/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/swiperefreshlayout/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/vectordrawable/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/vectordrawable/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/viewpager/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/androidx/viewpager/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/facebook/react/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/facebook/react/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/github/kevinejohn/keyevent/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/github/kevinejohn/keyevent/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/google/android/gms/base/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/google/android/gms/base/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/google/android/gms/common/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/google/android/gms/common/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/kishanjvaghela/cardview/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/kishanjvaghela/cardview/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/oblador/vectoricons/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/oblador/vectoricons/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/reactnativecommunity/rnpermissions/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/reactnativecommunity/rnpermissions/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/reactnativecommunity/webview/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/reactnativecommunity/webview/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/swmansion/gesturehandler/react/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/swmansion/gesturehandler/react/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/walletretailuser/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/com/walletretailuser/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/org/reactnative/camera/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/debug/r/org/reactnative/camera/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/index.android.bundle" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/index.android.bundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/node_modules_reactnavigationstack_lib_module_views_assets_backicon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/node_modules_reactnative_libraries_newappscreen_components_logo.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/node_modules_reactnativecountrypickermodal_lib_assets_images_close.png" beforeDir="false" />
@@ -96,13 +240,69 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/src_icons_statements.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/src_icons_visa.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/node_modules_reactnavigationstack_lib_module_views_assets_backicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-ldpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/playstore-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/node_modules_nodeemoji_lib_emoji.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/node_modules_reactnative_package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/node_modules_reactnativecountrypickermodal_lib_assets_data_countriesemoji.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/node_modules_reactnativevectoricons_glyphmaps_fontawesome.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/node_modules_reactnativevectoricons_glyphmaps_ionicons.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/node_modules_reactnativevectoricons_glyphmaps_materialcommunityicons.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/src_icons_processing.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Manifest.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOS/Pods-WalletRetailUser-tvOS-acknowledgements.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOS/Pods-WalletRetailUser-tvOS-acknowledgements.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOS/Pods-WalletRetailUser-tvOS-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOS/Pods-WalletRetailUser-tvOS.debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOS/Pods-WalletRetailUser-tvOS.release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOSTests/Pods-WalletRetailUser-tvOSTests-acknowledgements.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOSTests/Pods-WalletRetailUser-tvOSTests-acknowledgements.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOSTests/Pods-WalletRetailUser-tvOSTests-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOSTests/Pods-WalletRetailUser-tvOSTests.debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser-tvOSTests/Pods-WalletRetailUser-tvOSTests.release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser-acknowledgements.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser-acknowledgements.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser-acknowledgements.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser-acknowledgements.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUser/Pods-WalletRetailUser.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUserTests/Pods-WalletRetailUserTests-acknowledgements.markdown" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUserTests/Pods-WalletRetailUserTests-acknowledgements.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUserTests/Pods-WalletRetailUserTests-dummy.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUserTests/Pods-WalletRetailUserTests.debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-WalletRetailUserTests/Pods-WalletRetailUserTests.release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/WalletRetailUser.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/WalletRetailUser.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/WalletRetailUser.xcodeproj/xcshareddata/xcschemes/WalletRetailUser.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/WalletRetailUser.xcodeproj/xcshareddata/xcschemes/WalletRetailUser.xcscheme" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/WalletRetailUser/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/AppDelegate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/WalletRetailUser/Base.lproj/LaunchScreen.xib" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Base.lproj/LaunchScreen.xib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Images.xcassets/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/WalletRetailUser/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/WalletRetailUser/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/Navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/actions/OTPAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/actions/OTPAction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/actions/SignUpAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/actions/SignUpAction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/base/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/base/utils/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/utils/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/base/utils/storage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/utils/strings.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/base/utils/strings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/base/utils/widgets.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/base/utils/widgets.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/screens/Auth/EnterOTP.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/Auth/EnterOTP.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/screens/Auth/GetOTP.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/Auth/GetOTP.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/screens/Auth/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/Auth/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/screens/ScanningExample.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/ScanningExample.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/screens/Start.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/Start.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/screens/UserDetails/Amount.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/UserDetails/Amount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/screens/UserDetails/PayMerchant.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/UserDetails/PayMerchant.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/screens/UserDetails/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/UserDetails/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../src/screens/UserDetails/QRScan.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/screens/UserDetails/QRScan.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -114,7 +314,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="046593199L040066" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_XL_API_27" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -146,80 +346,72 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-ccavenue-encryption/android/build.gradle">
+        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-cardview/android/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1815">
-              <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+            <state relative-caret-position="-276" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-local-auth/android/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-cardview/android/build.gradle">
+        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-open-security-settings/android/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1656" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-permissions/android/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-20" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-reanimated/android/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1296" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-camera/android/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-keyevent/android/build.gradle">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-android-open-settings/android/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="266">
+              <caret line="130" column="35" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+            <state relative-caret-position="30">
+              <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-webview/android/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-touch-id/android/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/build.gradle">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android/build.gradle">
+        <entry file="file://$PROJECT_DIR$/../node_modules/react-native-branch/android/build.gradle">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -243,10 +435,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java" />
         <option value="$PROJECT_DIR$/app/build/generated/rncli/src/main/java/com/facebook/react/PackageList.java" />
         <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/../node_modules/react-native-android-open-settings/android/build.gradle" />
         <option value="$PROJECT_DIR$/../node_modules/react-native-local-auth/android/build.gradle" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -262,23 +454,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="WalletRetailUser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="WalletRetailUser" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="WalletRetailUser" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="WalletRetailUser" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="walletretailuser" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WalletRetailUser" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="assets" type="edd41e36:AndroidSourceTypeNode" />
             </path>
             <path>
               <item name="WalletRetailUser" type="1abcf292:AndroidViewProjectNode" />
@@ -293,8 +491,18 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="WalletRetailUser" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,6 +512,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -428,7 +637,7 @@
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.25129727" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.25129727" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Build Variants" order="5" side_tool="true" />
@@ -440,7 +649,7 @@
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32791328" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info anchor="bottom" id="Build" order="5" visible="true" weight="0.29045644" />
+      <window_info active="true" anchor="bottom" id="Build" order="5" visible="true" weight="0.22130014" />
       <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.32817337" />
       <window_info anchor="bottom" id="Debug" order="8" />
@@ -504,29 +713,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../node_modules/react-native-ccavenue-encryption/android/src/main/java/com/encryptccavenue/CcavenueEncryptionModule.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -575,39 +768,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-reanimated/android/build.gradle">
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-android-open-settings/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1366" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-local-auth/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        <state relative-caret-position="210">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/@react-native-community/async-storage/android/build.gradle">
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-camera/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-303" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/gradle-maven-push.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#594#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-651">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-196" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-permissions/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../node_modules/react-native-ccavenue-encryption/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -616,15 +789,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-cardview/android/build.gradle">
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-camera/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../node_modules/react-native-keyevent/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
@@ -633,23 +799,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-android-open-settings/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-webview/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../node_modules/react-native-touch-id/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="-96">
           <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
         </state>
       </provider>
@@ -657,13 +809,79 @@
     <entry file="file://$PROJECT_DIR$/../node_modules/react-native-vector-icons/android/build.gradle">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android/build.gradle">
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-webview/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1401">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/lottie-react-native/src/android/gradle-maven-push.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1269">
+          <folding>
+            <element signature="e#0#594#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/@react-native-community/async-storage/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-576" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-branch/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-cardview/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-local-auth/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-open-security-settings/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1656" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-permissions/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../node_modules/react-native-reanimated/android/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1296" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/proguard-rules.pro">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+        <state relative-caret-position="266">
+          <caret line="130" column="35" selection-start-line="130" selection-start-column="35" selection-end-line="130" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/walletretailuser/MainApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
         </state>
       </provider>
     </entry>

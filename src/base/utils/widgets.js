@@ -2,26 +2,16 @@
  * @Author: Anooj Krishnan G 
  * @Date: 2019-05-06 10:17:25 
  * @Last Modified by: Anooj Krishnan G
- * @Last Modified time: 2020-01-17 14:25:51
+ * @Last Modified time: 2020-01-28 12:14:12
  */
 
 import React from 'react';
 import {Modal, Text, View, Platform} from 'react-native';
 import ProgressLoader from 'rn-progress-loader';
-import base from '../utils/base';
-//import Toast from 'react-native-toast-native';
-//import { showMessage, hideMessage } from "react-native-flash-message";
-//import LottieView from 'lottie-react-native';
+import { showMessage, hideMessage } from "react-native-flash-message";
     
 
-/**
- * 
- *<ProgressLoader 
-                visible={isLoading} 
-                isModal={true} isHUD={true}
-                hudColor={base.colors.white} 
-                color={base.colors.basegradient[1]}/>
- */
+
     const progressloader = (isLoading, show) => {
         return(
 
@@ -95,9 +85,25 @@ import base from '../utils/base';
     //     }
     // }
 
-    const widgets = {
-        progressloader,
-        emptyView    
+    export default class widgets {
+
+    static flashError(title, desc){
+        showMessage({
+            message: title,
+            description: desc,
+            type: "default"           
+          });
     }
 
-export default widgets;
+    static flashMessage(title, desc){
+        showMessage({
+            message: title,
+            description: desc,            
+            type:'warning'
+            //backgroundColor: '#FF5602', // background color
+            //color: "#FFF",         
+          });
+    }
+    
+}
+//export default widgets;
