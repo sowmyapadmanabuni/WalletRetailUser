@@ -156,6 +156,8 @@ class DefaultOrCustom extends Component {
         }
         catch (e) {
             console.log((e))
+            BackHandler.exitApp()
+
         }
 
     }
