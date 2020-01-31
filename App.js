@@ -53,8 +53,8 @@ class App extends React.Component {
        {/* <PayMerchant /> */}
       <StatusBarPlaceHolder />
       <FlashMessage position="top" />
-         {/* <Navigation/> */}
-       <SignUp/>
+         <Navigation/>
+       {/* <SignUp/> */}
        
        </Provider>
       // </SafeAreaView>
