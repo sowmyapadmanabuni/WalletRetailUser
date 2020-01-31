@@ -482,13 +482,14 @@ class SignUp extends Component {
         else {
 
             const { MobileNumber } = this.props;
+            console.log("SIGNUP_SELF",self)
             let fName=self.state.fName;
             let lName=self.state.lName;
             let mobNum="+91" + self.props.MobileNumber;
             let email=self.state.email;
             let isGenderSelected=self.state.isGenderSelected
             let dob=moment(self.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD')
-            let self=this;
+            //let self=this;
             this.launchSecurity(function (isSupported) {
                 console.log('Going inside this', isSupported)
                 self.props.Register(fName, lName, mobNum, email,
