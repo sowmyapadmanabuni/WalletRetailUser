@@ -288,7 +288,9 @@ class PayMerchant extends Component {
 
     }
 
+
     async componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
         await base.utils.storage.storeData("IS_LOGGED_IN","true")
         let qr = await base.utils.storage.retrieveData("QR_SCAN");
         if(qr != null){
@@ -298,7 +300,6 @@ class PayMerchant extends Component {
                 console.log(e)
             }
         }
-        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
        // this.getDetails()
     }
 
@@ -317,18 +318,24 @@ class PayMerchant extends Component {
     handleBackButtonClick() {
         //this.props.navigation.goBack(null);
         console.log("this.props.navigation ", this.props.navigation, );
-        if (Platform.OS === 'android') {
-            ToastAndroid.show('Press again to exit app', ToastAndroid.SHORT);
-            var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+        if(this.state.isProfileShown || this.state.showContact){
+            this.setState({showData:false,isProfileShown:false,showContact:false});
+        }else{
+            if (Platform.OS === 'android') {
+                /* ToastAndroid.show('Press again to exit app', ToastAndroid.SHORT);
+                 var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+                     BackHandler.exitApp()
+                 });
+                 setTimeout(
+                     () => {
+                         doubleClick.remove()
+                     },
+                     1500
+                 );*/
                 BackHandler.exitApp()
-            });
-            setTimeout(
-                () => {
-                    doubleClick.remove()
-                },
-                1500
-            );
+            }
         }
+
         return true;
     }
 
@@ -385,12 +392,12 @@ class PayMerchant extends Component {
                         {/* </TouchableOpacity> */}
                         <View>
                             {
-                                ((!this.state.isProfileShown && !this.state.statementShow && !this.state.showContact) && this.state.showData) ?
+                                ((!this.state.isProfileShown &&  !this.state.showContact) && this.state.showData) ?
                                     <ViewData navigation={this.props.navigation}
 
-                                        showProfile={() => { this.setState({ isProfileShown: true, }) }}
+                                        showProfile={() => { this.setState({ isProfileShown: true, statementShow:false}) }}
                                         showStatement={() => { this.setState({ statementShow: true, }) }}
-                                              contact={() => { this.setState({ showContact: true, }) }}/> :
+                                              contact={() => { this.setState({ showContact: true,statementShow:false }) }}/> :
                                     null
                             }
                         </View>
@@ -398,9 +405,13 @@ class PayMerchant extends Component {
                             {
                                 (this.state.isProfileShown && this.state.showData) ?
                                     <Profile /> :
-                                    (this.state.statementShow) ? this.props.navigation.navigate('TransactionDetail') :
-                                        null
-
+                                    null
+                            }
+                        </View>
+                        <View>
+                            {
+                                (this.state.statementShow) ? this.props.navigation.navigate('TransactionDetail') :
+                                    null
                             }
                         </View>
                         <View>

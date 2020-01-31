@@ -112,7 +112,8 @@ class Amount extends Component {
                         <TextInput
                             value={this.state.amount}
                             style={{fontSize: 30,
-                                textAlign: 'center',width:'50%',
+                                textAlign: 'center',
+                                //width:'50%',
                                 //opacity:0
                             }}
                             placeholder="0"
