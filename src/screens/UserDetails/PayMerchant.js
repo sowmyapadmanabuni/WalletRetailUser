@@ -278,11 +278,31 @@ class PayMerchant extends Component {
     }
 
 
+    async UNSAFE_componentWillMount(){
+        // let qr = await base.utils.storage.retrieveData("QR_SCAN");
+        // if(qr != null){
+        //     try{
+        //         this.props.navigation.navigate('Amount',JSON.parse(qr))
+        //     }catch(e){
+        //         console.log(e)
+        //     }
+        // }
+
+    }
+
 
     async componentDidMount() {
-        await base.utils.storage.storeData("IS_LOGGED_IN", "true")
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
-        // this.getDetails()
+        await base.utils.storage.storeData("IS_LOGGED_IN","true")
+        let qr = await base.utils.storage.retrieveData("QR_SCAN");
+        if(qr != null){
+            try{
+                this.props.navigation.navigate('Amount',JSON.parse(qr))
+            }catch(e){
+                console.log(e)
+            }
+        }
+       // this.getDetails()
     }
 
     componentWillUnmount() {
@@ -299,19 +319,25 @@ class PayMerchant extends Component {
 
     handleBackButtonClick() {
         //this.props.navigation.goBack(null);
-        console.log("this.props.navigation ", this.props.navigation);
-        if (Platform.OS === 'android') {
-            ToastAndroid.show('Press again to exit app', ToastAndroid.SHORT);
-            var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+        console.log("this.props.navigation ", this.props.navigation, );
+        if(this.state.isProfileShown || this.state.showContact){
+            this.setState({showData:false,isProfileShown:false,showContact:false});
+        }else{
+            if (Platform.OS === 'android') {
+                /* ToastAndroid.show('Press again to exit app', ToastAndroid.SHORT);
+                 var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+                     BackHandler.exitApp()
+                 });
+                 setTimeout(
+                     () => {
+                         doubleClick.remove()
+                     },
+                     1500
+                 );*/
                 BackHandler.exitApp()
-            });
-            setTimeout(
-                () => {
-                    doubleClick.remove()
-                },
-                1500
-            );
+            }
         }
+
         return true;
     }
 

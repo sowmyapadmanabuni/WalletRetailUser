@@ -10,7 +10,6 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-nat
 import { TextInput, ScrollView, } from 'react-native-gesture-handler';
 import CardView from 'react-native-cardview';
 import { Style } from './Style';
-//import { RNCamera } from 'react-native-camera';
 import Validation from "../../components/common/Validation";
 import { check, PERMISSIONS, request, RESULTS } from 'react-native-permissions';
 
@@ -44,7 +43,8 @@ class QRScan extends Component {
       cca2: 'IN',
       callingCode: '91',
       countryList: mappedCountries,
-      enableOR: false,
+        enableOR:false,
+        number:''
 
     };
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
@@ -63,32 +63,31 @@ class QRScan extends Component {
     if (Platform.OS === 'android') {
       this.props.navigation.navigate('PayMerchant')
     }
-    return true;
+      return true;
   }
-
-  checkPermissions() {
-    let self = this;
-    console.log("checkPermissions")
-    Promise.all([
-      check(Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA)
-    ]).then(([result]) => {
-      console.log("RESULT", result)
-      switch (result) {
-        case RESULTS.UNAVAILABLE:
-          alert("No Camera Permission available")
-          break;
-        case RESULTS.DENIED:
-          self.requestPermissions()
-          break;
-        case RESULTS.GRANTED:
-          self.openQRScreen()
-          break;
-        case RESULTS.BLOCKED:
-          alert("Please enable camera permission from settings")
-          break;
-      }
-    });
-  }
+    checkPermissions(){
+      let self = this;
+      console.log("checkPermissions")
+      Promise.all([
+        check( Platform.OS==='ios'? PERMISSIONS.IOS.CAMERA:PERMISSIONS.ANDROID.CAMERA)
+      ]).then(([result]) => {
+        console.log("RESULT",result)
+        switch (result) {
+          case RESULTS.UNAVAILABLE:
+            alert("No Camera Permission available")
+            break;
+          case RESULTS.DENIED:
+            self.requestPermissions()
+            break;
+          case RESULTS.GRANTED:
+            self.openQRScreen()
+            break;
+          case RESULTS.BLOCKED:
+            alert("Please enable camera permission from settings")
+            break;
+        }
+      });
+    }
 
   async requestPermissions() {
 
@@ -287,8 +286,8 @@ class QRScan extends Component {
                 </View>
                 <Button style={{ width: 45, height: 45, margin: 10 }}
                   onPress={() => {
-                    if (this.checkNumber())
-                      this.props.navigation.navigate("Amount")
+                      if (this.checkNumber())
+                          this.getMerchantData();
                   }
                   }
                   title={
@@ -366,6 +365,24 @@ class QRScan extends Component {
 
       </ScrollView>
     )
+  }
+
+  async getMerchantData() {
+      //http://devapi.oyewallet.com/wallet/api/v1/GetMerchantPayeeDetailsByMobileNumber/9490791523
+      let dataMer = await base.service.api.getMerchantByMobNum(this.state.number);
+      console.log('DATA IN MERCHANT', dataMer)
+
+      //  this.props.navigation.navigate("Amount")
+
+        if(dataMer.success==false){
+            Alert.alert('Alert','Store Not Exit with this number')
+          } else if(dataMer.success && dataMer.data.length !==0){
+
+    let mobileNum=dataMer.data[0].mobileNumber;
+     let storeName=dataMer.data[0].brandName
+      this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobileNum})
+        }
+
   }
 
 };

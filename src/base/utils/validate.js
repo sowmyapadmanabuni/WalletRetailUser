@@ -19,7 +19,9 @@ export default class validate {
     };
 
     static alphabetValidation = (text) => {
+        console.log('hghjgjgjhg',text)
         let re = /^[A-Za-z]+$/;
+        console.log('KKKKKKK',re.test(text))
         return re.test(text);
     };
 

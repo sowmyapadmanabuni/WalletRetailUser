@@ -37,7 +37,8 @@ class Amount extends Component {
         this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
 
-    componentDidMount() {
+   async componentDidMount() {
+        await base.utils.storage.removeData("QR_SCAN");
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
     componentWillUnmount() {

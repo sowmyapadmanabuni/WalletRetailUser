@@ -197,10 +197,17 @@ class Security extends Component {
             });
         }
     }
+
     passCodeFail() {
+        if (Platform.OS === 'android') {
+            BackHandler.exitApp();
+        }
+        else{
+            this.props.navigation.navigate("DefaultOrCustom")
+        }
         // this._pressHandler()
         //this.props.navigation.navigate("SecureWallet")
-        this.props.navigation.navigate("DefaultOrCustom")
+       // this.props.navigation.navigate("DefaultOrCustom")
     }
 
     /* showAlert() {

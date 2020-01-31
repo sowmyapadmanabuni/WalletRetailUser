@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import strings from './strings'
+import api from '../service/api'
 
 const upiTimeout = 5; //in minutes
 const dateFormat = 'YYYY-MM-DDThh:mm:ss.sss'
@@ -59,7 +60,7 @@ export default class upi{
         return config
     }
 
-    static initiateDBSUPI(dbsConfig){
+    static async initiateDBSUPI(dbsConfig){
         let now = new Date();
         let initiatingTime = moment(now).format(dateFormat);
         let expiringTime = moment(moment(now).add(5, 'm').toDate()).format(dateFormat);
@@ -67,6 +68,10 @@ export default class upi{
         let upiConfig = dbsConfig;
         upiConfig.header.timeStamp = initiatingTime
         upiConfig.txnInfo.senderParty.expiry = expiringTime
+
+        let dbsinitResp = await api.initiateDBSUPI(upiConfig);
+        console.log(dbsinitResp)
+        return dbsinitResp
 
     }
 
