@@ -32,7 +32,7 @@ export const GlobalStyle = StyleSheet.create({
   },
   overLayText:
   {
-   position: 'absolute', top: 10, left: 10, right: 0, height: 300
+   position: 'absolute', top: 20, left: 10, right: 0, height: 300
  },
  SemiCircle:
        {

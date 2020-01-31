@@ -12,7 +12,7 @@ export const Style = StyleSheet.create({
           backgroundColor:base.theme.colors.transparent, width : '70%',bottom:13,left:-35
         },
         buttonOverLay :{
-          position: 'absolute',top:'70%', left: '30%', right: 0,width:'40%', height: '15%'
+          position: 'absolute',top:'70%' ,width:'45%', height: '15%',alignItems:'center'
         },
         headerText: {
           textAlign:'center',

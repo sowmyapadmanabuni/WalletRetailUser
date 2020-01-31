@@ -3,11 +3,11 @@ import { View, Text, Image, TextInput, TouchableOpacity, Platform } from 'react-
 import base from '../../base';
 import Button from '../../components/common/Button';
 
-import {connect} from 'react-redux';
-import {onOTPChangeText,GenerateOTP} from '../../actions';
+import { connect } from 'react-redux';
+import { onOTPChangeText, GenerateOTP } from '../../actions';
 import ProgressLoader from 'rn-progress-loader';
-import {GlobalStyle} from '../../components/common/GlobalStyle';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
+import { GlobalStyle } from '../../components/common/GlobalStyle';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import CountryPicker,
 {
@@ -19,6 +19,7 @@ import {
     FilledTextField,
     OutlinedTextField,
 } from 'react-native-material-textfield';
+import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
 
 class GetOTP extends PureComponent {
@@ -39,7 +40,7 @@ class GetOTP extends PureComponent {
             callingCode: '91',
             phoneNumber: '',
             countryList: mappedCountries,
-            progress:false
+            progress: false
         };
     }
 
@@ -49,7 +50,7 @@ class GetOTP extends PureComponent {
         return (
             <KeyboardAwareScrollView
                 scrollEnabled={true} bounces={false} showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false} contentContainerStyle={[{flex:1}]}
+                showsHorizontalScrollIndicator={false} contentContainerStyle={[{ flex: 1 }]}
             >
 
                 <Image
@@ -65,9 +66,12 @@ class GetOTP extends PureComponent {
                 <View
                     style={{
                         alignItems: 'center',
-                        marginTop: '20%',
                         flexDirection: 'row',
                         justifyContent: 'center',
+                        width: wp('100%'),
+                        marginRight: wp('10%'),
+                        marginBottom: hp('5%'),
+                        marginTop: hp('10%')
                     }}>
                     <CountryPicker
                         // countryList={this.state.countryList}
@@ -103,38 +107,38 @@ class GetOTP extends PureComponent {
                         <Text style={{ marginTop: '30%', fontSize: 16 }}>+{this.state.callingCode}</Text>
                         <Image source={require('../../icons/images.png')} style={{ width: 15, height: 15, transform: [{ rotate: '180deg' }], marginTop: '34%', marginLeft: '10%' }} />
                     </TouchableOpacity>*/}
-                    <View style={{width:'100%',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
-                        <Text style={{ marginTop: '6%', fontSize: 16,marginRight:10 }}>+{this.state.callingCode}</Text>
-                    <View style={{ width:'50%', }}>
-                        <TextField
-                            // style={{
-                            //   borderBottomWidth: 1,
-                            //   marginBottom: 10,
-                            //   borderColor: '#ddd',
-                            //   color:base.theme.colors.black,padding:5,marginLeft:'2%'
-                            maxLength={10}
-                            label="Enter Mobile Number"
-                            keyboardType="phone-pad"
-                            returnKeyType={'done'}
-                            lineType={'solid'}
-                            lineWidth={Platform.OS==='ios'?0.5:0.8}
-                            value={MobileNumber}
-                            onChangeText={MobileNumber => {
-                                let check = /^[0-9]*$/;
-                                if (check.test(MobileNumber[MobileNumber.length - 1]) || MobileNumber.length === 0)
-                                    onOTPChangeText({ prop: 'MobileNumber', value: MobileNumber })
-                            }
+                    {/* <View style={{ width: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}> */}
+                        <Text style={{ marginTop: hp('2.5%'), fontSize: 16, marginRight: 15 }}>+{this.state.callingCode}</Text>
+                        <View style={{ width: wp('45%'), alignSelf: 'center', justifyContent: 'center', marginRight: wp('3%'), }}>
+                            <TextField
+                                // style={{
+                                //   borderBottomWidth: 1,
+                                //   marginBottom: 10,
+                                //   borderColor: '#ddd',
+                                //   color:base.theme.colors.black,padding:5,marginLeft:'2%'
+                                maxLength={10}
+                                label="Enter Mobile Number"
+                                keyboardType="phone-pad"
+                                returnKeyType={'done'}
+                                lineType={'solid'}
+                                lineWidth={Platform.OS === 'ios' ? 0.5 : 0.8}
+                                value={MobileNumber}
+                                onChangeText={MobileNumber => {
+                                    let check = /^[0-9]*$/;
+                                    if (check.test(MobileNumber[MobileNumber.length - 1]) || MobileNumber.length === 0)
+                                        onOTPChangeText({ prop: 'MobileNumber', value: MobileNumber })
+                                }
 
-                            }
+                                }
                             // onChangeText={ (MobileNumber) => {
                             //     console.log("onChangeText");
                             //     this.checkPhno('MobileNumber', MobileNumber)
                             // }
                             //     }
-                        />
+                            />
+                        </View>
                     </View>
-                    </View>
-                </View>
+                {/* </View> */}
                 {/* <View style={{ justifyContent: 'center', flexDirection: 'row', marginTop: '10%' }}> */}
                 <TouchableOpacity
                     style={{ alignSelf: 'center', }}
@@ -147,7 +151,7 @@ class GetOTP extends PureComponent {
                 </TouchableOpacity>
                 {/* </View> ***/}
                 <ProgressLoader isModal={true} isHUD={true}
-                        hudColor={'#FFF'} color={'orange'} visible={this.state.progress} />
+                    hudColor={'#FFF'} color={'orange'} visible={this.state.progress} />
             </KeyboardAwareScrollView>
         );
 
@@ -155,15 +159,15 @@ class GetOTP extends PureComponent {
 
     MobileNumberCheck = country => {
         console.log(country);
-        const {MobileNumber} = this.props;
+        const { MobileNumber } = this.props;
         if (
             Validation.Mobileregex.test(MobileNumber) === false ||
             MobileNumber.length < 10
         ) {
-            this.setState({progress: false})
+            this.setState({ progress: false })
             alert('Enter Valid Mobile Number');
         } else {
-            this.setState({progress:true})
+            this.setState({ progress: true })
 
             this.props.GenerateOTP(
                 '+' + country,
@@ -171,7 +175,7 @@ class GetOTP extends PureComponent {
                 this.props.navigation,
             ).then(response => {
                 console.log("otp response.....", response)
-                this.setState({progress: false})
+                this.setState({ progress: false })
             })
         }
     }
