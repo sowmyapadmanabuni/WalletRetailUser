@@ -39,6 +39,35 @@ class DefaultOrCustom extends Component {
         }
     }
 
+    componentDidMount() {
+
+        this.BackHandler =  BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+    handleBackButtonClick() {
+        // BackHandler.exitApp()
+
+        if (Platform.OS === 'android') {
+            /*  var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
+                      BackHandler.exitApp()
+                  });
+                  setTimeout(
+                      () => {
+                          doubleClick.remove()
+                      },
+                      1500
+                  );*/
+
+            BackHandler.exitApp()
+
+
+        }
+        return true ;
+
+    }
+    componentWillUnmount() {
+        BackHandler.remove();
+    }
+
     /* handleBackPress = () => {
          if (this.props.navigation.state.params !== undefined) {
              this.props.navigation.navigate('Dashboard')

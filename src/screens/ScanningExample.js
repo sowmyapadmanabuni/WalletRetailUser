@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text,Dimensions, TouchableOpacity,TextInput, Linking, Image, PermissionsAndroid, BackHandler, Alert} from 'react-native';
+import {
+    View,
+    Text,
+    Dimensions,
+    TouchableOpacity,
+    TextInput,
+    Linking,
+    Image,
+    PermissionsAndroid,
+    BackHandler,
+    Alert,
+    Platform
+} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 import CardView from 'react-native-cardview';
@@ -34,6 +46,7 @@ class DefaultScreen extends Component {
             showCamera:true,
             message:'Merchant '
         }
+
     }
 
     onSuccess = (e) => {
@@ -153,7 +166,7 @@ class DefaultScreen extends Component {
                     <Text style={{alignSelf:'center',fontSize:20,color:'#fff',fontWeight:'bold'}} numberOfLines={1}>{this.state.message}</Text>
                 </View>
                 }
-                <View style={{position:'absolute',flex:1,top:'70%', alignSelf:'center',justifyContent:'center',alignItems:'center'}}>
+                <View style={{position:'absolute',flex:1,top:'70%', alignSelf:'center',justifyContent:'center',alignItems:'center',}}>
 
                     <Text style={{alignSelf:'center',justifyContent:'center',color:'white',marginBottom:20}}>not able to scan? <Text style={{color:'orange'}} onPress={()=>this.setState({showMob:!this.state.showMob})}> Tap to enter mobile number</Text></Text>
                     {
@@ -195,7 +208,7 @@ class DefaultScreen extends Component {
                             <Button style={{ width: 45, height: 45,alignItems:'center',marginLeft:4}}
                             onPress={() => {
                                 if (this.checkNumber())
-                                    this.props.navigation.navigate("Amount")
+                                    this.getMerchantData()
                             }
                             }
                             title={
@@ -233,6 +246,23 @@ class DefaultScreen extends Component {
         else{
             return true
         }
+    }
+    async getMerchantData() {
+        //http://devapi.oyewallet.com/wallet/api/v1/GetMerchantPayeeDetailsByMobileNumber/9490791523
+        let dataMer = await base.service.api.getMerchantByMobNum(this.state.number);
+        console.log('DATA IN MERCHANT', dataMer)
+
+
+        //  this.props.navigation.navigate("Amount")
+        if(dataMer.success==false){
+            Alert.alert('Alert','Store Not Exit with this number')
+        } else if(dataMer.success && dataMer.data.length !==0){
+
+            let mobileNum=dataMer.data[0].mobileNumber;
+            let storeName=dataMer.data[0].brandName
+            this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobileNum})
+        }
+
     }
 
 }

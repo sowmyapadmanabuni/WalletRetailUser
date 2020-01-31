@@ -75,4 +75,7 @@ export default class api {
     static async initiateDBSUPI(upiObj) {
         return await instance.post('DBSPaymentInitiation'+ upiObj);
     }
+    static async getMerchantByMobNum(merMobNum) {
+        return await instance.get('GetMerchantPayeeDetailsByMobileNumber/'+ merMobNum);
+    }
 }

@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import { View, Image, StyleSheet, Text, TouchableOpacity, TextInput, DeviceEventEmitter, FlatList, ImageBackground } from 'react-native';
+import {
+    View,
+    Image,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    TextInput,
+    DeviceEventEmitter,
+    FlatList,
+    ImageBackground,
+    BackHandler, Platform
+} from 'react-native';
 import Button from '../../components/common/Button';
 import CardView from 'react-native-cardview';
 import base from '../../base';
@@ -15,6 +26,8 @@ class TransactionDetail extends Component {
             date2: '',
             maxDate:'',
         }
+        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+
     }
 
     componentDidMount() {
@@ -26,6 +39,17 @@ class TransactionDetail extends Component {
         this.setState({
             maxDate : day.toString()+"-"+month.toString()+"-"+year.toString()
         })
+        this.BackHandler =  BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+
+    }
+
+    handleBackButtonClick() {
+       this.props.navigation.navigate('PayMerchant')
+        return true ;
+
+    }
+    componentWillUnmount() {
+        this.BackHandler.remove();
     }
 
 

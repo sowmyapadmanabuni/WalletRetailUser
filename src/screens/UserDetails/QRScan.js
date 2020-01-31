@@ -43,6 +43,7 @@ class QRScan extends Component {
       callingCode: '91',
       countryList: mappedCountries,
         enableOR:false,
+        number:''
 
     };
       this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
@@ -277,7 +278,7 @@ s
                 <Button style={{ width: 45, height: 45,margin:10}}
                   onPress={() => {
                       if (this.checkNumber())
-                          this.props.navigation.navigate("Amount")
+                          this.getMerchantData();
                   }
                   }
                   title={
@@ -353,6 +354,24 @@ s
 
       </ScrollView>
     )
+  }
+
+  async getMerchantData() {
+      //http://devapi.oyewallet.com/wallet/api/v1/GetMerchantPayeeDetailsByMobileNumber/9490791523
+      let dataMer = await base.service.api.getMerchantByMobNum(this.state.number);
+      console.log('DATA IN MERCHANT', dataMer)
+
+
+      //  this.props.navigation.navigate("Amount")
+        if(dataMer.success==false){
+            Alert.alert('Alert','Store Not Exit with this number')
+  } else if(dataMer.success && dataMer.data.length !==0){
+
+    let mobileNum=dataMer.data[0].mobileNumber;
+     let storeName=dataMer.data[0].brandName
+      this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobileNum})
+        }
+
   }
 
 };
