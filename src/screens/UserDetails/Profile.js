@@ -8,6 +8,7 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from "react-
 import DatePicker from "react-native-datepicker";
 import moment from "moment";
 import Dropdown from "react-native-material-dropdown/src/components/dropdown";
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {TextField} from "react-native-material-textfield";
 
 
@@ -115,7 +116,7 @@ class Profile extends Component {
         console.log("PROFILE DATA IN PROFILE#####",this.props)
         var ShowProfileReducer = (this.props.ShowProfileReducer.list && this.props.ShowProfileReducer.list.data[0]) ? this.props.ShowProfileReducer.list.data[0] : ''
         return (
-            <View>
+            <View style={{marginTop:this.state.editProfile?-15:0}}>
 
                 <ProgressLoader visible={this.state.visible}/>
                 <View>
@@ -270,11 +271,11 @@ class Profile extends Component {
                 <View>
                     {
                         (this.state.editProfile) ?
-                            <View style={{ marginTop: '10%' }}>
+                            <View style={{ marginTop: '8%' }}>
                                 <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Edit Profile</Text>
-                                <View style={{ flexDirection: 'row', }}>
+                                <View style={{ flexDirection: 'row', marginTop: '8%'}}>
                                     <View style={{ flex: 1, justifyContent: 'center' }}>
-                                        <Text style={{ fontSize: 16 }}>First Name</Text>
+                                        <Text style={{ fontSize: 16 ,height:30}}>First Name</Text>
                                     </View>
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
@@ -300,11 +301,13 @@ class Profile extends Component {
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
+                                        paddingBottom:Platform.OS==='ios'?'2%':0
+
                                     }}
                                 />
-                                <View style={{ flexDirection: 'row' }}>
+                                <View style={{ flexDirection: 'row',marginTop:Platform.OS==='ios'?'9%':0  }}>
                                     <View style={{ flex: 1, justifyContent: 'center' }}>
-                                        <Text style={{ fontSize: 16 }}>Last Name</Text>
+                                        <Text style={{ fontSize: 16 ,height:30}}>Last Name</Text>
                                     </View>
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
@@ -329,11 +332,13 @@ class Profile extends Component {
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
+                                        paddingBottom:Platform.OS==='ios'?'2%':0
+
                                     }}
                                 />
-                                <View style={{ flexDirection: 'row' }}>
+                                <View style={{ flexDirection: 'row',marginTop:Platform.OS==='ios'?'9%':0  }}>
                                     <View style={{ flex: 1, justifyContent: 'center' }}>
-                                        <Text style={{ fontSize: 16 }}>Mobile No</Text>
+                                        <Text style={{ fontSize: 16 ,height:30}}>Mobile No</Text>
                                     </View>
                                     <View style={{ alignItems: 'flex-end', flex: 1 }}>
                                         <TextInput
@@ -349,6 +354,8 @@ class Profile extends Component {
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
+                                        paddingBottom:Platform.OS==='ios'?'2%':0
+
                                     }}
                                 />
                                 <View style={{
@@ -356,10 +363,11 @@ class Profile extends Component {
                                     height: '7%',
                                     width: '90%',
                                     justifyContent: 'flex-start',
-                                    marginTop:15,
-                                    marginBottom:10
+                                    // marginTop:15,
+                                    // marginBottom:10
+                                    marginTop:Platform.OS==='ios'?'9%':'5%'
                                 }}>
-                                    <Text style={{fontSize: 16, color: base.theme.colors.black,width:'50%'}}>Gender</Text>
+                                    <Text style={{fontSize: 16, color: base.theme.colors.black,width:'50%',height:30}}>Gender</Text>
                                     <RadioForm formHorizontal={true} animation={true}>
                                         {this.state.genderProps.map((obj, i) => {
                                             let onPress = (value, index) => {
@@ -396,9 +404,11 @@ class Profile extends Component {
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
+                                        // paddingBottom:Platform.OS==='ios'?'1%':0
+
                                     }}
                                 />
-                                <View style={{width:'100%',flexDirection:'row',alignItems: 'center'}}>
+                                <View style={{width:'100%',flexDirection:'row',alignItems: 'center',marginTop:Platform.OS==='ios'?'9%':'3%'}}>
                                     <Text style={{color:base.theme.colors.black,width:'60%',}}>DOB</Text>
                                     <DatePicker
                                         style={{width: '40%',}}
@@ -437,11 +447,14 @@ class Profile extends Component {
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
+                                        // paddingBottom:Platform.OS==='ios'?'2%':0
+
                                     }}
                                 />
-                                <View style={{ flexDirection: 'row' }}>
+                                    
+                                <View style={{ flexDirection: 'row', marginTop:Platform.OS==='ios'?'9%':0}}>
                                     <View style={{ flex: 1, justifyContent: 'center' }}>
-                                        <Text style={{ fontSize: 16 }}>Email ID</Text>
+                                        <Text style={{ fontSize: 16 ,height:30}}>Email ID</Text>
                                     </View>
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
@@ -456,16 +469,18 @@ class Profile extends Component {
                                     style={{
                                         borderBottomColor: 'grey',
                                         borderBottomWidth: 0.5,
+                                        paddingBottom:Platform.OS==='ios'?'2%':0
+
                                     }}
                                 />
 
-                                <View style={{ alignItems: 'center', justifyContent: 'space-around', marginTop: '10%', flexDirection: 'row' }}>
+                                <View style={{ alignItems: 'center', justifyContent: 'space-around', marginTop: '4%', flexDirection: 'row' ,}}>
                                     <TouchableOpacity onPress={() => [this.setState({ showProfile: true, editProfile: false }), this.showProfile()]
                                     } >
-                                        <Text>CANCEL</Text>
+                                        <Text style={{height:30}}>CANCEL</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => [this.profileValidations()]}>
-                                        <Text style={{ color: 'orange' }}>SAVE</Text>
+                                        <Text style={{ color: 'orange' ,height:30}}>SAVE</Text>
                                     </TouchableOpacity>
                                 </View>
                                 {/* <TouchableOpacity onPress={() => this.setState({ editProfile: false, showProfile: false })}>

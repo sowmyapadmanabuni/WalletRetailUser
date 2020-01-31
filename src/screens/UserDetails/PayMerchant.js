@@ -11,6 +11,7 @@ import {
     ScrollView,
     ImageBackground,
     ToastAndroid,
+    Platform
 } from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation';
 import Button from '../../components/common/Button';
@@ -32,6 +33,7 @@ import { ShowProfile } from "../../actions";
 
 import DefaultOrCustom from "../Authentication/SelectPasscode/DefaultOrCustom";
 import Support from "./Support";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 export const UserProfile = (props) => {
     console.log("props.....", props)
@@ -46,20 +48,20 @@ export const UserProfile = (props) => {
                 <Text style={{ fontWeight: 'bold' }}>{props.firstName}</Text>
                 <Text>+91 {props.mobileNumber}</Text>
             </View>
-           {/* <TouchableOpacity onPress={props.filter} >
+            {/* <TouchableOpacity onPress={props.filter} >
                 <Image
                     style={{ width: 25, height: 25, marginRight: '5%' }}
                     source={require('../../icons/filter.png')}
                 />
-            </TouchableOpacity>*/}
+            </TouchableOpacity> */}
         </View>
     );
 };
 
 
-function naviToChangePin(props){
+function naviToChangePin(props) {
     console.log("naviToChangePin ", props);
-    props.navigation.navigate("DefaultOrCustom", {data:'change'})
+    props.navigation.navigate("DefaultOrCustom", { data: 'change' })
 }
 
 const ViewData = (props) => {
@@ -225,7 +227,7 @@ const ViewData = (props) => {
                     </TouchableOpacity>
                 </View>
             </View> */}
-         {/*   <View style={{ flexDirection: 'row', marginTop: '5%' }}>
+            {/*   <View style={{ flexDirection: 'row', marginTop: '5%' }}>
                 <View style={{ flex: 0.2 }}>
                     <Image
                         style={{ marginLeft: '10%' }}
@@ -269,14 +271,29 @@ class PayMerchant extends Component {
             flag: false,
             firstName: '',
             mobileNumber: '',
-            reward:0,
-            showContact:false
+            reward: 0,
+            showContact: false
         }
         this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
 
 
     async UNSAFE_componentWillMount(){
+        // let qr = await base.utils.storage.retrieveData("QR_SCAN");
+        // if(qr != null){
+        //     try{
+        //         this.props.navigation.navigate('Amount',JSON.parse(qr))
+        //     }catch(e){
+        //         console.log(e)
+        //     }
+        // }
+
+    }
+
+
+    async componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+        await base.utils.storage.storeData("IS_LOGGED_IN","true")
         let qr = await base.utils.storage.retrieveData("QR_SCAN");
         if(qr != null){
             try{
@@ -285,11 +302,6 @@ class PayMerchant extends Component {
                 console.log(e)
             }
         }
-
-    }
-
-    async componentDidMount() {
-        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
        // this.getDetails()
     }
 
@@ -297,7 +309,7 @@ class PayMerchant extends Component {
         BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
 
-    removeBackButton(){
+    removeBackButton() {
         const resetAction = StackActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({ routeName: 'QR' })],
@@ -356,7 +368,7 @@ class PayMerchant extends Component {
 
     render() {
         const { } = this.props;
-        console.log("payMerchant.......", this.props,this.props.ShowProfileReducer.list)
+        console.log("payMerchant.......", this.props, this.props.ShowProfileReducer.list)
         DeviceEventEmitter.addListener('refreshUserName', event => {
             console.log("refreshUserName....")
             this.showProfile();
@@ -364,82 +376,76 @@ class PayMerchant extends Component {
 
         return (
             <ScrollView>
-                <View style={{ marginTop: '-4%', marginBottom: '2%' }}>
-                    <CardView style={{ flex: 1 }}
 
-                        cardElevation={5}
-                        cardMaxElevation={5}
-                        cornerRadius={25}
-                        padding={10}
-
-                    >
-                        {/* <View style={{ margin: '5%', padding: '5%', borderColor: base.theme.colors.grey, borderWidth: 1, borderRadius: 5 ,borderBottomLeftRadius:20,borderBottomRightRadius:20}}> */}
-                        {/* <TouchableOpacity onPress={() => {
+                <CardView style={{ flex: 1, backgroundColor: 'white', marginTop: hp('-2%'), marginBottom: hp('2%'), paddingHorizontal: '4%',paddingTop: '4%' }}
+                    cardElevation={5}
+                    cardMaxElevation={5}
+                    cornerRadius={25}
+                >
+                    {/* <View style={{ margin: '5%', padding: '5%', borderColor: base.theme.colors.grey, borderWidth: 1, borderRadius: 5 ,borderBottomLeftRadius:20,borderBottomRightRadius:20}}> */}
+                    {/* <TouchableOpacity onPress={() => {
                             this.setState({ showData: true, flag: true })
                         }}> */}
-                        <UserProfile filter={() => { this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false }) }}
-                                     firstName={this.state.firstName} mobileNumber={this.props.OTPReducer.MobileNumber} showData={this.state.showData} />
-                        {/* </TouchableOpacity> */}
-                        <View>
-                            {
-                                ((!this.state.isProfileShown &&  !this.state.showContact) && this.state.showData) ?
-                                    <ViewData navigation={this.props.navigation}
+                    <UserProfile filter={() => { this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false }) }}
+                        firstName={this.state.firstName} mobileNumber={this.props.OTPReducer.MobileNumber} showData={this.state.showData} />
+                    {/* </TouchableOpacity> */}
+                    <View>
+                        {
+                            ((!this.state.isProfileShown && !this.state.showContact) && this.state.showData) ?
+                                <ViewData navigation={this.props.navigation}
 
-                                        showProfile={() => { this.setState({ isProfileShown: true, statementShow:false}) }}
-                                        showStatement={() => { this.setState({ statementShow: true, }) }}
-                                              contact={() => { this.setState({ showContact: true,statementShow:false }) }}/> :
-                                    null
-                            }
-                        </View>
-                        <View>
-                            {
-                                (this.state.isProfileShown && this.state.showData) ?
-                                    <Profile /> :
-                                    null
-                            }
-                        </View>
-                        <View>
-                            {
-                                (this.state.statementShow) ? this.props.navigation.navigate('TransactionDetail') :
-                                    null
-                            }
-                        </View>
-                        <View>
-                            {
-                                (this.state.showData && this.state.showContact) ?
-                                    <Support /> :
-                                    null
-                            }
-                        </View>
-                        <View>
-
-                            {
-
-                                    <TouchableOpacity onPress={() => {
-                                        this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false,showContact:false })
-                                    }}>
-                                        <View style={{ alignItems: 'center', }}>
-                                            {
-                                                (this.state.showData) ?
-                                                    <Image
-                                                        style={{ width: 25, height: 25, position: 'absolute', bottom: -13 }}
-                                                        source={require('../../icons/images.png')}
-                                                    /> :
-                                                    <Image
-                                                        style={{ width: 25, height: 25, position: 'absolute', bottom: -13, transform: [{ rotate: '180deg' }] }}
-                                                        source={require('../../icons/images.png')}
-                                                    />
-                                            }
-                                            <Image
-                                                style={{ width: 80, height: 80, marginBottom: '-11%' }}
-                                                source={require('../../icons/semicircle.png')}
-                                            />
-                                        </View>
-                                    </TouchableOpacity>
-                            }
-                        </View>
-                    </CardView>
-                </View>
+                                    showProfile={() => { this.setState({ isProfileShown: true, statementShow: false }) }}
+                                    showStatement={() => { this.setState({ statementShow: true, }) }}
+                                    contact={() => { this.setState({ showContact: true, statementShow: false }) }} /> :
+                                null
+                        }
+                    </View>
+                    <View>
+                        {
+                            (this.state.isProfileShown && this.state.showData) ?
+                                <Profile /> :
+                                null
+                        }
+                    </View>
+                    <View>
+                        {
+                            (this.state.statementShow) ? this.props.navigation.navigate('TransactionDetail') :
+                                null
+                        }
+                    </View>
+                    <View>
+                        {
+                            (this.state.showData && this.state.showContact) ?
+                                <Support /> :
+                                null
+                        }
+                    </View>
+                    <View style={{height:50,justifyContent:'center'}}>
+                        <TouchableOpacity style={{ alignSelf:'center'}} onPress={() => {
+                            console.log("slow.............")//-13//bottom:(this.state.isProfileShown?-5:-13) marginBottom: hp('-6%') 
+                            this.setState({ showData: !this.state.showData, isProfileShown: false, statementShow: false, showContact: false })
+                        }}>
+                            <View style={{ alignItems: 'center',justifyContent:'center' }}>
+                                {
+                                    (this.state.showData) ?
+                                        <Image
+                                        
+                                            style={{ width: 25, height: 25, position: 'absolute',alignSelf:'center',bottom:this.state.isProfileShown?-18:-20}}
+                                            source={require('../../icons/images.png')}
+                                        /> :
+                                        <Image
+                                            style={{ width: 25, height: 25, position: 'absolute',alignSelf:'center',transform: [{ rotate: '180deg' }],top:-2 }}
+                                            source={require('../../icons/images.png')}
+                                        />
+                                }
+                                <Image
+                                    style={{ width: 80, height: 80, position:'absolute',top:-32,marginBottom:4}}
+                                    source={require('../../icons/semicircle.png')}
+                                />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </CardView>
                 {/* </View> */}
                 {
                     (!this.state.showData) ?
@@ -448,14 +454,14 @@ class PayMerchant extends Component {
                                 cardElevation={3}
                                 cardMaxElevation={3}
                                 cornerRadius={10}>
-                                <ImageBackground source={require('../../icons/card.png')} style={{ width: null, flex: 1 }}>
+                                <ImageBackground source={require('../../icons/card.png')} style={{ width: null, flex: 1 }} imageStyle={{ borderRadius: 10 }}>
                                     <Text style={{ color: 'white', margin: '5%' }}>Reward Cash Back</Text>
 
                                     <Text style={{ color: 'white', margin: '5%', fontSize: 24 }}>₹ {this.state.reward}</Text>
 
                                 </ImageBackground>
                             </CardView>
-                            <CardView style={{ marginLeft: '20%', marginRight: '20%', height: '15%', marginTop: '5%', flex: 1 }}
+                            <CardView style={{ marginLeft: '20%', marginRight: '20%', height: '15%', marginTop: '8%', flex: 1, backgroundColor: 'white' }}
                                 cardElevation={3}
                                 cardMaxElevation={3}
                                 cornerRadius={7}
@@ -477,7 +483,7 @@ class PayMerchant extends Component {
                 }
                 <View style={{ flexDirection: 'row', marginLeft: '3%', marginRight: '3%', marginTop: '10%' }}>
                     <View style={{ flex: 1 }}>
-                        <Text style={{ color: 'orange', fontSize: 16 }}>Recent transaction</Text>
+                        <Text style={{ color: 'orange', fontSize: 16, height: 30 }}>Recent transaction</Text>
                     </View>
                     <TouchableOpacity style={{ alignItems: 'flex-end', flex: 1, height: 20 }}
 
@@ -486,7 +492,7 @@ class PayMerchant extends Component {
                             this.props.navigation.navigate('TransactionDetail')
                         }}>
 
-                        <Text style={{ color: 'orange', fontSize: 16 }}>More</Text>
+                        <Text style={{ color: 'orange', fontSize: 16, height: 30 }}>More</Text>
                     </TouchableOpacity>
                 </View>
                 <FlatList
@@ -509,7 +515,7 @@ class PayMerchant extends Component {
                                 <Text style={{ flex: 1, fontSize: 12 }}>From: {item.From}</Text>
                                 <Text style={{ alignItems: 'flex-end', fontSize: 12 }}>{item.date}</Text>
                             </View>
-                            <View style={{ borderWidth: 0.3, marginTop: '3%' }}></View>
+                            <View style={{ borderWidth: 0.5, marginTop: '3%' }}></View>
                         </View>
                     }
 
@@ -544,8 +550,8 @@ export const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
     return {
-            registrationId: state.UserReducer.registrationId,
-            loggedIn: state.UserReducer.loggedIn,
+        registrationId: state.UserReducer.registrationId,
+        loggedIn: state.UserReducer.loggedIn,
         SignUpReducer: state.SignUpReducer,
 
         ShowProfileReducer: state.ShowProfileReducer,

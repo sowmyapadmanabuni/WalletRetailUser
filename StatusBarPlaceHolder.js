@@ -1,6 +1,8 @@
 import {Platform, StatusBar, View} from "react-native";
+import { isIphoneX } from 'react-native-iphone-x-helper'
+ 
 import React from "react";
-const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ? 20 : 0;
+const STATUS_BAR_HEIGHT = Platform.OS === 'ios' ?isIphoneX()?36: 20 : 0;
 export function StatusBarPlaceHolder() {
     return (
         <View style={{

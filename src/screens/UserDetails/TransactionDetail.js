@@ -17,6 +17,7 @@ import base from '../../base';
 import { connect } from 'react-redux';
 import DatePicker from 'react-native-datepicker'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 class TransactionDetail extends Component {
     constructor(props) {
@@ -88,7 +89,7 @@ class TransactionDetail extends Component {
         console.log("render>>>d2", this.state.maxDate)
         return (
             <View>
-                <ImageBackground source={require('../../icons/card.png')} style={{ width: '100%', height: "68%" }} imageStyle={{ borderBottomRightRadius: 30, borderBottomLeftRadius: 30 }}>
+                <ImageBackground source={require('../../icons/card.png')} style={{ width: '100%', height: "65%" }} imageStyle={{ borderBottomRightRadius: 30, borderBottomLeftRadius: 30 }}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{ flexDirection: 'row' }}>
                         <Image source={require('../../icons/back_white.png')} style={{ width: 10, height: 20, marginTop: '5%', marginLeft: '5%' }} />
                         <Text style={{ marginTop: '5%', marginLeft: '5%', fontWeight: 'bold', fontSize: 16, color: 'white' }}>Statements</Text>
@@ -99,9 +100,7 @@ class TransactionDetail extends Component {
                                 cardElevation={2}
                                 cardMaxElevation={2}
                                 cornerRadius={10}
-                                marginTop={'20%'}
-                                marginLeft={'20%'}
-                                padding={15}
+                                style={{ backgroundColor: 'white', padding: '8%', marginTop: '20%', marginLeft: '20%'}}
                             >
                                 <View>
                                     <View style={{ flexDirection: "row"}}>
@@ -127,18 +126,18 @@ class TransactionDetail extends Component {
 
                                             customStyles={{
                                                 dateIcon: {
-                                                    position: 'absolute',
-                                                    left: 0,
-                                                    top: 0,
-                                                    marginLeft: 30
+                                                  position: 'absolute',
+                                                  left: 0,
+                                                  top: 0,
+                                                  marginLeft: '1%'
                                                 },
                                                 dateInput: {
-                                                    left: '-300%',
-                                                    marginBottom: -40,
-                                                    borderColor: 'white'
+                                                  left: '-300%',
+                                                  marginBottom: -40,
+                                                  borderColor: 'transparent'
                                                 }
                                                 // ... You can check the source to find the other keys.
-                                            }}
+                                              }}
                                             onDateChange={(date) => { this.setState({ date: date }) }}
                                         />
                                     </View>
@@ -154,15 +153,13 @@ class TransactionDetail extends Component {
                                 cardElevation={2}
                                 cardMaxElevation={2}
                                 cornerRadius={10}
-                                marginTop={'20%'}
-                                marginRight={'20%'}
-                                padding={15}
+                                style={{backgroundColor: 'white', padding: '8%', marginTop: '20%', marginRight: '20%' }}
                             >
                                 <View>
                                     <View style={{ flexDirection: "row" }}>
                                         <Text style={{ color: 'orange' }}>To Date</Text>
                                         <DatePicker
-                                            style={{ width: 200 }}
+                                            style={{ width: 100 }}
                                             date={this.state.date2}
                                             mode="date"
                                             placeholder="select date"
@@ -182,18 +179,18 @@ class TransactionDetail extends Component {
 
                                             customStyles={{
                                                 dateIcon: {
-                                                    position: 'absolute',
-                                                    left: 0,
-                                                    top: 0,
-                                                    marginLeft: 45
+                                                  position: 'absolute',
+                                                  left: 0,
+                                                  top: 0,
+                                                  marginLeft: "15%"
                                                 },
                                                 dateInput: {
-                                                    left: '-250%',
-                                                    marginBottom: -40,
-                                                    borderColor: 'white'
+                                                  left: '-150%',
+                                                  marginBottom: -40,
+                                                  borderColor: 'transparent'
                                                 }
                                                 // ... You can check the source to find the other keys.
-                                            }}
+                                              }}
                                             //onDateChange={(date) => { this.setState({ date2: date }) }}
                                             onDateChange={(date) => { this.setState({date2 : data}) }}
                                         />
@@ -206,13 +203,13 @@ class TransactionDetail extends Component {
 
                 </ImageBackground>
 
-                <View style={{ position: 'absolute', width: '90%', marginTop: '45%', alignSelf: 'center', marginBottom: "-15%" }}>
+                <View style={{ position: 'absolute', width: '90%', marginTop:Platform.OS==='android'?hp('25%'):hp('23%'), alignSelf: 'center', marginBottom: "-15%" }}>
 
                     <CardView
                         cardElevation={2}
                         cardMaxElevation={2}
                         cornerRadius={10}
-                        padding={10}
+                        style={{backgroundColor:'white',padding:'3%'}}
                     >
                         <FlatList
                             showsVerticalScrollIndicator={false}
@@ -237,7 +234,7 @@ class TransactionDetail extends Component {
                                         <Text style={{ flex: 1, fontSize: 12 }}>From: {item.From}</Text>
                                         <Text style={{ alignItems: 'flex-end', fontSize: 12 }}>{item.date}</Text>
                                     </View>
-                                    <View style={{ borderWidth: 0.3, marginTop: '3%', marginBottom: '3%' }}></View>
+                                    <View style={{ borderWidth: 0.5, marginTop: '3%', marginBottom: '3%' ,color:'grey'}}></View>
                                 </View>
                             }
 

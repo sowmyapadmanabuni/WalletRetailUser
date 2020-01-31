@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E999B5723DB0677009F5E56 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5623DB0677009F5E56 /* libcrypto.a */; };
+		0E999B5923DB067A009F5E56 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5823DB067A009F5E56 /* libssl.a */; };
+		0E999B5B23DB068C009F5E56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5A23DB068C009F5E56 /* Foundation.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -37,14 +40,19 @@
 		00E356F21AD99517003FC87E /* WalletRetailUserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletRetailUserTests.m; sourceTree = "<group>"; };
 		05C6E3319D424215AEE2387B /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		0685E1FA524E46B2ACDC10D0 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* WalletRetailUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalletRetailUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E00FE3B23E05CC7002BB131 /* OyeWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = OyeWallet.entitlements; path = WalletRetailUser/OyeWallet.entitlements; sourceTree = "<group>"; };
+		0E381AD123DC0DD9007353E7 /* OyeWalletDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = OyeWalletDebug.entitlements; path = WalletRetailUser/OyeWalletDebug.entitlements; sourceTree = "<group>"; };
+		0E999B5323DB05E5009F5E56 /* openssl_ios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = openssl_ios; sourceTree = "<group>"; };
+		0E999B5623DB0677009F5E56 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = openssl_ios/lib/libcrypto.a; sourceTree = "<group>"; };
+		0E999B5823DB067A009F5E56 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = openssl_ios/lib/libssl.a; sourceTree = "<group>"; };
+		0E999B5A23DB068C009F5E56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		13B07F961A680F5B00A75B9A /* OyeWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OyeWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = WalletRetailUser/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = WalletRetailUser/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = WalletRetailUser/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WalletRetailUser/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WalletRetailUser/main.m; sourceTree = "<group>"; };
-		1EC4CB6B23E2F6F700CC312D /* openssl_ios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = openssl_ios; sourceTree = "<group>"; };
 		1ED5FCF923D997E7005CADDD /* WalletRetailUser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WalletRetailUser-Bridging-Header.h"; sourceTree = "<group>"; };
 		1ED5FCFA23D997E7005CADDD /* retailUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = retailUser.swift; sourceTree = "<group>"; };
 		1F8A45A562064B60B313CB42 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
@@ -82,7 +90,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E999B5B23DB068C009F5E56 /* Foundation.framework in Frameworks */,
+				0E999B5723DB0677009F5E56 /* libcrypto.a in Frameworks */,
 				404BAAE4002AB52964E5F42F /* libPods-WalletRetailUser.a in Frameworks */,
+				0E999B5923DB067A009F5E56 /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +120,8 @@
 		13B07FAE1A68108700A75B9A /* WalletRetailUser */ = {
 			isa = PBXGroup;
 			children = (
+				0E00FE3B23E05CC7002BB131 /* OyeWallet.entitlements */,
+				0E381AD123DC0DD9007353E7 /* OyeWalletDebug.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -130,7 +143,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1EC4CB6B23E2F6F700CC312D /* openssl_ios */,
+				0E999B5A23DB068C009F5E56 /* Foundation.framework */,
+				0E999B5323DB05E5009F5E56 /* openssl_ios */,
+				0E999B5623DB0677009F5E56 /* libcrypto.a */,
+				0E999B5823DB067A009F5E56 /* libssl.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				BD742B8FC9D66E721A87A24A /* libPods-WalletRetailUser.a */,
@@ -170,7 +186,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* WalletRetailUser.app */,
+				13B07F961A680F5B00A75B9A /* OyeWallet.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,7 +250,7 @@
 			);
 			name = WalletRetailUser;
 			productName = WalletRetailUser;
-			productReference = 13B07F961A680F5B00A75B9A /* WalletRetailUser.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* OyeWallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -436,12 +452,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 205C2E3190BD26979D992690 /* Pods-WalletRetailUser.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WalletRetailUser/OyeWalletDebug.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = K5NJYU4T6K;
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-local-auth",
@@ -450,17 +469,22 @@
 				);
 				INFOPLIST_FILE = WalletRetailUser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/anooj/openssl_ios/lib,
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.oyewallet.consumer;
-				PRODUCT_NAME = WalletRetailUser;
+				PRODUCT_NAME = OyeWallet;
 				PROVISIONING_PROFILE_SPECIFIER = ANOOJ_CONSUMER_DEV;
 				SWIFT_OBJC_BRIDGING_HEADER = "WalletRetailUser-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -469,12 +493,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2BFEE5D432A971A5D250FB46 /* Pods-WalletRetailUser.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = WalletRetailUser/OyeWallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = K5NJYU4T6K;
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-local-auth",
@@ -483,16 +510,21 @@
 				);
 				INFOPLIST_FILE = WalletRetailUser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/anooj/openssl_ios/lib,
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.oyewallet.consumer;
-				PRODUCT_NAME = WalletRetailUser;
+				PRODUCT_NAME = OyeWallet;
 				PROVISIONING_PROFILE_SPECIFIER = ANOOJ_CONSUMER_RELEASE;
 				SWIFT_OBJC_BRIDGING_HEADER = "WalletRetailUser-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -500,7 +532,7 @@
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -544,16 +576,18 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 			};
 			name = Debug;
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -590,8 +624,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

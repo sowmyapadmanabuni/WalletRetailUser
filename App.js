@@ -54,7 +54,7 @@ class App extends React.Component {
       <StatusBarPlaceHolder />
       <FlashMessage position="top" />
          <Navigation/>
-       {/* <ScanningExample/> */}
+       {/* <SignUp/> */}
        
        </Provider>
       // </SafeAreaView>
