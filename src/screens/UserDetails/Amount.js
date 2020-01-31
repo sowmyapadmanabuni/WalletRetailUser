@@ -193,7 +193,7 @@ class Amount extends Component {
                                     //PaymentWeb
                                     //CardDetails
                                     //this.props.navigation.navigate("PaymentWeb", { data: this.state.amount })
-                                    this.props.navigation.navigate("CardDetails", { data: this.state.amount })
+                                    this.props.navigation.navigate("CardDetails", { data: this.state.amount,store:this.props.navigation.state.params.storeName,purposeOfPay:this.state.purposeOfPay })
                                 }
                             }}>
                                 <Text style={{ color: base.theme.colors.orange, fontSize: 16 }}>PAY</Text>

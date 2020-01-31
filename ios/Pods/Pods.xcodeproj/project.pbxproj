@@ -2200,6 +2200,7 @@
 		0EA4B85AF478C02FFE756FC738B8EDDB /* RNBranchAgingDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RNBranchAgingDictionary.m; path = ios/RNBranchAgingDictionary.m; sourceTree = "<group>"; };
 		0EA6AD6D4CCC30334D1C7B1FBACC5ADB /* RCTSegmentedControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTSegmentedControl.m; sourceTree = "<group>"; };
 		0EBBCDDF30E1F9F6C4CEF95720AD2010 /* dso.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = dso.h; sourceTree = "<group>"; };
+		0ED3BA5A23E30EA8006851CA /* openssl_ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = openssl_ios; path = ../../../../../../../openssl_ios; sourceTree = "<group>"; };
 		0F0844416C17150D12D2E3A2879B0D9F /* YGValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YGValue.h; path = yoga/YGValue.h; sourceTree = "<group>"; };
 		0F2CC8B4E599DABDE08ECE37CDA1AB55 /* RCTMultiplicationAnimatedNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RCTMultiplicationAnimatedNode.m; sourceTree = "<group>"; };
 		0F727BB9B2BAB071DB9BD59DC6E6658D /* RNFlingHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RNFlingHandler.m; sourceTree = "<group>"; };
@@ -2984,7 +2985,6 @@
 		9C8F8E0E0EBF34F9179FDC5BAD4D346E /* RNReanimated-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RNReanimated-prefix.pch"; sourceTree = "<group>"; };
 		9CB1AA66CD2976904C19A73EE2037B53 /* RCTTransformAnimatedNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTTransformAnimatedNode.h; sourceTree = "<group>"; };
 		9CC1DD7B30E5C3769EC989033078CF6A /* RCTProgressViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RCTProgressViewManager.h; sourceTree = "<group>"; };
-		9D13F38E23E2EE97003D992D /* openssl_ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = openssl_ios; path = ../../../../openssl_ios; sourceTree = "<group>"; };
 		9D375891426B3298BFFF9689C429E815 /* Permission-Camera-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Permission-Camera-prefix.pch"; sourceTree = "<group>"; };
 		9D52A192DBF2812CBC624F6B4ADAEDBF /* mdc2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = mdc2.h; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -6384,7 +6384,7 @@
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
-				9D13F38E23E2EE97003D992D /* openssl_ios */,
+				0ED3BA5A23E30EA8006851CA /* openssl_ios */,
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				366F5FC95787769D3AD91AC1FE6A7DBD /* Development Pods */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
@@ -10537,7 +10537,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/react-native-ccavenue-encryption/react-native-ccavenue-encryption-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LIBRARY_SEARCH_PATHS = /Users/rashmihegde/openssl_ios/lib;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -10549,7 +10549,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = /Users/rashmihegde/openssl_ios/include;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -11584,7 +11584,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LIBRARY_SEARCH_PATHS = /Users/rashmihegde/openssl_ios/lib;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -11592,7 +11592,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-				USER_HEADER_SEARCH_PATHS = /Users/rashmihegde/openssl_ios/include;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 			};
 			name = Release;
 		};
@@ -11696,7 +11696,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LIBRARY_SEARCH_PATHS = /Users/rashmihegde/openssl_ios/lib;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -11706,7 +11706,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-				USER_HEADER_SEARCH_PATHS = /Users/rashmihegde/openssl_ios/include;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 			};
 			name = Debug;
 		};
@@ -11990,7 +11990,7 @@
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/react-native-ccavenue-encryption/react-native-ccavenue-encryption-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LIBRARY_SEARCH_PATHS = /Users/rashmihegde/openssl_ios/lib;
+				LIBRARY_SEARCH_PATHS = /Users/anooj/openssl_ios/lib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -12002,7 +12002,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = /Users/rashmihegde/openssl_ios/include;
+				USER_HEADER_SEARCH_PATHS = /Users/anooj/openssl_ios/include;
 			};
 			name = Debug;
 		};

@@ -169,12 +169,15 @@ class QRScan extends Component {
     };
     return (
 
-      <ScrollView style={{ flex: 1 }}>
+      <KeyboardAwareScrollView
+      scrollEnabled={true} bounces={false} showsVerticalScrollIndicator={false}
+      showsHorizontalScrollIndicator={false} contentContainerStyle={[{flex:1}]}
+  >
         <TouchableOpacity style={{ flexDirection: 'row' }} onPress={()=>this.props.navigation.navigate('PayMerchant')}>
         <Image source={require('../../icons/images.png')} style={{ width: 10, height: 20, marginTop: '5%', marginLeft: '5%',transform: [{ rotate: '270deg' }] }} />
 
-         <View style={{marginTop:'5%'}}>
-         <Text style={{ height: 20 }}> Pay</Text>
+         <View style={{marginTop:'6%'}}>
+         <Text style={{ height: 20,alignSelf:'center',justifyContent:'center' }}> Pay</Text>
          </View>
         </TouchableOpacity>
 
@@ -363,7 +366,7 @@ class QRScan extends Component {
           }
         </CardView> */}
 
-      </ScrollView>
+      </KeyboardAwareScrollView>
     )
   }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E999B5723DB0677009F5E56 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5623DB0677009F5E56 /* libcrypto.a */; };
+		0E999B5923DB067A009F5E56 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5823DB067A009F5E56 /* libssl.a */; };
 		0E999B5B23DB068C009F5E56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5A23DB068C009F5E56 /* Foundation.framework */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
@@ -27,8 +29,6 @@
 		89F4FE062AD44D7FA96C2EA3 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FDDA8EED76F48F1AFF0DA57 /* MaterialCommunityIcons.ttf */; };
 		9884C6ECC24846A596B2CE66 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B6076D346804797995E568E /* FontAwesome.ttf */; };
 		9C6A47BAB4284C278A086553 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEA6F8B1100745DEAFF38898 /* Entypo.ttf */; };
-		9D13F38F23E2EFE0003D992D /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5823DB067A009F5E56 /* libssl.a */; };
-		9D13F39023E2EFE2003D992D /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E999B5623DB0677009F5E56 /* libcrypto.a */; };
 		AE305D6B2A354622B8C80BCD /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F8A45A562064B60B313CB42 /* Feather.ttf */; };
 		F5328A38D40F4F5EADBAD088 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8B8F0C4858CB4D7A9D48304D /* FontAwesome5_Solid.ttf */; };
 		F58AF12C0E184560AB1C7F71 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8AEC25F18845489EA3A38B58 /* Foundation.ttf */; };
@@ -91,9 +91,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E999B5B23DB068C009F5E56 /* Foundation.framework in Frameworks */,
-				9D13F38F23E2EFE0003D992D /* libssl.a in Frameworks */,
-				9D13F39023E2EFE2003D992D /* libcrypto.a in Frameworks */,
+				0E999B5723DB0677009F5E56 /* libcrypto.a in Frameworks */,
 				404BAAE4002AB52964E5F42F /* libPods-WalletRetailUser.a in Frameworks */,
+				0E999B5923DB067A009F5E56 /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +457,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = WalletRetailUser/OyeWalletDebug.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = K5NJYU4T6K;
 				ENABLE_BITCODE = NO;
@@ -472,7 +472,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/anooj/openssl_ios/lib,
-					"$(PROJECT_DIR)/openssl_ios/lib",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -500,7 +499,7 @@
 				CODE_SIGN_ENTITLEMENTS = WalletRetailUser/OyeWallet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = K5NJYU4T6K;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -514,7 +513,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/anooj/openssl_ios/lib,
-					"$(PROJECT_DIR)/openssl_ios/lib",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

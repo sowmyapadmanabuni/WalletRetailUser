@@ -724,7 +724,7 @@ class CardDetails extends Component{
                                 style={[CardDStyle.topSecTxtSize, {
                                     fontWeight: 'bold'
                                 }]}>
-                                The Deely
+                                {this.props.navigation.state.params.store}
                             </Text>
                         </View>
 
@@ -754,7 +754,7 @@ class CardDetails extends Component{
                             // Reason for paying
 
                         }}>
-                            For lunch
+                            {this.props.navigation.state.params.purposeOfPay}
                         </Text>
                     </View>
                 </View>
