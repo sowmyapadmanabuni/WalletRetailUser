@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.rnfingerprint.FingerprintAuthPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.securitysettings.OpenSecuritySettingsPackage;
 import com.encryptccavenue.CcavenueEncryptionPackage;

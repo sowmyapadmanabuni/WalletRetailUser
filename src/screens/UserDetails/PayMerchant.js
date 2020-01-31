@@ -277,6 +277,19 @@ class PayMerchant extends Component {
 
 
     async UNSAFE_componentWillMount(){
+        // let qr = await base.utils.storage.retrieveData("QR_SCAN");
+        // if(qr != null){
+        //     try{
+        //         this.props.navigation.navigate('Amount',JSON.parse(qr))
+        //     }catch(e){
+        //         console.log(e)
+        //     }
+        // }
+
+    }
+
+    async componentDidMount() {
+        await base.utils.storage.storeData("IS_LOGGED_IN","true")
         let qr = await base.utils.storage.retrieveData("QR_SCAN");
         if(qr != null){
             try{
@@ -285,11 +298,6 @@ class PayMerchant extends Component {
                 console.log(e)
             }
         }
-
-    }
-
-    async componentDidMount() {
-        await base.utils.storage.storeData("IS_LOGGED_IN","true")
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
        // this.getDetails()
     }
