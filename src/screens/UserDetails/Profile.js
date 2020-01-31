@@ -8,6 +8,7 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from "react-
 import DatePicker from "react-native-datepicker";
 import moment from "moment";
 import Dropdown from "react-native-material-dropdown/src/components/dropdown";
+import {TextField} from "react-native-material-textfield";
 
 
 class Profile extends Component {
@@ -290,6 +291,8 @@ class Profile extends Component {
                                             //   numberOfLines={2}
                                             style={{ fontSize: 16 }}
                                             // placeholder='First Name'
+                                            maxLength={30}
+
                                         />
                                     </View>
                                 </View>
@@ -316,6 +319,8 @@ class Profile extends Component {
                                                 }}}
                                             value={this.state.LastName}
                                             style={{ fontSize: 16 }}
+                                            maxLength={30}
+
                                             // placeholder='Last Name'
                                         />
                                     </View>

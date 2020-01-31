@@ -127,6 +127,7 @@ class SignUp extends Component {
                             keyboardType={Platform.OS === 'ios'? 'ascii-capable':'visible-password'}
                             fontSize={13}
                             lineWidth={Platform.OS==='ios'?0.5:0.8}
+                            maxLength={30}
                         />
                         <TextField
                             label="Last Name"
@@ -149,7 +150,7 @@ class SignUp extends Component {
                                 //onSignupFieldChange({ prop: "LastName", value: LastName })
                             }*/
                             fontSize={13}
-
+                            maxLength={30}
                         />
                         <View style={{borderBottomWidth: 0.5, borderBottomColor: base.theme.colors.grey,width:'100%' , height:40,justifyContent:'flex-end', }}>
                             {/* <TouchableOpacity

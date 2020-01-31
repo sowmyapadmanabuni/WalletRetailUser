@@ -361,11 +361,11 @@ s
       let dataMer = await base.service.api.getMerchantByMobNum(this.state.number);
       console.log('DATA IN MERCHANT', dataMer)
 
-
       //  this.props.navigation.navigate("Amount")
+
         if(dataMer.success==false){
             Alert.alert('Alert','Store Not Exit with this number')
-  } else if(dataMer.success && dataMer.data.length !==0){
+          } else if(dataMer.success && dataMer.data.length !==0){
 
     let mobileNum=dataMer.data[0].mobileNumber;
      let storeName=dataMer.data[0].brandName
