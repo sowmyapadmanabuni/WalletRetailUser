@@ -197,8 +197,14 @@ class Security extends Component {
             });
         }
     }
+
     passCodeFail() {
-        BackHandler.exitApp();
+        if (Platform.OS === 'android') {
+            BackHandler.exitApp();
+        }
+        else{
+            this.props.navigation.navigate("DefaultOrCustom")
+        }
         // this._pressHandler()
         //this.props.navigation.navigate("SecureWallet")
        // this.props.navigation.navigate("DefaultOrCustom")

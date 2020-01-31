@@ -218,8 +218,6 @@ class InitScreen extends React.PureComponent {
       if (loggedIn) {
 
           var idString = qrData.match(/(id=)\w+/g);
-          console.log("IDSTRING@@@@@",idString)
-
           if (idString.length > 0) {
               idString = idString[0]
               if (idString.indexOf("id=") != -1) {
@@ -246,6 +244,7 @@ class InitScreen extends React.PureComponent {
             let storeName = merchant.brandName;
             if(mobMerchant != undefined){
                 //console.log(merchant.mobileNumber)
+                await base.utils.storage.storeData("QR_SCAN",JSON.stringify({storeName:storeName,mobileNumber:mobMerchant}));
                 this.props.navigation.navigate('Amount',{storeName:storeName,mobileNumber:mobMerchant})
             }else{
                 //this.showQRError('Merchant Not Found')

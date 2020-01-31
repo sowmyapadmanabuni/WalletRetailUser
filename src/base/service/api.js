@@ -72,7 +72,7 @@ export default class api {
     static async getMerchant(merchantId) {
         return await instance.get('GetMerchantPayeeDetails/'+ merchantId);
     }
-   /* static async createNewUser(merchantId) {
-        return await instance.post('CreateRegistration/'+ merchantId);
-    }*/
+    static async initiateDBSUPI(upiObj) {
+        return await instance.post('DBSPaymentInitiation'+ upiObj);
+    }
 }
