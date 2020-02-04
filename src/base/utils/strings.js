@@ -36,6 +36,8 @@ const strings = {
     sandboxReceiverUPI:"xyz1234@dbs",
     sandboxSenderUPI:"OYESPACE@dbs",
 
+    STATUS_BAR_HEIGHT:36
+
 };
 
 export default strings;

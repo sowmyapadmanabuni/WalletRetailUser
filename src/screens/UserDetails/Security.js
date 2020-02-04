@@ -115,6 +115,7 @@ class Security extends Component {
 
 
     async launchSecurity() {
+        console.log("Launching security....")
        // let authenticationType = await base.storage.retrieveData('authenticationType');
        // let defaultAuthenticationType = await base.storage.retrieveData('defaultAuthenticationType');
        // let customAuthenticationType = await base.storage.retrieveData('customAuthenticationType');
@@ -140,13 +141,13 @@ class Security extends Component {
 
             let self = this;
             const optionalConfigObject = {
-                title: 'Authentication Required', // Android
-                imageColor: '#e00606', // Android
-                imageErrorColor: '#ff0000', // Android
-                sensorDescription: 'Touch sensor', // Android
-                sensorErrorDescription: 'Failed', // Android
-                cancelText: 'Cancel', // Android
-                fallbackLabel: '',
+                // title: 'Authentication Required', // Android
+                // imageColor: '#e00606', // Android
+                // imageErrorColor: '#ff0000', // Android
+                // sensorDescription: 'Touch sensor', // Android
+                // sensorErrorDescription: 'Failed', // Android
+                // cancelText: 'Cancel', // Android
+                // fallbackLabel: '',
                 unifiedErrors: false,
                 passcodeFallback: true,
             };
@@ -288,8 +289,12 @@ class Security extends Component {
        // base.storage.storeData('defaultAuthenticationType', 'TouchId');
         let self = this;
         console.log("Hitting");
+        const optionalConfigObject = {
+            unifiedErrors: false,
+            passcodeFallback: true,
+        };
         try {
-            TouchID.authenticate('', { passcodeFallback: true })
+            TouchID.authenticate('OyeWallet', optionalConfigObject)
                 .then(success => {
                     console.log("successsss", success);
                     self.setState({ isButton: false });
@@ -325,17 +330,21 @@ class Security extends Component {
     }
 
     _pressHandler(self) {
+        // const optionalConfigObject = {
+        //     // title: 'Authentication Required', // Android
+        //     // imageColor: '#e00606', // Android
+        //     // imageErrorColor: '#ff0000', // Android
+        //     // sensorDescription: 'Touch sensor', // Android
+        //     // sensorErrorDescription: 'Failed', // Android
+        //     // cancelText: 'Cancel', // Android
+        //     // fallbackLabel: '',
+        //     unifiedErrors: false,
+        //     passcodeFallback: true,
+
+        // };
         const optionalConfigObject = {
-            title: 'Authentication Required', // Android
-            imageColor: '#e00606', // Android
-            imageErrorColor: '#ff0000', // Android
-            sensorDescription: 'Touch sensor', // Android
-            sensorErrorDescription: 'Failed', // Android
-            cancelText: 'Cancel', // Android
-            fallbackLabel: '',
             unifiedErrors: false,
             passcodeFallback: true,
-
         };
         const { userDetails } = this.props;
         let data = userDetails;

@@ -130,6 +130,7 @@ class DefaultScreen extends Component {
     }
 
     render() {
+        //devapi.oyewallet.com/qrcode/id=MRN24720851967656720
         return (
             <KeyboardAwareScrollView
                 scrollEnabled={true} bounces={false} showsVerticalScrollIndicator={false}

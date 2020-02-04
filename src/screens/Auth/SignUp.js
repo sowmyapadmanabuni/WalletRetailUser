@@ -449,47 +449,45 @@ class SignUp extends Component {
     };
 
     signUpValidations = (title, message) => {
-        let self=this;
 
-        if (base.utils.validate.isBlank(self.state.fName)) {
+        if (base.utils.validate.isBlank(this.state.fName)) {
             Alert.alert("Please Enter First name", message)
-        } else if (!base.utils.validate.alphabetValidation(self.state.fName)) {
+        } else if (!base.utils.validate.alphabetValidation(this.state.fName)) {
             Alert.alert("First name should not contain special characters",message)
-        } else if (self.state.fName.length < 1) {
+        } else if (this.state.fName.length < 1) {
             Alert.alert("First name should be minimum 1 character",message)
-        } else if (base.utils.validate.isBlank(self.state.lName)) {
+        } else if (base.utils.validate.isBlank(this.state.lName)) {
             Alert.alert("Please Enter Last name", message)
-        } else if (!base.utils.validate.alphabetValidation(self.state.lName)) {
+        } else if (!base.utils.validate.alphabetValidation(this.state.lName)) {
             Alert.alert("Last name should not contain special characters",message)
-        } else if (self.state.lName.length < 1) {
+        } else if (this.state.lName.length < 1) {
             Alert.alert("Last name should be minimum 1 character",message)
         } /*else if (base.utils.validate.isBlank(this.state.mobile)) {
             Alert.alert("Please Enter Primary mobile number",message)
         } else if (this.state.mobile.length < 10) {
             Alert.alert("Please enter a valid (10 digit) Mobile no",message)
         }*/
-        else if (self.state.isGenderSelected==2) {
+        else if (this.state.isGenderSelected==2) {
             Alert.alert("Gender is Mandatory",message)
         }
-        else if (self.state.dateOfBirth=='') {
+        else if (this.state.dateOfBirth=='') {
             Alert.alert("Date of birth is  Mandatory",message)
         }
-        else if (base.utils.validate.isBlank(self.state.email)) {
+        else if (base.utils.validate.isBlank(this.state.email)) {
             Alert.alert("Email cannot be empty",message)
-        } else if (!base.utils.validate.validateEmailId(self.state.email)) {
+        } else if (!base.utils.validate.validateEmailId(this.state.email)) {
             Alert.alert("Please Enter a Valid Email Id",message)
         }
         else {
 
             const { MobileNumber } = this.props;
-            console.log("SIGNUP_SELF",self)
-            let fName=self.state.fName;
-            let lName=self.state.lName;
-            let mobNum="+91" + self.props.MobileNumber;
-            let email=self.state.email;
-            let isGenderSelected=self.state.isGenderSelected
-            let dob=moment(self.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD')
-            //let self=this;
+            let fName=this.state.fName;
+            let lName=this.state.lName;
+            let mobNum="+91" + this.props.MobileNumber;
+            let email=this.state.email;
+            let isGenderSelected=this.state.isGenderSelected
+            let dob=moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD')
+            let self=this;
             this.launchSecurity(function (isSupported) {
                 console.log('Going inside this', isSupported)
                 self.props.Register(fName, lName, mobNum, email,

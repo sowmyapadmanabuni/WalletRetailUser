@@ -8,7 +8,7 @@ import {
     Dimensions,
     BackHandler,
     Platform,
-    Alert,
+    Alert,AppState,
     TouchableOpacity,
     AsyncStorage, Linking,
 } from 'react-native';
@@ -34,13 +34,69 @@ class DefaultOrCustom extends Component {
         this.state = {
             pressStatus: false,
             isButton: true,
-            pp: ''
+            pp: '',
+            appState: AppState.currentState,
+            isChecking:false,
+            isVerified:false
 
         }
     }
 
-    componentDidMount() {
+    _handleAppStateChange = (nextAppState) => {
+        if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+          console.log('App has come to the foreground!')
+          this.foregroundHandle()
+        }else{
+            console.log("App in background")
+        }
+        this.setState({appState: nextAppState});
+    }
 
+    foregroundHandle(){
+        let self = this;
+        this.setState({isChecking:true},()=>{
+            self.checkAuth()
+        })
+    }
+
+    async checkAuth(){
+        let self = this;
+
+        if(Platform.OS==='android'){
+            console.log("Checking defaultSecurity")
+            let isSecure = await OpenSecuritySettings.isDeviceSecure()
+            console.log("OpenSecuritySettings.isDeviceSecure",isSecure)
+            if(isSecure){
+               self.setState({isChecking:false})
+            }else{
+                AppState.removeEventListener('change', self._handleAppStateChange);
+                self.props.navigation.navigate('SecureWallet')
+            }
+        }else {
+
+
+            
+            const optionalConfigObject = {               
+                unifiedErrors: false,
+                passcodeFallback: true,
+            };
+            TouchID.isSupported(optionalConfigObject).then(biometryType => {
+                console.log("111111", biometryType);
+                self.setState({isChecking:false})
+            })
+                .catch(error => {
+                    console.log("errorSecurityJS", error.name);
+                    AppState.removeEventListener('change', self._handleAppStateChange);
+                    self.props.navigation.navigate('SecureWallet')
+                });
+
+        }
+    }
+
+
+
+    componentDidMount() {
+            AppState.addEventListener('change', this._handleAppStateChange);
         this.BackHandler =  BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
     handleBackButtonClick() {
@@ -65,7 +121,13 @@ class DefaultOrCustom extends Component {
 
     }
     componentWillUnmount() {
-        BackHandler.remove();
+        try{
+            AppState.removeEventListener('change', this._handleAppStateChange);
+            BackHandler.remove();
+        }catch(e){
+            console.log(e)
+        }
+        
     }
 
     /* handleBackPress = () => {
@@ -118,12 +180,18 @@ class DefaultOrCustom extends Component {
                 console.log("111111", biometryType);
                 //self.props.navigation.navigate("Security")
                 if (Platform.OS === 'ios') {
+                    // if(biometryType != 'TouchID' && biometryType != 'FaceID'){
+                    //     self.setState({isVerified:true})
+                    // }
                     TouchID.authenticate('OyeWallet', optionalConfigObject)
                         .then(async success => {
+                            //self.setState({isVerified:true})
+                            console.log("Authenticated Successfully")                            
                             self.onSuccessAuth();
+                            //self.props.navigation.navigate('PayMerchant');
                         })
                         .catch((e) => {
-
+                            self.setState({isVerified:false})
                         })
                 } else {
                     self.passCodeField()
@@ -195,7 +263,9 @@ class DefaultOrCustom extends Component {
 
         return (
             <View style={styles.container}>
-
+                {
+                    
+                <View>
                 <View style={styles.customizedText}>
                     {/* <Icon
                             name="chevron-left"
@@ -229,7 +299,8 @@ class DefaultOrCustom extends Component {
                         <Text style={{color:base.theme.colors.primart1}}>NEXT</Text>
                     </TouchableOpacity>
                 </View>
-
+                </View>
+            }
             </View>
 
         )
