@@ -9,7 +9,7 @@ import {
     BackHandler,
     Platform,
     Alert,
-    TouchableOpacity,
+    TouchableOpacity,AppState,
     AsyncStorage, Linking,
 } from 'react-native';
 import base from "../../base";
@@ -35,15 +35,82 @@ class SecureWallet extends Component {
         this.state = {
             pressStatus: false,
             isButton: true,
-            pp: ''
+            pp: '',
+            appState: AppState.currentState,
+            isChecking:true
 
         }
     }
     componentDidMount() {
         console.log('GET THE DATA SECURE WALLET')
-
+        AppState.addEventListener('change', this._handleAppStateChange);
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+        this.checkAuth()
     }
+
+    _handleAppStateChange = (nextAppState) => {
+        if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+          console.log('App has come to the foreground!')
+          this.foregroundHandle()
+        }else{
+            console.log("App in background")
+        }
+        this.setState({appState: nextAppState});
+    }
+
+    foregroundHandle(){
+        let self = this;
+        this.setState({isChecking:true},()=>{
+            self.checkAuth()
+        })
+    }
+
+    async checkAuth(){
+        let self = this;
+
+        if(Platform.OS==='android'){
+            console.log("Checking defaultSecurity")
+            let isSecure = await OpenSecuritySettings.isDeviceSecure()
+            console.log("OpenSecuritySettings.isDeviceSecure",isSecure)
+            if(isSecure){
+               self.setState({isChecking:false})
+            }else{
+                try{
+                    AppState.removeEventListener('change', self._handleAppStateChange);  
+                    self.props.navigation.navigate('Security')
+                }catch(e){
+                    console.log(e)
+                }
+                
+            }
+        }else {
+
+
+            
+            const optionalConfigObject = {               
+                unifiedErrors: false,
+                passcodeFallback: true,
+            };
+            TouchID.isSupported(optionalConfigObject).then(biometryType => {
+                console.log("111111", biometryType);
+                try{
+                    AppState.removeEventListener('change', self._handleAppStateChange);  
+                    self.props.navigation.navigate('Security')      
+                }catch(e){
+                    console.log(e)
+                }
+                  
+            })
+                .catch(error => {
+                    console.log("errorSecurityJS", error.name);
+                    self.setState({isChecking:false})
+                });
+
+        }
+    }
+
+
+
     handleBackButtonClick() {
         if (Platform.OS === 'android') {
             var doubleClick = BackHandler.addEventListener('hardwareBackPress', () => {
@@ -59,7 +126,12 @@ class SecureWallet extends Component {
         }
     }
     componentWillUnmount() {
-        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+        try{
+            AppState.removeEventListener('change', this._handleAppStateChange);
+            BackHandler.remove();
+        }catch(e){
+            console.log(e)
+        }
     }
 
     /* handleBackPress = () => {
@@ -172,7 +244,9 @@ class SecureWallet extends Component {
 
         return (
             <View style={styles.container}>
-
+                {
+                    !this.state.isChecking?
+                <View>
                 <View style={styles.customizedText}>
                     {/* <Icon
                             name="chevron-left"
@@ -206,6 +280,8 @@ class SecureWallet extends Component {
                         <Text style={{color:base.theme.colors.orange}}>NEXT</Text>
                     </TouchableOpacity>
                 </View>
+                </View>:<View/>
+    }
             </View>
 
         )

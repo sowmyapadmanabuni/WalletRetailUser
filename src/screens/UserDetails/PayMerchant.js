@@ -373,14 +373,14 @@ class PayMerchant extends Component {
             console.log("refreshUserName....")
             this.showProfile();
         });
-
+//marginTop: base.utils.strings.STATUS_BAR_HEIGHT,
         return (
             <ScrollView>
 
-                <CardView style={{ flex: 1, backgroundColor: 'white', marginTop: hp('-2%'), marginBottom: hp('2%'), paddingHorizontal: '4%',paddingTop: '4%' }}
-                          cardElevation={5}
-                          cardMaxElevation={5}
-                          cornerRadius={25}
+                <CardView style={{ flex: 1, backgroundColor: 'white', marginBottom: hp('2%'), paddingHorizontal: '4%',paddingTop: '4%', }}
+                    cardElevation={5}
+                    cardMaxElevation={5}
+                    cornerRadius={25}
                 >
                     {/* <View style={{ margin: '5%', padding: '5%', borderColor: base.theme.colors.grey, borderWidth: 1, borderRadius: 5 ,borderBottomLeftRadius:20,borderBottomRightRadius:20}}> */}
                     {/* <TouchableOpacity onPress={() => {

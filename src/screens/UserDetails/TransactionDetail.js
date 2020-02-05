@@ -90,7 +90,7 @@ class TransactionDetail extends Component {
         return (
             <View>
                 <ImageBackground source={require('../../icons/card.png')} style={{ width: '100%', height: "65%" }} imageStyle={{ borderBottomRightRadius: 30, borderBottomLeftRadius: 30 }}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{ flexDirection: 'row',paddingTop:base.utils.strings.STATUS_BAR_HEIGHT }}>
                         <Image source={require('../../icons/back_white.png')} style={{ width: 10, height: 20, marginTop: '5%', marginLeft: '5%' }} />
                         <Text style={{ marginTop: '5%', marginLeft: '5%', fontWeight: 'bold', fontSize: 16, color: 'white' }}>Statements</Text>
                     </TouchableOpacity>

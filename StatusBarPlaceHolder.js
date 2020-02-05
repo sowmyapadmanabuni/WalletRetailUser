@@ -7,8 +7,8 @@ export function StatusBarPlaceHolder() {
     return (
         <View style={{
             width: "100%",
-            height: STATUS_BAR_HEIGHT,
-            backgroundColor: 'orange'
+            paddingTop:STATUS_BAR_HEIGHT,
+            backgroundColor: '#FFB81A'
         }}>
             <StatusBar
                 barStyle="light-content"
