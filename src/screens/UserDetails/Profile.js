@@ -62,7 +62,7 @@ class Profile extends Component {
         }
         else {
             this.setState({ showProfile: true, editProfile: false ,visible:true})
-           this.updateProfile()
+            this.updateProfile()
         }
 
 
@@ -78,9 +78,9 @@ class Profile extends Component {
             registrationId:this.props.ShowProfileReducer.list.data[0].registrationId,
             gender:this.state.isGenderSelected===0?"Male":"Female",
             DOB:moment(this.state.dateOfBirth,'DD-MM-YYYY').format('YYYY-MM-DD'),
-           // isMarried:this.state.isMarriedSelected===0?"Yes":"No",
-           // noOfKids:this.state.selectedChild,
-           // anniversaryDate:moment(this.state.anniversaryDate,'DD-MM-YYYY').format('YYYY-MM-DD')
+            // isMarried:this.state.isMarriedSelected===0?"Yes":"No",
+            // noOfKids:this.state.selectedChild,
+            // anniversaryDate:moment(this.state.anniversaryDate,'DD-MM-YYYY').format('YYYY-MM-DD')
         };
         console.log("updateProfile@@registrationID", accountData,this.props.ShowProfileReducer.list.data[0].registrationId)
         let resp = await this.props.Update(accountData, this.props.navigation)
@@ -280,7 +280,7 @@ class Profile extends Component {
                                     <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                         <TextInput
                                             // style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-                                          //  onChangeText={text => this.setState({ FirstName: text })}
+                                            //  onChangeText={text => this.setState({ FirstName: text })}
                                             onChangeText={(value) =>{
                                                 let num = value.replace(/^[a-zA-Z ]+$/g,  '');
                                                 if (isNaN(num)) {
@@ -451,7 +451,7 @@ class Profile extends Component {
 
                                     }}
                                 />
-                                    
+
                                 <View style={{ flexDirection: 'row', marginTop:Platform.OS==='ios'?'9%':0}}>
                                     <View style={{ flex: 1, justifyContent: 'center' }}>
                                         <Text style={{ fontSize: 16 ,height:30}}>Email ID</Text>
